@@ -1,8 +1,12 @@
 { config, pkgs, ... }:
 
+let
+	  alsSecrets = import ../secrets/als.nix;
+
+	in
 {
   imports =
-    [
+    [ ../service/als.nix
     ];
 
   environment.systemPackages = with pkgs; [
@@ -109,6 +113,15 @@
   services.mysqlBackup = {
     enable = true;
     databases = [ "mediawiki" ];
+  };
+
+  services.als = {
+    enable = true;
+    port = 8002;
+    clientId = "029cc178-e604-4d7f-a17c-a41f92c3182c";
+    accessToken = alsSecrets.accessToken;
+    refreshToken = alsSecrets.refreshToken;
+    listId = "AQMkADAwATNiZmYAZC0xZjgwLTE2YzUtMDACLTAwCgAuAAADQGkXSjdFSkyRkPd2Ueax6wEA-3jtJitJ3EmtwtXWE62J7QAByGcE3wAAAA==";
   };
 
   networking.firewall.allowedTCPPorts = [ 22 80 443 ];
