@@ -10,12 +10,7 @@ let
     rev = "d93b521aadc18204311ecf47851fd0140c2063c6";
     sha256 = "16k3kv6jdacna8zdgipdm2hyimilswgv60havlc2fc0jzr2vramd";
   };
-  pkg = import src { };
-  als = pkgs.callPackage pkg { };
-  env = {
-    PORT = port;
-    CLIENT_ID = clientId;
-  };
+  als = import src { };
 
 in {
   options.services.als = {
@@ -30,7 +25,7 @@ in {
     clientId = mkOption {
       description = "Client ID for the API";
       default = "deadbeef";
-      type = types.string;
+      type = types.str;
     };
 
     redirectUrl = mkOption {
@@ -63,7 +58,13 @@ in {
       description = "ALS Service.";
       wantedBy = [ "multi-user.target" ];
       after = [ "network.target" ];
-      environment = env;
+      environment = {
+        PORT = toString cfg.port;
+        CLIENT_ID = cfg.clientId;
+	REDIRECT_URL = cfg.redirectUrl;
+	ACCESS_TOKEN = cfg.accessToken;
+	REFRESH_TOKEN = cfg.refreshToken;
+      };
       serviceConfig = {
         ExecStart = "${als}/bin/als";
       };
