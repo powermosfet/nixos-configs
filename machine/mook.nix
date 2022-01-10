@@ -8,6 +8,8 @@ let
   imports =
     [ ../service/als.nix
       ../software/mediawiki.nix
+      ../software/avahi.nix
+      ../software/neovim.nix
     ];
 
   environment.systemPackages = with pkgs; [
