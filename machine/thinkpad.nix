@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   imports =
@@ -6,6 +6,9 @@
       ../software/tmux.nix 
       ../software/neovim.nix
       ../software/avahi.nix
+      ../software/games.nix
+      ../software/scanner.nix
+      ../software/printing.nix
     ];
      
   nixpkgs.overlays = [
