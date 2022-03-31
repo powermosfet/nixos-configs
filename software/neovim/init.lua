@@ -35,6 +35,8 @@ local keymaps = {
       ["c"]       = [[:tabclose<cr>]],
       ["o"]       = [[:tabonly<cr>]],
       ["e"]       = [[:tabe ]],
+      ["<BS>"]    = [[:BufferMovePrevious<cr>]],
+      ["<TAB>"]   = [[:BufferMoveNext<cr>]],
     },
     -- Search
     ["s"]         = {
@@ -97,38 +99,33 @@ set_all(true, { "termguicolors", "hidden", "splitright", "number", "relativenumb
 set_all(false, { "fixendofline" })
 set_all("nicr", { "mouse" })
 
+vim.g.UltiSnipsSnippetDirectories = { "~/.dotfiles/vim/UltiSnips" }
+vim.g.UltiSnipsEditSplit = 'vertical'
+vim.g.UltiSnipsExpandTrigger="<tab>"
+vim.g.UltiSnipsJumpForwardTrigger="<c-n>"
+vim.g.UltiSnipsJumpBackwardTrigger="<c-p>"
 
 -- LANGUAGE SERVERS
 
-local nvim_lsp = require('lspconfig')
+lspconfig = require('lspconfig')
 
--- check if "local-vim.lua" exists in current dir
--- and load it as a module. Expect it to have the following interface:
---
--- {
---  lspServers : list of strings
---  keymaps : Table of keymaps
---  config : function with any other config
--- }
-
-local f=io.open('local-vim.lua','r')
-if f~=nil then
-  io.close(f)
-  local localConfig = require('local-vim')
-
-  -- Use a loop to conveniently call 'setup' on multiple servers and
-  -- map buffer local keybindings when the language server attaches
-  local servers = localConfig.lspServers
-  for _, lsp in ipairs(servers) do
-    nvim_lsp[lsp].setup {
+function setup_lsp(servers)
+  for _, server in ipairs(servers) do
+    lspconfig[server].setup {
       flags = {
         debounce_text_changes = 500,
       }
     }
   end
-
-  local localKeymaps = localConfig.keymaps
-  kmap("", localKeymaps)
-
-  localConfig.config()
 end
+
+function local_config()
+  pcall(dofile, vim.fn.getcwd() .. "/.nvim.lua")
+end
+
+local_config()
+vim.api.nvim_command [[augroup LocalConfig]]
+vim.api.nvim_command [[autocmd! * *]]
+vim.api.nvim_command [[autocmd DirChanged * lua local_config()]]
+vim.api.nvim_command [[augroup END]]
+

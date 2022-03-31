@@ -32,7 +32,7 @@
           surround
           vim-ragtag
           vim-speeddating
-          vim-dispatch-neovim
+          vim-dispatch
           sleuth
           vim-bookmarks
           ultisnips
