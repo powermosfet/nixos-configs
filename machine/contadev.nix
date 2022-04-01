@@ -12,7 +12,6 @@
   networking.hostName = "contadev"; 
 
   users.users.asmund.extraGroups = [ "docker" ]; 
-  security.sudo.wheelNeedsPassword = false;
 
   environment.systemPackages = with pkgs; [
     git
@@ -21,11 +20,19 @@
     docker-compose
   ];
 
-  # Enable the OpenSSH daemon.
+  # SSH
   services.openssh.enable = true;
+  security.sudo.wheelNeedsPassword = false;
+  networking.firewall.allowedTCPPorts = [ 22 80 8080 ];
 
-  # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [ 22 ];
+  networking.extraHosts = ''
+    127.0.0.1   conta.test
+    127.0.0.1   api.conta.test
+    127.0.0.1   app.conta.test
+    127.0.0.1   gjest.conta.test
+    127.0.0.1   dist.conta.test
+    127.0.0.1   mysql.conta.test
+  '';
 
   virtualisation.virtualbox.guest.enable = true;
   virtualisation.docker.enable = true;
