@@ -5,6 +5,7 @@
     [ ../user/asmund.nix
       ../software/tmux.nix 
       ../software/neovim.nix
+      ../software/avahi.nix
     ];
      
   time.timeZone = "Europe/Oslo";
