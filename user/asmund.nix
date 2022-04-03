@@ -13,5 +13,12 @@
       "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQC0oTAf8eK0M4seDjTqBa0r94NLr1qnH/SNP1J0AIyBf/BWqC0+m1jgGN6sHGD/u8MVra9SRrYCVbeCivztE9uFuPNleXtGuvJQS1DJjZL4wDVhY1z/V1q0n6TqwKwGQDlFD0AWN3iL/vcm1ULpxD1y6FaIGyRh1ie6domrzF2NFdYXfVqAG/FFuvcE1Xl+Ui9Fo+IKJLPgslDt0C2Y/9XArG4q2f3WBdFAryPizxXIap2+HEDFRWyqFTaXgtYzKlo5Dj5P2IfDIVmBz/F64YV3bP3fmrM6Waz7YDxZFs8QiU5vtuJ5Pqu1ixXZ+NSELT6TeDFuFyZuEBrZ48IJcmmzqV8L7umDzknyTxhu/abXVrm6umgBeCr5fy3bAUA5aSjTJMdktxqgtzqV28r29b3TOGJ6BmbY1iDpGQfyfsK0Lr5rcb1FLDSmVnAwrqwQ5WxW9HxlXnl0ZSsJGoUVo5ySR1U6dWoxDpLyvK2CZIuYFShYO4P1wLz7EhOyqYhQZtZoM3TEXB5iTegkpGgPjbyBvcF4BoybTm9DXzvKeCLE0nlE1vYvVL5JwvYUhptAO0vOALy4Pxorzo/zaqChfeYM4SucsW+rftDhy2EXrnvTrWP20eYAYE19cEkLBqgV++3J64wf47vmKtpGzrwEKNOgrmidXhcIepGA4TF57GYqCw== asmundberge@Asmunds-MBP.lyse.net"
     ];
   };
+
+  programs.bash.shellAliases = {
+    shellWith = "nix-shell -p ";
+    ll = "ls -l";
+    la = "ls -la";
+    ls = "ls --color=tty";
+  };
 }
 
