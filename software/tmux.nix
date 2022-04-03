@@ -19,6 +19,7 @@ in
     enable = true;
 
     escapeTime = 0;
+    baseIndex = 1;
     clock24 = true;
     newSession = true;
     keyMode = "vi";
