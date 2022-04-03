@@ -15,11 +15,6 @@
 
   environment.systemPackages = with pkgs; [
     git
-    wget
-    acpi
-    usbutils
-    pciutils
-    vifm-full
   ];
 
   services = {
