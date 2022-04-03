@@ -16,6 +16,7 @@
     clock24 = true;
     newSession = true;
     shortcut = "a";
+    keyMode = "vi";
     terminal = "screen-256color";
   };
 }
