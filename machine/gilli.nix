@@ -16,11 +16,9 @@
   environment.systemPackages = with pkgs; [
     git
   ];
+  
+  services.openssh.enable = true;
 
-  services = {
-    syncthing = {
-      enable = true;
-    };
-  };
+  services.syncthing.enable = true;
 }
 
