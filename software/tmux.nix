@@ -13,10 +13,14 @@
   programs.tmux = {
     enable = true;
 
+    escapeTime = 0;
     clock24 = true;
     newSession = true;
-    shortcut = "a";
     keyMode = "vi";
     terminal = "screen-256color";
+    shortcut = "a";
+    extraConfig = ''
+      bind C-a send-keys C-a
+    '';
   };
 }
