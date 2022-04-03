@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 let
-  powerline = pkgs.python39Packages.powerline
+  powerline = pkgs.python39Packages.powerline;
 in
 {
   imports =
