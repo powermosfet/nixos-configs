@@ -10,6 +10,7 @@ in
 
   environment.systemPackages = with pkgs; [
     tmuxp
+    powerline
     python39Full
   ];
 
