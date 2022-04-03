@@ -1,5 +1,8 @@
 { config, pkgs, ... }:
 
+let
+  powerline = pkgs.python39Packages.powerline
+in
 {
   imports =
     [
@@ -7,6 +10,7 @@
 
   environment.systemPackages = with pkgs; [
     tmuxp
+    python39Full
   ];
 
 
@@ -21,6 +25,8 @@
     shortcut = "a";
     extraConfig = ''
       bind C-a send-keys C-a
+
+      source ${powerline}/lib/python3.9/site-packages/powerline/bindings/tmux/powerline.conf
     '';
   };
 }
