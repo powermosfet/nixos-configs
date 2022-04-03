@@ -8,6 +8,7 @@
     publish = {
       enable = true;
       addresses = true;
+      workstation = true;
     };
   };
 }
