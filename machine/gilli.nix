@@ -18,6 +18,7 @@
   ];
   
   services.openssh.enable = true;
+  security.sudo.wheelNeedsPassword = false;
 
   services.syncthing.enable = true;
 }
