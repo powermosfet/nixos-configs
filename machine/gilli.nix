@@ -6,6 +6,8 @@
       ../software/tmux.nix 
       ../software/neovim.nix
       ../software/avahi.nix
+      ../settings/garbage-collection.nix
+      ../settings/auto-update.nix
     ];
      
   time.timeZone = "Europe/Oslo";
