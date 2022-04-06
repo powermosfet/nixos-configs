@@ -14,11 +14,18 @@
     ];
   };
 
-  programs.bash.shellAliases = {
-    shellWith = "nix-shell -p ";
-    ll = "ls -l";
-    la = "ls -la";
-    ls = "ls --color=tty";
+  programs.bash = {
+    shellAliases = {
+      ll = "ls -l";
+      la = "ls -la";
+      ls = "ls --color=tty";
+    };
+    shellInit = ''
+      function shellWith {
+          prompt="\n\[\033[1;32m\][nix-shell (\[\033[1;36m\]$1\[\033[1;32m\]):\w]\$\[\033[0m\] "
+          nix-shell -p $1 --command "export PS1=\"$prompt\"; return"
+      }
+    '';
   };
 }
 
