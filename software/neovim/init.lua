@@ -111,11 +111,19 @@ lspconfig = require('lspconfig')
 
 function setup_lsp(servers)
   for _, server in ipairs(servers) do
-    lspconfig[server].setup {
-      flags = {
-        debounce_text_changes = 500,
+    if type(definitions) == "string" then
+      server_name = server
+      server_config = {
+        flags = {
+          debounce_text_changes = 500,
+        }
       }
-    }
+    else
+      server_name = server.name
+      server_config = server.config
+    end
+    
+    lspconfig[server_name].setup server_config
   end
 end
 
