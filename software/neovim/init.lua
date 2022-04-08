@@ -123,7 +123,7 @@ function setup_lsp(servers)
       server_config = server.config
     end
     
-    lspconfig[server_name].setup server_config
+    lspconfig[server_name].setup(server_config)
   end
 end
 
