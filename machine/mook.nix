@@ -6,10 +6,10 @@ let
 	in
 {
   imports =
-    [ ../service/als.nix
-      ../software/mediawiki.nix
-      ../software/avahi.nix
-      ../software/neovim.nix
+    [ ../module/als/service.nix
+      ../module/mediawiki.nix
+      ../module/avahi.nix
+      ../module/neovim.nix
     ];
 
   environment.systemPackages = with pkgs; [

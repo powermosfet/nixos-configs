@@ -3,11 +3,11 @@
 {
   imports =
     [ ../user/asmund.nix
-      ../software/tmux.nix 
-      ../software/neovim.nix
-      ../software/avahi.nix
-      ../settings/garbage-collection.nix
-      ../settings/auto-update.nix
+      ../module/tmux.nix 
+      ../module/neovim
+      ../module/avahi.nix
+      ../module/garbage-collection.nix
+      ../module/auto-update.nix
     ];
      
   time.timeZone = "Europe/Oslo";

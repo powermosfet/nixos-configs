@@ -20,7 +20,7 @@
     configure = {
       customRC = ''
         lua << EOF
-          ${pkgs.lib.readFile ./neovim/init.lua}
+          ${pkgs.lib.readFile ./init.lua}
         EOF
       '';
 

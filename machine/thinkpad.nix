@@ -3,12 +3,14 @@
 {
   imports =
     [ ../user/asmund.nix
-      ../software/tmux.nix 
-      ../software/neovim.nix
-      ../software/avahi.nix
-      ../software/games.nix
-      ../software/scanner.nix
-      ../software/printing.nix
+      ../module/tmux.nix 
+      ../module/neovim
+      ../module/avahi.nix
+      ../module/games.nix
+      ../module/scanner.nix
+      ../module/printing.nix
+      ../module/pulseaudio.nix
+      <musnix>
     ];
      
   nixpkgs.overlays = [
@@ -114,10 +116,17 @@
   services.dbus.enable = true;
   services.udisks2.enable = true;
   services.printing.enable = true;
-  sound.enable = true;
-  hardware = {
-    pulseaudio.enable = true;
-    bluetooth.enable = true;
+  hardware.bluetooth.enable = true;
+
+  musnix = {
+    enable = true;
+
+    kernel = {
+      optimize = true;
+      realtime = true;
+    };
   };
+
+  users.users.asmund.extraGroups = [ "audio" ];
 }
 

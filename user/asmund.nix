@@ -20,6 +20,8 @@
       ll = "ls -l";
       la = "ls -la";
       ls = "ls --color=tty";
+      conf = "sudo vi /etc/nixos/configuration.nix";
+      rebuild = "sudo nixos-rebuild switch";
     };
     shellInit = ''
       function shellWith {
