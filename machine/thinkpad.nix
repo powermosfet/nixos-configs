@@ -10,7 +10,7 @@
       ../module/scanner.nix
       ../module/printing.nix
       ../module/pulseaudio.nix
-      <musnix>
+      ../module/pro-audio.nix
     ];
      
   nixpkgs.overlays = [
@@ -117,16 +117,5 @@
   services.udisks2.enable = true;
   services.printing.enable = true;
   hardware.bluetooth.enable = true;
-
-  musnix = {
-    enable = true;
-
-    kernel = {
-      optimize = true;
-      realtime = true;
-    };
-  };
-
-  users.users.asmund.extraGroups = [ "audio" ];
 }
 
