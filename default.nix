@@ -1,7 +1,9 @@
-{ pkgs, ... }:  
+{ }:  
 
 {
-  contadev = {
-    imports = [ ./machine/contadev.nix ];
+  machine = {
+    contadev = {
+      imports = [ ./machine/contadev.nix ];
+    };
   };
 }
