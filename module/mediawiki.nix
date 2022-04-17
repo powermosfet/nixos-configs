@@ -1,6 +1,10 @@
 
 { config, pkgs, ... }:
 
+let
+  hostName = "wiki.berge.id";
+  email = "asmund@berge.id";
+in
 {
   imports =
     [ 
@@ -14,8 +18,8 @@
       createLocally = true;
     };
     virtualHost =  {
-      hostName = "wiki.berge.id";
-      adminAddr = "asmund@berge.id";
+      hostName = hostName;
+      adminAddr = email;
       forceSSL = true;
       enableACME = true;
     };
@@ -42,8 +46,8 @@
   };
 
   security.acme.certs = {
-    "wiki.berge.id" = {
-      email = "asmund@berge.id";
+    "${hostName}" = {
+      email = email;
     };
   };
 
