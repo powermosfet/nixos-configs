@@ -36,6 +36,8 @@
       
       # Prevent new user registrations except by sysops
       $wgGroupPermissions['*']['createaccount'] = false;
+
+      $wgLogo = "$wgUploadPath/images/d/d4/Logo.jpg";
       '';
   };
 
