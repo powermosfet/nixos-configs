@@ -11,7 +11,7 @@
     name = "Berge wiki";
     database = {
       type = "mysql";
-      createLocally = true;
+      passwordFile = /run/keys/mediawiki/db-password;
     };
     virtualHost =  {
       hostName = "wiki.berge.id";
