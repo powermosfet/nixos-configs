@@ -3,6 +3,7 @@
 {
   imports =
     [ ../user/asmund.nix
+      ../module/tmux.nix 
       ../module/als
       ../module/mediawiki.nix
       ../module/avahi.nix

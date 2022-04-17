@@ -11,7 +11,7 @@
     name = "Berge wiki";
     database = {
       type = "mysql";
-      passwordFile = /run/keys/mediawiki/db-password;
+      createLocally = true;
     };
     virtualHost =  {
       hostName = "wiki.berge.id";
@@ -19,6 +19,12 @@
       forceSSL = true;
       enableACME = true;
     };
+    extensions = {
+      ParserFunctions = null;
+    };
+    extraConfig = ''
+      $wgLanguageCode = 'no';
+      '';
   };
 
   security.acme.certs = {
