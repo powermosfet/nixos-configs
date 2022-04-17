@@ -6,6 +6,7 @@
       ../module/tmux.nix 
       ../module/als
       ../module/mediawiki.nix
+      ../module/nextcloud.nix
       ../module/avahi.nix
       ../module/neovim
     ];

@@ -1,5 +1,9 @@
 { config, pkgs, ... }:
 
+let
+  hostName = "cloud.berge.id";
+  email = "asmund@berge.id";
+in
 {
   imports =
     [ 
@@ -9,13 +13,13 @@
 
   services.nextcloud = {
     enable = true;
-    hostName = "nextcloud.local";
+    hostName = hostName;
     config = {
       dbtype = "pgsql";
       dbuser = "nextcloud";
       dbhost = "/run/postgresql";
       dbname = "nextcloud";
-      adminpassFile = "/run/keys/nextcloud-password";
+      adminpassFile = "/run/keys/nextcloud/admin-password";
       adminuser = "dadmin";
     };
   };
@@ -44,10 +48,10 @@
 
   services.httpd = {
     enable = true;
-    adminAddr = "webmaster@localhost";
+    adminAddr = email;
     extraModules = [ "proxy_fcgi" ];
 
-    virtualHosts."nextcloud.local" = {
+    virtualHosts."${hostName}" = {
       documentRoot = config.services.nextcloud.package;
       extraConfig = ''
         <Directory "${config.services.nextcloud.package}">
