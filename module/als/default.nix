@@ -7,7 +7,7 @@ let
 in
 {
   imports =
-    [
+    [ ./service.nix
     ];
 
   services.als = {
