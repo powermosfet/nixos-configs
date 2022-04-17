@@ -9,7 +9,7 @@ let
     [ ../module/als/service.nix
       ../module/mediawiki.nix
       ../module/avahi.nix
-      ../module/neovim.nix
+      ../module/neovim
     ];
 
   environment.systemPackages = with pkgs; [
