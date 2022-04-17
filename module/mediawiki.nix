@@ -27,6 +27,7 @@ in
       ParserFunctions = null;
       CategoryTree = null;
       VisualEditor = null;
+      WikiEditor = null;
     };
     extraConfig = ''
       $wgLanguageCode = 'no';
