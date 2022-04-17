@@ -2,7 +2,8 @@
 
 {
   imports =
-    [ ../module/als
+    [ ../user/asmund.nix
+      ../module/als
       ../module/mediawiki.nix
       ../module/avahi.nix
       ../module/neovim
