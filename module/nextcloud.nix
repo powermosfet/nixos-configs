@@ -14,6 +14,7 @@ in
   services.nextcloud = {
     enable = true;
     hostName = hostName;
+    https = true;
     config = {
       dbtype = "pgsql";
       dbuser = "nextcloud";
