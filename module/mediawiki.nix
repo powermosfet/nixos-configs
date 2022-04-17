@@ -25,6 +25,7 @@
     };
     extraConfig = ''
       $wgLanguageCode = 'no';
+      $wgNamespacesWithSubpages[NS_MAIN] = 1;
       '';
   };
 
