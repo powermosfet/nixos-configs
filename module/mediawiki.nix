@@ -21,6 +21,7 @@
     };
     extensions = {
       ParserFunctions = null;
+      CategoryTree = null;
     };
     extraConfig = ''
       $wgLanguageCode = 'no';
