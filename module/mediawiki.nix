@@ -9,7 +9,6 @@
   services.mediawiki = {
     enable = true;
     name = "Berge wiki";
-    passwordFile = "/run/keys/mediawiki-password";
     database = {
       type = "mysql";
       createLocally = true;

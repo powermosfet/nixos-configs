@@ -24,7 +24,6 @@ in {
 
     clientId = mkOption {
       description = "Client ID for the API";
-      default = "deadbeef";
       type = types.str;
     };
 
@@ -36,19 +35,16 @@ in {
 
     accessToken = mkOption {
       description = "Initial access token for the API";
-      default = "";
       type = types.str;
     };
 
     refreshToken = mkOption {
       description = "Refresh token for the API";
-      default = "";
       type = types.str;
     };
 
     listId = mkOption {
       description = "MS To-Do list id";
-      default = "";
       type = types.str;
     };
   };
