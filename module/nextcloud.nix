@@ -74,6 +74,12 @@ in
         </Directory>
       '';
     };
-
   };
+
+  security.acme.certs = {
+    "${hostName}" = {
+      email = email;
+    };
+  };
+
 }
