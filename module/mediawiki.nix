@@ -21,6 +21,12 @@
     };
   };
 
+  security.acme.certs = {
+    "wiki.berge.id" = {
+      email = "asmund@berge.id";
+    };
+  };
+
   services.parsoid = {
     enable = true;
     wikis = [ "http://localhost/api.php" ];
