@@ -14,14 +14,13 @@
       createLocally = true;
     };
     virtualHost =  {
-      hostName = "mediawiki.local";
-      adminAddr = "webmaster@example.org";
-      forceSSL = false;
-      enableACME = false;
+      hostName = "wiki.berge.id";
+      adminAddr = "asmund@berge.id";
+      forceSSL = true;
+      enableACME = true;
     };
   };
 
-  
   services.parsoid = {
     enable = true;
     wikis = [ "http://localhost/api.php" ];
