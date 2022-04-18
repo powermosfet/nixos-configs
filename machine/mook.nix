@@ -4,6 +4,7 @@
   imports =
     [ ../user/asmund.nix
       ../module/tmux.nix 
+      ../module/nginx.nix
       ../module/als
       ../module/mediawiki.nix
       ../module/nextcloud.nix

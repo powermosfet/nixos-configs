@@ -4,6 +4,7 @@
 let
   hostName = "wiki.berge.id";
   email = "asmund@berge.id";
+  internalPort = 8004;
 in
 {
   imports =
@@ -17,12 +18,13 @@ in
       type = "mysql";
       createLocally = true;
     };
-    virtualHost =  {
-      hostName = hostName;
-      adminAddr = email;
-      forceSSL = true;
-      enableACME = true;
-    };
+    virtualHost.listen =  [
+      {
+        ip = "127.0.0.1";
+        port = internalPort;
+        ssl = false
+      }
+    ];
     extensions = {
       ParserFunctions = null;
       CategoryTree = null;
@@ -46,9 +48,12 @@ in
       '';
   };
 
-  security.acme.certs = {
-    "${hostName}" = {
-      email = email;
+  services.nginx.virtualHosts."${hostName}" = {
+    enableACME = true;
+    forceSSL = true;
+    locations."/" = {
+      proxyPass = "http://127.0.0.1:${internalPort}";
+      proxyWebsockets = true;
     };
   };
 
