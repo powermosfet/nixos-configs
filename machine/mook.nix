@@ -10,6 +10,8 @@
       ../module/nextcloud.nix
       ../module/avahi.nix
       ../module/neovim
+      ../module/auto-update.nix
+      ../module/garbage-collection.nix
     ];
 
   environment.systemPackages = with pkgs; [
