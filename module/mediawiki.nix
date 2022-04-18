@@ -22,7 +22,7 @@ in
       {
         ip = "127.0.0.1";
         port = internalPort;
-        ssl = false
+        ssl = false;
       }
     ];
     extensions = {
