@@ -39,10 +39,4 @@ in
     requires = [ "postgresql.service" ];
     after = [ "postgresql.service" ];
   };
-
-  security.acme.certs = {
-    "${hostName}" = {
-      email = email;
-    };
-  };
 }
