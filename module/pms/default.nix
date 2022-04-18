@@ -52,7 +52,7 @@ in
         SIGNAL_SENDER = cfg.sender;
 	SIGNAL_RECIPIENT = cfg.recipient;
 	SIGNAL_LOG_RECIPIENT = cfg.logRecipient;
-	SIGNAL_CONFIG_PATH = /root/.local/share/signal-cli;
+	SIGNAL_CONFIG_PATH = "/root/.local/share/signal-cli";
       };
       serviceConfig = {
         ExecStart = "${pms}/bin/pms";
