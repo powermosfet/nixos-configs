@@ -7,8 +7,8 @@ let
   src = pkgs.fetchFromGitHub {
     owner = "powermosfet";
     repo  = "pms";
-    rev = "0425ae6e6aa1b6a82267117d8a0a76e0d0718636";
-    sha256 = "0fr91vf3g2v351ihzf01a5y73qyv19lwpgp1i3vg1r2qa5k1f8v1";
+    rev = "a5a2e991cd27001828a6b179bc4f1c64e16711ae";
+    sha256 = "0000000000000000000000000000000000000000000000000000";
   };
   pms = import src { };
 in
