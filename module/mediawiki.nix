@@ -11,6 +11,8 @@ in
     [ 
     ];
 
+  services.httpd.adminAddr = email;
+
   services.mediawiki = {
     enable = true;
     name = "Berge wiki";
