@@ -1,5 +1,8 @@
 { config, pkgs, ... }:
 
+let
+  ports = import ./ports.nix;
+in
 {
   imports =
     [ ../user/asmund.nix
@@ -13,6 +16,8 @@
       ../module/auto-update.nix
       ../module/garbage-collection.nix
     ];
+
+  settings.mediawiki.internalPort = ports.internal.wiki;
 
   environment.systemPackages = with pkgs; [
     git

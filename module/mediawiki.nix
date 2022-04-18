@@ -4,12 +4,18 @@
 let
   hostName = "wiki.berge.id";
   email = "asmund@berge.id";
-  internalPort = 8004;
+  internalPort = config.settings.mediawiki.internalPort;
 in
 {
   imports =
     [ 
     ];
+
+  options.settings.mediawiki = {
+    internalPort = mkOption {
+      description = "internal network port used by reverse proxy";
+      type = types.int;
+    };
 
   services.httpd.adminAddr = email;
 
