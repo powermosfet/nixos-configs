@@ -41,8 +41,8 @@ in
   };
 
   config = mkIf cfg.enable {
-    systemd.services.als = {
-      description = "ALS Service.";
+    systemd.services.pms = {
+      description = "PMS Service (Personal Memo Sender).";
       wantedBy = [ "multi-user.target" ];
       after = [ "network.target" ];
       environment = {
