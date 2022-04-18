@@ -6,7 +6,7 @@
 let
   hostName = "wiki.berge.id";
   email = "asmund@berge.id";
-  internalPort = config.settings.mediawiki.internalPort;
+  internalPort = config.services.mediawiki.internalPort;
 in
 {
   imports =
