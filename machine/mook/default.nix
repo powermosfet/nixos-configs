@@ -15,6 +15,7 @@ in
       ../../module/nextcloud.nix
       ../../module/avahi.nix
       ../../module/neovim
+      ../../module/minecraft
       ../../module/auto-update.nix
       ../../module/garbage-collection.nix
     ];
