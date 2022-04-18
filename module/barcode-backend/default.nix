@@ -47,6 +47,7 @@ in
       };
       serviceConfig = {
         ExecStart = "${barcode-backend}/bin/barcode-backend";
+        User = dbUser;
       };
     };
 
@@ -62,6 +63,10 @@ in
       ensureDatabases = [
         dbName
       ];
+    };
+
+    users.users."${dbUser}" = {
+      isSystemUser = true;
     };
 
     networking.firewall.allowedTCPPorts = [ cfg.port ];
