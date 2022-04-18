@@ -56,6 +56,10 @@ in
       };
     };
 
+    environment.systemPackages = with pkgs; [
+      signal-cli
+    ];
+
     networking.firewall.allowedTCPPorts = [ cfg.port ];
   };
 }
