@@ -16,6 +16,7 @@ in
       description = "internal network port used by reverse proxy";
       type = types.int;
     };
+  };
 
   services.httpd.adminAddr = email;
 
