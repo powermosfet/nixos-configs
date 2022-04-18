@@ -20,13 +20,17 @@ in
       type = "mysql";
       createLocally = true;
     };
-    virtualHost.listen =  [
-      {
-        ip = "127.0.0.1";
-        port = internalPort;
-        ssl = false;
-      }
-    ];
+    virtualHost = {
+      hostName = hostName;
+      adminAddr = email;
+      listen =  [
+        {
+          ip = "127.0.0.1";
+          port = internalPort;
+          ssl = false;
+        }
+      ];
+    };
     extensions = {
       ParserFunctions = null;
       CategoryTree = null;
