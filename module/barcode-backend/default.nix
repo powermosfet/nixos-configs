@@ -65,8 +65,10 @@ in
       ];
     };
 
+    users.groups."${dbUser}" = {};
     users.users."${dbUser}" = {
       isSystemUser = true;
+      group = dbUser;
     };
 
     networking.firewall.allowedTCPPorts = [ cfg.port ];
