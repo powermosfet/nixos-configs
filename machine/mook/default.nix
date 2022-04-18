@@ -10,6 +10,7 @@ in
       ../../module/nginx.nix
       ../../module/als
       ../../module/pms
+      ../../module/barcode-backend
       ../../module/mediawiki.nix
       ../../module/nextcloud.nix
       ../../module/avahi.nix
@@ -20,6 +21,7 @@ in
 
   services.mediawiki.internalPort = ports.internal.wiki;
   services.pms.port = ports.exposed.pms;
+  services.barcode-backend.port = ports.exposed.barcode;
 
   environment.systemPackages = with pkgs; [
     git
