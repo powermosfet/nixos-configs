@@ -39,4 +39,6 @@ in
     requires = [ "postgresql.service" ];
     after = [ "postgresql.service" ];
   };
+
+  security.acme.email = email;
 }

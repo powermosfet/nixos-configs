@@ -59,11 +59,7 @@ in
     };
   };
 
-  security.acme.certs = {
-    "${hostName}" = {
-      email = email;
-    };
-  };
+  security.acme.email = email;
 
   services.parsoid = {
     enable = true;
