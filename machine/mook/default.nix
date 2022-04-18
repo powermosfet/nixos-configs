@@ -5,16 +5,16 @@ let
 in
 {
   imports =
-    [ ../user/asmund.nix
-      ../module/tmux.nix 
-      ../module/nginx.nix
-      ../module/als
-      ../module/mediawiki.nix
-      ../module/nextcloud.nix
-      ../module/avahi.nix
-      ../module/neovim
-      ../module/auto-update.nix
-      ../module/garbage-collection.nix
+    [ ../../user/asmund.nix
+      ../../module/tmux.nix 
+      ../../module/nginx.nix
+      ../../module/als
+      ../../module/mediawiki.nix
+      ../../module/nextcloud.nix
+      ../../module/avahi.nix
+      ../../module/neovim
+      ../../module/auto-update.nix
+      ../../module/garbage-collection.nix
     ];
 
   settings.mediawiki.internalPort = ports.internal.wiki;
