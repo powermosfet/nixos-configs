@@ -18,6 +18,7 @@ in
     ];
 
   services.mediawiki.internalPort = ports.internal.wiki;
+  services.pms.port = ports.exposed.pms;
 
   environment.systemPackages = with pkgs; [
     git
