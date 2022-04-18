@@ -1,5 +1,7 @@
 
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
+
+  with lib;
 
 let
   hostName = "wiki.berge.id";
