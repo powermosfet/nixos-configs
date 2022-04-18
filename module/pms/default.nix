@@ -9,7 +9,7 @@ let
     owner = "powermosfet";
     repo  = "pms";
     rev = "9ad6c88cba374c53c366fb40fff1ee1e06154a80";
-    sha256 = "0000000000000000000000000000000000000000000000000000";
+    sha256 = "0rii0mhb88nzbj88a4vc0wnsq6a2lvmkm5m8fvn1z04gs461ljy1";
   };
   pms = import src { };
 in
