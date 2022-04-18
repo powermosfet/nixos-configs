@@ -9,8 +9,6 @@ in
     [ 
     ];
 
-  services.nginx.enable = false;
-
   services.nextcloud = {
     enable = true;
     hostName = hostName;
