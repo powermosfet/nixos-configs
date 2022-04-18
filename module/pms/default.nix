@@ -47,7 +47,7 @@ in
       after = [ "network.target" ];
       environment = {
         APP_PORT = toString cfg.port;
-        SIGNAL_CLI = "${signal-cli}/bin/signal-cli";
+        SIGNAL_CLI = "${pkgs.signal-cli}/bin/signal-cli";
         SIGNAL_SENDER = cfg.sender;
 	SIGNAL_RECIPIENT = cfg.recipient;
 	SIGNAL_LOG_RECIPIENT = cfg.logRecipient;
