@@ -57,6 +57,12 @@ in
     };
   };
 
+  security.acme.certs = {
+    "${hostName}" = {
+      email = email;
+    };
+  };
+
   services.parsoid = {
     enable = true;
     wikis = [ "http://localhost/api.php" ];
