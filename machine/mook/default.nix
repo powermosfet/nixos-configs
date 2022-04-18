@@ -9,6 +9,7 @@ in
       ../../module/tmux.nix 
       ../../module/nginx.nix
       ../../module/als
+      ../../module/pms
       ../../module/mediawiki.nix
       ../../module/nextcloud.nix
       ../../module/avahi.nix
