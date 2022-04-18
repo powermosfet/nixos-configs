@@ -78,4 +78,6 @@ in
     enable = true;
     databases = [ "mediawiki" ];
   };
+  
+  networking.firewall.allowedTCPPorts = [ 80 443 ];
 }

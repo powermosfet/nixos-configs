@@ -40,5 +40,12 @@ in
     after = [ "postgresql.service" ];
   };
 
+  services.nginx.virtualHosts."${hostName}" = {
+    forceSSL = true;
+    enableACME = true;
+  };
+
   security.acme.email = email;
+  
+  networking.firewall.allowedTCPPorts = [ 80 443 ];
 }
