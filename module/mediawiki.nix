@@ -13,7 +13,7 @@ in
     [ 
     ];
 
-  options.settings.mediawiki = {
+  options.services.mediawiki = {
     internalPort = mkOption {
       description = "internal network port used by reverse proxy";
       type = types.int;

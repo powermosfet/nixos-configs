@@ -17,7 +17,7 @@ in
       ../../module/garbage-collection.nix
     ];
 
-  settings.mediawiki.internalPort = ports.internal.wiki;
+  services.mediawiki.internalPort = ports.internal.wiki;
 
   environment.systemPackages = with pkgs; [
     git
