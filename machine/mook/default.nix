@@ -22,6 +22,7 @@ in
 
   services.mediawiki.internalPort = ports.internal.wiki;
   services.pms.port = ports.exposed.pms;
+  services.als.port = ports.exposed.als;
   services.barcode-backend.port = ports.exposed.barcode;
 
   environment.systemPackages = with pkgs; [
