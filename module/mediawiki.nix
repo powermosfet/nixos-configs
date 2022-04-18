@@ -54,7 +54,7 @@ in
     enableACME = true;
     forceSSL = true;
     locations."/" = {
-      proxyPass = "http://127.0.0.1:${internalPort}";
+      proxyPass = "http://127.0.0.1:${builtins.toString(internalPort)}";
       proxyWebsockets = true;
     };
   };
