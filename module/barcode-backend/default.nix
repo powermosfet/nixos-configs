@@ -16,6 +16,10 @@ let
   dbName = "products";
 in
 {
+  imports =
+    [ ../postgresql
+    ];
+
   options = {
     services.barcode-backend = {
       enable = mkEnableOption "Barcode backend service";
@@ -47,7 +51,6 @@ in
     };
 
     services.postgresql = {
-      enable = true;
       ensureUsers = [
         {
           name = dbUser;
