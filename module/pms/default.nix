@@ -8,8 +8,8 @@ let
   src = pkgs.fetchFromGitHub {
     owner = "powermosfet";
     repo  = "pms";
-    rev = "3695e9b6f4ca341b99407fb68223c206999faee2";
-    sha256 = "0lv3894n1f7qj576fcs00wcq2gqxhmsa2j1fvd100h14fyd3dxxq";
+    rev = "9ad6c88cba374c53c366fb40fff1ee1e06154a80";
+    sha256 = "0000000000000000000000000000000000000000000000000000";
   };
   pms = import src { };
 in
@@ -52,6 +52,7 @@ in
         SIGNAL_SENDER = cfg.sender;
 	SIGNAL_RECIPIENT = cfg.recipient;
 	SIGNAL_LOG_RECIPIENT = cfg.logRecipient;
+	SIGNAL_CONFIG_PATH = /root/.local/share/signal-cli;
       };
       serviceConfig = {
         ExecStart = "${pms}/bin/pms";
