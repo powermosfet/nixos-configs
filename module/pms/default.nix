@@ -7,8 +7,8 @@ let
   src = pkgs.fetchFromGitHub {
     owner = "powermosfet";
     repo  = "pms";
-    rev = "914ad1420f8f99390025ed50fc38ecd59a247c7b";
-    sha256 = "1sh82i77q1ldarjcz2xw2p3j2md5xdw8kccazlqpvp3c9h58lwhd";
+    rev = "5524cf341faa0d0bfb386594ad56d25ac0a55c38";
+    sha256 = "0000000000000000000000000000000000000000000000000000";
   };
   pms = import src { };
 in
@@ -47,6 +47,7 @@ in
       after = [ "network.target" ];
       environment = {
         APP_PORT = toString cfg.port;
+        SIGNAL_CLI = "${signal-cli}/bin/signal-cli";
         SIGNAL_SENDER = cfg.sender;
 	SIGNAL_RECIPIENT = cfg.recipient;
 	SIGNAL_LOG_RECIPIENT = cfg.logRecipient;
@@ -55,10 +56,6 @@ in
         ExecStart = "${pms}/bin/pms";
       };
     };
-
-    environment.systemPackages = with pkgs; [
-      signal-cli
-    ];
 
     networking.firewall.allowedTCPPorts = [ cfg.port ];
   };
