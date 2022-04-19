@@ -18,7 +18,9 @@ in
 {
   imports =
     [ ../postgresql
+      ../postgresql/backup
     ];
+
 
   options = {
     services.barcode-backend = {
