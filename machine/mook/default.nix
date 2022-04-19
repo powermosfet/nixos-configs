@@ -10,9 +10,11 @@ in
       ../../module/nginx.nix
       ../../module/als
       ../../module/pms
+      ../../module/postgresql
+      ../../module/postgresql/backup
       ../../module/barcode-backend
-      ../../module/mediawiki.nix
       ../../module/nextcloud.nix
+      ../../module/mediawiki.nix
       ../../module/avahi.nix
       ../../module/neovim
       ../../module/minecraft
@@ -28,6 +30,8 @@ in
   environment.systemPackages = with pkgs; [
     git
   ];
+
+  services.syncthing.enable = true;
 
   services.openssh.enable = true;
   security.sudo.wheelNeedsPassword = false;
