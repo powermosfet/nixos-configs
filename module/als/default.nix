@@ -13,10 +13,6 @@ let
   als = import src { };
 in
 {
-  imports =
-    [
-    ];
-
   options = {
     services.als = {
       enable = mkEnableOption "als service";

@@ -9,10 +9,6 @@ let
   internalPort = config.services.mediawiki.internalPort;
 in
 {
-  imports =
-    [ 
-    ];
-
   options = {
     services.mediawiki = {
       internalPort = mkOption {

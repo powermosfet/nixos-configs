@@ -1,10 +1,7 @@
 { pkgs, ... }:
 
 {
-  imports =
-    [
-    ];
-  
+  nixpkgs.config.allowUnfree = true;
   config = {
     services.minecraft-server = {
       enable = true;

@@ -2,12 +2,12 @@
 
 {
   imports =
-    [ ../user/asmund.nix
-      ../module/tmux.nix 
-      ../module/neovim
-      ../module/avahi.nix
-      ../module/garbage-collection.nix
-      ../module/auto-update.nix
+    [ ../../user/asmund
+      ../../module/tmux
+      ../../module/neovim
+      ../../module/avahi
+      ../../module/garbage-collection
+      ../../module/auto-update
     ];
      
   time.timeZone = "Europe/Oslo";

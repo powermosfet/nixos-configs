@@ -2,15 +2,15 @@
 
 {
   imports =
-    [ ../user/asmund.nix
-      ../module/tmux.nix 
-      ../module/neovim
-      ../module/avahi.nix
-      ../module/games.nix
-      ../module/scanner.nix
-      ../module/printing.nix
-      ../module/pulseaudio.nix
-      ../module/pro-audio.nix
+    [ ../../user/asmund
+      ../../module/tmux
+      ../../module/neovim
+      ../../module/avahi
+      ../../module/games
+      ../../module/scanner
+      ../../module/printing
+      ../../module/pulseaudio
+      ../../module/pro-audio
     ];
      
   nixpkgs.overlays = [

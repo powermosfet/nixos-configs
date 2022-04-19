@@ -1,10 +1,6 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [
-    ];
-
   users.users.postgres = {
     isSystemUser = true;
   };

@@ -1,10 +1,6 @@
 { pkgs, ... }:
 
 {
-  imports =
-    [
-    ];
-     
     nix.gc = {
       automatic = true;
       dates = "weekly";

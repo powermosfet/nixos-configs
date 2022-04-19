@@ -5,10 +5,6 @@ let
   email = "asmund@berge.id";
 in
 {
-  imports =
-    [ 
-    ];
-
   services.nextcloud = {
     enable = true;
     hostName = hostName;

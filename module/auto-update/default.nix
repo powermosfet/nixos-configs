@@ -1,10 +1,6 @@
 { pkgs, ... }:
 
 {
-  imports =
-    [
-    ];
-     
     system.autoUpgrade = {
       enable = true;
       dates = "04:40";

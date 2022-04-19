@@ -5,21 +5,21 @@ let
 in
 {
   imports =
-    [ ../../user/asmund.nix
-      ../../module/tmux.nix 
-      ../../module/nginx.nix
+    [ ../../user/asmund
+      ../../module/tmux 
+      ../../module/nginx
       ../../module/als
       ../../module/pms
       ../../module/postgresql
       ../../module/postgresql/backup
       ../../module/barcode-backend
-      ../../module/nextcloud.nix
-      ../../module/mediawiki.nix
-      ../../module/avahi.nix
+      ../../module/nextcloud
+      ../../module/mediawiki
+      ../../module/avahi
       ../../module/neovim
       ../../module/minecraft
-      ../../module/auto-update.nix
-      ../../module/garbage-collection.nix
+      ../../module/auto-update
+      ../../module/garbage-collection
     ];
 
   services.mediawiki.internalPort = ports.internal.wiki;

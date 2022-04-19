@@ -3,13 +3,13 @@
 {
   machine = {
     contadev = {
-      imports = [ ./machine/contadev.nix ];
+      imports = [ ./machine/contadev ];
     };
     mook = {
       imports = [ ./machine/mook ];
     };
     gilli = {
-      imports = [ ./machine/gilli.nix ];
+      imports = [ ./machine/gilli ];
     };
   };
 }

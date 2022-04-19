@@ -1,10 +1,6 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [
-    ];
-     
   environment.systemPackages = with pkgs; [
     gscan2pdf
   ];

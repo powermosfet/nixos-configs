@@ -4,16 +4,11 @@ let
   powerline = pkgs.python39Packages.powerline;
 in
 {
-  imports =
-    [
-    ];
-
   environment.systemPackages = with pkgs; [
     tmuxp
     powerline
     python39Full
   ];
-
 
   programs.tmux = {
     enable = true;

@@ -1,10 +1,6 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [
-    ];
-
   users.users.asmund = {
     isNormalUser = true;
     extraGroups = [ "wheel" "networkmanager" ]; 

@@ -5,5 +5,4 @@
     nethack
     blobwars
   ];
-
 }

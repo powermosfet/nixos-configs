@@ -2,9 +2,9 @@
 
 {
   imports =
-    [ ../user/asmund.nix
-      ../module/tmux.nix 
-      ../module/neovim
+    [ ../../user/asmund
+      ../../module/tmux 
+      ../../module/neovim
     ];
      
   time.timeZone = "Europe/Oslo";
