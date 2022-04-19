@@ -84,6 +84,7 @@ in
 
     services.mysqlBackup = {
       enable = true;
+      user = "backup";
       databases = [ "mediawiki" ];
     };
 

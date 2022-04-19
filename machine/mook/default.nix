@@ -31,9 +31,12 @@ in
     git
   ];
 
-  services.syncthing.enable = true;
-  users.users.syncthing.extraGroups = 
-    [ "root" # To get access to /var/backup/...
+  services.syncthing = {
+    enable = true;
+    user = "backup";
+  };
+  users.users.backup.extraGroups = 
+    [ "nextcloud" # To get access to /var/lib/nextcloud/...
     ]; 
 
   services.openssh.enable = true;
