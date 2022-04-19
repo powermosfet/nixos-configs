@@ -32,6 +32,9 @@ in
   ];
 
   services.syncthing.enable = true;
+  users.users.syncthing.extraGroups = 
+    [ "root" # To get access to /var/backup/...
+    ]; 
 
   services.openssh.enable = true;
   security.sudo.wheelNeedsPassword = false;
