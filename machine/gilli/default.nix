@@ -22,6 +22,9 @@
   services.openssh.enable = true;
   security.sudo.wheelNeedsPassword = false;
 
-  services.syncthing.enable = true;
+  services.syncthing = {
+    enable = true;
+    dataDir = "/mnt/passport/backup";
+  };
 }
 
