@@ -15,6 +15,7 @@ in
       ../../module/barcode-backend
       ../../module/nextcloud
       ../../module/mediawiki
+      ../../module/node-red
       ../../module/avahi
       ../../module/neovim
       ../../module/minecraft

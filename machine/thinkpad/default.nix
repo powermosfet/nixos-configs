@@ -51,6 +51,7 @@
     flameshot
     gxkb
     vifm-full
+    nextcloud-client
   ];
 
   programs = {
