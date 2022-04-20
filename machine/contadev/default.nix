@@ -24,6 +24,8 @@
   programs.bash = {
     shellAliases = {
       db = "mysql -h localhost --protocol=tcp -u root -p viking";
+    };
+  };
 
   # SSH
   services.openssh.enable = true;
