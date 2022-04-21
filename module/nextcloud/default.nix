@@ -14,7 +14,6 @@ in
       dbuser = "nextcloud";
       dbhost = "/run/postgresql";
       dbname = "nextcloud";
-      adminpassFile = "/root/passwords/nextcloud/admin";
       adminuser = "dadmin";
     };
   };
