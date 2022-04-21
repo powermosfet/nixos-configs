@@ -52,7 +52,7 @@ in
       extraConfig = ''
         $wgLanguageCode = 'no';
         $wgNamespacesWithSubpages[NS_MAIN] = 1;
-        $wgFavicon = "${./berge-wiki.png}";
+        $wgFavicon = "favicon.png";
 
       # Disable reading by anonymous users
         $wgGroupPermissions['*']['read'] = false;
@@ -70,9 +70,15 @@ in
     services.nginx.virtualHosts."${hostName}" = {
       enableACME = true;
       forceSSL = true;
-      locations."/" = {
-        proxyPass = "http://127.0.0.1:${builtins.toString(internalPort)}";
-        proxyWebsockets = true;
+      locations = {
+        "/" = {
+          proxyPass = "http://127.0.0.1:${builtins.toString(internalPort)}";
+          proxyWebsockets = true;
+        };
+        "/favicon.png" = {
+          root = ./.;
+          tryFiles = "/berge-wiki.png =404";
+        };
       };
     };
 
