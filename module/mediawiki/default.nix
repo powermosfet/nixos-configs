@@ -52,6 +52,7 @@ in
       extraConfig = ''
         $wgLanguageCode = 'no';
         $wgNamespacesWithSubpages[NS_MAIN] = 1;
+        $wgFavicon = "${./berge-wiki.png}";
 
       # Disable reading by anonymous users
         $wgGroupPermissions['*']['read'] = false;
