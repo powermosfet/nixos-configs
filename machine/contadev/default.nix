@@ -23,7 +23,7 @@
   
   programs.bash = {
     shellAliases = {
-      db = "mysql -h localhost --protocol=tcp -u root -p viking";
+      db = "mysql --pager='less -SF' -h localhost --protocol=tcp -u root -p ";
     };
   };
 
