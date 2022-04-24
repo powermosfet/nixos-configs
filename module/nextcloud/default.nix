@@ -20,6 +20,10 @@ in
   
   users.users.nextcloud.extraGroups = [ "keys" ];
 
+  environment.systemPackages = with pkgs; [
+    ocrmypdf
+  ];
+
   services.postgresql = {
     enable = true;
     ensureDatabases = [ "nextcloud" ];
