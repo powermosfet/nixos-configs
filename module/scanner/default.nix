@@ -3,6 +3,7 @@
 {
   environment.systemPackages = with pkgs; [
     gscan2pdf
+    ocrmypdf
     gocr
     gnome.simple-scan
   ];
