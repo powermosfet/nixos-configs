@@ -5,9 +5,6 @@
     [
     ];
 
-  settings = {
-  };
-
   config = {
     services.elasticsearch = {
       enable = true;
