@@ -19,6 +19,7 @@ in
       ../../module/avahi
       ../../module/neovim
       ../../module/minecraft
+      ../../module/elasticsearch
       ../../module/auto-update
       ../../module/garbage-collection
     ];

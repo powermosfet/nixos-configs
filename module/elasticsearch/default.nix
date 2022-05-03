@@ -15,7 +15,6 @@
       plugins = [
         pkgs.elasticsearchPlugins.ingest-attachment
         ];
-      extraConf = ''
-        '';
+    };
   };
 }
