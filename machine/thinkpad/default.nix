@@ -11,6 +11,7 @@
       ../../module/printing
       ../../module/pulseaudio
       ../../module/pro-audio
+      ../../module/gnupg
     ];
      
   nixpkgs.overlays = [
