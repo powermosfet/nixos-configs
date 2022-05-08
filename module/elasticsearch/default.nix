@@ -9,7 +9,7 @@
     services.elasticsearch = {
       enable = true;
 
-      package = pkgs.elasticsearch-oss;
+      package = pkgs.elasticsearch7;
       plugins = [
         pkgs.elasticsearchPlugins.ingest-attachment
         ];
