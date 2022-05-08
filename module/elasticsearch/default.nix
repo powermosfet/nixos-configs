@@ -13,7 +13,7 @@
     services.elasticsearch = {
       enable = true;
 
-      package = pkgs.elasticsearch7;
+      package = pkgs.elasticsearch;
       plugins = [
         pkgs.elasticsearchPlugins.ingest-attachment
         ];
