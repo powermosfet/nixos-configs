@@ -52,8 +52,18 @@
     flameshot
     gxkb
     vifm-full
+    evince
     nextcloud-client
+    mime-types
   ];
+
+  xdg.mime = {
+    enable = true;
+
+    defaultApplications = {
+      "application/pdf" = "evince.desktop";
+    };
+  };
 
   programs = {
     nm-applet.enable = true;
