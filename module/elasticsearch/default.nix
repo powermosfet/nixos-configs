@@ -6,6 +6,10 @@
     ];
 
   config = {
+    programs.java = {
+      package = pkgs.jre;
+    };
+
     services.elasticsearch = {
       enable = true;
 
