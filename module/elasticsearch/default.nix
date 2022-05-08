@@ -15,7 +15,6 @@
 
       package = pkgs.elasticsearch;
       plugins = [
-        pkgs.elasticsearchPlugins.ingest-attachment
         ];
     };
   };
