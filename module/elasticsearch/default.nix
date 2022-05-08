@@ -7,7 +7,7 @@
 
   config = {
     programs.java = {
-      package = pkgs.jre;
+      package = pkgs.oraclejre;
     };
 
     services.elasticsearch = {
