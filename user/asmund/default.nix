@@ -11,6 +11,15 @@
     ];
   };
 
+  # any maching with my user should have these basic tools
+  environment.systemPackages = with pkgs; [
+    git
+    curl
+    jq
+    visidata
+    vifm-full
+  ];
+
   programs.bash = {
     shellAliases = {
       ll = "ls -l";
