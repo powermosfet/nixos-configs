@@ -1,13 +1,11 @@
 { config, pkgs, ... }:
 
 {
-  environment.systemPackages = with pkgs; [
-    gnupg
-    pinentry
-  ];
-
-  programs.gnupg = {
-    agent.enable = true;
+  services.pcscd.enable = true;
+  programs.gnupg.agent = {
+    enable = true;
+    pinentryFlavor = "curses";
+    enableSSHSupport = true;
   };
 }
 
