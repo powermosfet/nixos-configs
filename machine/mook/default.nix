@@ -20,6 +20,7 @@ in
       ../../module/neovim
       ../../module/minecraft
       ../../module/elasticsearch
+      ../../module/smtp
       ../../module/auto-update
       ../../module/garbage-collection
     ];
