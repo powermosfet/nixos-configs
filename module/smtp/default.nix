@@ -33,8 +33,13 @@ in
     ];
 
   config = {
-    environment.systemPackages = [
-      hydroxide
-    ];
+    systemd.services.hydroxide = {
+      description = "Hydroxide - Headless proton mail bridge";
+      wantedBy = [ "multi-user.target" ];
+      after = [ "network.target" ];
+      serviceConfig = {
+        ExecStart = "${hydroxide}/bin/hydroxide smtp";
+      };
+    };
  };
 }
