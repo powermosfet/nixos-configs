@@ -7,6 +7,7 @@ let
   hostName = "wiki.berge.id";
   email = "asmund@berge.id";
   internalPort = config.services.mediawiki.internalPort;
+  smtpPassword = config.services.mediawiki.smtpPassword;
 in
 {
   imports =
@@ -18,6 +19,10 @@ in
       internalPort = mkOption {
         description = "internal network port used by reverse proxy";
         type = types.int;
+      };
+      smtpPassword = mkOption {
+        description = "SMTP password";
+        type = types.str;
       };
     };
   };
@@ -53,6 +58,15 @@ in
         $wgLanguageCode = 'no';
         $wgNamespacesWithSubpages[NS_MAIN] = 1;
         $wgFavicon = "favicon.png";
+
+        $wgSMTP = [
+            'host'     => 'localhost',
+            'IDHost'   => 'berge.id',
+            'port'     => 1025,
+            'auth'     => true,
+            'username' => 'aberge',
+            'password' => '${smtpPassword}'
+        ];
 
       # Disable reading by anonymous users
         $wgGroupPermissions['*']['read'] = false;
