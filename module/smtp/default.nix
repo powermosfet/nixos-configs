@@ -37,6 +37,9 @@ in
       description = "Hydroxide - Headless proton mail bridge";
       wantedBy = [ "multi-user.target" ];
       after = [ "network.target" ];
+      environment = {
+        HOME = "/root";
+      };
       serviceConfig = {
         ExecStart = "${hydroxide}/bin/hydroxide smtp";
       };
