@@ -1,8 +1,10 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 let
   hostName = "cloud.berge.id";
   email = "asmund@berge.id";
+  dbName = "nextcloud";
+  dbUser = "nextcloud";
 in
 {
   services.nextcloud = {
@@ -12,9 +14,9 @@ in
     https = true;
     config = {
       dbtype = "pgsql";
-      dbuser = "nextcloud";
+      dbuser = dbUser;
       dbhost = "/run/postgresql";
-      dbname = "nextcloud";
+      dbname = dbName;
       adminuser = "dadmin";
     };
   };
@@ -27,13 +29,14 @@ in
 
   services.postgresql = {
     enable = true;
-    ensureDatabases = [ "nextcloud" ];
+    ensureDatabases = [ dbName ];
     ensureUsers = [
-      { name = "nextcloud";
-        ensurePermissions."DATABASE nextcloud" = "ALL PRIVILEGES";
+      { name = dbUser;
+        ensurePermissions."DATABASE ${dbName}" = "ALL PRIVILEGES";
       }
     ];
   };
+  services.postgresqlBackup.databases = [ dbName ];
 
   systemd.services."nextcloud-setup" = {
     requires = [ "postgresql.service" ];

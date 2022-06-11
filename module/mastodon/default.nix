@@ -25,7 +25,21 @@
       };
       localDomain = "mas.berge.id";
       elasticsearch.host = "localhost";
-      configureNginx = true;
+    };
+
+    services.nginx.virtualHosts."mas.berge.id" = {
+      enableACME = true;
+      forceSSL = true;
+      locations = {
+        "/" = {
+          proxyPass = "http://127.0.0.1:${builtins.toString(internalPort)}";
+          proxyWebsockets = true;
+        };
+        "/favicon.png" = {
+          root = ./.;
+          tryFiles = "/berge-wiki.png =404";
+        };
+      };
     };
   };
 }

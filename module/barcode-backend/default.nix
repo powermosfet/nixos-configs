@@ -66,6 +66,7 @@ in
         dbName
       ];
     };
+    services.postgresqlBackup.databases = [ dbName ];
 
     users.groups."${dbUser}" = {};
     users.users."${dbUser}" = {

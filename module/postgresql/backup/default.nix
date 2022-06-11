@@ -22,7 +22,7 @@ in
   config = {
     services.postgresqlBackup = {
       enable = true;
-      backupAll = true;
+      backupAll = false;
     };
 
     systemd.services."${systemdUnit}" = {

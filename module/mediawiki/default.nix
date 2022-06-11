@@ -96,7 +96,7 @@ in
       };
     };
 
-    security.acme.email = email;
+    security.acme.defaults.email = email;
 
     services.parsoid = {
       enable = true;
