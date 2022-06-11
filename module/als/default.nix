@@ -10,7 +10,7 @@ let
     rev = "d93b521aadc18204311ecf47851fd0140c2063c6";
     sha256 = "16k3kv6jdacna8zdgipdm2hyimilswgv60havlc2fc0jzr2vramd";
   };
-  als = import src { };
+  als = import src { pkgs = import (fetchTarball "https://github.com/NixOS/nixpkgs/tarball/21.11") { }; };
 in
 {
   options = {
