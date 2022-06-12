@@ -22,6 +22,7 @@ in
       ../../module/elasticsearch
       ../../module/smtp
       ../../module/bokashi
+      ../../module/kilometer
       ../../module/auto-update
       ../../module/garbage-collection
     ];

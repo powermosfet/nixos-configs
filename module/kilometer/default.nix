@@ -1,9 +1,9 @@
 { pkgs, ... }:
 
 let
-  dbName = "bokashi";
-  user = "bokashi";
-  group = "bokashi";
+  dbName = "kilometer";
+  user = "kilometer";
+  group = "kilometer";
 in
 {
   users.groups."${group}" = {};
