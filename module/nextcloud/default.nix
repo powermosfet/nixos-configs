@@ -64,7 +64,7 @@ in
       '';
   };
 
-  security.acme.email = email;
+  security.acme.defaults.email = email;
   
   networking.firewall.allowedTCPPorts = [ 80 443 ];
 }
