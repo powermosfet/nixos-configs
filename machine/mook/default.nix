@@ -21,6 +21,7 @@ in
       ../../module/minecraft
       ../../module/elasticsearch
       ../../module/smtp
+      ../../module/bokashi
       ../../module/auto-update
       ../../module/garbage-collection
     ];
