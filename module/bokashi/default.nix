@@ -4,6 +4,17 @@ let
   dbName = "bokashi";
   user = "bokashi";
   group = "bokashi";
+
+  postgrest = pkgs.postgrest;
+  postgrestConf = pkgs.writeTextFile {
+    name = "${dbName}.conf";
+    text = ''
+      db-uri = "postgres://${user}@/${dbName}"
+      db-schemas = "public"
+      db-anon-role = "${user}"
+      server-port = 8008
+    '';
+  };
 in
 {
   users.groups."${group}" = {};
@@ -21,4 +32,15 @@ in
     ];
   };
   services.postgresqlBackup.databases = [ dbName ];
+  systemd.services.bokashi = {
+    description = "Bokashi log";
+    wantedBy = [ "multi-user.target" ];
+    after = [ "network.target" ];
+    environment = {
+    };
+    serviceConfig = {
+      User = user;
+      ExecStart = "${postgrest}/bin/postgrest ${postgrestConf}";
+    };
+  };
 }
