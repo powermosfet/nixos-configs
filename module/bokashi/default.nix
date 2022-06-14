@@ -45,4 +45,6 @@ in
       ExecStart = "${postgrest}/bin/postgrest ${postgrestConf}";
     };
   };
+
+  networking.firewall.allowedTCPPorts = [ 8008 ];
 }
