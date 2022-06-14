@@ -95,6 +95,7 @@ in
         };
       };
     };
+    services.ddclient.domains = [ hostName ];
 
     security.acme.defaults.email = email;
 

@@ -9,5 +9,7 @@
       openFirewall = true;
       eula = true;
     };
+
+    services.ddclient.domains = [ "minecraft.berge.id" ];
   };
 }

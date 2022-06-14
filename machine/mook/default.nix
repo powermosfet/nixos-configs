@@ -23,6 +23,7 @@ in
       ../../module/smtp
       ../../module/bokashi
       ../../module/kilometer
+      ../../module/ddclient
       ../../module/auto-update
       ../../module/garbage-collection
     ];

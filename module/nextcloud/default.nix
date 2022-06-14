@@ -63,6 +63,7 @@ in
           fastcgi_read_timeout 120s;
       '';
   };
+  services.ddclient.domains = [ hostName ];
 
   security.acme.defaults.email = email;
   
