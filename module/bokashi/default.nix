@@ -12,7 +12,7 @@ let
     name = "${dbName}.conf";
     text = ''
       db-uri = "postgres://${user}@/${dbName}"
-      db-schemas = "public"
+      db-schema = "public"
       db-anon-role = "${user}"
       server-port = 8008
     '';
