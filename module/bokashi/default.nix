@@ -5,8 +5,7 @@ let
   user = "bokashi";
   group = "bokashi";
 
-
-  postgrest = pkgs.postgrest;
+  postgrest = pkgs.haskellPackages.postgrest;
   postgrestConf = pkgs.writeTextFile {
     name = "${dbName}.conf";
     text = ''
