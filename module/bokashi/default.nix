@@ -1,11 +1,13 @@
 { pkgs, ... }:
 
 let
+  pkgs2111 = import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/21.11.tar.gz") { };
+
   dbName = "bokashi";
   user = "bokashi";
   group = "bokashi";
 
-  postgrest = pkgs.haskellPackages.postgrest;
+  postgrest = pkgs2111.haskellPackages.postgrest;
   postgrestConf = pkgs.writeTextFile {
     name = "${dbName}.conf";
     text = ''
