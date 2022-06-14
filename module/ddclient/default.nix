@@ -7,6 +7,7 @@
 
       protocol = "namecheap";
       server = "fqdn.of.service";
+      username = "asmundberge";
     };
   };
 }
