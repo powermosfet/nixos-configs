@@ -65,7 +65,9 @@ in
         LIST_ID = cfg.listId;
       };
       serviceConfig = {
+        Type = "simple";
         ExecStart = "${als}/bin/als";
+        Restart = "always";
       };
     };
 
