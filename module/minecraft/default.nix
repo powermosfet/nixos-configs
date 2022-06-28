@@ -1,7 +1,7 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
 let
-  unstable = import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/3b6bc4b69ca7eec695291af31d8878071e0e084d.tar.gz") { };
+  unstable = import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/3b6bc4b69ca7eec695291af31d8878071e0e084d.tar.gz") { config = config.nixpkgs.config; };
 in
 {
   config = {
