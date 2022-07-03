@@ -12,6 +12,7 @@
       ../../module/pulseaudio
       ../../module/pro-audio
       ../../module/gnupg
+      ../../module/rtl-sdr
     ];
      
   nixpkgs.overlays = [
