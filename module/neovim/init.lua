@@ -127,6 +127,7 @@ function setup_lsp(servers)
   end
 end
 
+local cmp = require'cmp'
 cmp.setup {
       nippet = {
          expand = function(args)
