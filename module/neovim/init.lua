@@ -111,7 +111,7 @@ lspconfig = require('lspconfig')
 
 function setup_lsp(servers)
   for _, server in ipairs(servers) do
-    if type(definitions) == "string" then
+    if type(server) == "string" then
       server_name = server
       server_config = {
         flags = {
