@@ -144,6 +144,8 @@ cmp.setup {
             behavior = cmp.ConfirmBehavior.Insert,
             select = true,
          },
+         ['<Down>'] = cmp.mapping(cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }), {'i'}),
+         ['<Up>'] = cmp.mapping(cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }), {'i'}),
       },
       sources = {
          { name = "nvim_lsp"},
