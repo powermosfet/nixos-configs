@@ -38,6 +38,7 @@
           awesome-vim-colorschemes
           nvim-web-devicons
           barbar-nvim
+          nvim-cmp
         ];
       };
     };
