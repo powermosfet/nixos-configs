@@ -39,6 +39,7 @@
           nvim-web-devicons
           barbar-nvim
           nvim-cmp
+          cmp-nvim-ultisnips
         ];
       };
     };
