@@ -145,17 +145,6 @@ cmp.setup {
             select = true,
          },
       },
-      formatting = {
-         format = lspkind.cmp_format {
-            with_text = true,
-            menu = {
-               buffer   = "[buf]",
-               nvim_lsp = "[LSP]",
-               path     = "[path]",
-            },
-         },
-      },
-
       sources = {
          { name = "nvim_lsp"},
          { name = "path" },
