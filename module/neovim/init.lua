@@ -127,13 +127,48 @@ function setup_lsp(servers)
   end
 end
 
+cmp.setup {
+      nippet = {
+         expand = function(args)
+           vim.fn["UltiSnips#Anon"](args.body)
+         end,
+      },
+      mapping = {
+         ["<C-d>"] = cmp.mapping.scroll_docs(-4),
+         ["<C-f>"] = cmp.mapping.scroll_docs(4),
+         ["<C-e>"] = cmp.mapping.close(),
+         ["<C-Space>"] = cmp.mapping.complete(),
+         ["<CR>"] = cmp.mapping.confirm({ select = true }),
+         ["<c-y>"] = cmp.mapping.confirm {
+            behavior = cmp.ConfirmBehavior.Insert,
+            select = true,
+         },
+      },
+      formatting = {
+         format = lspkind.cmp_format {
+            with_text = true,
+            menu = {
+               buffer   = "[buf]",
+               nvim_lsp = "[LSP]",
+               path     = "[path]",
+            },
+         },
+      },
+
+      sources = {
+         { name = "nvim_lsp"},
+         { name = "path" },
+         { name = "ultisnips" },
+         { name = "buffer" , keyword_length = 5},
+      },
+      experimental = {
+         ghost_text = true
+      }
+}
+
 function local_config()
   pcall(dofile, vim.fn.getcwd() .. "/.nvim.lua")
 end
 
 local_config()
-vim.api.nvim_command [[augroup LocalConfig]]
-vim.api.nvim_command [[autocmd! * *]]
-vim.api.nvim_command [[autocmd DirChanged * lua local_config()]]
-vim.api.nvim_command [[augroup END]]
 
