@@ -40,6 +40,7 @@
           barbar-nvim
           nvim-cmp
           cmp-nvim-ultisnips
+          cmp-nvim-lsp
         ];
       };
     };
