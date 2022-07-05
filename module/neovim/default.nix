@@ -41,6 +41,8 @@
           nvim-cmp
           cmp-nvim-ultisnips
           cmp-nvim-lsp
+          cmp-path
+          cmp-buffer
         ];
       };
     };
