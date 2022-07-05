@@ -156,10 +156,10 @@ cmp.setup {
             i = function(fallback)
                 if vim.fn["UltiSnips#CanExpandSnippet"]() == 1 then
                     cmp.confirm({ select = true })
-                elseif cmp.visible() then
-                    cmp.select_next_item({ behavior = cmp.SelectBehavior.Insert })
                 elseif vim.fn["UltiSnips#CanJumpForwards"]() == 1 then
                     vim.api.nvim_feedkeys(t("<Plug>(ultisnips_jump_forward)"), 'm', true)
+                elseif cmp.visible() then
+                    cmp.select_next_item({ behavior = cmp.SelectBehavior.Insert })
                 else
                     fallback()
                 end
@@ -174,10 +174,10 @@ cmp.setup {
         }),
         ["<S-Tab>"] = cmp.mapping({
             i = function(fallback)
-                if cmp.visible() then
-                    cmp.select_prev_item({ behavior = cmp.SelectBehavior.Insert })
-                elseif vim.fn["UltiSnips#CanJumpBackwards"]() == 1 then
+                if vim.fn["UltiSnips#CanJumpBackwards"]() == 1 then
                     return vim.api.nvim_feedkeys( t("<Plug>(ultisnips_jump_backward)"), 'm', true)
+                elseif cmp.visible() then
+                    cmp.select_prev_item({ behavior = cmp.SelectBehavior.Insert })
                 else
                     fallback()
                 end
