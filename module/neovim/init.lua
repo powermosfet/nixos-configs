@@ -154,11 +154,13 @@ cmp.setup {
                 if cmp.visible() then
                     cmp.select_next_item({ behavior = cmp.SelectBehavior.Insert })
                 else
-                    cmp.complete()
+                    fallback()
                 end
             end,
             i = function(fallback)
-                if cmp.visible() then
+                if vim.fn["UltiSnips#CanExpandSnippet"]() == 1 then
+                    cmp.mapping.confirm({ select = true })
+                elseif cmp.visible() then
                     cmp.select_next_item({ behavior = cmp.SelectBehavior.Insert })
                 elseif vim.fn["UltiSnips#CanJumpForwards"]() == 1 then
                     vim.api.nvim_feedkeys(t("<Plug>(ultisnips_jump_forward)"), 'm', true)
@@ -204,8 +206,8 @@ cmp.setup {
       },
       sources = {
          { name = "nvim_lsp"},
-         { name = "path" },
          { name = "ultisnips" },
+         { name = "path" },
          { name = "buffer" , keyword_length = 5},
       },
       experimental = {
