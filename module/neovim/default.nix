@@ -44,6 +44,7 @@
           cmp-nvim-lsp
           cmp-path
           cmp-buffer
+          dressing-nvim
         ];
       };
     };
