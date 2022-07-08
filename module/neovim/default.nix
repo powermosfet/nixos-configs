@@ -46,6 +46,7 @@
           cmp-path
           cmp-buffer
           dressing-nvim
+          vim-gitgutter
         ];
       };
     };
