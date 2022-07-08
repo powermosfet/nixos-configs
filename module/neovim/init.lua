@@ -65,7 +65,8 @@ local keymaps = {
       ["f"]       = [[:Git fetch --prune<cr>]],
       ["p"]       = [[:Git pull --ff-only<cr>]],
       ["o"]       = [[:Git checkout ]],
-      ["n"]       = [[/\(<<<<<<<\|=======\||||||||\|>>>>>>>\)<cr>]]
+      ["n"]       = [[/\(<<<<<<<\|=======\||||||||\|>>>>>>>\)<cr>]],
+      ["h"]       = [[:GitGutterPreviewHunk<cr>]]
     },
     ["l"]         = {
       ["z"]       = [[:LspRestart<CR>]],
