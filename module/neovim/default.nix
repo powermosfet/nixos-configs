@@ -36,6 +36,7 @@
           nvim-lspconfig
           vim-nix
           awesome-vim-colorschemes
+          vim-colorschemes
           nvim-web-devicons
           barbar-nvim
           nvim-cmp
