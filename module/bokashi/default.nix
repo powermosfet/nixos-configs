@@ -15,7 +15,7 @@ let
       db-uri = "postgres://${user}@/${dbName}"
       db-schema = "public"
       db-anon-role = "${user}"
-      server-port = ${port}
+      server-port = ${builtins.toString(port)}
     '';
   };
 in
