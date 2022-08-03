@@ -6,6 +6,7 @@ let
   dbName = "bokashi";
   user = "bokashi";
   group = "bokashi";
+  port = 8008;
 
   postgrest = pkgs2111.haskellPackages.postgrest;
   postgrestConf = pkgs.writeTextFile {
@@ -14,7 +15,7 @@ let
       db-uri = "postgres://${user}@/${dbName}"
       db-schema = "public"
       db-anon-role = "${user}"
-      server-port = 8008
+      server-port = ${port}
     '';
   };
 in
@@ -46,5 +47,5 @@ in
     };
   };
 
-  networking.firewall.allowedTCPPorts = [ 8008 ];
+  networking.firewall.allowedTCPPorts = [ port ];
 }
