@@ -24,8 +24,6 @@ in
       ../../module/bokashi
       ../../module/kilometer
       ../../module/ddclient
-      ../../module/auto-update
-      ../../module/garbage-collection
     ];
 
   services.mediawiki.internalPort = ports.internal.wiki;
