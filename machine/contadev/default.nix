@@ -19,6 +19,7 @@
     docker
     docker-compose
     mysql
+    zim
   ];
   
   programs.bash = {
