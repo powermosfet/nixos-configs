@@ -7,6 +7,8 @@
 
   services.postgresql = {
     enable = true;
+
+    extraPlugins = with pkgs.postgresql13Packages [ pg_safeupdate ];
   };
 }
 
