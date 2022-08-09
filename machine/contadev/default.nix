@@ -20,6 +20,8 @@
     docker-compose
     mysql
     zim
+    graphviz
+    gtksourceview
   ];
   
   programs.bash = {
