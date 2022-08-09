@@ -21,7 +21,7 @@
     mysql
     zim
     graphviz
-    gtksourceview
+    gtksourceview4
   ];
   
   programs.bash = {
