@@ -53,6 +53,7 @@ in
         CategoryTree = null;
         VisualEditor = null;
         WikiEditor = null;
+        Cite = null;
       };
       extraConfig = ''
         $wgLanguageCode = 'no';
