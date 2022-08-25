@@ -22,8 +22,8 @@ g.maplocalleader = " "
 local keymaps = {
   ["<BS>"]        = [[:BufferPrevious<CR>]],
   ["<TAB>"]       = [[:BufferNext<CR>]],
-  ["[g"]          = [[:lua vim.lsp.diagnostic.goto_prev()<CR>]],
-  ["]g"]          = [[:lua vim.lsp.diagnostic.goto_next()<CR>]],
+  ["[g"]          = [[:lua vim.diagnostic.goto_prev()<CR>]],
+  ["]g"]          = [[:lua vim.diagnostic.goto_next()<CR>]],
   ["<leader>"]    = {
     ["v"]         = [[:tabe <c-r>=resolve($MYVIMRC)<cr><cr>]],
     ["n"]         = [[:noh<cr>]],
