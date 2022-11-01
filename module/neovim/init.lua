@@ -205,6 +205,17 @@ cmp.setup {
       }
 }
 
+require("nvim-tree").setup()
+vim.o.exrc = false
+require("exrc").setup({
+  files = {
+    ".nvimrc.lua",
+    ".nvimrc",
+    ".exrc.lua",
+    ".exrc",
+  },
+})
+
 function local_config()
   pcall(dofile, vim.fn.getcwd() .. "/.nvim.lua")
 end

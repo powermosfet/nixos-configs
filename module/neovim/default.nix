@@ -1,5 +1,5 @@
 
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   environment.systemPackages = with pkgs; [
@@ -22,7 +22,7 @@
 
       packages.myVimPackage = with pkgs.vimPlugins; {
         start = [
-          nerdtree
+          nvim-tree-lua
           fugitive
           vim-unimpaired
           surround
