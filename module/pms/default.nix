@@ -3,7 +3,7 @@
   with lib;
 
 let
-  unstable = import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/759a1f7742c76594955b8fc1c04b66dc409b8ff2.tar.gz") { };
+  unstable = import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/refs/heads/nixpkgs-unstable.tar.gz") { };
   cfg = config.services.pms;
   src = pkgs.fetchFromGitHub {
     owner = "powermosfet";
