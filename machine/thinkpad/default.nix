@@ -9,10 +9,9 @@
       ../../module/games
       ../../module/scanner
       ../../module/printing
-      ../../module/pulseaudio
-      ../../module/pro-audio
       ../../module/gnupg
       ../../module/rtl-sdr
+      ../../module/pro-audio
     ];
      
   nixpkgs.overlays = [
@@ -56,6 +55,8 @@
     evince
     nextcloud-client
     mime-types
+    spotify
+    chromium
   ];
 
   xdg.mime = {
