@@ -216,9 +216,5 @@ require("exrc").setup({
   },
 })
 
-function local_config()
-  pcall(dofile, vim.fn.getcwd() .. "/.nvim.lua")
-end
-
-local_config()
+vim.cmd('colorscheme gruvbox')
 
