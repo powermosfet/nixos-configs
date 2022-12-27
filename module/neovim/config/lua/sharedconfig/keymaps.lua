@@ -32,7 +32,7 @@ return {
     ["f"]         = {
       ["f"]       = [[:Telescope find_files<cr>]],
       ["b"]       = [[:Telescope file_browser<cr>]],
-      ["t"]       = [[:NvimTreeToggle<cr>]],
+      ["t"]       = [[:NvimTreeFocus<cr>]],
       ["T"]       = [[:NvimTreeFindFile<cr>]],
     },
     -- Git
