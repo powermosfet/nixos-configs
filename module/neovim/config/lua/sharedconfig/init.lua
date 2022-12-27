@@ -1,3 +1,5 @@
+require('sharedconfig.plugins')
+
 local g = vim.g
 local api = vim.api
 
@@ -19,7 +21,7 @@ end
 g.mapleader = " "
 g.maplocalleader = " "
 
-local keymaps = require("keymaps")
+local keymaps = require("sharedconfig.keymaps")
 kmap("", keymaps)
 
 -- OPTIONS

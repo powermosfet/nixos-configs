@@ -16,7 +16,7 @@
       customRC = ''
         set runtimepath^=${./config}
         lua << EOF
-          require("init")
+          require("sharedconfig.init")
         EOF
       '';
 
