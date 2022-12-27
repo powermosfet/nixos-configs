@@ -33,7 +33,6 @@
     wget
     firefox
     kitty
-    fira-code
     acpi
     brightnessctl
     arandr
@@ -58,6 +57,11 @@
     spotify
     chromium
   ];
+
+  fonts.fonts = with pkgs; [
+    nerdfonts
+  ];
+
 
   xdg.mime = {
     enable = true;
