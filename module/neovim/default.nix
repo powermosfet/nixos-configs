@@ -1,4 +1,3 @@
-
 { pkgs, ... }:
 
 {
@@ -15,38 +14,15 @@
 
     configure = {
       customRC = ''
+        set runtimepath^=${./config}
         lua << EOF
-          ${pkgs.lib.readFile ./init.lua}
+          require("init")
         EOF
       '';
 
       packages.myVimPackage = with pkgs.vimPlugins; {
         start = [
-          nvim-tree-lua
-          fugitive
-          vim-unimpaired
-          surround
-          vim-ragtag
-          vim-speeddating
-          vim-dispatch
-          sleuth
-          vim-bookmarks
-          ultisnips
-          telescope-nvim
-          nvim-lspconfig
-          vim-nix
-          awesome-vim-colorschemes
-          gruvbox-nvim
-          lsp-colors-nvim
-          nvim-web-devicons
-          barbar-nvim
-          nvim-cmp
-          cmp-nvim-ultisnips
-          cmp-nvim-lsp
-          cmp-path
-          cmp-buffer
-          dressing-nvim
-          vim-gitgutter
+          packer-nvim
         ];
       };
     };
