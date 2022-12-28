@@ -3,6 +3,11 @@ return {
   ["<TAB>"]       = [[:BufferNext<CR>]],
   ["[g"]          = [[:lua vim.diagnostic.goto_prev()<CR>]],
   ["]g"]          = [[:lua vim.diagnostic.goto_next()<CR>]],
+  -- Bookmarks
+  ["m"]         = {
+    ["t"]       = [[:Telescope vim_bookmarks current_file<cr>]],
+    ["T"]       = [[:Telescope vim_bookmarks all<cr>]],
+  },
   ["<leader>"]    = {
     ["v"]         = [[:tabe <c-r>=resolve($MYVIMRC)<cr><cr>]],
     ["n"]         = [[:noh<cr>]],

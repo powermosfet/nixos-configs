@@ -17,6 +17,13 @@ return require('packer').startup(function(use)
     'nvim-telescope/telescope.nvim', branch = '0.1.x',
     requires = { {'nvim-lua/plenary.nvim'} }
   }
+  use {
+    'tom-anders/telescope-vim-bookmarks.nvim',
+    requires = { 'nvim-telescope/telescope.nvim' },
+    config = function()
+      require('telescope').load_extension('vim_bookmarks')
+    end
+  }
   use 'neovim/nvim-lspconfig'
   use {
     'akinsho/bufferline.nvim',
