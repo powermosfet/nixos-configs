@@ -1,12 +1,16 @@
 { pkgs, config, ... }:
 
+let
+  hash = "293a28df6d7ff3dec1e61e37cc4ee6e6c0fb0847";
+  unstable = import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/${hash}.tar.gz") { config = config.nixpkgs.config; };
+in
 {
   config = {
     nixpkgs.config.allowUnfree = true;
 
     services.minecraft-server = {
       enable = true;
-      package = pkgs.minecraft-server;
+      package = unstable.minecraft-server;
       openFirewall = true;
       eula = true;
     };
