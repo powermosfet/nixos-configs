@@ -2,6 +2,9 @@ return require('packer').startup(function(use)
   use {
     'nvim-tree/nvim-tree.lua',
     requires = 'nvim-tree/nvim-web-devicons',
+    config = function()
+      require("nvim-tree").setup()
+    end,
   }
   use 'tpope/vim-dispatch'
   use 'tpope/vim-fugitive'
@@ -31,13 +34,42 @@ return require('packer').startup(function(use)
     requires = 'nvim-tree/nvim-web-devicons'
   }
   use 'airblade/vim-gitgutter'
-  use 'hrsh7th/nvim-cmp'
+  use {
+    'hrsh7th/nvim-cmp',
+    config = function()
+      require('sharedconfig.plugins.cmp')
+    end
+  }
   use 'hrsh7th/cmp-nvim-lsp'
   use 'quangnguyen30192/cmp-nvim-ultisnips'
-  use 'MunifTanjim/exrc.nvim'
+  use {
+    'MunifTanjim/exrc.nvim',
+    config = function()
+      vim.o.exrc = false
+      require("exrc").setup({
+        files = {
+          ".nvimrc.lua",
+          ".nvimrc",
+          ".exrc.lua",
+          ".exrc",
+        },
+      })
+    end
+  }
   use 'MunifTanjim/nui.nvim'
   use 'stevearc/dressing.nvim'
   use 'flazz/vim-colorschemes'
+  use {
+    'pwntester/octo.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim',
+      'nvim-telescope/telescope.nvim',
+      'kyazdani42/nvim-web-devicons',
+    },
+    config = function ()
+      require"octo".setup()
+    end
+  }
 
   use {
     'purescript-contrib/purescript-vim',
