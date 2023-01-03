@@ -6,7 +6,7 @@
       enable = true;
 
       protocol = "namecheap";
-      server = "fqdn.of.service";
+      server = "dynamicdns.park-your-domain.com";
       username = "asmundberge";
     };
   };
