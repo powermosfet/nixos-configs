@@ -70,6 +70,7 @@ return require('packer').startup(function(use)
       require"octo".setup()
     end
   }
+  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 
   use {
     'purescript-contrib/purescript-vim',
