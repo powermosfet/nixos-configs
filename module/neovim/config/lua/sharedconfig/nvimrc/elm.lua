@@ -18,6 +18,6 @@ vim.api.nvim_create_autocmd("FileType" , {
 vim.api.nvim_create_autocmd("CursorHold" , { 
     group = "elmAutoCmds",
     pattern = { "*.elm" },
-    callback = vim.lsp.buf.hover,
+    callback = function() pcall(vim.lsp.buf.hover) end,
 })
 
