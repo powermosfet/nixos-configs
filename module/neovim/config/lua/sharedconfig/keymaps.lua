@@ -5,8 +5,8 @@ return {
   ["]g"]          = [[:lua vim.diagnostic.goto_next()<CR>]],
   -- Diagnostics
   ["d"]         = {
-    ["n"]       = [[:lua vim.diagnostic.goto_next<cr>]],
-    ["p"]       = [[:lua vim.diagnostic.goto_prev<cr>]],
+    ["n"]       = [[:lua vim.diagnostic.goto_next()<cr>]],
+    ["p"]       = [[:lua vim.diagnostic.goto_prev()<cr>]],
     ["l"]       = [[:Telescope diagnostics bufnr=0<cr>]],
     ["L"]       = [[:Telescope diagnostics<cr>]],
   },
