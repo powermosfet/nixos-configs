@@ -29,12 +29,8 @@ return require('packer').startup(function(use)
   }
   use 'neovim/nvim-lspconfig'
   use {
-    'akinsho/bufferline.nvim',
-    tag = "v3.*",
-    requires = 'nvim-tree/nvim-web-devicons',
-    config = function()
-      require("bufferline").setup{}
-    end
+    'romgrk/barbar.nvim',
+    requires = 'nvim-tree/nvim-web-devicons'
   }
   use 'airblade/vim-gitgutter'
   use {

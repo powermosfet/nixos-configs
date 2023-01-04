@@ -1,6 +1,6 @@
 return {
-  ["<BS>"]    = [[:BufferLineCyclePrev<cr>]],
-  ["<TAB>"]   = [[:BufferLineCycleNext<cr>]],
+  ["<BS>"]    = [[:BufferPrevious<cr>]],
+  ["<TAB>"]   = [[:BufferNext<cr>]],
   ["[g"]          = [[:lua vim.diagnostic.goto_prev()<CR>]],
   ["]g"]          = [[:lua vim.diagnostic.goto_next()<CR>]],
   -- Diagnostics
@@ -26,8 +26,10 @@ return {
       ["c"]       = [[:tabclose<cr>]],
       ["o"]       = [[:tabonly<cr>]],
       ["e"]       = [[:tabe ]],
-      ["<BS>"]    = [[:BufferLineMovePrev<cr>]],
-      ["<TAB>"]   = [[:BufferLineMoveNext<cr>]],
+      ["p"]       = [[:BufferPin<cr>]],
+      ["j"]       = [[:BufferPick<cr>]],
+      ["<BS>"]    = [[:BufferMovePrevious<cr>]],
+      ["<TAB>"]   = [[:BufferMoveNext<cr>]],
     },
     -- Search
     ["s"]         = {
