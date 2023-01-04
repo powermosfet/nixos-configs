@@ -31,7 +31,10 @@ return require('packer').startup(function(use)
   use {
     'akinsho/bufferline.nvim',
     tag = "v3.*",
-    requires = 'nvim-tree/nvim-web-devicons'
+    requires = 'nvim-tree/nvim-web-devicons',
+    config = function()
+      require("bufferline").setup{}
+    end
   }
   use 'airblade/vim-gitgutter'
   use {
