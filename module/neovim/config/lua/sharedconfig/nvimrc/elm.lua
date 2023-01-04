@@ -14,10 +14,3 @@ vim.api.nvim_create_autocmd("FileType" , {
     pattern = { "elm" },
     command = "silent setlocal colorcolumn=80"
 })
-
-vim.api.nvim_create_autocmd("CursorHold" , { 
-    group = "elmAutoCmds",
-    pattern = { "*.elm" },
-    callback = function() pcall(vim.lsp.buf.hover) end,
-})
-
