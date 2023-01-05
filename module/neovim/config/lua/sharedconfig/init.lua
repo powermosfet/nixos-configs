@@ -36,15 +36,5 @@ set_all(true, { "termguicolors", "hidden", "splitright", "number", "relativenumb
 set_all(false, { "fixendofline" })
 set_all("nicr", { "mouse" })
 
--- nvim-cmp
-
-vim.g.UltiSnipsSnippetDirectories = { "~/.dotfiles/vim/UltiSnips" }
-vim.g.UltiSnipsEditSplit = 'vertical'
-vim.g.UltiSnipsExpandTrigger = '<Plug>(ultisnips_expand)'      
-vim.g.UltiSnipsJumpForwardTrigger = '<Plug>(ultisnips_jump_forward)'
-vim.g.UltiSnipsJumpBackwardTrigger = '<Plug>(ultisnips_jump_backward)'
-vim.g.UltiSnipsListSnippets = '<c-x><c-s>'
-vim.g.UltiSnipsRemoveSelectModeMappings = 0
-
 vim.cmd('colorscheme gruvbox')
 
