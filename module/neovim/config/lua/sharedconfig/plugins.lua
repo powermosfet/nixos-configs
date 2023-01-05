@@ -15,7 +15,16 @@ return require('packer').startup(function(use)
   use 'tpope/vim-speeddating'
   use 'tpope/vim-sleuth'
   use 'MattesGroeger/vim-bookmarks'
-  use 'SirVer/ultisnips'
+  use {
+    'SirVer/ultisnips',
+    config = [[
+      vim.g.UltiSnipsExpandTrigger = "<tab>"
+      vim.g.UltiSnipsJumpForwardTrigger = "<c-n>"
+      vim.g.UltiSnipsJumpBackwardTrigger = "<c-p>"
+      vim.g.UltiSnipsEditSplit = 'vertical'
+      vim.g.UltiSnipsRemoveSelectModeMappings = 0
+    ]]
+  }
   use {
     'nvim-telescope/telescope.nvim', branch = '0.1.x',
     requires = { {'nvim-lua/plenary.nvim'} }
