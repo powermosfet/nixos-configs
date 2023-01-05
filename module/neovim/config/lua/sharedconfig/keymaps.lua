@@ -21,16 +21,6 @@ return {
     ["c"]         = [[:close<cr>]],
     [","]         = [[:tabp<cr>]],
     ["."]         = [[:tabn<cr>]],
-    -- Tabs
-    ["t"]         = {
-      ["c"]       = [[:tabclose<cr>]],
-      ["o"]       = [[:tabonly<cr>]],
-      ["e"]       = [[:tabe ]],
-      ["p"]       = [[:BufferPin<cr>]],
-      ["j"]       = [[:BufferPick<cr>]],
-      ["<BS>"]    = [[:BufferMovePrevious<cr>]],
-      ["<TAB>"]   = [[:BufferMoveNext<cr>]],
-    },
     -- Search
     ["s"]         = {
       ["w"]       = [[:Telescope grep_string<cr>]],
@@ -40,7 +30,13 @@ return {
     ["b"]         = {
       ["l"]       = [[:Telescope buffers<cr>]],
       ["o"]       = [[:b#<cr>]],
-      ["d"]       = [[:bd<cr>]],
+      ["d"]       = [[:BufferDelete<cr>]],
+      ["c"]       = [[:BufferClose<cr>]],
+      ["O"]       = [[:BufferCloseAllButCurrentOrPinned<cr>]],
+      ["p"]       = [[:BufferPin<cr>]],
+      ["j"]       = [[:BufferPick<cr>]],
+      ["<BS>"]    = [[:BufferMovePrevious<cr>]],
+      ["<TAB>"]   = [[:BufferMoveNext<cr>]],
     },
     -- Files
     ["f"]         = {
