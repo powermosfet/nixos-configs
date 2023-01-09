@@ -3,7 +3,7 @@
 {
   environment.systemPackages = with pkgs; [
     ripgrep
-    treesitter
+    tree-sitter
   ];
 
   programs.neovim = {
