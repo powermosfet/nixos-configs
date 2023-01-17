@@ -141,6 +141,10 @@ return require('packer').startup(function(use)
     'purescript-contrib/purescript-vim',
     ft = {'purescript', 'purs'},
   }
+  use {
+    'sersorrel/vim-lilypond',
+    ft = {'lilypond'},
+  }
 
 end)
 
