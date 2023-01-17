@@ -127,6 +127,15 @@ return require('packer').startup(function(use)
       }
     end
   }
+  use {
+    'vimwiki/vimwiki'
+  }
+  use {
+    'ElPiloto/telescope-vimwiki.nvim',
+    config = function()
+      require('sharedconfig.plugins.telescope.vimwiki')
+    end
+  }
 
   use {
     'purescript-contrib/purescript-vim',
