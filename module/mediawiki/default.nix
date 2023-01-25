@@ -30,6 +30,13 @@ in
   config = {
     services.httpd.adminAddr = email;
 
+    environment.systemPackages = with pkgs; [
+      # packages needed by the Diagrams extension
+      graphviz
+      mscgen
+      plantuml
+    ];
+
     services.mediawiki = {
       enable = true;
       name = "Berge wiki";
