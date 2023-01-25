@@ -54,6 +54,7 @@ in
         VisualEditor = null;
         WikiEditor = null;
         Cite = null;
+        Diagrams = null;
       };
       extraConfig = ''
         $wgLanguageCode = 'no';
