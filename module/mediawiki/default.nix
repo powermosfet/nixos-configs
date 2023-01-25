@@ -54,7 +54,7 @@ in
         VisualEditor = null;
         WikiEditor = null;
         Cite = null;
-        Diagrams = null;
+        Diagrams = fetchTarball "https://github.com/samwilson/diagrams-extension/archive/refs/tags/0.11.0.tar.gz";
       };
       extraConfig = ''
         $wgLanguageCode = 'no';
