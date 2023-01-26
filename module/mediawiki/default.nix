@@ -56,7 +56,7 @@ in
         Cite = null;
         Diagrams = pkgs.fetchzip {
           url = "https://github.com/samwilson/diagrams-extension/archive/refs/tags/0.11.0.tar.gz";
-          sha256 = "sha256:0y7yysnm64vclyj0nh18ibsbrwsycdi7f8mf8j1b991qggqnclys";
+          sha256 = "sha256-TScXGVcXcX6KC2/hxpw+VJ/r7c/F/TG6176VkoJaIvo=";
         };
       };
       extraConfig = ''
