@@ -30,13 +30,6 @@ in
   config = {
     services.httpd.adminAddr = email;
 
-    environment.systemPackages = with pkgs; [
-      # packages needed by the Diagrams extension
-      graphviz
-      mscgen
-      plantuml
-    ];
-
     services.mediawiki = {
       enable = true;
       name = "Berge wiki";
@@ -61,8 +54,16 @@ in
         VisualEditor = null;
         WikiEditor = null;
         Cite = null;
-        Diagrams = fetchTarball "https://github.com/samwilson/diagrams-extension/archive/refs/tags/0.11.0.tar.gz";
+        Diagrams = pkgs.fetchzip {
+          url = "https://github.com/samwilson/diagrams-extension/archive/refs/tags/0.11.0.tar.gz";
+          sha256 = "sha256:0y7yysnm64vclyj0nh18ibsbrwsycdi7f8mf8j1b991qggqnclys";
+        };
       };
+      path = with pkgs; [
+        graphviz
+        mscgen
+        plantuml
+      ];
       extraConfig = ''
         $wgLanguageCode = 'no';
         $wgNamespacesWithSubpages[NS_MAIN] = 1;
