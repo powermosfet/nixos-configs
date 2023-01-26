@@ -8,6 +8,15 @@ let
   email = "asmund@berge.id";
   internalPort = config.services.mediawiki.internalPort;
   smtpPassword = config.services.mediawiki.smtpPassword;
+
+  myMediaWiki = pkgs.mediawiki {
+    nativeBuildInputs = with pkgs; [
+      # Packages needed by the Diagrams extension
+      graphviz
+      mscgen
+      plantuml
+    ];
+  };
 in
 {
   imports =
@@ -32,6 +41,7 @@ in
 
     services.mediawiki = {
       enable = true;
+      package = myMediaWiki;
       name = "Berge wiki";
       database = {
         type = "mysql";
@@ -85,12 +95,6 @@ in
         $wgLogo = "$wgUploadPath/images/d/d4/Logo.jpg";
       '';
     };
-    systemd.services.phpfpm-mediawiki.path = with pkgs; [
-      # Packages needed by the Diagrams extension
-      graphviz
-      mscgen
-      plantuml
-    ];
 
     services.nginx.virtualHosts."${hostName}" = {
       enableACME = true;
