@@ -9,7 +9,8 @@ let
   internalPort = config.services.mediawiki.internalPort;
   smtpPassword = config.services.mediawiki.smtpPassword;
 
-  myMediaWiki = pkgs.mediawiki {
+  myMediaWiki = {
+    inherit (pkgs.mediawiki );
     nativeBuildInputs = with pkgs; [
       # Packages needed by the Diagrams extension
       graphviz
