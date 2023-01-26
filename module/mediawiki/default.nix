@@ -59,11 +59,6 @@ in
           sha256 = "sha256:0y7yysnm64vclyj0nh18ibsbrwsycdi7f8mf8j1b991qggqnclys";
         };
       };
-      path = with pkgs; [
-        graphviz
-        mscgen
-        plantuml
-      ];
       extraConfig = ''
         $wgLanguageCode = 'no';
         $wgNamespacesWithSubpages[NS_MAIN] = 1;
@@ -90,6 +85,12 @@ in
         $wgLogo = "$wgUploadPath/images/d/d4/Logo.jpg";
       '';
     };
+    systemd.services.phpfpm-mediawiki.path = with pkgs; [
+      # Packages needed by the Diagrams extension
+      graphviz
+      mscgen
+      plantuml
+    ];
 
     services.nginx.virtualHosts."${hostName}" = {
       enableACME = true;
