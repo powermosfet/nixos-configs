@@ -9,8 +9,8 @@ let
   internalPort = config.services.mediawiki.internalPort;
   smtpPassword = config.services.mediawiki.smtpPassword;
 
-  myMediaWiki = pkgs.mediawiki.overrideAttrs {
-    nativeBuildInputs = with pkgs; [
+  myMediaWiki = pkgs.mediawiki.override {
+    buildInputs = with pkgs; [
       # Packages needed by the Diagrams extension
       graphviz
       mscgen
