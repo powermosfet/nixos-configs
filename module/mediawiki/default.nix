@@ -10,7 +10,7 @@ let
   smtpPassword = config.services.mediawiki.smtpPassword;
 
   myMediaWiki = pkgs.mediawiki // {
-    buildInputs = with pkgs; [
+    path = with pkgs; [
       # Packages needed by the Diagrams extension
       graphviz
       mscgen
