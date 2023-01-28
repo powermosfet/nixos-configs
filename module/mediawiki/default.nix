@@ -68,6 +68,7 @@ in
           url = "https://github.com/samwilson/diagrams-extension/archive/refs/tags/0.11.0.tar.gz";
           sha256 = "sha256-TScXGVcXcX6KC2/hxpw+VJ/r7c/F/TG6176VkoJaIvo=";
         };
+        Mermaid = null;
       };
       extraConfig = ''
         $wgLanguageCode = 'no';
