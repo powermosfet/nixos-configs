@@ -14,15 +14,6 @@
       ../../module/pro-audio
     ];
      
-  nixpkgs.overlays = [
-    (self: super:
-      { xmonad = super.xmonad_0_17_0;
-        xmonad-contrib = super.xmonad-contrib_0_17_0;
-        xmonad-extra = super.xmonad-extra_0_17_0;
-      }
-    )
-  ];
-
   time.timeZone = "Europe/Oslo";
 
   networking.hostName = "asmund-thinkpad"; # Define your hostname.
@@ -39,8 +30,7 @@
     pcmanfm
     keepassxc
     rofi
-    xmobar
-    trayer
+    polybar
     dbus
     networkmanager
     xorg.xev
