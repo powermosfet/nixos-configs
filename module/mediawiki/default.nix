@@ -68,7 +68,10 @@ in
           url = "https://github.com/samwilson/diagrams-extension/archive/refs/tags/0.11.0.tar.gz";
           sha256 = "sha256-TScXGVcXcX6KC2/hxpw+VJ/r7c/F/TG6176VkoJaIvo=";
         };
-        Mermaid = null;
+        Mermaid = pkgs.fetchzip {
+          url = "https://github.com/SemanticMediaWiki/Mermaid/archive/refs/tags/3.1.0.tar.gz";
+          sha256 = "sha256-TScXGVcXcX6KC2/hxpw+VJ/r7c/F/TG6176VkoJaIvo=";
+        };
       };
       extraConfig = ''
         $wgLanguageCode = 'no';
