@@ -21,7 +21,6 @@ in
       adminuser = "dadmin";
       defaultPhoneRegion = "NO";
     };
-    nginx.enable = true;
   };
   
   users.users.nextcloud.extraGroups = [ "keys" ];
