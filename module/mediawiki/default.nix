@@ -65,7 +65,7 @@ in
         WikiEditor = null;
         Cite = null;
         Mermaid = pkgs.fetchzip {
-          url = "https://github.com/SemanticMediaWiki/Mermaid/archive/refs/tags/3.1.0.tar.gz";
+          url = "https://github.com/SemanticMediaWiki/Mermaid/archive/refs/tags/3.1.0.zip";
           sha256 = "sha256-TScXGVcXcX6KC2/hxpw+VJ/r7c/F/TG6176VkoJaIvo=";
         };
       };
