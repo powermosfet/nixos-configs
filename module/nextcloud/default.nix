@@ -21,6 +21,7 @@ in
       adminuser = "dadmin";
       defaultPhoneRegion = "NO";
     };
+    nginx.enable = true;
   };
   
   users.users.nextcloud.extraGroups = [ "keys" ];
@@ -48,22 +49,6 @@ in
   services.nginx.virtualHosts."${hostName}" = {
     forceSSL = true;
     enableACME = true;
-
-    locations."~ ^\\/nextcloud\\/(?:index|remote|public|cron|core\\/ajax\\/update|status|ocs\\/v[12]|updater\\/.+|oc[ms]-provider\\/.+|.+\\/richdocumentscode\\/proxy)\\.php(?:$|\\/)".extraConfig = ''
-          include ${pkgs.nginx}/conf/fastcgi.conf;
-          fastcgi_split_path_info ^(.+?\.php)(\\/.*)$;
-          set $path_info $fastcgi_path_info;
-          try_files $fastcgi_script_name =404;
-          fastcgi_param PATH_INFO $path_info;
-          fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
-          fastcgi_param HTTPS on;
-          fastcgi_param modHeadersAvailable true;
-          fastcgi_param front_controller_active true;
-          fastcgi_pass unix:/run/phpfpm/nextcloud.sock;
-          fastcgi_intercept_errors on;
-          fastcgi_request_buffering off;
-          fastcgi_read_timeout 120s;
-      '';
   };
   services.ddclient.domains = [ hostName ];
 
