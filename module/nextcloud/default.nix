@@ -18,6 +18,7 @@ in
       dbhost = "/run/postgresql";
       dbname = dbName;
       adminuser = "dadmin";
+      defaultPhoneRegion = "NO";
     };
   };
   
