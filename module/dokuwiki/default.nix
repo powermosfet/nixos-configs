@@ -9,7 +9,7 @@ let
     name = "mermaid";
     src = pkgs.fetchzip {
       url = "https://github.com/RobertWeinmeister/dokuwiki-mermaid/archive/refs/heads/main.zip";
-      sha256 = "sha256-l+GZdFGp6wyNuCbAZB9IbwpY5c/S4vSW12VP0mJHKXs=";
+      sha256 = "sha256-6t2ehpPmh8C8fYa+SFlnGav8/A4miuDtZ7fqH/eoVeM=";
     };
     sourceRoot = ".";
     installPhase = "mkdir -p $out; cp -R dokuwiki-mermaid-main/* $out/";
