@@ -36,7 +36,7 @@ in
       forceSSL = true;
 
       locations = {
-        "/favicon.png" = {
+        "/favicon.ico" = {
           root = ./.;
           tryFiles = "/berge-wiki.png =404";
         };
