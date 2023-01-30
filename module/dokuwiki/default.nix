@@ -14,6 +14,15 @@ let
     sourceRoot = ".";
     installPhase = "mkdir -p $out; cp -R source/* $out/";
   };
+  dokuwiki-plugin-indexmenu = pkgs.stdenv.mkDerivation {
+    name = "indexmenu";
+    src = pkgs.fetchzip {
+      url = "https://github.com/samuelet/indexmenu/archive/refs/heads/master.zip";
+      sha256 = "sha256-6t2ehpGmh8C8fYa+SFlnGav8/A4miuDtZ7fqH/eoVeM=";
+    };
+    sourceRoot = ".";
+    installPhase = "mkdir -p $out; cp -R source/* $out/";
+  };
 in
 {
   imports =
@@ -29,7 +38,10 @@ in
         *               @ALL              0
         *               @user            16
       '';
-      plugins = [ dokuwiki-plugin-mermaid ];
+      plugins = [ 
+        dokuwiki-plugin-mermaid
+        dokuwiki-plugin-indexmenu
+      ];
       extraConfig = ''
           $conf['title'] = 'Berge Wiki';
           $conf['userewrite'] = 1;
