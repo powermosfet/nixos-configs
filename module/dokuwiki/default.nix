@@ -17,8 +17,8 @@ in
       # settings.title = "Berge Wiki";
       disableActions = "register";
       acl = ''
-        *               @ALL               0
-        *               @users            16
+        *               @ALL              0
+        *               @user            16
       '';
     };
 
