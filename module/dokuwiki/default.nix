@@ -14,7 +14,7 @@ in
   config = {
     services.dokuwiki.sites."${hostName}" = {
       enable = true;
-      settings.title = "Berge Wiki";
+      # settings.title = "Berge Wiki";
     };
 
     networking.firewall.allowedTCPPorts = [ 443 ];
