@@ -30,6 +30,11 @@ in
         *               @user            16
       '';
       plugins = [ dokuwiki-plugin-mermaid ];
+      extraConfig = ''
+          $conf['title'] = 'Berge Wiki';
+          $conf['userewrite'] = 1;
+          $conf['passcrypt'] = 'bcrypt';
+      '';
     };
     services.nginx.virtualHosts."${hostName}" = {
       enableACME = true;
