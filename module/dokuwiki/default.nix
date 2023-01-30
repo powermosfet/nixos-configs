@@ -12,7 +12,7 @@ let
       sha256 = "sha256-6t2ehpPmh8C8fYa+SFlnGav8/A4miuDtZ7fqH/eoVeM=";
     };
     sourceRoot = ".";
-    installPhase = "mkdir -p $out; cp -R * $out/";
+    installPhase = "mkdir -p $out; cp -R source/* $out/";
   };
 in
 {
