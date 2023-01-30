@@ -33,7 +33,7 @@ in
       extraConfig = ''
           $conf['title'] = 'Berge Wiki';
           $conf['userewrite'] = 1;
-          $conf['passcrypt'] = 'bcrypt';
+          $conf['passcrypt'] = 'sha512';
       '';
     };
     services.nginx.virtualHosts."${hostName}" = {
