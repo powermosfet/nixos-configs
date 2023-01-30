@@ -34,6 +34,13 @@ in
     services.nginx.virtualHosts."${hostName}" = {
       enableACME = true;
       forceSSL = true;
+
+      locations = {
+        "/favicon.png" = {
+          root = ./.;
+          tryFiles = "/berge-wiki.png =404";
+        };
+      };
     };
 
     networking.firewall.allowedTCPPorts = [ 443 ];
