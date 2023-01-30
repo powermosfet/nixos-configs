@@ -16,10 +16,10 @@ in
       enable = true;
       # settings.title = "Berge Wiki";
       disableActions = "register";
-      acl = """
+      acl = ''
         *               @ALL               0
         *               @users            16
-      """;
+      '';
     };
 
     networking.firewall.allowedTCPPorts = [ 443 ];
