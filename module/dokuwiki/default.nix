@@ -24,7 +24,7 @@ in
     services.dokuwiki.sites."${hostName}" = {
       enable = true;
       # settings.title = "Berge Wiki";
-      disableActions = "register,sitemap";
+      disableActions = "register,index";
       acl = ''
         *               @ALL              0
         *               @user            16
