@@ -31,6 +31,10 @@ in
       '';
       plugins = [ dokuwiki-plugin-mermaid ];
     };
+    services.nginx.virtualHosts."${hostName}" = {
+      enableACME = true;
+      forceSSL = true;
+    };
 
     networking.firewall.allowedTCPPorts = [ 443 ];
   };
