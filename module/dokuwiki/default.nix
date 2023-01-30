@@ -36,7 +36,7 @@ in
       forceSSL = true;
 
       locations = {
-        "/favicon.ico" = {
+        "/lib/tpl/dokuwiki/images/favicon.ico" = {
           root = ./.;
           tryFiles = "/berge-wiki.png =404";
         };
