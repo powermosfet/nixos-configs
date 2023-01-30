@@ -5,6 +5,15 @@
 
 let
   hostName = "dokuwiki.berge.id";
+  dokuwiki-plugin-mermaid = pkgs.stdenv.mkDerivation {
+    name = "mermaid";
+    src = pkgs.fetchzip {
+      url = "https://github.com/RobertWeinmeister/dokuwiki-mermaid/archive/refs/heads/main.zip";
+      sha256 = "sha256-l+GZdFGp6wyNuCbAZB9IbwpY5c/S4vSW12VP0mJHKXs=";
+    };
+    sourceRoot = ".";
+    installPhase = "mkdir -p $out; cp -R dokuwiki-mermaid-main/* $out/";
+  };
 in
 {
   imports =
@@ -20,6 +29,7 @@ in
         *               @ALL              0
         *               @user            16
       '';
+      plugins = [ dokuwiki-plugin-mermaid ];
     };
 
     networking.firewall.allowedTCPPorts = [ 443 ];
