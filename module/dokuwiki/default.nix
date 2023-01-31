@@ -36,7 +36,7 @@ let
     name = "tag";
     src = pkgs.fetchzip {
       url = "https://github.com/cosmocode/tagging/archive/refs/heads/master.zip";
-      sha256 = "sha256-0ru90nDvePqdcdwVFmeXKatbmXVORx3gtpTRsrdRRRA=";
+      sha256 = "sha256-SahmPJOkS41RTkPBgmFhaycsUjCbiSS7+/N4prUAGDE=";
     };
     sourceRoot = ".";
     installPhase = "mkdir -p $out; cp -R source/* $out/";
