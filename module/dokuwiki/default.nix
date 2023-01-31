@@ -32,6 +32,15 @@ let
     sourceRoot = ".";
     installPhase = "mkdir -p $out; cp -R source/* $out/";
   };
+  dokuwiki-plugin-pagelist = pkgs.stdenv.mkDerivation {
+    name = "pagelist";
+    src = pkgs.fetchzip {
+      url = "https://github.com/dokufreaks/plugin-pagelist/archive/refs/heads/master.zip";
+      sha256 = "sha256-0ru90nDvePqdcdwVFmeXKatbmXVORx3gtpTRsrdRRRA=";
+    };
+    sourceRoot = ".";
+    installPhase = "mkdir -p $out; cp -R source/* $out/";
+  };
 in
 {
   imports =
@@ -51,6 +60,7 @@ in
         dokuwiki-plugin-mermaid
         dokuwiki-plugin-indexmenu
         dokuwiki-plugin-tag
+        dokuwiki-plugin-pagelist
       ];
       extraConfig = ''
           $conf['title'] = 'Berge Wiki';
