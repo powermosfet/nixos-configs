@@ -50,6 +50,15 @@ let
     sourceRoot = ".";
     installPhase = "mkdir -p $out; cp -R source/* $out/";
   };
+  dokuwiki-plugin-sqlite = pkgs.stdenv.mkDerivation {
+    name = "sqlite";
+    src = pkgs.fetchzip {
+      url = "https://github.com/cosmocode/sqlite/archive/refs/heads/master.zip";
+      sha256 = "sha256-ATk/qjsFrAOZpfu79Pp+YWtCYnkEJ7fSaTTanOS5wMg=";
+    };
+    sourceRoot = ".";
+    installPhase = "mkdir -p $out; cp -R source/* $out/";
+  };
 in
 {
   imports =
@@ -70,6 +79,7 @@ in
         dokuwiki-plugin-indexmenu
         dokuwiki-plugin-tag
         dokuwiki-plugin-pagelist
+        dokuwiki-plugin-sqlite
         dokuwiki-plugin-tagging
       ];
       extraConfig = ''
