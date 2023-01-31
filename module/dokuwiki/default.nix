@@ -32,11 +32,11 @@ let
     sourceRoot = ".";
     installPhase = "mkdir -p $out; cp -R source/* $out/";
   };
-  dokuwiki-plugin-tagging = pkgs.stdenv.mkDerivation {
-    name = "tagging";
+  dokuwiki-plugin-cloud = pkgs.stdenv.mkDerivation {
+    name = "cloud";
     src = pkgs.fetchzip {
-      url = "https://github.com/cosmocode/tagging/archive/refs/heads/master.zip";
-      sha256 = "sha256-SahmPJOkS41RTkPBgmFhaycsUjCbiSS7+/N4prUAGDE=";
+      url = "https://github.com/dokufreaks/plugin-cloud/archive/refs/heads/master.zip";
+      sha256 = "sha256-SahmPJOkS41RTkPBgmFhaycsUjCbiSS7+/N4prUAGEE=";
     };
     sourceRoot = ".";
     installPhase = "mkdir -p $out; cp -R source/* $out/";
@@ -46,15 +46,6 @@ let
     src = pkgs.fetchzip {
       url = "https://github.com/dokufreaks/plugin-pagelist/archive/refs/heads/master.zip";
       sha256 = "sha256-ATk/qjsFrAOZpfu79Pp+YWtCYnkEJ7fSaTHanOS5wMg=";
-    };
-    sourceRoot = ".";
-    installPhase = "mkdir -p $out; cp -R source/* $out/";
-  };
-  dokuwiki-plugin-sqlite = pkgs.stdenv.mkDerivation {
-    name = "sqlite";
-    src = pkgs.fetchzip {
-      url = "https://github.com/cosmocode/sqlite/archive/refs/heads/master.zip";
-      sha256 = "sha256-03tLt1B87IMKCPbWXZS9fzZv70J/BzD+lVPeaqisrkA=";
     };
     sourceRoot = ".";
     installPhase = "mkdir -p $out; cp -R source/* $out/";
@@ -79,8 +70,7 @@ in
         dokuwiki-plugin-indexmenu
         dokuwiki-plugin-tag
         dokuwiki-plugin-pagelist
-        dokuwiki-plugin-sqlite
-        dokuwiki-plugin-tagging
+        dokuwiki-plugin-cloud
       ];
       extraConfig = ''
           $conf['title'] = 'Berge Wiki';
