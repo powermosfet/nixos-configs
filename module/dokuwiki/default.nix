@@ -33,7 +33,7 @@ let
     installPhase = "mkdir -p $out; cp -R source/* $out/";
   };
   dokuwiki-plugin-tagging = pkgs.stdenv.mkDerivation {
-    name = "tag";
+    name = "tagging";
     src = pkgs.fetchzip {
       url = "https://github.com/cosmocode/tagging/archive/refs/heads/master.zip";
       sha256 = "sha256-SahmPJOkS41RTkPBgmFhaycsUjCbiSS7+/N4prUAGDE=";
