@@ -8,5 +8,4 @@ pkgs.stdenv.mkDerivation {
   };
   sourceRoot = ".";
   installPhase = "mkdir -p $out; cp -R source/* $out/";
-};
-
+}
