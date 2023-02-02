@@ -2,9 +2,11 @@
 
 pkgs.stdenv.mkDerivation {
   name = "tag";
-  src = pkgs.fetchzip {
-    url = "https://github.com/dokufreaks/plugin-tag/archive/refs/heads/master.zip";
-    sha256 = "sha256-0ru90nDvePqdcdwVFmeXKatbmXVORx3gtpTRsrdRRMA=";
+  src = pkgs.fetchFromGitHub {
+    owner = "dokufreaks";
+    repo  = "plugin-tag";
+    rev = "d5e67bf3e1824ea785699dec107816ec";
+    sha256 = "10ry3am7fqfylz0mda9lybp681x22js1gf2xh5w85jhqlmvzizid";
   };
   sourceRoot = ".";
   installPhase = "mkdir -p $out; cp -R source/* $out/";
