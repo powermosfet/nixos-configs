@@ -1,6 +1,7 @@
 { pkgs }:
 
 import ./helper {
+  inherit pkgs;
   name = "cloud";
   owner = "dokufreaks";
   repo  = "plugin-cloud";

@@ -1,6 +1,7 @@
 { pkgs }:
 
 import ./helper {
+  inherit pkgs;
   name = "tag";
   owner = "dokufreaks";
   repo  = "plugin-tag";

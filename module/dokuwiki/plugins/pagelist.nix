@@ -1,6 +1,7 @@
 { pkgs }:
 
 import ./helper {
+  inherit pkgs;
   name = "pagelist";
   owner = "dokufreaks";
   repo  = "plugin-pagelist";

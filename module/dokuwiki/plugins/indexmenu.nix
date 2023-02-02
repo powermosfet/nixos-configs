@@ -1,6 +1,7 @@
 { pkgs }:
 
 import ./helper {
+  inherit pkgs;
   name = "indexmenu";
   owner = "samuelet";
   repo  = "indexmenu";

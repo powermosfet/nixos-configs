@@ -1,6 +1,7 @@
 { pkgs }:
 
 import ./helper {
+  inherit pkgs;
   name = "mermaid";
   owner = "RobertWeinmeister";
   repo  = "dokuwiki-mermaid";
