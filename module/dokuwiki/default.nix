@@ -30,6 +30,7 @@ in
       ];
       extraConfig = ''
           $conf['title'] = 'Berge Wiki';
+          $conf['superuser'] = 'dadmin';
           $conf['userewrite'] = 1;
           $conf['passcrypt'] = 'sha512';
           $conf['defer_js'] = 0;
