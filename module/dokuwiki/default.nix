@@ -34,6 +34,8 @@ in
           $conf['userewrite'] = 1;
           $conf['passcrypt'] = 'sha512';
           $conf['defer_js'] = 0;
+          $conf['dmode'] = 02775;
+          $conf['fmode'] = 0664;
       '';
     };
     services.nginx.virtualHosts."${hostName}" = {
