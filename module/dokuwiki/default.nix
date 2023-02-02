@@ -26,6 +26,7 @@ in
         (import ./plugins/tag.nix { inherit pkgs; })
         (import ./plugins/pagelist.nix { inherit pkgs; })
         (import ./plugins/cloud.nix { inherit pkgs; })
+        (import ./plugins/imgpaste.nix { inherit pkgs; })
       ];
       extraConfig = ''
           $conf['title'] = 'Berge Wiki';
