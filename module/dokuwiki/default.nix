@@ -36,6 +36,7 @@ in
           $conf['defer_js'] = 0;
           $conf['dmode'] = 02775;
           $conf['fmode'] = 0664;
+          $conf['dformat'] = '%Y/%m/%d %H:%M (%f)';
       '';
     };
     services.nginx.virtualHosts."${hostName}" = {
