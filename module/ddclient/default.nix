@@ -7,7 +7,7 @@
 
       protocol = "namecheap";
       server = "dynamicdns.park-your-domain.com";
-      username = "asmundberge";
+      username = "berge.id";
     };
   };
 }
