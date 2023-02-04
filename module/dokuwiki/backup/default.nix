@@ -1,4 +1,4 @@
-{ pkgs, config, site, ... }:
+{ pkgs, config, ... }:
 
 {
   services.borgbackup.jobs = builtins.mapAttrs (site: _: 
