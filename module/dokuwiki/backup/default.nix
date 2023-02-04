@@ -1,7 +1,7 @@
 { pkgs, config, site, ... }:
 
 {
-  services.borgbackup.jobs = builtins.mapattrs (site: _: 
+  services.borgbackup.jobs = builtins.mapAttrs (site: _: 
   {
     paths = config.services.dokuwiki."${site}".stateDir;
     encryption.mode = "none";
