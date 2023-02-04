@@ -7,6 +7,10 @@ let
   dbUser = "nextcloud";
 in
 {
+  imports =
+    [ ./backup
+    ];
+
   services.nextcloud = {
     enable = true;
     package = pkgs.nextcloud25;
