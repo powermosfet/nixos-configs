@@ -6,7 +6,6 @@ in
 {
   imports =
     [ ../../user/asmund
-      ../../user/backup
       ../../module/tmux 
       ../../module/nginx
       ../../module/als
