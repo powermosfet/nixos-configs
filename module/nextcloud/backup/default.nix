@@ -1,8 +1,8 @@
-{ pkgs, options, ... }:
+{ pkgs, config, ... }:
 
 {
   services.borgbackup.jobs."nextcloud-gilli" = {
-    paths = options.services.nextcloud.home;
+    paths = config.services.nextcloud.home;
     encryption.mode = "none";
     environment.BORG_RSH = "ssh -i /root/.ssh/id_borg-nextcloud";
     repo = "ssh://backup@gilli.local:/mnt/passport/borgbackup/nextcloud";
