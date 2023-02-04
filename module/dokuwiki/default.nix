@@ -7,10 +7,6 @@ let
   hostName = "dokuwiki.berge.id";
 in
 {
-  imports =
-    [ ./backup
-    ];
-
   config = {
     services = {
       dokuwiki.sites."${hostName}" = {
