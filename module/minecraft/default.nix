@@ -16,5 +16,7 @@ in
     };
 
     services.ddclient.domains = [ "minecraft.berge.id" ];
+
+    backup.paths = [ config.services.minecraft-server.dataDir ];
   };
 }
