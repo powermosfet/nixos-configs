@@ -1,5 +1,6 @@
 { config, pkgs, lib, ... }:
 
+  with lib;
 {
   options = {
     backup.paths = mkOption {
