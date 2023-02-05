@@ -7,10 +7,6 @@ let
   dbUser = "nextcloud";
 in
 {
-  imports =
-    [ ./backup
-    ];
-
   services.nextcloud = {
     enable = true;
     package = pkgs.nextcloud25;
@@ -58,4 +54,6 @@ in
   security.acme.defaults.email = email;
   
   networking.firewall.allowedTCPPorts = [ 80 443 ];
+
+  backup.paths = [ config.services.nextcloud.datadir ];
 }
