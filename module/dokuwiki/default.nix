@@ -1,4 +1,3 @@
-
 { config, pkgs, lib, ... }:
 
   with lib;
@@ -6,7 +5,6 @@
 let
   hostName = "dokuwiki.berge.id";
   dataDir = "/var/lib/dokuwiki/${hostName}/data";
-
 in
 {
   config = {
@@ -35,18 +33,8 @@ in
           $conf['userewrite'] = 1;
           $conf['passcrypt'] = 'sha512';
           $conf['defer_js'] = 0;
-          $conf['dmode'] = 02775;
-          $conf['fmode'] = 0664;
-          $conf['dformat'] = '%Y/%m/%d %H:%M (%f)';
+          $conf['dformat'] = '%Y-%m-%d %H:%M (%f)';
         '';
-      };
-
-      borgbackup.jobs."${builtins.replaceStrings ["."] ["-"] hostName}" = {
-        paths = dataDir;
-        encryption.mode = "none";
-        environment.BORG_RSH = "ssh -i /root/.ssh/id_borg-main";
-        repo = "borg@gilli.local:.";
-        compression = "auto,zstd";
       };
 
       nginx.virtualHosts."${hostName}" = {
@@ -54,6 +42,8 @@ in
         forceSSL = true;
       };
     };
+
+    backup.paths = [ dataDir ];
 
     networking.firewall.allowedTCPPorts = [ 443 ];
   };

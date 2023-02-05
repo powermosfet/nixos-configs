@@ -35,9 +35,9 @@
       ];
     };
     main = {
-      path = "/mnt/passport/borgbackup";
-      authorizedKeys = [
-        "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDrIDlc3SHyptGtr6RK2/7by1l4v7vfp4hmr1QlfU7lW5kn7AItVkGhSXzfOSiWTpPvO7IA2x7g//KSevXFO4meuiWXc/KAZVClIL+olGO3ies87HREKqM4lCgsdPDEy5UQyHI+14jAB1hzbhjH6H2dw1cTftEUQ/JumFz4vgZXU6aC7MP+E2DlKwJbCM2X+mj8KJqMprMDlP8QxAJbcZzxx5nGD+MrCm6gLBiXO2XCd+roedfdvAQ3LkraLLHUk8sb7eKKbcX+hUXseQvmhw4daC0gOxRyt4YFrF88Usg77nbBasZ+QF91iX4owr0CR/hXaM3qllOHdSwOe7OkmBABFXlpZc6K44ghIoMMa55M2/OTiS0VvirkShvK87ekvDX0/7D0gTeR9FiOh519J+eMdUiKnZQGTDjhI2vx0GLFI9kutzdeJX+SspEXG4g3sFxAhYTE6WhjCqd2VqXLs1XQw+mrlfzOAbVkrR6S77qPuuoyKdkr50rXWSwDJCqBHGc= asmund@asmund-thinkpad"
+      path = "/mnt/passport/borg";
+      authorizedAppendOnlyKeys = [
+        "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCuoCpVADabu/4FMl7kv1jh+6tOa8iDIeRk3IpHIXvWgql5haVHX1Pdf1KGULcc1aZ7alPtR8lPRM9QA4N+pqY64eIAVfde1oe0P7h7NCHvwSwuVsXFR4psojWRplOhsgrVEa+tz0kN3At5laxwjM1gDpn2bb1zk8h3ghCa1yF8f6eRizvhNo/s4d5YQotVtF7bSU5N1SWYP4gO3FlOqbhoLsDoa3DYbWDB9h/ossKFDLquO4Pclr1oWNq+xovX+lFwipH+T7o2GUUt45C3eJla9Ooumk2v7IznLiCZQcvSaLBiMA7ax1oAxUTkR/WKZbSGNyUupIF8aNxiRVw7np0gdqCYubFHDh1FgvV+6TWYrGgvBCQPLSTsJLKgaU1M2oElh3qbP4Uqjwr1WR1rE3at3n9k0rGvdk8ISiXZy8jkWaATYOti2avjJ2S0R8NpYYCpUvZho+XJt1dtGh6Qhs+HkOK87Z9VwaNxJGFZZShqku4uSIaXROsxjZPRU/mAXkE= asmund@asmund-thinkpad"
       ];
     };
   };
