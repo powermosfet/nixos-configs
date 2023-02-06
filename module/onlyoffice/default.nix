@@ -1,7 +1,7 @@
 { pkgs, config, ... }:
 
 let
-  hostName = "onlyoffice.berge.id";
+  hostname = "onlyoffice.berge.id";
 in
 {
   imports =
@@ -12,7 +12,7 @@ in
     services.onlyoffice = {
       enable = true;
 
-      inherit hostName;
+      inherit hostname;
     };
 
     services.postgresqlBackup.databases = [ config.services.onlyoffice.postgresName ];
