@@ -5,17 +5,19 @@ let
 in
 {
   config = {
-    services.onlyoffice = {
-      enable = true;
+    services = {
+      onlyoffice = {
+        enable = true;
 
-      inherit hostname;
-    };
+        inherit hostname;
+      };
 
-    services.postgresqlBackup.databases = [ config.services.onlyoffice.postgresName ];
-    services.nginx.virtualHosts."${hostname}" = {
-      enableACME = true;
-      forceSSL = true;
+      postgresqlBackup.databases = [ config.services.onlyoffice.postgresName ];
+      nginx.virtualHosts."${hostname}" = {
+        enableACME = true;
+        forceSSL = true;
+      };
+      ddclient.domains = [ hostname ];
     };
-    services.ddclient.domains = [ hostname ];
   };
 }

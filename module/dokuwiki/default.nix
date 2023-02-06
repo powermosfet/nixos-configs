@@ -43,7 +43,7 @@ in
         enableACME = true;
         forceSSL = true;
       };
-      services.ddclient.domains = [ hostName ];
+      ddclient.domains = [ hostName ];
     };
 
     backup.paths = [ dataDir ];
