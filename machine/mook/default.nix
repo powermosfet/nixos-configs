@@ -33,7 +33,6 @@ in
   services.pms.port = ports.exposed.pms;
   services.als.port = ports.exposed.als;
   services.barcode-backend.port = ports.exposed.barcode;
-  services.onlyoffice.port = ports.internal.onlyoffice;
 
   environment.systemPackages = with pkgs; [
     git
