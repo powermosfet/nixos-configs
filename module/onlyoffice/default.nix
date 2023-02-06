@@ -4,10 +4,6 @@ let
   hostname = "onlyoffice.berge.id";
 in
 {
-  imports =
-    [
-    ];
-
   config = {
     services.onlyoffice = {
       enable = true;
@@ -16,5 +12,10 @@ in
     };
 
     services.postgresqlBackup.databases = [ config.services.onlyoffice.postgresName ];
+    services.nginx.virtualHosts."${hostname}" = {
+      enableACME = true;
+      forceSSL = true;
+    };
+    services.ddclient.domains = [ hostname ];
   };
 }
