@@ -21,8 +21,7 @@ in
       paths = [ config.services.minecraft-server.dataDir ];
       conflictingServices = [
         "minecraft-server"
-        ];
-      };
+      ];
     };
   };
 }
