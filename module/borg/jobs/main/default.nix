@@ -4,25 +4,26 @@
   with builtins;
 
 let
-  conflictingServices = [
-    "minecraft-server"
-  ];
-
   pauseConflicting = listToAttrs (map (service:
-    { name = "systemd.services." + service + ".conflicts";
+    { name = "systemd.services." + service;
       value = {
         conflicts = (map (job:
             "borgbackup-job-" + job + ".service"
           ) (attrNames config.services.borgbackup.jobs));
         postStop = "systemctl start " + service;
       };
-    }) conflictingServices);
+    }) config.backup.conflictingServices);
 in
 {
   options = {
     backup.paths = mkOption {
       description = "directories to back up";
       type = types.listOf types.path;
+    };
+
+    backup.conflictingServices = mkOption {
+      description = "conflicting services to be paused while backing up";
+      type = types.listOf types.string;
     };
   };
 

@@ -17,6 +17,12 @@ in
 
     services.ddclient.domains = [ "minecraft.berge.id" ];
 
-    backup.paths = [ config.services.minecraft-server.dataDir ];
+    backup = {
+      paths = [ config.services.minecraft-server.dataDir ];
+      conflictingServices = [
+        "minecraft-server"
+        ];
+      };
+    };
   };
 }
