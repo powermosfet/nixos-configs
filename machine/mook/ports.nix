@@ -6,6 +6,5 @@
   };
   internal = {
     wiki = 8101;
-    onlyoffice = 8102;
   };
 }
