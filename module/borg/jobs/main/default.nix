@@ -10,15 +10,13 @@ let
         conflicts = (map (job:
             "borgbackup-job-" + job + ".service"
           ) (attrNames config.services.borgbackup.jobs));
-        postStop = "systemctl start " + service;
       };
     }] ++ (map (job:
       { name = "systemd.services.borgbackup-job-" + job;
         value = {
           postStop = "systemctl start " + service;
         };
-      };
-      ) (attrNames config.services.borgbackup.jobs))
+      }) (attrNames config.services.borgbackup.jobs))
     ) config.backup.conflictingServices);
 in
 {
