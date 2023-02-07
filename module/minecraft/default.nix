@@ -20,7 +20,7 @@ in
     backup = {
       paths = [ config.services.minecraft-server.dataDir ];
       conflictingServices = [
-        "minecraft-server"
+        "minecraft-server.service"
       ];
     };
   };
