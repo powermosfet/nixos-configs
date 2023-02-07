@@ -37,6 +37,8 @@ in
     git
   ];
 
+  backup.paths = [ "/home/asmund/loftet" ];
+
   services.syncthing = {
     enable = true;
     user = "backup";
