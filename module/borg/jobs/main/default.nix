@@ -3,22 +3,6 @@
   with lib;
   with builtins;
 
-let
-  pauseConflicting = listToAttrs (concatMap (service: [
-    { name = "systemd.services." + service;
-      value = {
-        conflicts = (map (job:
-            "borgbackup-job-" + job + ".service"
-          ) (attrNames config.services.borgbackup.jobs));
-      };
-    }] ++ (map (job:
-      { name = "systemd.services.borgbackup-job-" + job;
-        value = {
-          postStop = "systemctl start " + service;
-        };
-      }) (attrNames config.services.borgbackup.jobs))
-    ) config.backup.conflictingServices);
-in
 {
   options = {
     backup.paths = mkOption {
@@ -40,5 +24,11 @@ in
       repo = "borg@gilli.local:.";
       compression = "auto,zstd";
     };
-  } // pauseConflicting;
+    systemd.services."borgbackup-job-main-gilli" = {
+      conflicts = config.backup.conflictingServices;
+      postStop = concatStringsSep "\n" (map (service:
+        "systemctl start " + service
+        ) config.backup.conflictingServices);
+    };
+  };
 }
