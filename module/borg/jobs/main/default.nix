@@ -4,7 +4,7 @@
   with builtins;
 
 let
-  pauseConflicting = listToAttrs (map (service:
+  pauseConflicting = listToAttrs (concatMap (service: [
     { name = "systemd.services." + service;
       value = {
         conflicts = (map (job:
@@ -12,7 +12,14 @@ let
           ) (attrNames config.services.borgbackup.jobs));
         postStop = "systemctl start " + service;
       };
-    }) config.backup.conflictingServices);
+    }] ++ (map (job:
+      { name = "systemd.services.borgbackup-job-" + job;
+        value = {
+          postStop = "systemctl start " + service;
+        };
+      };
+      ) (attrNames config.services.borgbackup.jobs))
+    ) config.backup.conflictingServices);
 in
 {
   options = {
