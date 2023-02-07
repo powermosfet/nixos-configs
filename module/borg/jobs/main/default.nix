@@ -1,6 +1,23 @@
 { config, pkgs, lib, ... }:
 
   with lib;
+  with builtins;
+
+let
+  conflictingServices = [
+    "minecraft-server";
+  ];
+
+  pauseConflicting = listToAttrs (map (service:
+    { name = "systemd.services." + service + ".conflicts";
+    , value = {
+      conflicts = (map (job:
+          "borgbackup-job-" + job + ".service"
+        ) (attrNames config.services.borgbackup.jobs));
+      postStop = "systemctl start " + service;
+      }
+    }));
+in
 {
   options = {
     backup.paths = mkOption {
@@ -17,5 +34,5 @@
       repo = "borg@gilli.local:.";
       compression = "auto,zstd";
     };
-  };
+  } // pauseConflicting;
 }
