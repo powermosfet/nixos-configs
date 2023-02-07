@@ -10,11 +10,11 @@ let
 
   pauseConflicting = listToAttrs (map (service:
     { name = "systemd.services." + service + ".conflicts";
-    , value = {
-      conflicts = (map (job:
-          "borgbackup-job-" + job + ".service"
-        ) (attrNames config.services.borgbackup.jobs));
-      postStop = "systemctl start " + service;
+      value = {
+        conflicts = (map (job:
+            "borgbackup-job-" + job + ".service"
+          ) (attrNames config.services.borgbackup.jobs));
+        postStop = "systemctl start " + service;
       }
     }));
 in
