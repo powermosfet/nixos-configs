@@ -15,7 +15,7 @@ let
             "borgbackup-job-" + job + ".service"
           ) (attrNames config.services.borgbackup.jobs));
         postStop = "systemctl start " + service;
-      }
+      };
     }));
 in
 {
