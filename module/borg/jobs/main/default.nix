@@ -5,7 +5,7 @@
 
 let
   conflictingServices = [
-    "minecraft-server";
+    "minecraft-server"
   ];
 
   pauseConflicting = listToAttrs (map (service:
