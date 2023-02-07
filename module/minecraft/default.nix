@@ -15,7 +15,7 @@ in
       openFirewall = true;
       eula = true;
     };
-    services.systemd.services."minecraft-server".conflicts = 
+    systemd.services."minecraft-server".conflicts = 
       (map (job:
         "borgbackup-job-" + job + ".service"
       ) (attrNames config.services.borgbackup.jobs));
