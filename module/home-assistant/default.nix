@@ -22,6 +22,7 @@
           http = {};
           feedreader.urls = [ "https://nixos.org/blogs.xml" ];
         };
+        openFirewall = true;
       };
     };
   };
