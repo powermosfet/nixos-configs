@@ -26,6 +26,7 @@ in
       ../../module/bokashi
       ../../module/kilometer
       ../../module/ddclient
+      ../../module/home-assistant
     ];
 
   services.mediawiki.internalPort = ports.internal.wiki;
