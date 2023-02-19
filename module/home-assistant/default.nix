@@ -14,7 +14,7 @@
             longitude = "!secret longitude";
             elevation = "!secret elevation";
             unit_system = "metric";
-            time_zone = "Erope/Oslo";
+            time_zone = "Europe/Oslo";
           };
           frontend = {
             themes = "!include_dir_merge_named themes";
