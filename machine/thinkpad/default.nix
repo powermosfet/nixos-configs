@@ -11,7 +11,6 @@
       ../../module/printing
       ../../module/gnupg
       ../../module/rtl-sdr
-      ../../module/pro-audio
     ];
      
   time.timeZone = "Europe/Oslo";
