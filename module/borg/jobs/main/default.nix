@@ -23,6 +23,7 @@
       environment.BORG_RSH = "ssh -i /root/.ssh/id_borg-main-gilli";
       repo = "borg@gilli.local:.";
       compression = "auto,zstd";
+      startAt = "04:00";
     };
     systemd.services."borgbackup-job-main-gilli" = {
       conflicts = config.backup.conflictingServices;
@@ -37,6 +38,7 @@
       environment.BORG_RSH = "ssh -i /root/.ssh/id_borg-main-agent25";
       repo = "borg@agent25.berge.id:.";
       compression = "auto,zstd";
+      startAt = "04:00";
     };
     systemd.services."borgbackup-job-main-agent25" = {
       conflicts = config.backup.conflictingServices;
