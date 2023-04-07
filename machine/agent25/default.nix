@@ -25,7 +25,7 @@
   services.borgbackup.repos = {
     "main-mook" = {
       authorizedKeysAppendOnly = [
-        "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCuoCpVADabu/4FMl7kv1jh+6tOa8iDIeRk3IpHIXvWgql5haVHX1Pdf1KGULcc1aZ7alPtR8lPRM9QA4N+pqY64eIAVfde1oe0P7h7NCHvwSwuVsXFR4psojWRplOhsgrVEa+tz0kN3At5laxwjM1gDpn2bb1zk8h3ghCa1yF8f6eRizvhNo/s4d5YQotVtF7bSU5N1SWYP4gO3FlOqbhoLsDoa3DYbWDB9h/ossKFDLquO4Pclr1oWNq+xovX+lFwipH+T7o2GUUt45C3eJla9Ooumk2v7IznLiCZQcvSaLBiMA7ax1oAxUTkR/WKZbSGNyUupIF8aNxiRVw7np0gdqCYubFHDh1FgvV+6TWYrGgvBCQPLSTsJLKgaU1M2oElh3qbP4Uqjwr1WR1rE3at3n9k0rGvdk8ISiXZy8jkWaATYOti2avjJ2S0R8NpYYCpUvZho+XJt1dtGh6Qhs+HkOK87Z9VwaNxJGFZZShqku4uSIaXROsxjZPRU/mAXkE= asmund@asmund-thinkpad"
+        "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCmhuYssWYdPft49Cy5PXaYuy9sYU9E3TyyS/icWheXxctKajAypbKrsC6e3FfY8qfT+XgP17hMmpC6/IxpYTK7I39e4GfiBEoMU/YFcO4aPeQV6a7HQIRkXXKuhFRExbbWOhPBfzQ8jX26UzSXj+Xwq2hm42kE873Npe3Gi5P7kk7Z/RTShEWvmpp5JVE/mVL3M4kmzwEdm1TU4zra3iCAtFJ+gzIN7d6Utg99AgvtGhTvl0z5wLZzkuknsUnjNRIIeuhLBT+7VwRwOffJYD8gd8IM8CmTU/qmJosDZN6OrUmA8s9KeCLg4NpUODlZNijYErPHpXLGZJndMwzXhtSJNvrp04fnGVKAFtBzLpNyyr4Sp76LAIInR6ING8N/sD9GuHhmNKMh3ofXsXcR8a8CnNX5RoqnbfqKSkKJw8sf5fQOUyr7OqTHuj16OYJp+h72IN+szTgcxhKkd6c4wIbNmU8lrcU2Lbljvsl6FOuZkIHruax/gTzPMuKUhPZgzdE= asmund@mook"
       ];
     };
   };

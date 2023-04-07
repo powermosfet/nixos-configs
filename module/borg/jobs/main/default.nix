@@ -30,5 +30,19 @@
         "systemctl start " + service
         ) config.backup.conflictingServices);
     };
+
+    services.borgbackup.jobs."main-agent25" = {
+      paths = config.backup.paths;
+      encryption.mode = "keyfile";
+      environment.BORG_RSH = "ssh -i /root/.ssh/id_borg-main-agent25";
+      repo = "borg@agent25.berge.id:.";
+      compression = "auto,zstd";
+    };
+    systemd.services."borgbackup-job-main-agent25" = {
+      conflicts = config.backup.conflictingServices;
+      postStop = concatStringsSep "\n" (map (service:
+        "systemctl start " + service
+        ) config.backup.conflictingServices);
+    };
   };
 }
