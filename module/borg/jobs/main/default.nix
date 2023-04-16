@@ -36,7 +36,7 @@
       paths = config.backup.paths;
       encryption.mode = "keyfile";
       environment.BORG_RSH = "ssh -i /root/.ssh/id_borg-main-agent25";
-      repo = "ssh://borg@agent25.berge.id:222/var/lib/borgbackup";
+      repo = "ssh://borg@agent25.berge.id:222/.";
       compression = "auto,zstd";
       startAt = "04:00";
     };
