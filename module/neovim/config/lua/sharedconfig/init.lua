@@ -23,6 +23,7 @@ g.maplocalleader = " "
 
 local keymaps = require("sharedconfig.keymaps")
 kmap("", keymaps)
+api.nvim_set_keymap("t", "<Esc>", "<C-\><C-n>", keymapOptions)
 
 -- OPTIONS
 
