@@ -8,7 +8,7 @@ let
     owner = "powermosfet";
     repo  = "als";
     rev = "ea0c17b8a41b34052cb024d1f7c62e92dc7bc5ea";
-    sha256 = "16k3kv6jdacna8zdgipdm2hyimilswgv60halvc2fc0jzr2vramd";
+    sha256 = "sha256-vZVZ53PN4nwRJrRJYnkaXGqgGK4fi76uElOQa6gHEnU=";
   };
   als = import src { pkgs = import (fetchTarball "https://github.com/NixOS/nixpkgs/tarball/21.11") { }; };
 in
