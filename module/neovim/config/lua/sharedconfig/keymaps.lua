@@ -53,6 +53,7 @@ return {
       ["s"]          = [[:G<cr>]],
       ["f"]          = [[:Git fetch --prune<cr>]],
       ["p"]          = [[:Git pull --ff-only<cr>]],
+      ["P"]          = [[:Git push origin HEAD<cr>]],
       ["o"]          = [[:Git checkout ]],
       ["n"]          = [[/\(<<<<<<<\|=======\||||||||\|>>>>>>>\)<cr>]],
       ["h"]          = [[:GitGutterPreviewHunk<cr>]]
