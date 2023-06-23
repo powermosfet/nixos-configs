@@ -13,10 +13,18 @@ in
         enable = true;
         stateDir = dataDir;
         disableActions = "register,index";
-        acl = ''
-          *               @ALL              0
-          *               @user            16
-          '';
+        acl = [
+          {
+            page = "*";
+            actor = "@ALL";
+            level = 0;
+          }
+          {
+            page = "*";
+            actor = "@user";
+            level = 16;
+          }
+        ];
         plugins = [ 
           (import ./plugins/mermaid.nix { inherit pkgs; })
           (import ./plugins/indexmenu.nix { inherit pkgs; })
