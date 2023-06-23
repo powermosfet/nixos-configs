@@ -28,6 +28,8 @@ in
           (import ./plugins/backlinks.nix { inherit pkgs; })
           (import ./plugins/tagfilter.nix { inherit pkgs; })
           (import ./plugins/move.nix { inherit pkgs; })
+          (import ./plugins/sqlite.nix { inherit pkgs; })
+          (import ./plugins/struct.nix { inherit pkgs; })
         ];
         extraConfig = ''
           $conf['title'] = 'Berge Wiki';
