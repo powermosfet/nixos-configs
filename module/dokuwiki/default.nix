@@ -12,7 +12,6 @@ in
       dokuwiki.sites."${hostName}" = {
         enable = true;
         stateDir = dataDir;
-        disableActions = "register,index";
         acl = [
           {
             page = "*";
@@ -46,6 +45,7 @@ in
           useacl = true;
           defer_js = 0;
           dformat = "%Y-%m-%d %H:%M (%f)";
+          disableActions = "register,index";
         };
       };
 
