@@ -29,7 +29,6 @@ in
           (import ./plugins/indexmenu.nix { inherit pkgs; })
           (import ./plugins/tag.nix { inherit pkgs; })
           (import ./plugins/pagelist.nix { inherit pkgs; })
-          (import ./plugins/cloud.nix { inherit pkgs; })
           (import ./plugins/imgpaste.nix { inherit pkgs; })
           (import ./plugins/backlinks.nix { inherit pkgs; })
           (import ./plugins/tagfilter.nix { inherit pkgs; })
