@@ -11,7 +11,6 @@ in
     services = {
       dokuwiki.sites."${hostName}" = {
         enable = true;
-# settings.title = "Berge Wiki";
         stateDir = dataDir;
         disableActions = "register,index";
         acl = ''
@@ -31,14 +30,14 @@ in
           (import ./plugins/sqlite.nix { inherit pkgs; })
           (import ./plugins/struct.nix { inherit pkgs; })
         ];
-        extraConfig = ''
-          $conf['title'] = 'Berge Wiki';
-          $conf['superuser'] = 'dadmin';
-          $conf['userewrite'] = 1;
-          $conf['passcrypt'] = 'sha512';
-          $conf['defer_js'] = 0;
-          $conf['dformat'] = '%Y-%m-%d %H:%M (%f)';
-        '';
+        settings = {
+          title = "Berge Wiki";
+          superuser = "dadmin";
+          userewrite = 1;
+          passcrypt = "sha512";
+          defer_js = 0;
+          dformat = "%Y-%m-%d %H:%M (%f)";
+        };
       };
 
       nginx.virtualHosts."${hostName}" = {
