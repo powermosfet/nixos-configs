@@ -35,6 +35,7 @@ in
           superuser = "dadmin";
           userewrite = 1;
           passcrypt = "sha512";
+          useacl = true;
           defer_js = 0;
           dformat = "%Y-%m-%d %H:%M (%f)";
         };
