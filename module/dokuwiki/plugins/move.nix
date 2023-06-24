@@ -5,6 +5,6 @@ import ./helper {
   name = "move";
   owner = "michitux";
   repo  = "dokuwiki-plugin-move";
-  rev = "f2416147498d9b33e36445820b54e015f1968776";
-  sha256 = "sha256-X2Eza0iVOer+9a8AZzfOOewMbOtF3h13o1qqFQptdok=";
+  rev = "6e56e1e81df72e6d8fe5a7092ae3dfe7d52fecbe";
+  sha256 = "sha256-rQmbaRRFXoZhSPZnEYpiQ/sjGwp/Ij4Q9kCFWqbKLTY=";
 }
