@@ -18,6 +18,7 @@
     jq
     visidata
     vifm-full
+    octave
   ];
 
   programs.bash = {
