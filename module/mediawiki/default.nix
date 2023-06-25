@@ -47,7 +47,7 @@ in
         type = "mysql";
         createLocally = true;
       };
-      virtualHost = {
+      httpd.virtualHost = {
         hostName = hostName;
         adminAddr = email;
         listen =  [
