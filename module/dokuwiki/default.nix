@@ -3,7 +3,7 @@
   with lib;
 
 let
-  hostName = "dokuwiki.berge.id";
+  hostName = "wiki.berge.id";
   dataDir = "/var/lib/dokuwiki/${hostName}/data";
 in
 {
