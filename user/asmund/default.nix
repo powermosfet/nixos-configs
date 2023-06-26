@@ -19,6 +19,7 @@
     visidata
     vifm-full
     octave
+    htop
   ];
 
   programs.bash = {
