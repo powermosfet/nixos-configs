@@ -1,6 +1,10 @@
 { pkgs, ... }:
 
 {
+  imports =
+    [ ../../user/backup
+    ];
+
   config = {
     users.groups.node-red = {};
     users.users.node-red = {
