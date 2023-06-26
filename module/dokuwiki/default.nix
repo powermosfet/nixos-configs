@@ -35,6 +35,7 @@ in
           (import ./plugins/move.nix { inherit pkgs; })
           (import ./plugins/sqlite.nix { inherit pkgs; })
           (import ./plugins/struct.nix { inherit pkgs; })
+          (import ./plugins/orphanswanted.nix { inherit pkgs; })
         ];
         settings = {
           title = "Berge Wiki";
