@@ -46,7 +46,7 @@ in
           useacl = true;
           defer_js = 0;
           dformat = "%Y-%m-%d %H:%M (%f)";
-          disableActions = "register,index";
+          disableactions = [ "register" "index" ];
         };
       };
 
