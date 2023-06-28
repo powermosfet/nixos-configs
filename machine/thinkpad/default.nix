@@ -45,6 +45,7 @@
     mime-types
     spotify
     chromium
+    logseq
   ];
 
   fonts.fonts = with pkgs; [
