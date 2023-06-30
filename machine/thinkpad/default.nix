@@ -1,5 +1,8 @@
 { pkgs, ... }:
 
+let
+  unstable = import <nixos-unstable> { };
+in
 {
   imports =
     [ ../../user/asmund
@@ -45,7 +48,7 @@
     mime-types
     spotify
     chromium
-    logseq
+    unstable.logseq
   ];
 
   fonts.fonts = with pkgs; [
