@@ -3,6 +3,8 @@
 let
   hostName = "papir.berge.id";
   email = "asmund@berge.id";
+  dbName = "paperless";
+  dbUser = config.services.paperless.user;
 in
 {
   services.paperless = {
@@ -25,6 +27,21 @@ in
     };
   };
   security.acme.defaults.email = email;
+
+  services.postgresql = {
+    ensureUsers = [
+      {
+        name = dbUser;
+        ensurePermissions = {
+          "DATABASE ${dbName}" = "ALL PRIVILEGES";
+        };
+      }
+    ];
+    ensureDatabases = [
+      dbName
+    ];
+  };
+  services.postgresqlBackup.databases = [ dbName ];
 
   backup.paths = [ config.services.paperless.dataDir ];
 }
