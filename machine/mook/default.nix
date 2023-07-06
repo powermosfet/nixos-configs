@@ -26,6 +26,7 @@ in
       ../../module/kilometer
       ../../module/ddclient
       ../../module/home-assistant
+      ../../module/paperless
     ];
 
   services.pms.port = ports.exposed.pms;

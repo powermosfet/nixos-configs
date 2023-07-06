@@ -105,6 +105,11 @@ in
         enableContribAndExtras = true;
       };
     };
+    xrdp = {
+      enable = true;
+      defaultWindowManager = "xmonad";
+      openFirewall = true;
+    };
 
     logind.extraConfig = ''
       HandlePowerKey=suspend
