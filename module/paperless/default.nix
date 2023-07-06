@@ -9,7 +9,6 @@ in
 {
   services.paperless = {
     enable = true;
-    address = "https://${hostName}";
     extraConfig = {
       PAPERLESS_DBHOST = "/run/postgresql";
       PAPERLESS_OCR_LANGUAGE = "nor+eng";
