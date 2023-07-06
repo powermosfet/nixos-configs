@@ -9,6 +9,7 @@ in
 {
   services.paperless = {
     enable = true;
+    consumptionDirIsPublic = true;
     extraConfig = {
       PAPERLESS_DBHOST = "/run/postgresql";
       PAPERLESS_OCR_LANGUAGE = "nor+eng";
