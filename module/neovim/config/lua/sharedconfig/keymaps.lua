@@ -15,6 +15,16 @@ return {
     ["t"]            = [[:Telescope vim_bookmarks current_file<cr>]],
     ["T"]            = [[:Telescope vim_bookmarks all<cr>]],
   },
+  -- Jumping around
+  [")"]              = {
+    ["f"]            = [[:TSTextobjectGotoNextStart @function.outer<cr>]],
+    ["p"]            = [[:TSTextobjectGotoNextStart @parameter.outer<cr>]],
+  },
+  ["("]              = {
+    ["f"]            = [[:TSTextobjectGotoPreviousStart @function.outer<cr>]],
+    ["p"]            = [[:TSTextobjectGotoPreviousStart @parameter.outer<cr>]],
+  },
+  -- Leader
   ["<leader>"]       = {
     ["v"]            = [[:tabe <c-r>=resolve($MYVIMRC)<cr><cr>]],
     ["n"]            = [[:noh<cr>]],
