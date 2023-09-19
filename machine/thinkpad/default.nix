@@ -49,6 +49,8 @@ in
     spotify
     chromium
     unstable.logseq
+    alsa-utils
+    anytype
   ];
 
   fonts.fonts = with pkgs; [
@@ -133,5 +135,6 @@ in
   services.udisks2.enable = true;
   services.printing.enable = true;
   hardware.bluetooth.enable = true;
+  hardware.pulseaudio.enable = true;
 }
 
