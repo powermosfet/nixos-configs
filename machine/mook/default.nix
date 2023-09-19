@@ -27,6 +27,7 @@ in
       ../../module/ddclient
       ../../module/home-assistant
       ../../module/paperless
+      ../../module/pgadmin
     ];
 
   services.pms.port = ports.exposed.pms;
