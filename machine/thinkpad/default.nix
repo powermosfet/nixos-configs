@@ -21,6 +21,8 @@ in
   networking.hostName = "asmund-thinkpad"; # Define your hostname.
   networking.networkmanager.enable = true;
 
+  nixpkgs.config.allowUnfree = true;
+
   environment.systemPackages = with pkgs; [
     git
     wget
@@ -50,10 +52,10 @@ in
     chromium
     unstable.logseq
     alsa-utils
-    anytype
+    unstable.anytype
   ];
 
-  fonts.fonts = with pkgs; [
+  fonts.packages = with pkgs; [
     nerdfonts
   ];
 
