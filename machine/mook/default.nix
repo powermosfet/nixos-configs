@@ -15,7 +15,6 @@ in
       ../../module/postgresql/backup
       ../../module/barcode-backend
       ../../module/nextcloud
-      ../../module/dokuwiki
       ../../module/node-red
       ../../module/avahi
       ../../module/neovim
