@@ -41,7 +41,10 @@ return require('packer').startup(function(use)
     'romgrk/barbar.nvim',
     requires = 'nvim-tree/nvim-web-devicons'
   }
-  use 'airblade/vim-gitgutter'
+  use {
+    'airblade/vim-gitgutter', 
+    branch = 'main'
+  }
   use {
     'hrsh7th/nvim-cmp',
     config = function()
