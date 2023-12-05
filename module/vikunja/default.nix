@@ -12,7 +12,7 @@ in
       enable = true;
       setupNginx = true;
       frontendScheme = "https";
-      frondendHostname = hostName;
+      frontendHostname = hostName;
       database = {
         type = "postgres";
 	host = "/run/postgresql";
