@@ -47,7 +47,9 @@ in
       isSystemUser = true;
       group = dbUser;
     };
-    systemd.services.vikunda-api.user = dbUser;
+    systemd.services.vikunda-api.serviceConfig = {
+      User = dbUser;
+    };
   };
 }
 
