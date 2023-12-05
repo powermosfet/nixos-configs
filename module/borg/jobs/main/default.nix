@@ -12,7 +12,7 @@
 
     backup.conflictingServices = mkOption {
       description = "conflicting services to be paused while backing up";
-      type = types.listOf types.string;
+      type = types.listOf types.str;
     };
   };
 
