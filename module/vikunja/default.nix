@@ -14,10 +14,10 @@ in
       frontendScheme = "https";
       frontendHostname = hostName;
       database = {
-        type = "postgres";
-	host = "/run/postgresql";
-	user = dbUser;
-	database = dbName;
+        type = "sqlite";
+	# host = "/run/postgresql";
+	# user = dbUser;
+	# database = dbName;
       };
     };
 
