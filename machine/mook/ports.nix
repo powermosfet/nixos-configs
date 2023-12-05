@@ -6,5 +6,6 @@
   };
   internal = {
     vikunja = 8900;
+    trilium = 8901;
   };
 }
