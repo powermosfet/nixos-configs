@@ -15,7 +15,7 @@ in
       frontendHostname = hostName;
       database = {
         type = "postgres";
-	host = "localhost";
+	host = "/run/postgresql";
 	user = dbUser;
 	database = dbName;
       };
