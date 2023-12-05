@@ -13,7 +13,6 @@ in
 	hostName = hostName;
       };
       instanceName = "Berge Wiki";
-      host = hostName;
     };
 
     services.nginx.virtualHosts."${hostName}" = {
