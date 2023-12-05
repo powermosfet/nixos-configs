@@ -41,6 +41,13 @@ in
       ];
     };
     services.postgresqlBackup.databases = [ dbName ];
+
+    users.groups."${dbUser}" = {};
+    users.users."${dbUser}" = {
+      isSystemUser = true;
+      group = dbUser;
+    };
+    systemd.services.vikunda-api.user = dbUser;
   };
 }
 
