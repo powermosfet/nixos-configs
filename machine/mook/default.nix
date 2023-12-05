@@ -26,11 +26,13 @@ in
       ../../module/ddclient
       ../../module/home-assistant
       ../../module/paperless
+      ../../module/vikunja
     ];
 
   services.pms.port = ports.exposed.pms;
   services.als.port = ports.exposed.als;
   services.barcode-backend.port = ports.exposed.barcode;
+  services.vikunja.port = ports.internal.vikunja;
 
   environment.systemPackages = with pkgs; [
     git
