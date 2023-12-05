@@ -52,10 +52,9 @@ in
     chromium
     unstable.logseq
     alsa-utils
-    unstable.anytype
   ];
 
-  fonts.packages = with pkgs; [
+  fonts.fonts = with pkgs; [
     nerdfonts
   ];
 
