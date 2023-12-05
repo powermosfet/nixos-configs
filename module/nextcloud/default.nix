@@ -12,6 +12,7 @@ in
     package = pkgs.nextcloud26;
     hostName = hostName;
     https = true;
+    enableBrokenCiphersForSSE = false;
     config = {
       dbtype = "pgsql";
       dbuser = dbUser;
