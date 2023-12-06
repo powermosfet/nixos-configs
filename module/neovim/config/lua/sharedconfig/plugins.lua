@@ -1,4 +1,5 @@
 return require('packer').startup(function(use)
+  use 'wbthomason/packer.nvim'
   use {
     'nvim-tree/nvim-tree.lua',
     requires = 'nvim-tree/nvim-web-devicons',
@@ -86,6 +87,7 @@ return require('packer').startup(function(use)
     run = ':TSUpdate',
     config = function()
       vim.env.CC = ''
+      require 'nvim-treesitter.install'.compilers = { 'clang++'}
       require'nvim-treesitter.configs'.setup {
         auto_install = true,
         ignore_install = {},
