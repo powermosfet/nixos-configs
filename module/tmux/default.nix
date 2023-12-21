@@ -1,13 +1,13 @@
 { config, pkgs, ... }:
 
 let
-  powerline = pkgs.python39Packages.powerline;
+  powerline = pkgs.python311Packages.powerline;
 in
 {
   environment.systemPackages = with pkgs; [
     tmuxp
     powerline
-    python39Full
+    python311Full
   ];
 
   programs.tmux = {
@@ -23,7 +23,7 @@ in
     extraConfig = ''
       bind C-a send-keys C-a
 
-      source ${powerline}/lib/python3.9/site-packages/powerline/bindings/tmux/powerline.conf
+      source ${powerline}/lib/python3.11/site-packages/powerline/bindings/tmux/powerline.conf
     '';
   };
 }
