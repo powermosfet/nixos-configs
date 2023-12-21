@@ -57,9 +57,7 @@ in
       ensureUsers = [
         {
           name = dbUser;
-          ensurePermissions = {
-            "DATABASE ${dbName}" = "ALL PRIVILEGES";
-          };
+          ensureDBOwnership = true;
         }
       ];
       ensureDatabases = [
