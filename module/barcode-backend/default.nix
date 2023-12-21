@@ -13,7 +13,7 @@ let
   barcode-backend = import src { };
   dbUser = "barcode";
   dbPort = config.services.postgresql.port;
-  dbName = "products";
+  dbName = "barcode";
 in
 {
   imports =
