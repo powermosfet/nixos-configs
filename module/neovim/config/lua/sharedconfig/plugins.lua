@@ -87,7 +87,6 @@ return require('packer').startup(function(use)
     run = ':TSUpdate',
     config = function()
       vim.env.CC = ''
-      require 'nvim-treesitter.install'.compilers = { 'clang++'}
       require'nvim-treesitter.configs'.setup {
         auto_install = true,
         ignore_install = {},
