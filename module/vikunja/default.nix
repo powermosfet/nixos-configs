@@ -1,6 +1,7 @@
 { pkgs, config, ... }:
 
 let
+  unstable = import <nixos-unstable> { };
   hostName = "todo.berge.id";
   email = "asmund@berge.id";
   dbName = "vikunja";
@@ -10,6 +11,7 @@ in
   config = {
     services.vikunja = {
       enable = true;
+      package-api = unstable.vikunja-api;
       setupNginx = true;
       frontendScheme = "https";
       frontendHostname = hostName;
