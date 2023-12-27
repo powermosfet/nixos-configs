@@ -16,7 +16,7 @@ in
       frontendScheme = "https";
       frontendHostname = hostName;
       database = {
-        type = "sqlite";
+        type = "postgres";
 	# host = "/run/postgresql";
 	# user = dbUser;
 	# database = dbName;
