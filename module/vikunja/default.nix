@@ -3,9 +3,9 @@
 let
   unstable = import <nixos-unstable> { };
   hostName = "todo.berge.id";
+  user = config.services.vikunja.database.user;
+  database = config.services.vikunja.database.database;
   email = "asmund@berge.id";
-  dbName = "vikunja";
-  dbUser = "vikunja";
 in
 {
   config = {
@@ -17,7 +17,7 @@ in
       frontendHostname = hostName;
       database = {
         type = "postgres";
-	# host = "/run/postgresql";
+	host = "/run/postgresql";
 	# user = dbUser;
 	# database = dbName;
       };
@@ -32,23 +32,25 @@ in
     services.postgresql = {
       ensureUsers = [
         {
-          name = dbUser;
+          name = user;
           ensureDBOwnership = true;
         }
       ];
       ensureDatabases = [
-        dbName
+        database
       ];
     };
-    services.postgresqlBackup.databases = [ dbName ];
+    services.postgresqlBackup.databases = [
+      database
+    ];
 
-    users.groups."${dbUser}" = {};
-    users.users."${dbUser}" = {
+    users.groups."${user}" = {};
+    users.users."${user}" = {
       isSystemUser = true;
-      group = dbUser;
+      group = user;
     };
     systemd.services.vikunda-api.serviceConfig = {
-      User = dbUser;
+      User = user;
     };
   };
 }
