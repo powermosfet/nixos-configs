@@ -49,7 +49,7 @@ in
       isSystemUser = true;
       group = user;
     };
-    systemd.services.vikunda-api.serviceConfig = {
+    systemd.services.vikunja-api.serviceConfig = {
       User = user;
     };
   };
