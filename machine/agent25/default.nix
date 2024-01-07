@@ -4,7 +4,6 @@
   imports =
     [ ../../module/ddclient
       ../../user/asmund
-      ../../module/tmux
       ../../module/neovim
       ../../module/avahi
       ../../module/garbage-collection

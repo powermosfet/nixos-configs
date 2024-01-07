@@ -1,6 +1,10 @@
 { config, pkgs, ... }:
 
 {
+  imports =
+    [ ../../module/zellij
+    ];
+     
   users.users.asmund = {
     isNormalUser = true;
     extraGroups = [ "wheel" "networkmanager" ]; 

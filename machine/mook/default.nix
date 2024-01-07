@@ -7,7 +7,6 @@ in
   imports =
     [ ../../user/asmund
       ../../module/borg/jobs/main
-      ../../module/tmux 
       ../../module/nginx
       ../../module/als
       ../../module/pms
