@@ -1,0 +1,9 @@
+keybinds {
+    unbind "Ctrl o"
+    shared_except "session" "locked" {
+        bind "Ctrl l" { SwitchToMode "Session"; }
+    }
+    session {
+        bind "Ctrl l" { SwitchToMode "Normal"; }
+    }
+}
