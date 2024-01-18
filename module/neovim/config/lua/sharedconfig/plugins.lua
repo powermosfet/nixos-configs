@@ -71,17 +71,6 @@ return require('packer').startup(function(use)
   use 'MunifTanjim/nui.nvim'
   use 'stevearc/dressing.nvim'
   use 'flazz/vim-colorschemes'
-  use {
-    'pwntester/octo.nvim',
-    requires = {
-      'nvim-lua/plenary.nvim',
-      'nvim-telescope/telescope.nvim',
-      'kyazdani42/nvim-web-devicons',
-    },
-    config = function ()
-      require"octo".setup()
-    end
-  }
   use { 
     'nvim-treesitter/nvim-treesitter', 
     run = ':TSUpdate',
@@ -151,6 +140,27 @@ return require('packer').startup(function(use)
   use {
     'sersorrel/vim-lilypond',
     ft = {'lilypond'},
+  }
+  use 'mattn/calendar-vim'
+  use {
+    "nvim-neorg/neorg",
+    config = function()
+        require('neorg').setup {
+            load = {
+                ["core.defaults"] = {}, -- Loads default behaviour
+                ["core.concealer"] = {}, -- Adds pretty icons to your documents
+                ["core.dirman"] = { -- Manages Neorg workspaces
+                    config = {
+                        workspaces = {
+                            worknotes = "~/neorg-notes",
+                        },
+                    },
+                },
+            },
+        }
+    end,
+    run = ":Neorg sync-parsers",
+    requires = "nvim-lua/plenary.nvim",
   }
 
 end)
