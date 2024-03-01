@@ -1,5 +1,8 @@
 { config, pkgs, ... }:
 
+let
+  unstable = import <nixos-unstable> { };
+in
 {
   imports =
     [ ../../module/zellij
@@ -21,7 +24,7 @@
     curl
     jq
     visidata
-    vifm-full
+    unstable.yazi
     octave
     htop
   ];
