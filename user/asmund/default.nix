@@ -25,6 +25,7 @@ in
     jq
     visidata
     unstable.yazi
+    unstable.poppler
     octave
     htop
   ];
