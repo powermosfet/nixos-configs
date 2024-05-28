@@ -25,7 +25,6 @@ in
       ../../module/ddclient
       ../../module/home-assistant
       ../../module/paperless
-      ../../module/vikunja
     ];
 
   services.pms.port = ports.exposed.pms;
