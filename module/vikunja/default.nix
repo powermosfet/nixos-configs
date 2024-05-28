@@ -12,7 +12,7 @@ in
     services.vikunja = {
       enable = true;
       package-api = unstable.vikunja-api;
-      package-frontend = unstable.vikunja-frontend;
+      package-frontend = unstable.vikunja;
       setupNginx = true;
       frontendScheme = "https";
       frontendHostname = hostName;
