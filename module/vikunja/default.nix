@@ -11,8 +11,7 @@ in
   config = {
     services.vikunja = {
       enable = true;
-      package-api = unstable.vikunja-api;
-      package-frontend = unstable.vikunja;
+      package = unstable.vikunja;
       setupNginx = true;
       frontendScheme = "https";
       frontendHostname = hostName;
