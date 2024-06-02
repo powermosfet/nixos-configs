@@ -6,6 +6,6 @@
   };
   internal = {
     gotenberg = 8900;
-    trilium = 8901;
+    tika = 8901;
   };
 }

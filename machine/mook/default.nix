@@ -31,6 +31,7 @@ in
   services.als.port = ports.exposed.als;
   services.barcode-backend.port = ports.exposed.barcode;
   services.paperless.gotenbergPort = ports.internal.gotenberg;
+  services.paperless.tikaPort = ports.internal.tika;
 
   environment.systemPackages = with pkgs; [
     git
