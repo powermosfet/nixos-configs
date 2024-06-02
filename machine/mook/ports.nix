@@ -5,7 +5,7 @@
     barcode = 8003;
   };
   internal = {
-    vikunja = 8900;
+    gotenberg = 8900;
     trilium = 8901;
   };
 }

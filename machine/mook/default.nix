@@ -30,7 +30,7 @@ in
   services.pms.port = ports.exposed.pms;
   services.als.port = ports.exposed.als;
   services.barcode-backend.port = ports.exposed.barcode;
-  services.vikunja.port = ports.internal.vikunja;
+  services.paperless.gotenbergPort = ports.internal.gotenberg;
 
   environment.systemPackages = with pkgs; [
     git
