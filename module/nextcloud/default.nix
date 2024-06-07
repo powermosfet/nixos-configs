@@ -2,6 +2,7 @@
 
 let
   hostName = "cloud.berge.id";
+  onlyOfficeHostName = "onlyoffice.berge.id";
   email = "asmund@berge.id";
   dbName = "nextcloud";
   dbUser = "nextcloud";
@@ -12,6 +13,14 @@ in
     package = pkgs.nextcloud27;
     hostName = hostName;
     https = true;
+    configureRedis = true;
+    maxUploadSize = "16G";
+    extraAppsEnable = true;
+      extraApps = with config.services.nextcloud.package.packages.apps; {
+        # List of apps we want to install and are already packaged in
+        # https://github.com/NixOS/nixpkgs/blob/master/pkgs/servers/nextcloud/packages/nextcloud-apps.json
+        inherit calendar contacts mail notes onlyoffice tasks;
+      };
     config = {
       dbtype = "pgsql";
       dbuser = dbUser;
@@ -21,12 +30,13 @@ in
       defaultPhoneRegion = "NO";
     };
   };
+  services.onlyoffice = {
+    enable = true;
+    hostname = onlyOfficeHostName;
+  };
+
   
   users.users.nextcloud.extraGroups = [ "keys" ];
-
-  environment.systemPackages = with pkgs; [
-    ocrmypdf
-  ];
 
   services.postgresql = {
     enable = true;
@@ -44,11 +54,17 @@ in
     after = [ "postgresql.service" ];
   };
 
-  services.nginx.virtualHosts."${hostName}" = {
-    forceSSL = true;
-    enableACME = true;
+  services.nginx.virtualHosts = {
+    "${hostName}" = {
+      forceSSL = true;
+      enableACME = true;
+    };
+    "${onlyOfficeHostName}" = {
+      forceSSL = true;
+      enableACME = true;
+    };
   };
-  services.ddclient.domains = [ hostName ];
+  services.ddclient.domains = [ hostName onlyOfficeHostName ];
 
   security.acme.defaults.email = email;
   
