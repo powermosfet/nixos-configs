@@ -21,13 +21,15 @@ in
         # https://github.com/NixOS/nixpkgs/blob/master/pkgs/servers/nextcloud/packages/nextcloud-apps.json
         inherit calendar contacts mail notes onlyoffice tasks;
       };
+    settings = {
+      default_phone_region = "NO";
+    };
     config = {
       dbtype = "pgsql";
       dbuser = dbUser;
       dbhost = "/run/postgresql";
       dbname = dbName;
       adminuser = "dadmin";
-      default_phone_region = "NO";
     };
   };
   services.onlyoffice = {
