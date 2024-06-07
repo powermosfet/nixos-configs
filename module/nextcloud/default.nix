@@ -27,7 +27,7 @@ in
       dbhost = "/run/postgresql";
       dbname = dbName;
       adminuser = "dadmin";
-      defaultPhoneRegion = "NO";
+      default_phone_region = "NO";
     };
   };
   services.onlyoffice = {
