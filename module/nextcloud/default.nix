@@ -10,7 +10,7 @@ in
 {
   services.nextcloud = {
     enable = true;
-    package = pkgs.nextcloud28;
+    package = pkgs.nextcloud29;
     hostName = hostName;
     https = true;
     configureRedis = true;
