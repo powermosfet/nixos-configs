@@ -17,8 +17,8 @@
         createLocally = false;
         host = "smtp-relay.sendinblue.com";
         authenticate = true;
-        user = "asmund@berge.id";
-        fromAddress = "asmund@berge.id";
+        user = "little.tree8655@fastmail.com";
+        fromAddress = "little.tree8655@fastmail.com";
       };
       database = {
         createLocally = true;
