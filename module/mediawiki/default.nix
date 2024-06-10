@@ -5,7 +5,7 @@
 
 let
   hostName = "wiki.berge.id";
-  email = "asmund@berge.id";
+  email = "little.tree8655@fastmail.com";
   internalPort = config.services.mediawiki.internalPort;
   smtpPassword = config.services.mediawiki.smtpPassword;
 
