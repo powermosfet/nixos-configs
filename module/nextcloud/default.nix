@@ -3,7 +3,7 @@
 let
   hostName = "cloud.berge.id";
   onlyOfficeHostName = "onlyoffice.berge.id";
-  email = "asmund@berge.id";
+  email = "little.tree8655@fastmail.com";
   dbName = "nextcloud";
   dbUser = "nextcloud";
 in
