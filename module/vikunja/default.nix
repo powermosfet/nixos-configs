@@ -5,7 +5,7 @@ let
   hostName = "todo.berge.id";
   user = config.services.vikunja.database.user;
   database = config.services.vikunja.database.database;
-  email = "asmund@berge.id";
+  email = "little.tree8655@fastmail.com";
 in
 {
   config = {
