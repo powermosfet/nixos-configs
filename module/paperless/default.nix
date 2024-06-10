@@ -5,13 +5,14 @@
 
 let
   hostName = "papir.berge.id";
-  email = "asmund@berge.id";
+  email = "little.tree8655@fastmail.com";
   dbName = "paperless";
   dbUser = config.services.paperless.user;
 in
 {
   imports =
     [ ../docker
+      ../postgresql
     ];
 
   options = {
