@@ -25,6 +25,11 @@ in
       description = "Network port for Tika";
       type = types.int;
     };
+
+    services.paperless.secretKey = mkOption {
+      description = "Secret key";
+      type = types.str;
+    };
   };
 
   config = {
@@ -33,6 +38,7 @@ in
       consumptionDirIsPublic = true;
       extraConfig = {
         PAPERLESS_DBHOST = "/run/postgresql";
+        PAPERLESS_SECRET_KEY = config.services.paperless.secretKey;
         PAPERLESS_OCR_LANGUAGE = "nor+eng";
         PAPERLESS_CONSUMER_ENABLE_ASN_BARCODE = true;
         PAPERLESS_CONSUMER_ASN_BARCODE_PREFIX = "00000";
