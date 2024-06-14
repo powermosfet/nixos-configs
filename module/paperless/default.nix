@@ -36,7 +36,7 @@ in
     services.paperless = {
       enable = true;
       consumptionDirIsPublic = true;
-      extraConfig = {
+      settings = {
         PAPERLESS_DBHOST = "/run/postgresql";
         PAPERLESS_SECRET_KEY = config.services.paperless.secretKey;
         PAPERLESS_OCR_LANGUAGE = "nor+eng";
