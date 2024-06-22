@@ -25,6 +25,7 @@ in
       ../../module/ddclient
       ../../module/home-assistant
       ../../module/paperless
+      ../../module/tt-rss
     ];
 
   services.pms.port = ports.exposed.pms;
