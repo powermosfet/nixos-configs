@@ -75,9 +75,11 @@ in
   services = {
     xserver = {
       enable = true;
-      layout = "no,us";
-      xkbVariant = ",altgr-intl";
-      xkbOptions = "caps:escape,nodeadkeys";
+      xkb = {
+        layout = "no,us";
+        variant = ",altgr-intl";
+        options = "caps:escape,nodeadkeys";
+      };
 
       xrandrHeads = [
         "DP-2-2"
@@ -88,27 +90,28 @@ in
         }
       ];
 
-      libinput = {
-        enable = true;
-
-        mouse = {
-          naturalScrolling = true;
-        };
-
-        touchpad = {
-          disableWhileTyping = true;
-          tapping = false;
-          scrollMethod = "twofinger";
-          naturalScrolling = true;
-          clickMethod = "clickfinger";
-        };
-      };
-
       windowManager.xmonad = {
         enable = true;
         enableContribAndExtras = true;
       };
     };
+
+    libinput = {
+      enable = true;
+
+      mouse = {
+        naturalScrolling = true;
+      };
+
+      touchpad = {
+        disableWhileTyping = true;
+        tapping = false;
+        scrollMethod = "twofinger";
+        naturalScrolling = true;
+        clickMethod = "clickfinger";
+      };
+    };
+
     xrdp = {
       enable = true;
       defaultWindowManager = "xmonad";
