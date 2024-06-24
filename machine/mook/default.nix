@@ -26,6 +26,7 @@ in
       ../../module/home-assistant
       ../../module/paperless
       ../../module/tt-rss
+      ../../module/freshrss
     ];
 
   services.pms.port = ports.exposed.pms;
