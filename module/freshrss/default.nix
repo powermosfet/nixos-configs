@@ -13,8 +13,7 @@
         baseUrl = "https://${config.services.freshrss.virtualHost}";
         database = {
           type = "pgsql";
-          host = "localhost";
-          port = config.services.postgresql.settings.port;
+          host = "/run/postgresql";
         };
       };
       postgresql = {
