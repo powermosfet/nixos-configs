@@ -9,7 +9,7 @@
     services = {
       freshrss = {
         enable = true;
-        virtualHost = "freshrss.berge.id";
+        virtualHost = "rss.berge.id";
         baseUrl = "https://${config.services.freshrss.virtualHost}";
       };
       nginx.virtualHosts."${config.services.freshrss.virtualHost}" = {
