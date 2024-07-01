@@ -26,6 +26,7 @@ in
       ../../module/home-assistant
       ../../module/paperless
       ../../module/freshrss
+      ../../module/meme
     ];
 
   services.pms.port = ports.exposed.pms;
