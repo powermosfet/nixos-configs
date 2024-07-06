@@ -147,5 +147,9 @@ in
     pulse.enable = true;
     jack.enable = true;
   };
+
+  services.udev.extraRules = ''
+    KERNEL=="ttyUSB0", MODE:="666"
+  '';
 }
 
