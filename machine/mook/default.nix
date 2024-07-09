@@ -35,6 +35,7 @@ in
   services.paperless.gotenbergPort = ports.internal.gotenberg;
   services.paperless.tikaPort = ports.internal.tika;
   services.onlyoffice.port = ports.internal.onlyoffice;
+  services.meme.port = ports.internal.meme;
 
   environment.systemPackages = with pkgs; [
     git

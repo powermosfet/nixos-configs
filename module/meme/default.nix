@@ -7,12 +7,23 @@ let
   src = pkgs.fetchFromGitHub {
     owner = "powermosfet";
     repo  = "meme";
-    rev = "0c90a3ddbefa0b7fcc1f6ca12ca9ddfa9de862c7";
-    sha256 = "sha256-UvYK5tjmASCN5VOBkJ9X5PeLeBVBDD3+mBg7C/CAOyM=";
+    rev = "a69f3d1d7ed672e2b0e2a4831df72f65b2810600";
+    sha256 = "sha256-1JHjC46M4ctY88AwbrsdD05gIXnj8fnSIg5ZNJiLR38=";
   };
   meme = import src { };
   dbUser = "meme";
   dbName = "meme";
+  apiUser = "memeapi";
+  postgrest = pkgs.haskellPackages.postgrest;
+  postgrestConf = pkgs.writeTextFile {
+    name = "${dbName}.conf";
+    text = ''
+      db-uri = "postgres://${apiUser}@/${dbName}"
+      db-schema = "public"
+      db-anon-role = "${apiUser}"
+      server-port = ${builtins.toString(cfg.port)}
+    '';
+  };
 in
 {
   imports =
@@ -30,21 +41,48 @@ in
         default = "mqtt://localhost";
         type = types.str;
       };
+
+      mqttTopic = mkOption {
+        description = "MQTT Topic";
+        default = "#";
+        type = types.str;
+      };
+
+      port = mkOption {
+        description = "Web api port";
+        type = types.int;
+      };
     };
   };
 
   config = mkIf cfg.enable {
-    systemd.services.meme = {
-      description = "Memorise Every MQTT Event";
-      wantedBy = [ "multi-user.target" ];
-      after = [ "network.target" "postgresql.service" ];
-      environment = {
-        DB_CONNECTION_STRING = "";
-        MQTT_URI = cfg.mqttUri;
+    systemd.services = {
+      meme-consumer = {
+        description = "Memorise Every MQTT Event - MQTT Consumer";
+        wantedBy = [ "multi-user.target" ];
+        after = [ "network.target" "postgresql.service" ];
+        environment = {
+          DB_CONNECTION_STRING = "";
+          MQTT_URI = cfg.mqttUri;
+          MQTT_TOPIC = cfg.mqttTopic;
+        };
+        serviceConfig = {
+          ExecStart = "${meme}/bin/meme";
+          User = dbUser;
+        };
       };
-      serviceConfig = {
-        ExecStart = "${meme}/bin/meme";
-        User = dbUser;
+      meme-api = {
+        description = "Memorise Every MQTT Event - web api";
+        wantedBy = [ "multi-user.target" ];
+        after = [ "network.target" "postgresql.service" "meme-consumer.service" ];
+        environment = {
+          DB_CONNECTION_STRING = "";
+          MQTT_URI = cfg.mqttUri;
+        };
+        serviceConfig = {
+          User = apiUser;
+          ExecStart = "${postgrest}/bin/postgrest ${postgrestConf}";
+        };
       };
     };
 
@@ -54,10 +92,16 @@ in
           name = dbUser;
           ensureDBOwnership = true;
         }
+        { name = apiUser; }
       ];
       ensureDatabases = [
         dbName
       ];
+      initialScript = pkgs.writeText "backend-initScript" ''
+        GRANT CONNECT ON DATABASE ${dbName} TO ${apiUser};
+        GRANT USAGE ON SCHEMA public TO ${apiUser};
+        GRANT SELECT ON event TO ${apiUser};
+      '';
     };
     services.postgresqlBackup.databases = [ dbName ];
 
@@ -65,6 +109,11 @@ in
     users.users."${dbUser}" = {
       isSystemUser = true;
       group = dbUser;
+    };
+    users.groups."${apiUser}" = {};
+    users.users."${apiUser}" = {
+      isSystemUser = true;
+      group = apiUser;
     };
   };
 }
