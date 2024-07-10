@@ -14,7 +14,7 @@ let
   dbUser = "meme";
   dbName = "meme";
   apiUser = "memeapi";
-  postgrest = pkgs.haskellPackages.postgrest;
+  postgrest = pkgs.postgrest;
   postgrestConf = pkgs.writeTextFile {
     name = "${dbName}.conf";
     text = ''
