@@ -75,10 +75,6 @@ in
         description = "Memorise Every MQTT Event - web api";
         wantedBy = [ "multi-user.target" ];
         after = [ "network.target" "postgresql.service" "meme-consumer.service" ];
-        environment = {
-          DB_CONNECTION_STRING = "";
-          MQTT_URI = cfg.mqttUri;
-        };
         serviceConfig = {
           User = apiUser;
           ExecStart = "${postgrest}/bin/postgrest ${postgrestConf}";
