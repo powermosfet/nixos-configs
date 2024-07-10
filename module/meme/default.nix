@@ -58,7 +58,7 @@ in
   config = mkIf cfg.enable {
     systemd.services = {
       meme-consumer = {
-        description = "Memorise Every MQTT Event - MQTT Consumer";
+        description = "MEME - MQTT Consumer";
         wantedBy = [ "multi-user.target" ];
         after = [ "network.target" "postgresql.service" ];
         environment = {
@@ -72,9 +72,9 @@ in
         };
       };
       meme-api = {
-        description = "Memorise Every MQTT Event - web api";
+        description = "MEME - web api";
         wantedBy = [ "multi-user.target" ];
-        after = [ "network.target" "postgresql.service" "meme-consumer.service" ];
+        after = [ "network.target" "postgresql.service" ];
         serviceConfig = {
           User = apiUser;
           ExecStart = "${postgrest}/bin/postgrest ${postgrestConf}";
