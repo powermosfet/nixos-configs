@@ -7,8 +7,8 @@ let
   src = pkgs.fetchFromGitHub {
     owner = "powermosfet";
     repo  = "meme";
-    rev = "6b560df648d62b112521023af7439450ee4068f0";
-    sha256 = "sha256-Xf0yLB+EIUK/LJDmIZQ5lwffzt3uKDMSQjqnUxwCjf0=";
+    rev = "8b3a2e809a14e40f14d7a9ef7ee7dbd9e3cec1ef";
+    sha256 = "sha256-nDcCFq4+HUKNrCzBOBnRSQExKkFvOxvBQHy7KMOo6sM=";
   };
   meme = import src { };
   dbUser = "meme";
