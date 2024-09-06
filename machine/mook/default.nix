@@ -27,7 +27,6 @@ in
       ../../module/paperless
       ../../module/freshrss
       ../../module/meme
-      ../../module/sheetable
     ];
 
   services.pms.port = ports.exposed.pms;
