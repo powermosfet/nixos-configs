@@ -36,7 +36,7 @@ in
   config = {
     services.paperless = {
       enable = true;
-      package = unstable.paperless
+      package = unstable.paperless;
       consumptionDirIsPublic = true;
       settings = {
         PAPERLESS_DBHOST = "/run/postgresql";
