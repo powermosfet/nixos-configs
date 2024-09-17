@@ -19,7 +19,7 @@ in
       extraApps = with config.services.nextcloud.package.packages.apps; {
         # List of apps we want to install and are already packaged in
         # https://github.com/NixOS/nixpkgs/blob/master/pkgs/servers/nextcloud/packages/nextcloud-apps.json
-        inherit calendar contacts mail notes onlyoffice tasks;
+        inherit calendar contacts mail notes onlyoffice tasks memories;
       };
     settings = {
       default_phone_region = "NO";
