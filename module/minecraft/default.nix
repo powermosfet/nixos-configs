@@ -1,8 +1,10 @@
-{ pkgs, config, ... }:
+{ pkgs, config, lib, ... }:
   
 let
-  hash = "8efd5d1e283604f75a808a20e6cde0ef313d07d4";
-  unstable = import <nixos-unstable> { };
+  unstable = import <nixos-unstable> { config.allowUnfreePredicate =  pkg: builtins.elem (lib.getName pkg) [
+    "minecraft-server"
+    ]; 
+  };
 in
 {
   config = {
