@@ -66,7 +66,8 @@ return {
       ["P"]          = [[:Git push -u origin HEAD<cr>]],
       ["o"]          = [[:Git checkout ]],
       ["n"]          = [[/\(<<<<<<<\|=======\||||||||\|>>>>>>>\)<cr>]],
-      ["h"]          = [[:GitGutterPreviewHunk<cr>]]
+      ["h"]          = [[:GitGutterPreviewHunk<cr>]],
+      ["g"]          = [[:Neogit<cr>]]
     },
     ["l"]            = {
       ["z"]          = [[:LspRestart<CR>]],
