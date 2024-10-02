@@ -2,7 +2,10 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 require'lspconfig'.elmls.setup{
     cmd = { "elm-language-server" },
-    capabilities = capabilities
+    capabilities = capabilities,
+    init_options = {
+        onlyUpdateDiagnosticsOnSave = true
+    }
 }
 
 vim.api.nvim_create_augroup("elmAutoCmds", { clear = true })
