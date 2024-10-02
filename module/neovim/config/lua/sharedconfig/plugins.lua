@@ -142,6 +142,13 @@ return require('packer').startup(function(use)
     ft = {'lilypond'},
   }
   use 'mattn/calendar-vim'
+  use {
+    'NeogitOrg/neogit',
+    requires = { 'nvim-lua/plenary.nvim', 'sindrets/diffview.nvim', 'nvim-telescope/telescope.nvim' },
+    config = function()
+      require('neogit').setup {}
+    end
+  }
 
 end)
 
