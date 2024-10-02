@@ -43,10 +43,6 @@ return require('packer').startup(function(use)
     requires = 'nvim-tree/nvim-web-devicons'
   }
   use {
-    'airblade/vim-gitgutter', 
-    branch = 'main'
-  }
-  use {
     'hrsh7th/nvim-cmp',
     config = function()
       require('sharedconfig.plugins.cmp')
@@ -150,6 +146,11 @@ return require('packer').startup(function(use)
     end
   }
   use 'sainnhe/everforest'
-
+  use {
+    'lewis6991/gitsigns.nvim',
+    config = function()
+      require('gitsigns').setup()
+    end
+  }
 end)
 
