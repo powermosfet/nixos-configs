@@ -37,5 +37,5 @@ set_all(true, { "termguicolors", "hidden", "splitright", "number", "relativenumb
 set_all(false, { "fixendofline" })
 set_all("nicr", { "mouse" })
 
-vim.cmd('colorscheme gruvbox')
+vim.cmd('colorscheme everforest')
 

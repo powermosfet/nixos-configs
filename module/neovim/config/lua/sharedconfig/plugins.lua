@@ -149,6 +149,7 @@ return require('packer').startup(function(use)
       require('neogit').setup {}
     end
   }
+  use 'sainnhe/everforest'
 
 end)
 
