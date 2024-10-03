@@ -8,7 +8,6 @@ return require('packer').startup(function(use)
     end,
   }
   use 'tpope/vim-dispatch'
-  use 'tpope/vim-fugitive'
   use 'tpope/vim-eunuch'
   use 'tpope/vim-surround'
   use 'tpope/vim-unimpaired'

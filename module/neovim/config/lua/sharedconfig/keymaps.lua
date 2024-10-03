@@ -57,16 +57,8 @@ return {
     },
     -- Git
     ["g"]            = {
-      ["<space>"]    = [[:G ]],
-      ["b"]          = [[:Telescope git_branches<cr>]],
-      ["c"]          = [[:Telescope git_bcommits<cr>]],
-      ["s"]          = [[:G<cr>]],
-      ["f"]          = [[:Git fetch --prune<cr>]],
-      ["p"]          = [[:Git pull --ff-only<cr>]],
-      ["P"]          = [[:Git push -u origin HEAD<cr>]],
-      ["o"]          = [[:Git checkout ]],
+      ["b"]          = [[:Gitsigns blame<cr>]],
       ["n"]          = [[/\(<<<<<<<\|=======\||||||||\|>>>>>>>\)<cr>]],
-      ["h"]          = [[:GitGutterPreviewHunk<cr>]],
       ["g"]          = [[:Neogit<cr>]]
     },
     ["l"]            = {
