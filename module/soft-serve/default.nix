@@ -13,7 +13,7 @@
       enable = true;
       settings = {
         name = "Berges repositories";
-      }
-    }
+      };
+    };
   };
 }
