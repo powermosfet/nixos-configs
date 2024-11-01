@@ -27,6 +27,7 @@ in
       ../../module/paperless
       ../../module/freshrss
       ../../module/meme
+      ../../module/soft-serve
     ];
 
   services.pms.port = ports.exposed.pms;
