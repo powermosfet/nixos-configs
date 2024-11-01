@@ -53,7 +53,15 @@ in
     alsa-utils
     timeline
     pavucontrol
+    crrcsim
+    flightgear
+    shared-mime-info
+    kickstart
   ];
+
+  programs.direnv = {
+    enable = true;
+  };
 
   fonts.packages = with pkgs; [
     nerdfonts
