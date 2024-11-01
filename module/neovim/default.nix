@@ -1,5 +1,8 @@
 { pkgs, ... }:
 
+let
+  unstable = import <nixos-unstable> { };
+in
 {
   environment.systemPackages = with pkgs; [
     ripgrep
@@ -12,6 +15,7 @@
     vimAlias = true;
     viAlias = true;
     defaultEditor = true;
+    package = unstable.neovim-unwrapped;
 
     configure = {
       customRC = ''
