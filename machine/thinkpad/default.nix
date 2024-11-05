@@ -57,6 +57,7 @@ in
     flightgear
     shared-mime-info
     kickstart
+    gnupg
   ];
 
   programs.direnv = {
