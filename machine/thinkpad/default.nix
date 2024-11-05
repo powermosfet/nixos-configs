@@ -57,11 +57,12 @@ in
     flightgear
     shared-mime-info
     kickstart
-    gnupg
   ];
 
-  programs.direnv = {
-    enable = true;
+  programs = {
+    direnv = {
+      enable = true;
+    };
   };
 
   fonts.packages = with pkgs; [

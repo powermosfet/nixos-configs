@@ -1,10 +1,10 @@
 { config, pkgs, ... }:
 
 {
-  services.pcscd.enable = true;
+  environment.systemPackages = [ pkgs.gnupg ];
   programs.gnupg.agent = {
     enable = true;
-    pinentryPackage = pkgs.pinentry-curses;
+    pinentryPackage = pkgs.pinentry-gnome3;
     enableSSHSupport = true;
   };
 }
