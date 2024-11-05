@@ -2,7 +2,7 @@
 
 {
   imports =
-    [
+    [ ../../user/git
     ];
 
   options = {
