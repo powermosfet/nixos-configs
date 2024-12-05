@@ -4,7 +4,6 @@
   with builtins;
 
 let
-  unstable = import <nixos-unstable> { };
   hostName = "papir.berge.id";
   email = "little.tree8655@fastmail.com";
   dbName = "paperless";
@@ -36,7 +35,6 @@ in
   config = {
     services.paperless = {
       enable = true;
-      package = unstable.paperless;
       consumptionDirIsPublic = true;
       settings = {
         PAPERLESS_DBHOST = "/run/postgresql";
