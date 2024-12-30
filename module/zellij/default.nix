@@ -1,8 +1,11 @@
 { config, pkgs, ... }:
 
+let
+  unstable = import <nixos-unstable> { };
+in
 {
-  environment.systemPackages = with pkgs; [
-    zellij
+  environment.systemPackages = [
+    unstable.zellij
   ];
 
   environment.sessionVariables = {

@@ -65,9 +65,12 @@ in
     };
   };
 
-  fonts.packages = with pkgs; [
-    nerdfonts
-  ];
+  fonts = {
+    fontDir.enable = true;
+    packages = with pkgs; [
+      nerdfonts
+    ];
+  };
 
 
   xdg.mime = {
