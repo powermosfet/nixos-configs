@@ -8,6 +8,10 @@
   config = {
     services.workout-tracker = {
       enable = true;
+      
+      settings = {
+        WT_REGISTRATION_DISABLED = "true";
+      };
     };
 
     services.nginx.virtualHosts."trening.berge.id" = {
