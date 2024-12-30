@@ -3,6 +3,7 @@
     pms = 8001;
     als = 8002;
     barcode = 8003;
+    workout-tracker = 8004;
   };
   internal = {
     gotenberg = 8900;

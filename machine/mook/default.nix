@@ -28,6 +28,7 @@ in
       ../../module/freshrss
       ../../module/meme
       ../../module/soft-serve
+      ../../module/workout-tracker
     ];
 
   services.pms.port = ports.exposed.pms;
@@ -37,6 +38,7 @@ in
   services.paperless.tikaPort = ports.internal.tika;
   services.onlyoffice.port = ports.internal.onlyoffice;
   services.meme.port = ports.internal.meme;
+  services.workout-tracker.port = ports.exposed.workout-tracker;
 
   environment.systemPackages = with pkgs; [
     git
