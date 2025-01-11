@@ -14,6 +14,7 @@
 
       provider = "gitlab";
       domain = "oauth.berge.id";
+      nginx.virtualHosts."oauth.berge.id" = { };
     };
   };
 }
