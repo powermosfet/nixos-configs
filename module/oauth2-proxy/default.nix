@@ -13,6 +13,7 @@
       enable = true;
 
       provider = "gitlab";
+      domain = "oauth.berge.id";
     };
   };
 }
