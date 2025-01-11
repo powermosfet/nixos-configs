@@ -29,8 +29,10 @@ in
       ../../module/meme
       ../../module/soft-serve
       ../../module/workout-tracker
+      ../../module/silverbullet
     ];
 
+  # Ports
   services.pms.port = ports.exposed.pms;
   services.als.port = ports.exposed.als;
   services.barcode-backend.port = ports.exposed.barcode;
@@ -38,7 +40,8 @@ in
   services.paperless.tikaPort = ports.internal.tika;
   services.onlyoffice.port = ports.internal.onlyoffice;
   services.meme.port = ports.internal.meme;
-  services.workout-tracker.port = ports.exposed.workout-tracker;
+  services.workout-tracker.port = ports.internal.workout-tracker;
+  services.silverbullet.listenPort = ports.internal.silverbullet;
 
   environment.systemPackages = with pkgs; [
     git
