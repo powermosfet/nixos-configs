@@ -5,6 +5,10 @@ let
   hostname = "sb.berge.id";
 in
 {
+  imports = [
+    ../oauth2-proxy
+  ];
+
   config = {
     services.silverbullet = {
       enable = true;
@@ -20,5 +24,7 @@ in
         };
       };
     };
+
+    services.oauth2-proxy.nginx.virtualHosts."${hostname}".allowed_email_domains = [ "berge.id" ];
   };
 }
