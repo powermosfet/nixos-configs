@@ -14,6 +14,7 @@
 
       provider = "gitlab";
       nginx.domain = "oauth.berge.id";
+      email.domains = [ "berge.id" ];
     };
   };
 }
