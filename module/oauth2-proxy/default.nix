@@ -12,7 +12,7 @@
     services.oauth2-proxy = {
       enable = true;
 
-      provider = "gitlab";
+      provider = "github";
       nginx.domain = "oauth.berge.id";
       email.domains = [ "berge.id" ];
     };
