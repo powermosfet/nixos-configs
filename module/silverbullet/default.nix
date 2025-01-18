@@ -6,7 +6,7 @@ let
 in
 {
   imports = [
-    ../oauth2-proxy
+    ../authelia
   ];
 
   config = {
@@ -14,17 +14,32 @@ in
       enable = true;
     };
 
-    services.nginx.virtualHosts."${hostname}" = {
-      enableACME = true;
-      forceSSL = true;
-      locations = {
-        "/" = {
-          proxyPass = "http://${cfg.listenAddress}:${builtins.toString(cfg.listenPort)}";
-          proxyWebsockets = true;
+    services.nginx = {
+      virtualHosts."${hostname}" = {
+        enableACME = true;
+        forceSSL = true;
+        locations = {
+          "/" = {
+            proxyPass = "http://${cfg.listenAddress}:${builtins.toString(cfg.listenPort)}";
+            proxyWebsockets = true;
+          };
+        };
+      };
+    
+      sso = {
+        enable = true;
+
+        configuration = {
+          acl = {
+            rule_sets = [
+            {
+              rules = [ { field = "domain"; equals = hostname; } ];
+              allow = [ "asmund" ];
+            }
+            ];
+          };
         };
       };
     };
-
-    services.oauth2-proxy.nginx.virtualHosts."${hostname}".allowed_email_domains = [ "berge.id" ];
   };
 }
