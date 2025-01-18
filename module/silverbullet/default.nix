@@ -31,8 +31,8 @@ in
               #proxy_set_header X-User $username;
 
               # Automatically renew SSO cookie on request
-              auth_request_set $cookie $upstream_http_set_cookie;
-              add_header Set-Cookie $cookie;
+              auth_request_set \$cookie \$upstream_http_set_cookie;
+              add_header Set-Cookie \$cookie;
             "";
           };
         };
