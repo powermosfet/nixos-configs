@@ -22,7 +22,7 @@ in
             proxyPass = "http://${cfg.listenAddress}:${builtins.toString(cfg.listenPort)}";
             proxyWebsockets = true;
             
-            extraConfig = ""
+            extraConfig = ''
               # Protect this location using the auth_request
               auth_request /sso-auth;
 
@@ -31,9 +31,9 @@ in
               #proxy_set_header X-User $username;
 
               # Automatically renew SSO cookie on request
-              auth_request_set \$cookie \$upstream_http_set_cookie;
-              add_header Set-Cookie \$cookie;
-            "";
+              auth_request_set $cookie $upstream_http_set_cookie;
+              add_header Set-Cookie $cookie;
+            '';
           };
         };
       };
