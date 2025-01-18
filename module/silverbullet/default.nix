@@ -6,7 +6,6 @@ let
 in
 {
   imports = [
-    ../authelia
   ];
 
   config = {
