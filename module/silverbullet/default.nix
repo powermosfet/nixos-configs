@@ -4,22 +4,12 @@ let
   cfg = config.services.silverbullet;
   hostname = "sb.berge.id";
   autheliaConfig = pkgs.writeText "authelia-config-silverbullet.yml" ''
-    # Authelia authentication backend
-    authentication_backend:
-      file:
-        path: /var/lib/authelia/users_database.yml
-
     # Authelia access control configuration
     access_control:
       default_policy: deny
       rules:
         - domain: ${hostname}
           policy: one_factor
-
-    # Authelia storage configuration
-    storage:
-      local:
-        path: /var/lib/authelia/db.sqlite3
   '';
 in
 {
