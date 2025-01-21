@@ -3,6 +3,32 @@
 let
   cfg = config.services.silverbullet;
   hostname = "sb.berge.id";
+  autheliaConfig = pkgs.writeText "authelia-config-silverbullet.yml" ''
+    # Authelia authentication backend
+    authentication_backend:
+      file:
+        path: /var/lib/authelia/users_database.yml
+
+    # Authelia access control configuration
+    access_control:
+      default_policy: deny
+      rules:
+        - domain: ${hostname}
+          policy: one_factor
+
+    # Authelia session configuration
+    session:
+      name: authelia_session
+      secret: ${config.services.authelia.sessionSecret}
+      expiration: 1h
+      inactivity: 5m
+      domain: ${hostname}
+
+    # Authelia storage configuration
+    storage:
+      local:
+        path: /var/lib/authelia/db.sqlite3
+  '';
 in
 {
   imports = [
@@ -37,21 +63,11 @@ in
           };
         };
       };
-    
-      sso = {
-        enable = true;
+    };
 
-        configuration = {
-          acl = {
-            rule_sets = [
-            {
-              rules = [ { field = "host"; equals = hostname; } ];
-              allow = [ "asmund" ];
-            }
-            ];
-          };
-        };
-      };
+    services.authelia.instances.silverbullet = {
+      enable = true;
+      settingsFiles = [ autheliaConfig ];
     };
   };
 }
