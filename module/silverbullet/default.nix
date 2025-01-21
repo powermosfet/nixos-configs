@@ -16,14 +16,6 @@ let
         - domain: ${hostname}
           policy: one_factor
 
-    # Authelia session configuration
-    session:
-      name: authelia_session
-      secret: ${config.services.authelia.sessionSecret}
-      expiration: 1h
-      inactivity: 5m
-      domain: ${hostname}
-
     # Authelia storage configuration
     storage:
       local:
