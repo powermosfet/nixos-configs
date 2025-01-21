@@ -26,13 +26,27 @@ in
         enableACME = true;
         forceSSL = true;
         locations = {
+          "/auth" = {
+            extraConfig = ''
+              internal;
+              proxy_pass http://localhost:9091/api/verify;
+              proxy_set_header Host $host;
+              proxy_set_header X-Real-IP $remote_addr;
+              proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+              proxy_set_header X-Forwarded-Proto $scheme;
+              proxy_set_header X-Auth-Request-User $remote_user;
+              proxy_set_header X-Auth-Request-Groups $remote_groups;
+              proxy_set_header X-Auth-Request-Email $remote_email;
+            '';
+          };
+
           "/" = {
             proxyPass = "http://${cfg.listenAddress}:${builtins.toString(cfg.listenPort)}";
             proxyWebsockets = true;
             
             extraConfig = ''
               # Protect this location using the auth_request
-              auth_request /sso-auth;
+              auth_request /auth;
 
               ## Optionally set a header to pass through the username
               #auth_request_set $username $upstream_http_x_username;
