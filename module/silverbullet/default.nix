@@ -35,7 +35,6 @@ in
               proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
               proxy_set_header X-Forwarded-Proto $scheme;
               proxy_set_header X-Auth-Request-User $remote_user;
-              proxy_set_header X-Auth-Request-Email $remote_email;
             '';
           };
 
