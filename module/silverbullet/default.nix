@@ -9,6 +9,12 @@ let
       default_policy: deny
       rules:
         - domain: ${hostname}
+          resources:
+            - '/.client/manifest.json$'
+            - '/.client/[a-zA-Z0-9_-]+.png$'
+            - '/service_worker.js$'
+          policy: bypass
+        - domain: ${hostname}
           policy: one_factor
   '';
 in
