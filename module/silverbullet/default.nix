@@ -33,7 +33,7 @@ in
         forceSSL = true;
         locations = {
           "/auth" = {
-            proxyPass = "http://localhost:9091/api/verify";
+            proxyPass = "http://localhost:9091/authz";
             extraConfig = ''
               internal;
               proxy_set_header Host $host;
@@ -51,7 +51,7 @@ in
             extraConfig = ''
               # Protect this location using the auth_request
               auth_request /auth;
-              error_page 401 = @error401;
+              error_page 401 =302 https://auth.berge.id?rd=$target_url;
 
               ## Optionally set a header to pass through the username
               #auth_request_set $username $upstream_http_x_username;
@@ -61,10 +61,6 @@ in
               auth_request_set $cookie $upstream_http_set_cookie;
               add_header Set-Cookie $cookie;
             '';
-          };
-
-          "@error401" = {
-            return = "302 https://auth.berge.id?redirect=https://${hostname}";  
           };
         };
       };
