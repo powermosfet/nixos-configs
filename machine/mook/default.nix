@@ -37,7 +37,6 @@ in
   services.paperless.gotenbergPort = ports.internal.gotenberg;
   services.paperless.tikaPort = ports.internal.tika;
   services.onlyoffice.port = ports.internal.onlyoffice;
-  services.meme.port = ports.internal.meme;
   services.workout-tracker.port = ports.internal.workout-tracker;
   services.silverbullet.listenPort = ports.internal.silverbullet;
 
