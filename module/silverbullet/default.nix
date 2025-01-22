@@ -33,7 +33,7 @@ in
         forceSSL = true;
         locations = {
           "/.auth" = {
-            proxyPass = "http://localhost:9091/api/authz/auth-request";
+            proxyPass = "http://localhost:9091/api/verify";
             extraConfig = ''
               internal;
               proxy_set_header Host $host;
