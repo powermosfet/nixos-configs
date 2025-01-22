@@ -32,7 +32,7 @@ in
         enableACME = true;
         forceSSL = true;
         locations = {
-          "/auth" = {
+          "/.auth" = {
             proxyPass = "http://localhost:9091/api/authz/auth-request";
             extraConfig = ''
               internal;
@@ -50,7 +50,7 @@ in
             
             extraConfig = ''
               # Protect this location using the auth_request
-              auth_request /auth;
+              auth_request /.auth;
               error_page 401 =302 https://auth.berge.id?rd=$request_uri;
 
               ## Optionally set a header to pass through the username
