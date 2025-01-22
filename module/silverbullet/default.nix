@@ -51,7 +51,7 @@ in
             extraConfig = ''
               # Protect this location using the auth_request
               auth_request /auth;
-              error_page 401 =302 https://auth.berge.id?rd=$target_url;
+              error_page 401 =302 https://auth.berge.id?rd=$request_uri;
 
               ## Optionally set a header to pass through the username
               #auth_request_set $username $upstream_http_x_username;
