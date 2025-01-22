@@ -58,7 +58,7 @@ in
           };
 
           "@error401" = {
-            return = "302 https://auth.berge.id";  
+            return = "302 https://auth.berge.id?redirect=$redirect";  
           };
         };
       };
