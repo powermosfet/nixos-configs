@@ -2,7 +2,6 @@
 
 let
   hostName = "cloud.berge.id";
-  onlyOfficeHostName = "onlyoffice.berge.id";
   email = "little.tree8655@fastmail.com";
   dbName = "nextcloud";
   dbUser = "nextcloud";
@@ -32,10 +31,6 @@ in
       adminuser = "dadmin";
     };
   };
-  services.onlyoffice = {
-    enable = true;
-    hostname = onlyOfficeHostName;
-  };
 
   
   users.users.nextcloud.extraGroups = [ "keys" ];
@@ -61,12 +56,8 @@ in
       forceSSL = true;
       enableACME = true;
     };
-    "${onlyOfficeHostName}" = {
-      forceSSL = true;
-      enableACME = true;
-    };
   };
-  services.ddclient.domains = [ hostName onlyOfficeHostName ];
+  services.ddclient.domains = [ hostName ];
 
   security.acme.defaults.email = email;
   

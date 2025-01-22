@@ -23,10 +23,8 @@ in
       ../../module/bokashi
       ../../module/kilometer
       ../../module/ddclient
-      ../../module/home-assistant
       ../../module/paperless
       ../../module/freshrss
-      ../../module/meme
       ../../module/soft-serve
       ../../module/workout-tracker
       ../../module/silverbullet
