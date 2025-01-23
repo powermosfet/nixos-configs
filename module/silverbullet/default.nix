@@ -10,7 +10,7 @@ let
       rules:
         - domain: ${hostname}
           resources:
-            - '/.rpc/.*$'
+            - '^/\.rpc/.*$'
             - '/.client/manifest.json$'
             - '/.client/[a-zA-Z0-9_-]+.png$'
             - '/service_worker.js$'
@@ -33,6 +33,10 @@ in
         enableACME = true;
         forceSSL = true;
         locations = {
+          "/authelialogin" = {
+            proxyPass = "http://localhost:9091";
+          };
+
           "/.auth" = {
             proxyPass = "http://localhost:9091/api/verify";
             extraConfig = ''
@@ -42,22 +46,17 @@ in
               proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
               proxy_set_header X-Forwarded-Proto $scheme;
               proxy_set_header X-Auth-Request-User $remote_user;
-              
-              send_timeout 5m;
-              proxy_read_timeout 360;
-              proxy_send_timeout 360;
-              proxy_connect_timeout 360;
             '';
           };
 
-          "/.rpc" = {
-            extraConfig = ''
-              if ($request_method = OPTIONS) {
-                proxy_pass "http://${cfg.listenAddress}:${builtins.toString(cfg.listenPort)}/.rpc";
-                return 200;
-              }
-            '';
-          };
+          # "/.rpc" = {
+          #   extraConfig = ''
+          #     if ($request_method = OPTIONS) {
+          #       proxy_pass "http://${cfg.listenAddress}:${builtins.toString(cfg.listenPort)}/.rpc";
+          #       return 200;
+          #     }
+          #   '';
+          # };
 
           "/" = {
             proxyPass = "http://${cfg.listenAddress}:${builtins.toString(cfg.listenPort)}";
@@ -66,7 +65,7 @@ in
             extraConfig = ''
               # Protect this location using the auth_request
               auth_request /.auth;
-              error_page 401 =302 https://auth.berge.id;
+              error_page 401 =302 https://sb.berge.id/authelialogin;
 
               ## Optionally set a header to pass through the username
               #auth_request_set $username $upstream_http_x_username;
@@ -75,11 +74,6 @@ in
               # Automatically renew SSO cookie on request
               auth_request_set $cookie $upstream_http_set_cookie;
               add_header Set-Cookie $cookie;
-
-              send_timeout 5m;
-              proxy_read_timeout 360;
-              proxy_send_timeout 360;
-              proxy_connect_timeout 360;
             '';
           };
         };
