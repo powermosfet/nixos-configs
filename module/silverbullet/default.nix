@@ -42,6 +42,11 @@ in
               proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
               proxy_set_header X-Forwarded-Proto $scheme;
               proxy_set_header X-Auth-Request-User $remote_user;
+              
+              send_timeout 5m;
+              proxy_read_timeout 360;
+              proxy_send_timeout 360;
+              proxy_connect_timeout 360;
             '';
           };
 
@@ -61,6 +66,11 @@ in
               # Automatically renew SSO cookie on request
               auth_request_set $cookie $upstream_http_set_cookie;
               add_header Set-Cookie $cookie;
+
+              send_timeout 5m;
+              proxy_read_timeout 360;
+              proxy_send_timeout 360;
+              proxy_connect_timeout 360;
             '';
           };
         };
