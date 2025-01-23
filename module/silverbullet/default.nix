@@ -10,7 +10,6 @@ let
       rules:
         - domain: ${hostname}
           resources:
-            - '^/\.rpc/.*$'
             - '/.client/manifest.json$'
             - '/.client/[a-zA-Z0-9_-]+.png$'
             - '/service_worker.js$'
@@ -33,10 +32,6 @@ in
         enableACME = true;
         forceSSL = true;
         locations = {
-          "/authelialogin" = {
-            proxyPass = "http://localhost:9091";
-          };
-
           "/.auth" = {
             proxyPass = "http://localhost:9091/api/verify";
             extraConfig = ''
@@ -49,14 +44,14 @@ in
             '';
           };
 
-          # "/.rpc" = {
-          #   extraConfig = ''
-          #     if ($request_method = OPTIONS) {
-          #       proxy_pass "http://${cfg.listenAddress}:${builtins.toString(cfg.listenPort)}/.rpc";
-          #       return 200;
-          #     }
-          #   '';
-          # };
+          "/.rpc" = {
+            extraConfig = ''
+              if ($request_method = OPTIONS) {
+                proxy_pass "http://${cfg.listenAddress}:${builtins.toString(cfg.listenPort)}/.rpc";
+                return 200;
+              }
+            '';
+          };
 
           "/" = {
             proxyPass = "http://${cfg.listenAddress}:${builtins.toString(cfg.listenPort)}";
@@ -65,7 +60,7 @@ in
             extraConfig = ''
               # Protect this location using the auth_request
               auth_request /.auth;
-              error_page 401 =302 https://sb.berge.id/authelialogin;
+              error_page 401 =302 https://auth.berge.id;
 
               ## Optionally set a header to pass through the username
               #auth_request_set $username $upstream_http_x_username;
