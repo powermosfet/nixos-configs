@@ -10,6 +10,7 @@ let
       rules:
         - domain: ${hostname}
           resources:
+            - '/.rpc/.*$'
             - '/.client/manifest.json$'
             - '/.client/[a-zA-Z0-9_-]+.png$'
             - '/service_worker.js$'
