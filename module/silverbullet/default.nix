@@ -50,6 +50,10 @@ in
             '';
           };
 
+          "/rpc" = {
+            proxyPass = "http://${cfg.listenAddress}:${builtins.toString(cfg.listenPort)}/rpc";
+          };
+
           "/" = {
             proxyPass = "http://${cfg.listenAddress}:${builtins.toString(cfg.listenPort)}";
             proxyWebsockets = true;
