@@ -45,12 +45,7 @@ in
           };
 
           "/.rpc" = {
-            extraConfig = ''
-              if ($request_method = OPTIONS) {
-                proxy_pass "http://${cfg.listenAddress}:${builtins.toString(cfg.listenPort)}/.rpc";
-                return 200;
-              }
-            '';
+            proxyPass = "http://${cfg.listenAddress}:${builtins.toString(cfg.listenPort)}/.rpc";
           };
 
           "/" = {
