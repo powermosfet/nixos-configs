@@ -3,6 +3,7 @@
 let
   cfg = config.services.silverbullet;
   hostname = "sb.berge.id";
+  snippet = import ../authelia/nginx-snippets
   autheliaConfig = pkgs.writeText "authelia-config-silverbullet.yml" ''
     # Authelia access control configuration
     access_control:
@@ -31,37 +32,19 @@ in
       virtualHosts."${hostname}" = {
         enableACME = true;
         forceSSL = true;
+        extraConfig = ''
+          include ${../authelia/snippet/authelia-location.conf};
+          set $upstream https://${cfg.listenAddress}:${builtins.toString(cfg.listenPort)};
+        '';
         locations = {
-          "/.auth" = {
-            proxyPass = "http://localhost:9091/api/authz/auth-request";
-            extraConfig = ''
-              internal;
-              proxy_set_header X-Original-Method $request_method;
-              proxy_set_header X-Original-URL "$scheme://$http_host$request_uri";
-              proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-            '';
-          };
-
-          # "/.rpc" = {
-          #   proxyPass = "http://${cfg.listenAddress}:${builtins.toString(cfg.listenPort)}/.rpc";
-          # };
-
           "/" = {
-            proxyPass = "http://${cfg.listenAddress}:${builtins.toString(cfg.listenPort)}";
+            proxyPass = "$upstream";
             proxyWebsockets = true;
             
             extraConfig = ''
-              # Protect this location using the auth_request
-              auth_request /.auth;
-              error_page 401 =302 https://auth.berge.id;
-
-              ## Optionally set a header to pass through the username
-              #auth_request_set $username $upstream_http_x_username;
-              #proxy_set_header X-User $username;
-
-              # Automatically renew SSO cookie on request
-              auth_request_set $cookie $upstream_http_set_cookie;
-              add_header Set-Cookie $cookie;
+              include ${../authelia/snippet/proxy.conf};
+              include ${../authelia/snippet/authelia-authrequest.conf};
+              include ${../authelia/snippet/websocket.conf};
             '';
           };
         };
