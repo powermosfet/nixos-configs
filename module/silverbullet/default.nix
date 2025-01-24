@@ -38,6 +38,7 @@ in
               internal;
               proxy_set_header Host $host;
               proxy_set_header X-Original-URL "$scheme://$http_host$request_uri";
+              proxy_set_header X-Original-Method $request_method;
               proxy_set_header X-Forwarded-Method $request_method;
               proxy_set_header X-Forwarded-Host $http_host;
               proxy_set_header X-Real-IP $remote_addr;
