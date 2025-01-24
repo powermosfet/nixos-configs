@@ -43,7 +43,6 @@ in
             extraConfig = ''
               include ${../authelia/snippet/proxy.conf};
               include ${../authelia/snippet/authelia-authrequest.conf};
-              include ${../authelia/snippet/websocket.conf};
             '';
           };
         };
