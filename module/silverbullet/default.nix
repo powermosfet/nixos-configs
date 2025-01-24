@@ -36,22 +36,15 @@ in
             proxyPass = "http://localhost:9091/api/authz/auth-request";
             extraConfig = ''
               internal;
-              proxy_set_header Host $host;
-              proxy_set_header X-Original-URL "$scheme://$http_host$request_uri";
               proxy_set_header X-Original-Method $request_method;
-              proxy_set_header X-Forwarded-Method $request_method;
-              proxy_set_header X-Forwarded-Host $http_host;
-              proxy_set_header X-Real-IP $remote_addr;
+              proxy_set_header X-Original-URL "$scheme://$http_host$request_uri";
               proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-              proxy_set_header X-Forwarded-Proto $scheme;
-              proxy_set_header X-Forwarded-Uri $request_uri;
-              proxy_set_header X-Auth-Request-User $remote_user;
             '';
           };
 
-          "/.rpc" = {
-            proxyPass = "http://${cfg.listenAddress}:${builtins.toString(cfg.listenPort)}/.rpc";
-          };
+          # "/.rpc" = {
+          #   proxyPass = "http://${cfg.listenAddress}:${builtins.toString(cfg.listenPort)}/.rpc";
+          # };
 
           "/" = {
             proxyPass = "http://${cfg.listenAddress}:${builtins.toString(cfg.listenPort)}";
