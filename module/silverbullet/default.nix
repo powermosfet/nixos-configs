@@ -48,7 +48,7 @@ in
           };
         };
       };
-      services.ddclient.domains = [ hostName ];
+      services.ddclient.domains = [ hostname ];
     };
 
     services.authelia.instances.silverbullet = {
