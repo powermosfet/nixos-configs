@@ -33,7 +33,7 @@ in
         forceSSL = true;
         extraConfig = ''
           include ${../authelia/snippet/authelia-location.conf};
-          set $upstream https://${cfg.listenAddress}:${builtins.toString(cfg.listenPort)};
+          set $upstream http://${cfg.listenAddress}:${builtins.toString(cfg.listenPort)};
         '';
         locations = {
           "/" = {
