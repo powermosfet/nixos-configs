@@ -3,7 +3,6 @@
 let
   cfg = config.services.silverbullet;
   hostname = "sb.berge.id";
-  snippet = import ../authelia/nginx-snippets
   autheliaConfig = pkgs.writeText "authelia-config-silverbullet.yml" ''
     # Authelia access control configuration
     access_control:
