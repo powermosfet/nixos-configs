@@ -20,6 +20,7 @@ let
 in
 {
   imports = [
+    ../authelia/silverbullet
   ];
 
   config = {
