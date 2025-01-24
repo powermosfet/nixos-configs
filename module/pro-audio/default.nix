@@ -25,13 +25,27 @@
     meterbridge
     qastools
     hydrogen
+    neothesia
+    odin2
+    calf
+    zam-plugins
+    xsynth_dssi
+    soundfont-ydp-grand
+    soundfont-fluid
+    soundfont-arachno
+    soundfont-generaluser
+    lsp-plugins
+    carla
   ];
+
 
   musnix = {
     enable = true;
   };
+
+  users.users.asmund.extraGroups = [ "audio" "jackaudio" "pipewire" ];
+  environment.pathsToLink = [ "/share/soundfonts" ];
   
-  sound.enable = false;
   security.rtkit.enable = true;
 
   services.pipewire = {
@@ -44,6 +58,4 @@
     jack.enable = true;
     pulse.enable = true;
   };
-
-  users.users.asmund.extraGroups = [ "audio" "jackaudio" "pipewire" ];
 }
