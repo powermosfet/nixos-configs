@@ -7,8 +7,9 @@
 
   services.postgresql = {
     enable = true;
+    package = pkgs.postgresql_15;
 
-    extraPlugins = with pkgs.postgresql13Packages; [ pg_safeupdate ];
+    extensions = with pkgs.postgresql15Packages; [ pg_safeupdate ];
   };
 }
 
