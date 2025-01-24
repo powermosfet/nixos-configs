@@ -12,7 +12,7 @@
         enableACME = true;
         forceSSL = true;
       };
-      services.ddclient.domains = [ config.services.freshrss.virtualHost ];
+      ddclient.domains = [ config.services.freshrss.virtualHost ];
     };
   };
 }
