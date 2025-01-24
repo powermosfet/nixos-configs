@@ -1,6 +1,9 @@
 { pkgs, ... }:
 
 let
+  domain = "berge.id";
+  hostName = "auth.berge.id";
+  silverBulletHostName = "sb.berge.id";
   autheliaConfigFile = pkgs.writeText "authelia-config.yml" ''                                            
     # Authelia configuration in YAML format                                                     
     theme: light                                                                                
@@ -25,9 +28,9 @@ let
       ## Cookies configures the list of allowed cookie domains for sessions to be created on.   
       ## Undefined values will default to the values below.                                     
       cookies:                                                                                  
-         - domain: 'berge.id'                                                                   
-           authelia_url: 'https://auth.berge.id'                                                
-           default_redirection_url: 'https://sb.berge.id'                                       
+         - domain: '${domain}'
+           authelia_url: 'https://${hostName}'                                                
+           default_redirection_url: 'https://${silverBulletHostName}'                                       
                                                                                                 
     # Authelia storage configuration                                                            
     storage:                                                                                    
@@ -49,7 +52,7 @@ in
 	};                                                           
       };                                                             
     };                                                               
-    services.nginx.virtualHosts."auth.berge.id" = {                  
+    services.nginx.virtualHosts."${hostName}" = {                  
       enableACME = true;                                             
       forceSSL = true;                                               
       locations = {                                                  
@@ -58,6 +61,7 @@ in
 	};                                                           
       };                                                             
     };                                                               
+    services.ddclient.domains = [ hostName ];
 
   };
 }

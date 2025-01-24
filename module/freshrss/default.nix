@@ -1,10 +1,6 @@
 { pkgs, config, ... }:
 
 {
-  imports =
-    [ 
-    ];
-
   config = {
     services = {
       freshrss = {
@@ -16,6 +12,7 @@
         enableACME = true;
         forceSSL = true;
       };
+      services.ddclient.domains = [ config.services.freshrss.virtualHost ];
     };
   };
 }
