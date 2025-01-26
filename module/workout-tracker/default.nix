@@ -1,17 +1,28 @@
 { pkgs, config, ... }:
 
 let
-  version = "2.0.3";
+  pname = "workout-tracker";
+  version = "2.0.2";
   src = pkgs.fetchFromGitHub {
     owner = "jovandeginste";
     repo = "workout-tracker";
     rev = "refs/tags/v${version}";
-    hash = "sha256-DJOYjKujb6mmqJcYhzPLv1uYgAIWW4hdH/gILlqkJXQ=";
+    hash = "sha256-DJOYjKuj66mmqJcYhzPLv1uYgAIWW4hdH/gILlqkJXQ=";
   };
-  assets = pkgs.workout-tracker-assets.overrideAttrs {
+  assets = pkgs.buildNpmPackage {
+    pname = "${pname}-assets";
     inherit version src;
-    npmDepsHash = "sha256-/OBIRiLwUtXVmmg44FYqV0BptxQTg8bDuNMTj8IYwG0=";
-    # makeCacheWritable = true;
+    npmDepsHash = "sha256-/RBIRiLwUtXVmmg44FYqV0BptxQTg8bDuNMTj8IYwG0=";
+    dontNpmBuild = true;
+    postPatch = ''
+      rm Makefile
+      '';
+    installPhase = ''
+      runHook preInstall
+      cp -r . "$out"
+      runHook postInstall
+      '';
+    makeCacheWritable = true;
   };
 in
 {
