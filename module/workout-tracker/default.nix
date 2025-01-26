@@ -33,6 +33,7 @@ in
     services.workout-tracker = {
       enable = true;
       package = pkgs.workout-tracker.overrideAttrs {
+        inherit version src assets;
       };
       
       settings = {
