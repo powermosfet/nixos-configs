@@ -12,7 +12,7 @@ let
   assets = pkgs.buildNpmPackage {
     pname = "${pname}-assets";
     inherit version src;
-    npmDepsHash = "sha256-/RBIRiLwUtXVmmg44FYqV0BptxQTg8bDuNMTj8IYwG0=";
+    npmDepsHash = "sha256-ntOQeTyTkYx1WILE+CV/BPCgT1T6zkBynCOeQWvhFr4=";
     dontNpmBuild = true;
     postPatch = ''
       rm Makefile
