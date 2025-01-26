@@ -17,7 +17,7 @@ in
           owner = "jovandeginste";                                       
           repo = "workout-tracker";                                      
           rev = "refs/tags/v${workout-tracker-version}";                 
-          hash = "sha256-A5HmAKRiHwo7aPrhQWHjPZUT29zaxCN6z4SR8jR9jOg=";  
+          hash = "sha256-DJOYjKujb6mmqJcYhzPLv1uYgAIWW4hdH/gILlqkJXQ=";  
         };
       };
       
