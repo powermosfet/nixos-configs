@@ -9,7 +9,7 @@ let
     rev = "refs/tags/v${version}";
     hash = "sha256-DJOYjKujb6mmqJcYhzPLv1uYgAIWW4hdH/gILlqkJXQ=";
   };
-  assets = buildNpmPackage {
+  assets = pkgs.buildNpmPackage {
     pname = "${pname}-assets";
     inherit version src;
     npmDepsHash = "sha256-jHpCCMgjGvaAOfbslaIKfIRiPafScpn3WLnYamm+lbs=";
