@@ -11,7 +11,7 @@ in
   config = {
     services.workout-tracker = {
       enable = true;
-      package = pkgs.workout-tracker.override {                
+      package = pkgs.workout-tracker.overrideAttrs {                
         version = workout-tracker-version;                               
         src = pkgs.fetchFromGitHub {                                     
           owner = "jovandeginste";                                       
