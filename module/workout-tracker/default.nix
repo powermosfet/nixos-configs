@@ -1,7 +1,6 @@
 { pkgs, config, ... }:
 
 let
-  pname = "workout-tracker";
   version = "2.0.3";
   src = pkgs.fetchFromGitHub {
     owner = "jovandeginste";
@@ -9,20 +8,10 @@ let
     rev = "refs/tags/v${version}";
     hash = "sha256-DJOYjKujb6mmqJcYhzPLv1uYgAIWW4hdH/gILlqkJXQ=";
   };
-  assets = pkgs.buildNpmPackage {
-    pname = "${pname}-assets";
+  assets = pkgs.workout-tracker-assets.overrideAttrs {
     inherit version src;
     npmDepsHash = "sha256-/OBIRiLwUtXVmmg44FYqV0BptxQTg8bDuNMTj8IYwG0=";
-    dontNpmBuild = true;
-    postPatch = ''
-      rm Makefile
-      '';
-    installPhase = ''
-      runHook preInstall
-      cp -r . "$out"
-      runHook postInstall
-      '';
-    makeCacheWritable = true;
+    # makeCacheWritable = true;
   };
 in
 {
