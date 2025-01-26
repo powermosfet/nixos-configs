@@ -1,7 +1,28 @@
 { pkgs, config, ... }:
 
 let
-  workout-tracker-version = "2.0.3";
+  pname = "workout-tracker";
+  version = "2.0.3";
+  src = pkgs.fetchFromGitHub {
+    owner = "jovandeginste";
+    repo = "workout-tracker";
+    rev = "refs/tags/v${version}";
+    hash = "sha256-DJOYjKujb6mmqJcYhzPLv1uYgAIWW4hdH/gILlqkJXQ=";
+  };
+  assets = buildNpmPackage {
+    pname = "${pname}-assets";
+    inherit version src;
+    npmDepsHash = "sha256-jHpCCMgjGvaAOfbslaIKfIRiPafScpn3WLnYamm+lbs=";
+    dontNpmBuild = true;
+    postPatch = ''
+      rm Makefile
+      '';
+    installPhase = ''
+      runHook preInstall
+      cp -r . "$out"
+      runHook postInstall
+      '';
+  };
 in
 {
   imports =
@@ -11,14 +32,7 @@ in
   config = {
     services.workout-tracker = {
       enable = true;
-      package = pkgs.workout-tracker.overrideAttrs {                
-        version = workout-tracker-version;                               
-        src = pkgs.fetchFromGitHub {                                     
-          owner = "jovandeginste";                                       
-          repo = "workout-tracker";                                      
-          rev = "refs/tags/v${workout-tracker-version}";                 
-          hash = "sha256-DJOYjKujb6mmqJcYhzPLv1uYgAIWW4hdH/gILlqkJXQ=";  
-        };
+      package = pkgs.workout-tracker.overrideAttrs {
       };
       
       settings = {
