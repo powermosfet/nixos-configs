@@ -22,6 +22,7 @@ let
       cp -r . "$out"
       runHook postInstall
       '';
+    makeCacheWritable = true;
   };
 in
 {
