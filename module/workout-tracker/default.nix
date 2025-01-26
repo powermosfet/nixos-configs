@@ -7,7 +7,7 @@ let
     owner = "jovandeginste";
     repo = "workout-tracker";
     rev = "refs/tags/v${version}";
-    hash = "sha256-DJOYjKuj66mmqJcYhzPLv1uYgAIWW4hdH/gILlqkJXQ=";
+    hash = "sha256-m0f6iyexRRPXNGt56uaQrUmQiOuyb0ieze6CpY/QZfQ=";
   };
   assets = pkgs.buildNpmPackage {
     pname = "${pname}-assets";
