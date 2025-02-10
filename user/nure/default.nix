@@ -1,21 +1,18 @@
 { config, pkgs, ... }:
 
 let
-  unstable = import <nixos-unstable> { };
+  hostName = "nure.berge.id";
 in
 {
-  imports =
-    [ 
-    ];
-     
   users.users.nure = {
     isNormalUser = true;
   };
 
-  services.nginx.virtualHosts."nure.berge.id" = {
-    addSSL = true;
+  services.nginx.virtualHosts."${hostName}" = {
     enableACME = true;
-    root = "/var/www/nure.berge.id";
+    forceSSL = true;
+    root = "/var/www/${hostName}";
   };
+  services.ddclient.domains = [ hostName ];
 }
 
