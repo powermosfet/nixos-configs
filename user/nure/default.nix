@@ -15,7 +15,7 @@ in
   services.nginx.virtualHosts."nure.berge.id" = {
     addSSL = true;
     enableACME = true;
-    root = "/home/nure/www";
+    root = "/var/www/nure.berge.id";
   };
 }
 
