@@ -6,6 +6,7 @@ in
 {
   imports =
     [ ../../user/asmund
+      ../../user/nure
       ../../module/borg/jobs/main
       ../../module/nginx
       ../../module/als
