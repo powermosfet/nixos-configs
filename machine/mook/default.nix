@@ -36,7 +36,7 @@ in
   services.als.port = ports.exposed.als;
   services.barcode-backend.port = ports.exposed.barcode;
   services.paperless.gotenbergPort = ports.internal.gotenberg;
-  services.paperless.tikaPort = ports.internal.tika;
+  services.tika.port = ports.internal.tika;
   services.onlyoffice.port = ports.internal.onlyoffice;
   services.workout-tracker.port = ports.internal.workout-tracker;
   services.silverbullet.listenPort = ports.internal.silverbullet;
