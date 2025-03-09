@@ -35,7 +35,7 @@ in
   services.pms.port = ports.exposed.pms;
   services.als.port = ports.exposed.als;
   services.barcode-backend.port = ports.exposed.barcode;
-  services.paperless.gotenbergPort = ports.internal.gotenberg;
+  services.gotenberg.port = ports.internal.gotenberg;
   services.tika.port = ports.internal.tika;
   services.onlyoffice.port = ports.internal.onlyoffice;
   services.workout-tracker.port = ports.internal.workout-tracker;

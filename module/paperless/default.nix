@@ -16,11 +16,6 @@ in
     ];
 
   options = {
-    services.paperless.gotenbergPort = mkOption {
-      description = "Network port for Gothenberg";
-      type = types.int;
-    };
-
     services.paperless.secretKey = mkOption {
       description = "Secret key";
       type = types.str;
@@ -39,7 +34,7 @@ in
         PAPERLESS_CONSUMER_ASN_BARCODE_PREFIX = "ASN";
         PAPERLESS_TIKA_ENABLED = true;
         PAPERLESS_TIKA_ENDPOINT = "http://${config.services.tika.listenAddress}:${builtins.toString(config.services.tika.port)}";
-        PAPERLESS_TIKA_GOTENBERG_ENDPOINT = "http://localhost:${builtins.toString(config.services.paperless.gotenbergPort)}";
+        PAPERLESS_TIKA_GOTENBERG_ENDPOINT = "http://localhost:${builtins.toString(config.services.gotenberg.port)}";
       };
     };
 
@@ -70,12 +65,8 @@ in
 
     backup.paths = [ config.services.paperless.dataDir ];
 
-    virtualisation.oci-containers.containers."gotenberg" = {
-      autoStart = true;
-      environment = {
-      };
-      image = "gotenberg/gotenberg";
-      ports = [ "${builtins.toString(config.services.paperless.gotenbergPort)}:3000" ];
+    services.gotenberg = {
+      enable = true;
     };
     services.tika = {
       enable = true;
