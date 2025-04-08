@@ -67,6 +67,7 @@ in
 
     services.gotenberg = {
       enable = true;
+      timeout = "600s";
     };
     services.tika = {
       enable = true;
