@@ -73,6 +73,7 @@ in
     services.gotenberg = {
       enable = true;
       timeout = "600s";
+      chromium.autoStart = true;
     };
     services.tika = {
       enable = true;
