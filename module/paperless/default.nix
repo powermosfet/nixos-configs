@@ -77,12 +77,11 @@ in
         autoStart = true;
         package = pkgs.ungoogled-chromium;
       };
-    };
-    services.gotenberg = {
-      environment = {
-        # CHROMIUM_BIN_PATH = "/run/current-system/sw/bin/chromium-wrapped";
-        CHROMIUM_STARTUP_TIMEOUT = "60";  # Increase from default 10s to 30s
-      };
+      environmentFile = pkgs.writeText "gotenberg-env" ''
+        CHROMIUM_BIN_PATH=${pkgs.chromium}/bin/chromium-wrapped
+        CHROMIUM_STARTUP_TIMEOUT=60
+        CHROMIUM_FLAGS=--no-sandbox --disable-dev-shm-usage
+      '';
     };
     services.tika = {
       enable = true;
