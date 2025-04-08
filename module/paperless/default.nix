@@ -76,6 +76,7 @@ in
       chromium = {
         autoStart = true;
         package = pkgs.ungoogled-chromium;
+        disableJavascript = true;
       };
       environmentFile = pkgs.writeText "gotenberg-env" ''
         CHROMIUM_BIN_PATH=${config.services.gotenberg.chromium.package}/bin/chromium
