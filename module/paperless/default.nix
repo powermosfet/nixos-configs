@@ -73,7 +73,10 @@ in
     services.gotenberg = {
       enable = true;
       timeout = "600s";
-      chromium.autoStart = true;
+      chromium = {
+        autoStart = true;
+        package = pkgs.ungoogled-chromium;
+      };
     };
     services.tika = {
       enable = true;
