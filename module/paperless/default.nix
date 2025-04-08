@@ -79,11 +79,12 @@ in
         # package = pkgs.ungoogled-chromium;
         disableJavascript = true;
       };
-      # environmentFile = pkgs.writeText "gotenberg-env" ''
-      #   CHROMIUM_BIN_PATH=${config.services.gotenberg.chromium.package}/bin/chromium
-      #   CHROMIUM_STARTUP_TIMEOUT=600
-      #   CHROMIUM_FLAGS=--no-sandbox --disable-dev-shm-usage --headless
-      # '';
+      environmentFile = pkgs.writeText "gotenberg-env" ''
+        CHROMIUM_BIN_PATH=${config.services.gotenberg.chromium.package}/bin/chromium
+        CHROMIUM_STARTUP_TIMEOUT=600
+        CHROMIUM_FLAGS=--no-sandbox --disable-dev-shm-usage
+        BROWSER=google-chrome
+      '';
     };
     services.tika = {
       enable = true;
