@@ -23,6 +23,11 @@ in
   };
 
   config = {
+    environment.systemPackages = with pkgs; [
+      file
+      chromium
+    ];
+
     services.paperless = {
       enable = true;
       consumptionDirIsPublic = true;
