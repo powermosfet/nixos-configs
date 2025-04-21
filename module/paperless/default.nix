@@ -8,7 +8,7 @@ let
   email = "little.tree8655@fastmail.com";
   dbName = "paperless";
   dbUser = config.services.paperless.user;
-  unstable = import <nixos-unstable> { };
+  # unstable = import <nixos-unstable> { };
 in
 {
   imports =
@@ -73,20 +73,10 @@ in
 
     services.gotenberg = {
       enable = true;
-      package = unstable.gotenberg;
+      # package = unstable.gotenberg;
       logLevel = "debug";
       timeout = "600s";
-      chromium = {
-        autoStart = true;
-        # package = pkgs.ungoogled-chromium;
-        disableJavascript = true;
-      };
-      environmentFile = pkgs.writeText "gotenberg-env" ''
-        CHROMIUM_BIN_PATH=${config.services.gotenberg.chromium.package}/bin/chromium
-        CHROMIUM_STARTUP_TIMEOUT=600
-        CHROMIUM_FLAGS=--no-sandbox --disable-dev-shm-usage
-        BROWSER=google-chrome
-      '';
+      chromium.disableRoutes = true;
     };
     services.tika = {
       enable = true;
