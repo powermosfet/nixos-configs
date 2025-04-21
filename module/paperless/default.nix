@@ -8,6 +8,7 @@ let
   email = "little.tree8655@fastmail.com";
   dbName = "paperless";
   dbUser = config.services.paperless.user;
+  unstable = import <nixos-unstable> { };
 in
 {
   imports =
@@ -72,6 +73,7 @@ in
 
     services.gotenberg = {
       enable = true;
+      package = unstable.gotenberg;
       logLevel = "debug";
       timeout = "600s";
       chromium = {
