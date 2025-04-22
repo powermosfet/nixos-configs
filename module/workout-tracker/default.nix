@@ -14,7 +14,7 @@ in
       package = unstable.workout-tracker;
       
       settings = {
-        WT_REGISTRATION_DISABLED = "false";
+        WT_REGISTRATION_DISABLED = "true";
       };
     };
 
