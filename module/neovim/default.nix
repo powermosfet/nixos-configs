@@ -26,9 +26,7 @@ in
       '';
 
       packages.myVimPackage = with pkgs.vimPlugins; {
-        start = [
-          packer-nvim
-        ];
+        start = (import ./plugins.nix { pkgs = pkgs; }).plugins;
       };
     };
   };
