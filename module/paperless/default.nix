@@ -32,7 +32,7 @@ in
     services.paperless = {
       enable = true;
       consumptionDirIsPublic = true;
-      configureTike = true;
+      configureTika = true;
       settings = {
         PAPERLESS_DBHOST = "/run/postgresql";
         PAPERLESS_SECRET_KEY = config.services.paperless.secretKey;
