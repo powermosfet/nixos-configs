@@ -5,8 +5,6 @@
     barcode = 8003;
   };
   internal = {
-    gotenberg = 8900;
-    tika = 8901;
     onlyoffice = 8902;
     meme = 8903;
     workout-tracker = 8904;
