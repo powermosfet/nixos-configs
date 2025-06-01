@@ -31,6 +31,7 @@ in
 
     services.paperless = {
       enable = true;
+      address = hostName;
       consumptionDirIsPublic = true;
       configureTika = true;
       settings = {
