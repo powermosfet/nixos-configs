@@ -7,6 +7,7 @@ in
   environment.systemPackages = with pkgs; [
     ripgrep
     tree-sitter
+    git
   ];
 
   programs.neovim = {
@@ -19,10 +20,8 @@ in
 
     configure = {
       customRC = ''
-        set runtimepath^=${./config}
-        lua << EOF
-          require("sharedconfig.init")
-        EOF
+        set runtimepath=${./config},$VIMRUNTIME
+        colorscheme gruvbox
       '';
 
       packages.myVimPackage = with pkgs.vimPlugins; {
