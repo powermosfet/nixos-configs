@@ -49,6 +49,9 @@ in
         "/" = {
           proxyPass = "http://127.0.0.1:${builtins.toString(config.services.paperless.port)}";
           proxyWebsockets = true;
+	  extraConfig = """
+	   proxy_cookie_path off;
+	  """;
         };
       };
     };
@@ -68,16 +71,5 @@ in
     services.postgresqlBackup.databases = [ dbName ];
 
     backup.paths = [ config.services.paperless.dataDir ];
-
-    services.gotenberg = {
-      enable = true;
-      # package = unstable.gotenberg;
-      logLevel = "debug";
-      timeout = "600s";
-      # chromium.disableRoutes = true;
-    };
-    services.tika = {
-      enable = true;
-    };
   };
 }
