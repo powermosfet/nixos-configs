@@ -51,9 +51,6 @@ in
         "/" = {
           proxyPass = "http://127.0.0.1:${builtins.toString(config.services.paperless.port)}";
           proxyWebsockets = true;
-	  extraConfig = ''
-	   proxy_cookie_path off;
-	  '';
         };
       };
     };
