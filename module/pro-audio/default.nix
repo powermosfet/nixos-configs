@@ -10,13 +10,16 @@
 #   sudo -i nix-channel --add https://github.com/musnix/musnix/archive/master.tar.gz musnix
 #   sudo -i nix-channel --update musnix
 
+let
+  unstable = import <nixos-unstable> { };
+in
 {
   imports =
     [ <musnix>
     ];
   
   environment.systemPackages = with pkgs; [
-    ardour
+    unstable.ardour
     qpwgraph
     alsa-utils
     tree
