@@ -1,7 +1,8 @@
-require('sharedconfig.plugins')
-
 local g = vim.g
 local api = vim.api
+
+g.mapleader = " "
+g.maplocalleader = " "
 
 vim.o.hidden = true
 vim.o.relativenumber = true
@@ -17,9 +18,6 @@ function kmap(prefix, definitions)
     api.nvim_set_keymap("n", prefix, definitions, keymapOptions)
   end
 end
-
-g.mapleader = " "
-g.maplocalleader = " "
 
 local keymaps = require("sharedconfig.keymaps")
 kmap("", keymaps)
@@ -37,5 +35,4 @@ set_all(true, { "termguicolors", "hidden", "splitright", "number", "relativenumb
 set_all(false, { "fixendofline" })
 set_all("nicr", { "mouse" })
 
-vim.cmd('colorscheme everforest')
-
+vim.cmd('colorscheme gruvbox')
