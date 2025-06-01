@@ -8,7 +8,7 @@ let
   email = "little.tree8655@fastmail.com";
   dbName = "paperless";
   dbUser = config.services.paperless.user;
-  # unstable = import <nixos-unstable> { };
+  unstable = import <nixos-unstable> { };
 in
 {
   imports =
@@ -31,7 +31,7 @@ in
 
     services.paperless = {
       enable = true;
-      address = "https://${hostName}";
+      package = unstable.paperless-ngx;
       consumptionDirIsPublic = true;
       configureTika = true;
       settings = {
