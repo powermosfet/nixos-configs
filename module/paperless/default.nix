@@ -35,6 +35,7 @@ in
       consumptionDirIsPublic = true;
       configureTika = true;
       settings = {
+        PAPERLESS_URL = "https://${hostName}";
         PAPERLESS_DBHOST = "/run/postgresql";
         PAPERLESS_SECRET_KEY = config.services.paperless.secretKey;
         PAPERLESS_OCR_LANGUAGE = "nor+eng";
