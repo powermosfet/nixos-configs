@@ -35,4 +35,8 @@ set_all(true, { "termguicolors", "hidden", "splitright", "number", "relativenumb
 set_all(false, { "fixendofline" })
 set_all("nicr", { "mouse" })
 
+require('config-local').setup {
+  config_files = { ".nvim.lua", ".nvimrc", ".exrc" },
+}
+
 vim.cmd('colorscheme gruvbox')
