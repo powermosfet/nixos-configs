@@ -9,17 +9,25 @@ in
 {
   services.nextcloud = {
     enable = true;
-    package = pkgs.nextcloud30;
+    package = pkgs.nextcloud31;
     hostName = hostName;
     https = true;
     configureRedis = true;
     maxUploadSize = "16G";
     extraAppsEnable = true;
-      extraApps = with config.services.nextcloud.package.packages.apps; {
-        # List of apps we want to install and are already packaged in
-        # https://github.com/NixOS/nixpkgs/blob/master/pkgs/servers/nextcloud/packages/nextcloud-apps.json
-        inherit calendar contacts mail notes onlyoffice tasks memories;
-      };
+    extraApps = with config.services.nextcloud.package.packages.apps; {
+      # List of apps we want to install and are already packaged in
+      # https://github.com/NixOS/nixpkgs/blob/master/pkgs/servers/nextcloud/packages/nextcloud-apps.json
+      inherit
+        calendar
+        contacts
+        mail
+        notes
+        onlyoffice
+        tasks
+        memories
+        ;
+    };
     settings = {
       default_phone_region = "NO";
     };
@@ -32,14 +40,14 @@ in
     };
   };
 
-  
   users.users.nextcloud.extraGroups = [ "keys" ];
 
   services.postgresql = {
     enable = true;
     ensureDatabases = [ dbName ];
     ensureUsers = [
-      { name = dbUser;
+      {
+        name = dbUser;
         ensureDBOwnership = true;
       }
     ];
@@ -60,8 +68,11 @@ in
   services.ddclient.domains = [ hostName ];
 
   security.acme.defaults.email = email;
-  
-  networking.firewall.allowedTCPPorts = [ 80 443 ];
+
+  networking.firewall.allowedTCPPorts = [
+    80
+    443
+  ];
 
   backup.paths = [ config.services.nextcloud.datadir ];
 }
