@@ -1,7 +1,11 @@
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
-{ config, pkgs, lib, ... }:
-
-  with lib;
+with lib;
 
 let
   hostName = "wiki.berge.id";
@@ -19,9 +23,9 @@ let
   };
 in
 {
-  imports =
-    [ ../../user/backup
-    ];
+  imports = [
+    ../../user/backup
+  ];
 
   options = {
     services.mediawiki = {
@@ -50,7 +54,7 @@ in
       httpd.virtualHost = {
         hostName = hostName;
         adminAddr = email;
-        listen =  [
+        listen = [
           {
             ip = "127.0.0.1";
             port = internalPort;
@@ -70,29 +74,29 @@ in
         };
       };
       extraConfig = ''
-        $wgLanguageCode = 'no';
-        $wgNamespacesWithSubpages[NS_MAIN] = 1;
-        $wgFavicon = "favicon.png";
+          $wgLanguageCode = 'no';
+          $wgNamespacesWithSubpages[NS_MAIN] = 1;
+          $wgFavicon = "favicon.png";
 
-        $wgSMTP = [
-            'host'     => 'localhost',
-            'IDHost'   => 'berge.id',
-            'port'     => 1025,
-            'auth'     => true,
-            'username' => 'aberge',
-            'password' => '${smtpPassword}'
-        ];
+          $wgSMTP = [
+              'host'     => 'localhost',
+              'IDHost'   => 'berge.id',
+              'port'     => 1025,
+              'auth'     => true,
+              'username' => 'aberge',
+              'password' => '${smtpPassword}'
+          ];
 
-      # Disable reading by anonymous users
-        $wgGroupPermissions['*']['read'] = false;
+        # Disable reading by anonymous users
+          $wgGroupPermissions['*']['read'] = false;
 
-      # Disable anonymous editing
-        $wgGroupPermissions['*']['edit'] = false;
+        # Disable anonymous editing
+          $wgGroupPermissions['*']['edit'] = false;
 
-      # Prevent new user registrations except by sysops
-        $wgGroupPermissions['*']['createaccount'] = false;
+        # Prevent new user registrations except by sysops
+          $wgGroupPermissions['*']['createaccount'] = false;
 
-        $wgLogo = "$wgUploadPath/images/d/d4/Logo.jpg";
+          $wgLogo = "$wgUploadPath/images/d/d4/Logo.jpg";
       '';
     };
 
@@ -101,7 +105,7 @@ in
       forceSSL = true;
       locations = {
         "/" = {
-          proxyPass = "http://127.0.0.1:${builtins.toString(internalPort)}";
+          proxyPass = "http://127.0.0.1:${builtins.toString (internalPort)}";
           proxyWebsockets = true;
         };
         "/favicon.png" = {
@@ -129,6 +133,9 @@ in
       databases = [ "mediawiki" ];
     };
 
-    networking.firewall.allowedTCPPorts = [ 80 443 ];
+    networking.firewall.allowedTCPPorts = [
+      80
+      443
+    ];
   };
 }

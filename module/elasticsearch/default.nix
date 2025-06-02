@@ -1,9 +1,8 @@
 { pkgs, ... }:
 
 {
-  imports =
-    [
-    ];
+  imports = [
+  ];
 
   config = {
     services.elasticsearch = {
@@ -11,7 +10,7 @@
 
       plugins = [
         pkgs.elasticsearchPlugins.ingest-attachment
-        ];
+      ];
     };
   };
 }

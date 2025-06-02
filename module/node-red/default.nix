@@ -1,12 +1,12 @@
 { pkgs, ... }:
 
 {
-  imports =
-    [ ../../user/backup
-    ];
+  imports = [
+    ../../user/backup
+  ];
 
   config = {
-    users.groups.node-red = {};
+    users.groups.node-red = { };
     users.users.node-red = {
       isSystemUser = true;
       group = "node-red";

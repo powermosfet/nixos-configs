@@ -1,14 +1,14 @@
 { pkgs, ... }:
 
 {
-  imports =
-    [ ../../user/asmund
-      ../../module/neovim
-      ../../module/avahi
-      ../../module/garbage-collection
-      ../../module/auto-update
-    ];
-     
+  imports = [
+    ../../user/asmund
+    ../../module/neovim
+    ../../module/avahi
+    ../../module/garbage-collection
+    ../../module/auto-update
+  ];
+
   time.timeZone = "Europe/Oslo";
 
   networking.hostName = "gilli";
@@ -17,7 +17,7 @@
   environment.systemPackages = with pkgs; [
     git
   ];
-  
+
   services.openssh.enable = true;
   security.sudo.wheelNeedsPassword = false;
 
@@ -35,4 +35,3 @@
     };
   };
 }
-

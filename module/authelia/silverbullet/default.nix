@@ -4,7 +4,7 @@ let
   domain = "berge.id";
   hostName = "auth.berge.id";
   silverBulletHostName = "sb.berge.id";
-  autheliaConfigFile = pkgs.writeText "authelia-config.yml" ''                                            
+  autheliaConfigFile = pkgs.writeText "authelia-config.yml" ''
     # Authelia configuration in YAML format                                                     
     theme: light                                                                                
                                                                                                 
@@ -41,26 +41,26 @@ let
     notifier:                                                                                   
       filesystem:                                                                               
         filename: /var/lib/authelia-silverbullet/notification.txt                               
-    '';                                                                                         
+  '';
 in
 {
   config = {
-    services.authelia = {                                            
-      instances = {                                                  
-	silverbullet = {                                             
-	  settingsFiles = [ autheliaConfigFile ];         
-	};                                                           
-      };                                                             
-    };                                                               
-    services.nginx.virtualHosts."${hostName}" = {                  
-      enableACME = true;                                             
-      forceSSL = true;                                               
-      locations = {                                                  
-	"/" = {                                                      
-	  proxyPass = "http://localhost:9091";                       
-	};                                                           
-      };                                                             
-    };                                                               
+    services.authelia = {
+      instances = {
+        silverbullet = {
+          settingsFiles = [ autheliaConfigFile ];
+        };
+      };
+    };
+    services.nginx.virtualHosts."${hostName}" = {
+      enableACME = true;
+      forceSSL = true;
+      locations = {
+        "/" = {
+          proxyPass = "http://localhost:9091";
+        };
+      };
+    };
     services.ddclient.domains = [ hostName ];
 
   };

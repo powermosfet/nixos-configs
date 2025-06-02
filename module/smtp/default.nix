@@ -3,9 +3,8 @@
 let
 in
 {
-  imports =
-    [
-    ];
+  imports = [
+  ];
 
   config = {
     services.opensmtpd = {
@@ -19,5 +18,5 @@ in
         match for any action send
       '';
     };
- };
+  };
 }

@@ -1,16 +1,23 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
-  with lib;
+with lib;
 
 let
   cfg = config.services.als;
   src = pkgs.fetchFromGitHub {
     owner = "powermosfet";
-    repo  = "als";
+    repo = "als";
     rev = "7d01a418803e45f87fa550b342689505fc12eb18";
     sha256 = "sha256-jVSu6sYfGn1UCW6zIfhcXyNXR4LYpVvdY50N7cZ2T3s=";
   };
-  als = import src { pkgs = import (fetchTarball "https://github.com/NixOS/nixpkgs/tarball/21.11") { }; };
+  als = import src {
+    pkgs = import (fetchTarball "https://github.com/NixOS/nixpkgs/tarball/21.11") { };
+  };
 in
 {
   options = {
@@ -59,9 +66,9 @@ in
       environment = {
         PORT = toString cfg.port;
         CLIENT_ID = cfg.clientId;
-	REDIRECT_URL = cfg.redirectUrl;
-	ACCESS_TOKEN = cfg.accessToken;
-	REFRESH_TOKEN = cfg.refreshToken;
+        REDIRECT_URL = cfg.redirectUrl;
+        ACCESS_TOKEN = cfg.accessToken;
+        REFRESH_TOKEN = cfg.refreshToken;
         LIST_ID = cfg.listId;
       };
       serviceConfig = {
@@ -74,4 +81,3 @@ in
     networking.firewall.allowedTCPPorts = [ cfg.port ];
   };
 }
-

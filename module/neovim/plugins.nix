@@ -1,21 +1,25 @@
 { pkgs, ... }:
 
 {
-    plugins = let
-    nvim-treesitter-with-plugins = pkgs.vimPlugins.nvim-treesitter.withPlugins (treesitter-plugins:
-      with treesitter-plugins; [
-        bash
-        lua
-        nix
-        python
-        elm
-	php
-	yaml
-	ledger
-	haskell
-	gleam
-      ]);
-    in with pkgs.vimPlugins;  [
+  plugins =
+    let
+      nvim-treesitter-with-plugins = pkgs.vimPlugins.nvim-treesitter.withPlugins (
+        treesitter-plugins: with treesitter-plugins; [
+          bash
+          lua
+          nix
+          python
+          elm
+          php
+          yaml
+          ledger
+          haskell
+          gleam
+        ]
+      );
+    in
+    with pkgs.vimPlugins;
+    [
       nvim-lspconfig
       nvim-treesitter-with-plugins
       plenary-nvim

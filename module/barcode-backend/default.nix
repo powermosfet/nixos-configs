@@ -1,12 +1,17 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
-  with lib;
+with lib;
 
 let
   cfg = config.services.barcode-backend;
   src = pkgs.fetchFromGitHub {
     owner = "powermosfet";
-    repo  = "barcode-backend";
+    repo = "barcode-backend";
     rev = "db766fcc4e1cdfe67b72bf4f30fb3b9e1b4dd296";
     sha256 = "10ry3am7fqfylz0mda9lybp681x24js1gf2xh5w85jhqlmvzizid";
   };
@@ -16,11 +21,10 @@ let
   dbName = "barcode";
 in
 {
-  imports =
-    [ ../postgresql
-      ../postgresql/backup
-    ];
-
+  imports = [
+    ../postgresql
+    ../postgresql/backup
+  ];
 
   options = {
     services.barcode-backend = {
@@ -38,7 +42,10 @@ in
     systemd.services.barcode-backend = {
       description = "Barcode backend";
       wantedBy = [ "multi-user.target" ];
-      after = [ "network.target" "postgresql.service" ];
+      after = [
+        "network.target"
+        "postgresql.service"
+      ];
       environment = {
         PORT = toString cfg.port;
         DB_HOST = "localhost";
@@ -66,7 +73,7 @@ in
     };
     services.postgresqlBackup.databases = [ dbName ];
 
-    users.groups."${dbUser}" = {};
+    users.groups."${dbUser}" = { };
     users.users."${dbUser}" = {
       isSystemUser = true;
       group = dbUser;

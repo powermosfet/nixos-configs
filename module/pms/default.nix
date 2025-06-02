@@ -1,13 +1,20 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
-  with lib;
+with lib;
 
 let
-  unstable = import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/refs/heads/nixpkgs-unstable.tar.gz") { };
+  unstable =
+    import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/refs/heads/nixpkgs-unstable.tar.gz")
+      { };
   cfg = config.services.pms;
   src = pkgs.fetchFromGitHub {
     owner = "powermosfet";
-    repo  = "pms";
+    repo = "pms";
     rev = "9d30c86d0b91ad9b9e4fdfe23d82232eff6d6e8a";
     sha256 = "0703mfs1vsghk8j78yiyjx84ksdj9jkl5ywa028b89kw8ilzq2yi";
   };

@@ -17,9 +17,9 @@ in
       frontendHostname = hostName;
       database = {
         type = "postgres";
-	host = "/run/postgresql";
-	# user = dbUser;
-	# database = dbName;
+        host = "/run/postgresql";
+        # user = dbUser;
+        # database = dbName;
       };
     };
 
@@ -44,7 +44,7 @@ in
       database
     ];
 
-    users.groups."${user}" = {};
+    users.groups."${user}" = { };
     users.users."${user}" = {
       isSystemUser = true;
       group = user;
@@ -54,5 +54,3 @@ in
     };
   };
 }
-
-

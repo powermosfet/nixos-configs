@@ -1,9 +1,17 @@
-{ pkgs, config, lib, ... }:
-  
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
+
 let
-  unstable = import <nixos-unstable> { config.allowUnfreePredicate =  pkg: builtins.elem (lib.getName pkg) [
-    "minecraft-server"
-    ]; 
+  unstable = import <nixos-unstable> {
+    config.allowUnfreePredicate =
+      pkg:
+      builtins.elem (lib.getName pkg) [
+        "minecraft-server"
+      ];
   };
 in
 {

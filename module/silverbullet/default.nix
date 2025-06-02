@@ -34,13 +34,13 @@ in
         forceSSL = true;
         extraConfig = ''
           include ${../authelia/snippet/authelia-location.conf};
-          set $upstream http://${cfg.listenAddress}:${builtins.toString(cfg.listenPort)};
+          set $upstream http://${cfg.listenAddress}:${builtins.toString (cfg.listenPort)};
         '';
         locations = {
           "/" = {
             proxyPass = "$upstream";
             proxyWebsockets = true;
-            
+
             extraConfig = ''
               include ${../authelia/snippet/proxy.conf};
               include ${../authelia/snippet/authelia-authrequest.conf};

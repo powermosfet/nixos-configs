@@ -4,15 +4,14 @@ let
   unstable = import <nixos-unstable> { };
 in
 {
-  imports =
-    [
-    ];
+  imports = [
+  ];
 
   config = {
     services.workout-tracker = {
       enable = true;
       package = unstable.workout-tracker;
-      
+
       settings = {
         WT_REGISTRATION_DISABLED = "true";
       };
@@ -23,7 +22,7 @@ in
       forceSSL = true;
       locations = {
         "/" = {
-          proxyPass = "http://127.0.0.1:${builtins.toString(config.services.workout-tracker.port)}";
+          proxyPass = "http://127.0.0.1:${builtins.toString (config.services.workout-tracker.port)}";
           proxyWebsockets = true;
         };
       };

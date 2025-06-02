@@ -4,20 +4,20 @@ let
   unstable = import <nixos-unstable> { };
 in
 {
-  imports =
-    [ ../../user/asmund
-      ../../module/neovim
-      ../../module/avahi
-      ../../module/games
-      ../../module/scanner
-      ../../module/printing
-      ../../module/gnupg
-      ../../module/rtl-sdr
-      ../../module/pro-audio
+  imports = [
+    ../../user/asmund
+    ../../module/neovim
+    ../../module/avahi
+    ../../module/games
+    ../../module/scanner
+    ../../module/printing
+    ../../module/gnupg
+    ../../module/rtl-sdr
+    ../../module/pro-audio
 
-      ../../device/forerunner
-    ];
-     
+    ../../device/forerunner
+  ];
+
   time.timeZone = "Europe/Oslo";
 
   networking.hostName = "asmund-thinkpad"; # Define your hostname.
@@ -74,7 +74,6 @@ in
       nerd-fonts.droid-sans-mono
     ];
   };
-
 
   xdg.mime = {
     enable = true;
@@ -168,4 +167,3 @@ in
     KERNEL=="ttyUSB0", MODE:="666"
   '';
 }
-

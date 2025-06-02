@@ -4,10 +4,9 @@ let
   unstable = import <nixos-unstable> { };
 in
 {
-  imports =
-    [ ];
-     
-  users.groups.git = {};
+  imports = [ ];
+
+  users.groups.git = { };
   users.users.git = {
     isSystemUser = true;
     group = "git";
@@ -18,4 +17,3 @@ in
     ];
   };
 }
-

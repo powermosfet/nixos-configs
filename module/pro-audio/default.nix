@@ -4,9 +4,9 @@
 # https://github.com/musnix/musnix
 
 ## Using musnix as a channel
-# 
+#
 # As an alternative to the above approach, you can instead add musnix as a channel:
-# 
+#
 #   sudo -i nix-channel --add https://github.com/musnix/musnix/archive/master.tar.gz musnix
 #   sudo -i nix-channel --update musnix
 
@@ -14,10 +14,10 @@ let
   unstable = import <nixos-unstable> { };
 in
 {
-  imports =
-    [ <musnix>
-    ];
-  
+  imports = [
+    <musnix>
+  ];
+
   environment.systemPackages = with pkgs; [
     unstable.ardour
     qpwgraph
@@ -41,14 +41,17 @@ in
     carla
   ];
 
-
   musnix = {
     enable = true;
   };
 
-  users.users.asmund.extraGroups = [ "audio" "jackaudio" "pipewire" ];
+  users.users.asmund.extraGroups = [
+    "audio"
+    "jackaudio"
+    "pipewire"
+  ];
   environment.pathsToLink = [ "/share/soundfonts" ];
-  
+
   security.rtkit.enable = true;
 
   services.pipewire = {

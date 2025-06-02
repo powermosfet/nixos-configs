@@ -1,7 +1,12 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
-  with lib;
-  with builtins;
+with lib;
+with builtins;
 
 let
   hostName = "papir.berge.id";
@@ -11,10 +16,10 @@ let
   unstable = import <nixos-unstable> { };
 in
 {
-  imports =
-    [ ../docker
-      ../postgresql
-    ];
+  imports = [
+    ../docker
+    ../postgresql
+  ];
 
   options = {
     services.paperless.secretKey = mkOption {
@@ -49,7 +54,7 @@ in
       forceSSL = true;
       locations = {
         "/" = {
-          proxyPass = "http://127.0.0.1:${builtins.toString(config.services.paperless.port)}";
+          proxyPass = "http://127.0.0.1:${builtins.toString (config.services.paperless.port)}";
           proxyWebsockets = true;
         };
       };

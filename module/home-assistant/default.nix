@@ -1,6 +1,11 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
-  with lib;
+with lib;
 
 {
   config = {
@@ -19,7 +24,7 @@
           frontend = {
             themes = "!include_dir_merge_named themes";
           };
-          http = {};
+          http = { };
           feedreader.urls = [ "https://nixos.org/blogs.xml" ];
         };
         openFirewall = true;
@@ -27,4 +32,3 @@
     };
   };
 }
-

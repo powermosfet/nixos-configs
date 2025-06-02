@@ -15,4 +15,3 @@ in
   };
   services.ddclient.domains = [ hostName ];
 }
-

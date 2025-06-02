@@ -15,12 +15,12 @@ let
       db-uri = "postgres://${user}@/${dbName}"
       db-schema = "public"
       db-anon-role = "${user}"
-      server-port = ${builtins.toString(port)}
+      server-port = ${builtins.toString (port)}
     '';
   };
 in
 {
-  users.groups."${group}" = {};
+  users.groups."${group}" = { };
   users.users."${user}" = {
     isSystemUser = true;
     group = "${group}";
@@ -29,7 +29,8 @@ in
     enable = true;
     ensureDatabases = [ dbName ];
     ensureUsers = [
-      { name = user;
+      {
+        name = user;
         ensureDBOwnership = true;
       }
     ];

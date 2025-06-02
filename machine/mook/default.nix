@@ -4,32 +4,32 @@ let
   ports = import ./ports.nix;
 in
 {
-  imports =
-    [ ../../user/asmund
-      ../../user/nure
-      ../../module/borg/jobs/main
-      ../../module/nginx
-      ../../module/als
-      ../../module/pms
-      ../../module/postgresql
-      ../../module/postgresql/backup
-      ../../module/barcode-backend
-      ../../module/nextcloud
-      ../../module/node-red
-      ../../module/avahi
-      ../../module/neovim
-      ../../module/minecraft
-      ../../module/elasticsearch
-      ../../module/smtp
-      ../../module/bokashi
-      ../../module/kilometer
-      ../../module/ddclient
-      ../../module/paperless
-      ../../module/freshrss
-      ../../module/soft-serve
-      ../../module/workout-tracker
-      ../../module/silverbullet
-    ];
+  imports = [
+    ../../user/asmund
+    ../../user/nure
+    ../../module/borg/jobs/main
+    ../../module/nginx
+    ../../module/als
+    ../../module/pms
+    ../../module/postgresql
+    ../../module/postgresql/backup
+    ../../module/barcode-backend
+    ../../module/nextcloud
+    ../../module/node-red
+    ../../module/avahi
+    ../../module/neovim
+    ../../module/minecraft
+    ../../module/elasticsearch
+    ../../module/smtp
+    ../../module/bokashi
+    ../../module/kilometer
+    ../../module/ddclient
+    ../../module/paperless
+    ../../module/freshrss
+    ../../module/soft-serve
+    ../../module/workout-tracker
+    ../../module/silverbullet
+  ];
 
   # Ports
   services.pms.port = ports.exposed.pms;
@@ -49,12 +49,11 @@ in
     enable = true;
     user = "backup";
   };
-  users.users.backup.extraGroups = 
-    [ "nextcloud" # To get access to /var/lib/nextcloud/...
-    ]; 
+  users.users.backup.extraGroups = [
+    "nextcloud" # To get access to /var/lib/nextcloud/...
+  ];
 
   services.openssh.enable = true;
   security.sudo.wheelNeedsPassword = false;
   networking.firewall.allowedTCPPorts = [ 22 ];
 }
-

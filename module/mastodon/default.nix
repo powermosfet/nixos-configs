@@ -1,9 +1,8 @@
 { pkgs, ... }:
 
 {
-  imports =
-    [
-    ];
+  imports = [
+  ];
 
   options = {
   };
@@ -32,7 +31,7 @@
       forceSSL = true;
       locations = {
         "/" = {
-          proxyPass = "http://127.0.0.1:${builtins.toString(internalPort)}";
+          proxyPass = "http://127.0.0.1:${builtins.toString (internalPort)}";
           proxyWebsockets = true;
         };
         "/favicon.png" = {

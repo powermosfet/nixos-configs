@@ -1,6 +1,11 @@
-{ pkgs, config, lib, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 
-  with lib;
+with lib;
 
 let
   upload-forerunner-script = pkgs.writeScript "upload-forerunner.sh" ''
@@ -11,9 +16,9 @@ let
     nextcloud_dir=/home/asmund/Documents/Treningslogg
 
     mount /dev/disk/by-id/usb-Garmin_FR55_Flash-0:0 $mount_dir
-    
+
     cd $forerunner_dir
-    
+
     for filename in *; 
     do if [ -f $nextcloud_dir/$filename ]; then
        echo "Skipping $filename"
@@ -26,14 +31,13 @@ let
 
     cd /
     umount $mount_dir
-    
+
     echo "I am running as $USER"
-    '';
+  '';
 in
 {
-  imports =
-    [
-    ];
+  imports = [
+  ];
 
   options = {
     services.workout-tracker = {
@@ -46,7 +50,7 @@ in
 
   config = {
     services.udev.extraRules = ''
-        SUBSYSTEM=="usb", ACTION=="add", ENV{ID_VENDOR_ID}=="091e", ENV{ID_MODEL_ID}=="0f1d", RUN+="${upload-forerunner-script}"
+      SUBSYSTEM=="usb", ACTION=="add", ENV{ID_VENDOR_ID}=="091e", ENV{ID_MODEL_ID}=="0f1d", RUN+="${upload-forerunner-script}"
     '';
   };
 }

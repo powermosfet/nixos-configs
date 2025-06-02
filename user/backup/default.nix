@@ -1,6 +1,11 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
-  with lib;
+with lib;
 
 let
   cfg = config.backup;
@@ -22,11 +27,10 @@ in
   };
 
   config = {
-    users.groups."${cfg.group}" = {};
+    users.groups."${cfg.group}" = { };
     users.users."${cfg.user}" = {
       isSystemUser = true;
       group = "backup";
     };
   };
 }
-

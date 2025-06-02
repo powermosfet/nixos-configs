@@ -6,7 +6,7 @@ let
   group = "kilometer";
 in
 {
-  users.groups."${group}" = {};
+  users.groups."${group}" = { };
   users.users."${user}" = {
     isSystemUser = true;
     group = "${group}";
@@ -15,7 +15,8 @@ in
     enable = true;
     ensureDatabases = [ dbName ];
     ensureUsers = [
-      { name = user;
+      {
+        name = user;
         ensureDBOwnership = true;
       }
     ];

@@ -8,5 +8,3 @@
     drivers = [ pkgs.samsung-unified-linux-driver ];
   };
 }
-
-

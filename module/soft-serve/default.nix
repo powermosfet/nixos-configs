@@ -1,9 +1,9 @@
 { pkgs, ... }:
 
 {
-  imports =
-    [ ../../user/git
-    ];
+  imports = [
+    ../../user/git
+  ];
 
   options = {
   };

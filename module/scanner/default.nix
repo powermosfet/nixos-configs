@@ -11,7 +11,8 @@
     sane.enable = true;
   };
 
-  users.users.asmund.extraGroups = [ "scanner" "lp" ];
+  users.users.asmund.extraGroups = [
+    "scanner"
+    "lp"
+  ];
 }
-
-

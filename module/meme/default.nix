@@ -1,12 +1,17 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
-  with lib;
+with lib;
 
 let
   cfg = config.services.meme;
   src = pkgs.fetchFromGitHub {
     owner = "powermosfet";
-    repo  = "meme";
+    repo = "meme";
     rev = "8b3a2e809a14e40f14d7a9ef7ee7dbd9e3cec1ef";
     sha256 = "sha256-nDcCFq4+HUKNrCzBOBnRSQExKkFvOxvBQHy7KMOo6sM=";
   };
@@ -21,16 +26,15 @@ let
       db-uri = "postgres://${apiUser}@/${dbName}"
       db-schema = "public"
       db-anon-role = "${apiUser}"
-      server-port = ${builtins.toString(cfg.port)}
+      server-port = ${builtins.toString (cfg.port)}
     '';
   };
 in
 {
-  imports =
-    [ ../postgresql
-      ../postgresql/backup
-    ];
-
+  imports = [
+    ../postgresql
+    ../postgresql/backup
+  ];
 
   options = {
     services.meme = {
@@ -60,7 +64,10 @@ in
       meme-consumer = {
         description = "MEME - MQTT Consumer";
         wantedBy = [ "multi-user.target" ];
-        after = [ "network.target" "postgresql.service" ];
+        after = [
+          "network.target"
+          "postgresql.service"
+        ];
         environment = {
           DB_CONNECTION_STRING = "";
           MQTT_URI = cfg.mqttUri;
@@ -74,7 +81,10 @@ in
       meme-api = {
         description = "MEME - web api";
         wantedBy = [ "multi-user.target" ];
-        after = [ "network.target" "postgresql.service" ];
+        after = [
+          "network.target"
+          "postgresql.service"
+        ];
         serviceConfig = {
           User = apiUser;
           ExecStart = "${postgrest}/bin/postgrest ${postgrestConf}";
@@ -101,16 +111,15 @@ in
     };
     services.postgresqlBackup.databases = [ dbName ];
 
-    users.groups."${dbUser}" = {};
+    users.groups."${dbUser}" = { };
     users.users."${dbUser}" = {
       isSystemUser = true;
       group = dbUser;
     };
-    users.groups."${apiUser}" = {};
+    users.groups."${apiUser}" = { };
     users.users."${apiUser}" = {
       isSystemUser = true;
       group = apiUser;
     };
   };
 }
-

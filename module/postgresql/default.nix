@@ -12,4 +12,3 @@
     extensions = with pkgs.postgresql15Packages; [ pg_safeupdate ];
   };
 }
-

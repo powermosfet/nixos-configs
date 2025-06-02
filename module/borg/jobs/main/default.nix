@@ -1,7 +1,12 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
-  with lib;
-  with builtins;
+with lib;
+with builtins;
 
 {
   options = {
@@ -27,9 +32,9 @@
     };
     systemd.services."borgbackup-job-main-gilli" = {
       conflicts = config.backup.conflictingServices;
-      postStop = concatStringsSep "\n" (map (service:
-        "systemctl start " + service
-        ) config.backup.conflictingServices);
+      postStop = concatStringsSep "\n" (
+        map (service: "systemctl start " + service) config.backup.conflictingServices
+      );
     };
 
     services.borgbackup.jobs."main-agent25" = {
@@ -42,9 +47,9 @@
     };
     systemd.services."borgbackup-job-main-agent25" = {
       conflicts = config.backup.conflictingServices;
-      postStop = concatStringsSep "\n" (map (service:
-        "systemctl start " + service
-        ) config.backup.conflictingServices);
+      postStop = concatStringsSep "\n" (
+        map (service: "systemctl start " + service) config.backup.conflictingServices
+      );
     };
   };
 }

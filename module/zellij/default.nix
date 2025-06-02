@@ -12,4 +12,3 @@ in
     ZELLIJ_CONFIG_FILE = ./config/config.kdl;
   };
 }
-

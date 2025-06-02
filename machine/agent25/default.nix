@@ -1,15 +1,15 @@
 { pkgs, ... }:
 
 {
-  imports =
-    [ ../../module/ddclient
-      ../../user/asmund
-      ../../module/neovim
-      ../../module/avahi
-      ../../module/garbage-collection
-      ../../module/auto-update
-    ];
-     
+  imports = [
+    ../../module/ddclient
+    ../../user/asmund
+    ../../module/neovim
+    ../../module/avahi
+    ../../module/garbage-collection
+    ../../module/auto-update
+  ];
+
   time.timeZone = "Europe/Oslo";
 
   networking.hostName = "agent25";
@@ -17,7 +17,7 @@
   environment.systemPackages = with pkgs; [
     git
   ];
-  
+
   services.openssh.enable = true;
   security.sudo.wheelNeedsPassword = false;
 
@@ -31,4 +31,3 @@
 
   services.ddclient.domains = [ "agent25.berge.id" ];
 }
-
