@@ -31,7 +31,7 @@ pkgs.writeShellScript "pdf-decrypt" ''
 
   # Check if PDF is encrypted
   if ${qpdf} --show-encryption "$DOCUMENT_WORKING_PATH" 2>/dev/null | ${grep} -q "File is not encrypted"; then
-      echo "PDF not encrypted."
+      echo "$DOCUMENT_WORKING_PATH not encrypted."
       exit 0
   fi
 
@@ -49,10 +49,10 @@ pkgs.writeShellScript "pdf-decrypt" ''
   fi
 
   # Decrypt PDF
-  if ${qpdf} --user-password="$password" --decrypt "$DOCUMENT_WORKING_PATH" --replace-input; then
-      echo "PDF decrypted successfully."
+  if ${qpdf} --user-password="$password" --decrypt --replace-input "$DOCUMENT_WORKING_PATH"; then
+      echo "$DOCUMENT_WORKING_PATH decrypted successfully."
   else
-      echo "Error: Failed to decrypt PDF." >&2
+      echo "Error: Failed to decrypt $DOCUMENT_WORKING_PATH." >&2
       exit 1
   fi
 ''
