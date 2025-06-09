@@ -49,7 +49,7 @@ pkgs.writeShellScript "pdf-decrypt" ''
   fi
 
   # Decrypt PDF
-  if ${qpdf} --password="$password" --decrypt "$DOCUMENT_WORKING_PATH" --replace-input 2>/dev/null; then
+  if ${qpdf} --user-password="$password" --decrypt "$DOCUMENT_WORKING_PATH" --replace-input 2>/dev/null; then
       echo "PDF decrypted successfully."
   else
       echo "Error: Failed to decrypt PDF." >&2
