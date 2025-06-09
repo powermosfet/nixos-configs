@@ -14,6 +14,10 @@ let
   dbName = "paperless";
   dbUser = config.services.paperless.user;
   unstable = import <nixos-unstable> { };
+  preConsumptionScript = import ./preConsumptionScript.nix {
+    pkgs = pkgs;
+    passwordFile = config.services.paperless.pdfPasswordFile;
+  };
 in
 {
   imports = [
@@ -22,9 +26,16 @@ in
   ];
 
   options = {
-    services.paperless.secretKey = mkOption {
-      description = "Secret key";
-      type = types.str;
+    services.paperless = {
+      secretKey = mkOption {
+        description = "Secret key";
+        type = types.str;
+      };
+
+      pdfPasswordFile = mkOption {
+        description = "password file for PDF decryption";
+        type = types.path;
+      };
     };
   };
 
@@ -46,6 +57,7 @@ in
         PAPERLESS_OCR_LANGUAGE = "nor+eng";
         PAPERLESS_CONSUMER_ENABLE_ASN_BARCODE = true;
         PAPERLESS_CONSUMER_ASN_BARCODE_PREFIX = "ASN";
+        PAPERLESS_PRE_CONSUME_SCRIPT = preConsumptionScript;
       };
     };
 
