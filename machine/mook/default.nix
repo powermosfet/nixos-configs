@@ -38,6 +38,8 @@ in
   services.onlyoffice.port = ports.internal.onlyoffice;
   services.workout-tracker.port = ports.internal.workout-tracker;
   services.silverbullet.listenPort = ports.internal.silverbullet;
+  services.paperless.tikaPort = ports.internal.tika;
+  services.paperless.gotenbergPort = ports.internal.gotenberg;
 
   environment.systemPackages = with pkgs; [
     git

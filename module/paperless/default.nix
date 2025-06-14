@@ -27,6 +27,16 @@ in
 
   options = {
     services.paperless = {
+      gotenbergPort = mkOption {
+        description = "Network port for Gotenberg";
+        type = types.int;
+      };
+
+      tikaPort = mkOption {
+        description = "Network port for Tika";
+        type = types.int;
+      };
+
       secretKey = mkOption {
         description = "Secret key";
         type = types.str;
@@ -49,7 +59,6 @@ in
       enable = true;
       package = unstable.paperless-ngx;
       consumptionDirIsPublic = true;
-      configureTika = true;
       settings = {
         PAPERLESS_URL = "https://${hostName}";
         PAPERLESS_DBHOST = "/run/postgresql";
@@ -58,6 +67,9 @@ in
         PAPERLESS_CONSUMER_ENABLE_ASN_BARCODE = true;
         PAPERLESS_CONSUMER_ASN_BARCODE_PREFIX = "ASN";
         PAPERLESS_PRE_CONSUME_SCRIPT = preConsumptionScript;
+        PAPERLESS_TIKA_ENABLED = true;
+        PAPERLESS_TIKA_ENDPOINT = "http://localhost:${builtins.toString (config.services.paperless.tikaPort)}";
+        PAPERLESS_TIKA_GOTENBERG_ENDPOINT = "http://localhost:${builtins.toString (config.services.gotenberg.port)}";
       };
     };
 
@@ -87,5 +99,16 @@ in
     services.postgresqlBackup.databases = [ dbName ];
 
     backup.paths = [ config.services.paperless.dataDir ];
+
+    virtualisation.oci-containers.containers."tika" = {
+      autoStart = true;
+      image = "apache/tika";
+      ports = [ "${builtins.toString (config.services.paperless.tikaPort)}:9998" ];
+    };
+    virtualisation.oci-containers.containers."gotenberg" = {
+      autoStart = true;
+      image = "gotenberg/gotenberg";
+      ports = [ "${builtins.toString (config.services.paperless.gotenbergPort)}:3000" ];
+    };
   };
 }

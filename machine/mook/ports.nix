@@ -9,5 +9,7 @@
     meme = 8903;
     workout-tracker = 8904;
     silverbullet = 8905;
+    tika = 8906;
+    gotenberg = 8907;
   };
 }
