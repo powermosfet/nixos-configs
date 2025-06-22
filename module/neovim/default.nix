@@ -24,7 +24,6 @@ in
         lua << EOF
           require("sharedconfig.init")
         EOF
-        colorscheme elflord
       '';
 
       packages.myVimPackage = with pkgs.vimPlugins; {
