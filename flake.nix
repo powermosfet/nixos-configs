@@ -11,7 +11,12 @@
   };
 
   outputs =
-    { self, nixpkgs, ... }:
+    {
+      self,
+      nixpkgs,
+      musnix,
+      ...
+    }:
     {
       # Export your modules/configurations
       machine = {
