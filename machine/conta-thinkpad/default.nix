@@ -11,6 +11,7 @@ in
     ../../module/avahi
     ../../module/printing
     ../../module/gnupg
+    ../../module/docker
   ];
 
   time.timeZone = "Europe/Oslo";
@@ -26,19 +27,14 @@ in
     kitty
     acpi
     brightnessctl
-    arandr
     pcmanfm
     keepassxc
-    rofi
-    polybar
-    dbus
     networkmanager
     usbutils
     pciutils
     libinput
     signal-desktop
     flameshot
-    gxkb
     yazi
     evince
     mime-types
