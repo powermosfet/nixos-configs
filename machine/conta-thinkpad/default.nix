@@ -14,7 +14,6 @@ in
 
   time.timeZone = "Europe/Oslo";
 
-  networking.hostName = "asmund-thinkpad"; # Define your hostname.
   networking.networkmanager.enable = true;
 
   nixpkgs.config.allowUnfree = true;
