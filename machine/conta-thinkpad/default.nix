@@ -45,6 +45,7 @@ in
     pavucontrol
     shared-mime-info
     activitywatch
+    slack
   ];
 
   programs = {
