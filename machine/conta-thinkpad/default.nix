@@ -49,6 +49,7 @@ in
     alsa-utils
     pavucontrol
     shared-mime-info
+    activitywatch
   ];
 
   programs = {
