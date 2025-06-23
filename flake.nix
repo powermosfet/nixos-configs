@@ -2,7 +2,12 @@
   description = "My shared NixOS configuration";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
+    nixpkgs = {
+      url = "github:NixOS/nixpkgs/nixos-25.05";
+    };
+    musnix = {
+      url = "github:musnix/musnix";
+    };
   };
 
   outputs =
