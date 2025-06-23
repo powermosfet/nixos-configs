@@ -5,6 +5,7 @@ let
 in
 {
   imports = [
+    ../../module/wayland
     ../../user/asmund
     ../../module/neovim
     ../../module/avahi
@@ -32,7 +33,6 @@ in
     polybar
     dbus
     networkmanager
-    xorg.xev
     usbutils
     pciutils
     libinput
@@ -77,51 +77,6 @@ in
   };
 
   services = {
-    xserver = {
-      enable = true;
-      xkb = {
-        layout = "no,us";
-        variant = ",altgr-intl";
-        options = "caps:escape,nodeadkeys";
-      };
-
-      xrandrHeads = [
-        "DP-2-2"
-        "DP-2-3"
-        {
-          output = "eDP-1";
-          primary = true;
-        }
-      ];
-
-      windowManager.xmonad = {
-        enable = true;
-        enableContribAndExtras = true;
-      };
-    };
-
-    libinput = {
-      enable = true;
-
-      mouse = {
-        naturalScrolling = true;
-      };
-
-      touchpad = {
-        disableWhileTyping = true;
-        tapping = false;
-        scrollMethod = "twofinger";
-        naturalScrolling = true;
-        clickMethod = "clickfinger";
-      };
-    };
-
-    xrdp = {
-      enable = true;
-      defaultWindowManager = "xmonad";
-      openFirewall = true;
-    };
-
     logind.extraConfig = ''
       HandlePowerKey=suspend
     '';
