@@ -29,6 +29,9 @@
         gilli = {
           imports = [ ./machine/gilli ];
         };
+        conta-thinkpad = {
+          imports = [ ./machine/conta-thinkpad ];
+        };
       };
     };
 }
