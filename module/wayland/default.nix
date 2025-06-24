@@ -20,5 +20,6 @@
     hyprpaper
     playerctl
     wl-clipboard
+    hyprlandPlugins.hyprexpo
   ];
 }
