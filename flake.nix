@@ -1,11 +1,7 @@
 {
   description = "My shared NixOS configuration";
 
-  inputs = {
-    nixpkgs = {
-      url = "github:NixOS/nixpkgs/nixos-25.05";
-    };
-  };
+  inputs = { };
 
   outputs =
     { self, nixpkgs, ... }:
