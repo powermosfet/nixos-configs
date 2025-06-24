@@ -44,7 +44,6 @@ in
     usbutils
     pciutils
     libinput
-    signal-desktop
     flameshot
     gxkb
     vifm-full
