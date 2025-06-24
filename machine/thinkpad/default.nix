@@ -49,7 +49,7 @@
     spotify
     chromium
     pkgsUnstable.logseq
-    signal-desktop
+    signal-desktop-bin
     alsa-utils
     timeline
     pavucontrol

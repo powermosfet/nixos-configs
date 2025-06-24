@@ -39,7 +39,7 @@
     usbutils
     pciutils
     libinput
-    signal-desktop
+    signal-desktop-bin
     flameshot
     evince
     mime-types
