@@ -16,7 +16,16 @@ in
 
   time.timeZone = "Europe/Oslo";
 
-  networking.networkmanager.enable = true;
+  networking = {
+    networkmanager.enable = true;
+
+    extraHosts = ''
+      127.0.0.1 conta.test
+      127.0.0.1 app.conta.test
+      127.0.0.1 api.conta.test
+      127.0.0.1 gjest.conta.test
+    '';
+  };
 
   nixpkgs.config.allowUnfree = true;
 
