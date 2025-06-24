@@ -55,6 +55,7 @@ in
     shared-mime-info
     activitywatch
     slack
+    mako
   ];
 
   programs = {
