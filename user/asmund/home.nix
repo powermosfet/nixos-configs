@@ -14,6 +14,9 @@
 
   home.file = {
     ".config/hypr/hyprland.conf".source = ./home/hyprland/hyprland.conf;
+    ".config/kitty/kitty.conf".source = ./home/kitty/kitty.conf;
+    ".config/kitty/zellij.session".source = ./home/kitty/zellij.session;
+    ".config/kitty/quickie.session".source = ./home/kitty/quickie.session;
   };
 
   home.sessionVariables = {
