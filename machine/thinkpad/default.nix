@@ -6,7 +6,6 @@
     ../../user/asmund
     ../../module/neovim
     ../../module/avahi
-    ../../module/games
     ../../module/scanner
     ../../module/printing
     ../../module/gnupg
@@ -53,8 +52,6 @@
     alsa-utils
     timeline
     pavucontrol
-    crrcsim
-    flightgear
     shared-mime-info
     kickstart
   ];
