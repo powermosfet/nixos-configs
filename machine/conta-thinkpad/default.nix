@@ -1,8 +1,5 @@
-{ pkgs, ... }:
+{ pkgs, pkgsUnstable, ... }:
 
-let
-  unstable = import <nixos-unstable> { };
-in
 {
   imports = [
     ../../module/wayland
@@ -48,7 +45,7 @@ in
     mime-types
     spotify
     chromium
-    unstable.logseq
+    pkgsUnstable.logseq
     alsa-utils
     pavucontrol
     shared-mime-info

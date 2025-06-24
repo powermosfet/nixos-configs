@@ -1,7 +1,11 @@
-{ pkgs, config, ... }:
+{
+  pkgs,
+  config,
+  pkgsUnstable,
+  ...
+}:
 
 let
-  unstable = import <nixos-unstable> { };
   hostName = "todo.berge.id";
   user = config.services.vikunja.database.user;
   database = config.services.vikunja.database.database;
@@ -11,7 +15,7 @@ in
   config = {
     services.vikunja = {
       enable = true;
-      package = unstable.vikunja;
+      package = pkgsUnstable.vikunja;
       setupNginx = true;
       frontendScheme = "https";
       frontendHostname = hostName;

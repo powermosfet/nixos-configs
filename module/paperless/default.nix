@@ -2,6 +2,7 @@
   config,
   pkgs,
   lib,
+  pkgsUnstable,
   ...
 }:
 
@@ -13,7 +14,6 @@ let
   email = "little.tree8655@fastmail.com";
   dbName = "paperless";
   dbUser = config.services.paperless.user;
-  unstable = import <nixos-unstable> { };
   preConsumptionScript = import ./preConsumptionScript.nix {
     pkgs = pkgs;
     passwordFile = config.services.paperless.pdfPasswordFile;
@@ -57,7 +57,7 @@ in
 
     services.paperless = {
       enable = true;
-      package = unstable.paperless-ngx;
+      package = pkgsUnstable.paperless-ngx;
       consumptionDirIsPublic = true;
       settings = {
         PAPERLESS_URL = "https://${hostName}";

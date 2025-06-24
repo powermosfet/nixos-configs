@@ -1,13 +1,13 @@
 {
   config,
   pkgs,
-  unstable,
+  pkgsUnstable,
   ...
 }:
 
 {
   environment.systemPackages = [
-    unstable.zellij
+    pkgsUnstable.zellij
   ];
 
   environment.sessionVariables = {

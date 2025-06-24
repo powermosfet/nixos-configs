@@ -2,15 +2,13 @@
   config,
   pkgs,
   lib,
+  pkgsUnstable,
   ...
 }:
 
 with lib;
 
 let
-  unstable =
-    import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/refs/heads/nixpkgs-unstable.tar.gz")
-      { };
   cfg = config.services.pms;
   src = pkgs.fetchFromGitHub {
     owner = "powermosfet";
@@ -56,7 +54,7 @@ in
         after = [ "network.target" ];
         environment = {
           APP_PORT = toString cfg.port;
-          SIGNAL_CLI = "${unstable.signal-cli}/bin/signal-cli";
+          SIGNAL_CLI = "${pkgsUnstable.signal-cli}/bin/signal-cli";
           SIGNAL_SENDER = cfg.sender;
           SIGNAL_RECIPIENT = cfg.recipient;
           SIGNAL_LOG_RECIPIENT = cfg.logRecipient;
@@ -70,7 +68,7 @@ in
         serviceConfig.Type = "oneshot";
         path = with pkgs; [ bash ];
         script = ''
-          ${unstable.signal-cli}/bin/signal-cli -a ${cfg.sender} receive
+          ${pkgsUnstable.signal-cli}/bin/signal-cli -a ${cfg.sender} receive
         '';
       };
     };

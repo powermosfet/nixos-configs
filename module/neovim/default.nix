@@ -1,4 +1,4 @@
-{ pkgs, unstable, ... }:
+{ pkgs, pkgsUnstable, ... }:
 
 {
   environment.systemPackages = with pkgs; [
@@ -13,7 +13,7 @@
     vimAlias = true;
     viAlias = true;
     defaultEditor = true;
-    package = unstable.neovim-unwrapped;
+    package = pkgsUnstable.neovim-unwrapped;
 
     configure = {
       customRC = ''

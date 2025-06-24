@@ -1,4 +1,4 @@
-{ pkgs, unstable, ... }:
+{ pkgs, pkgsUnstable, ... }:
 
 {
   imports = [
@@ -48,7 +48,7 @@
     mime-types
     spotify
     chromium
-    unstable.logseq
+    pkgsUnstable.logseq
     alsa-utils
     timeline
     pavucontrol

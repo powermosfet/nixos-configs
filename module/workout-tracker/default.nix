@@ -1,8 +1,5 @@
 { pkgs, config, ... }:
 
-let
-  unstable = import <nixos-unstable> { };
-in
 {
   imports = [
   ];
@@ -10,7 +7,7 @@ in
   config = {
     services.workout-tracker = {
       enable = true;
-      package = unstable.workout-tracker;
+      package = pkgsUnstable.workout-tracker;
 
       settings = {
         WT_REGISTRATION_DISABLED = "true";

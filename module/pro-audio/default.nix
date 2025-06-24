@@ -1,8 +1,8 @@
-{ pkgs, unstable, ... }:
+{ pkgs, pkgsUnstable, ... }:
 
 {
   environment.systemPackages = with pkgs; [
-    unstable.ardour
+    pkgsUnstable.ardour
     qpwgraph
     alsa-utils
     tree

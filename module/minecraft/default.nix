@@ -2,25 +2,17 @@
   pkgs,
   config,
   lib,
+  pkgsUnstable,
   ...
 }:
 
-let
-  unstable = import <nixos-unstable> {
-    config.allowUnfreePredicate =
-      pkg:
-      builtins.elem (lib.getName pkg) [
-        "minecraft-server"
-      ];
-  };
-in
 {
   config = {
     nixpkgs.config.allowUnfree = true;
 
     services.minecraft-server = {
       enable = true;
-      package = unstable.minecraft-server;
+      package = pkgsUnstable.minecraft-server;
       openFirewall = true;
       eula = true;
     };
