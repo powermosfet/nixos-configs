@@ -13,6 +13,7 @@
   ];
 
   home.file = {
+    ".config/hypr/hyprland.config".source = ./home/hyprland/hyprland.conf;
   };
 
   home.sessionVariables = {
