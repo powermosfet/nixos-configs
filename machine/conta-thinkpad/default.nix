@@ -44,7 +44,6 @@ in
     libinput
     signal-desktop
     flameshot
-    yazi
     evince
     mime-types
     spotify

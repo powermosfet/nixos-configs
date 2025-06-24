@@ -1,12 +1,6 @@
 { pkgs, ... }:
 
 {
-  imports = [
-  ];
-
-  options = {
-  };
-
   config = {
     environment.systemPackages = with pkgs; [
       rtl-sdr

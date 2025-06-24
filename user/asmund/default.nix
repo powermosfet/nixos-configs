@@ -1,8 +1,10 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  unstable,
+  ...
+}:
 
-let
-  unstable = import <nixos-unstable> { };
-in
 {
   imports = [
     ../../module/zellij

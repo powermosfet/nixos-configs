@@ -1,8 +1,5 @@
-{ pkgs, ... }:
+{ pkgs, unstable, ... }:
 
-let
-  unstable = import <nixos-unstable> { };
-in
 {
   imports = [
     ../../module/wayland
@@ -13,7 +10,6 @@ in
     ../../module/scanner
     ../../module/printing
     ../../module/gnupg
-    ../../module/rtl-sdr
     ../../module/pro-audio
 
     ../../device/forerunner
