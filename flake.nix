@@ -4,7 +4,13 @@
   inputs = { };
 
   outputs =
-    { self, nixpkgs, ... }:
+    {
+      self,
+      nixpkgs,
+      home-manager,
+      ...
+    }:
+
     {
       nixosModules = {
         thinkpad = {
@@ -20,5 +26,20 @@
           imports = [ ./machine/conta-thinkpad ];
         };
       };
+
+      homeConfigurations =
+        let
+          system = "x86_64-linux";
+          pkgs = nixpkgs.legacyPackages.${system};
+        in
+        {
+          asmund = home-manager.lib.homeManagerConfiguration {
+            inherit pkgs;
+
+            modules = [
+              ./user/asmund/home.nix
+            ];
+          };
+        };
     };
 }
