@@ -1,13 +1,9 @@
-{ pkgs, musnix, ... }:
+{ pkgs, ... }:
 
 let
   unstable = import <nixos-unstable> { };
 in
 {
-  imports = [
-    musnix.nixosModules.musnix
-  ];
-
   environment.systemPackages = with pkgs; [
     unstable.ardour
     qpwgraph

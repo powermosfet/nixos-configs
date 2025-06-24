@@ -8,14 +8,8 @@
   };
 
   outputs =
+    { self, nixpkgs, ... }:
     {
-      self,
-      nixpkgs,
-      musnix,
-      ...
-    }:
-    {
-      # Export your modules/configurations
       machine = {
         thinkpad = {
           imports = [ ./machine/thinkpad ];
