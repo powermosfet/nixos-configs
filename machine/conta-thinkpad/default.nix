@@ -111,4 +111,7 @@ in
     pulse.enable = true;
     jack.enable = true;
   };
+  services.pipewire.wireplumber = {
+    enable = true;
+  };
 }
