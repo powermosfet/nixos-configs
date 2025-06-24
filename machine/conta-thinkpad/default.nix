@@ -56,6 +56,7 @@ in
     activitywatch
     slack
     mako
+    vivaldi
   ];
 
   programs = {
