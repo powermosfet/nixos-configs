@@ -5,9 +5,6 @@
     nixpkgs = {
       url = "github:NixOS/nixpkgs/nixos-25.05";
     };
-    musnix = {
-      url = "github:musnix/musnix";
-    };
   };
 
   outputs =
