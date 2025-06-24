@@ -10,7 +10,7 @@
   outputs =
     { self, nixpkgs, ... }:
     {
-      machine = {
+      nixosModules = {
         thinkpad = {
           imports = [ ./machine/thinkpad ];
         };
