@@ -30,7 +30,7 @@
           {
             criteria = "eDP-1";
             mode = "1920x1200";
-            scale = 1;
+            scale = 1.0;
           }
         ];
       }
@@ -40,13 +40,13 @@
           {
             criteria = "Lenovo Group Limited LEN P27h-10 0x01010101";
             mode = "2560x1440";
-            scale = 1;
+            scale = 1.0;
             position = "0,0";
           }
           {
             criteria = "eDP-1";
             mode = "1920x1200";
-            scale = 1;
+            scale = 1.0;
             position = "-1920,0";
           }
         ];
