@@ -19,6 +19,32 @@
     ".config/kitty/quickie.session".source = ./home/kitty/quickie.session;
   };
 
+  services.kanshi = {
+    enable = true;
+    systemdTarget = "hyprland-session.target";
+
+    profiles = {
+      undocked = {
+        outputs = [
+          {
+            criteria = "eDP-1";
+          }
+        ];
+      };
+
+      home-office = {
+        {
+            criteria = "Lenovo Group Limited LEN P27h-10 0x01010101";
+            position = "0,0";
+          }
+          {
+            criteria = "eDP-1";
+            position = "auto-left";
+          }
+      };
+    };
+  };
+
   home.sessionVariables = {
   };
 
