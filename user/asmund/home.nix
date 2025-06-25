@@ -25,17 +25,17 @@
 
     settings = [
       {
-        profile.name = "undocked";
+        profile.name = "conta-undocked";
         profile.outputs = [
           {
-            criteria = "eDP-1";
+            criteria = "AU Optronics 0x1EAC";
             mode = "1920x1200";
             scale = 1.0;
           }
         ];
       }
       {
-        profile.name = "home-office";
+        profile.name = "conta-home-office";
         profile.outputs = [
           {
             criteria = "Lenovo Group Limited LEN P27h-10 0x01010101";
@@ -44,7 +44,7 @@
             position = "0,0";
           }
           {
-            criteria = "eDP-1";
+            criteria = "AU Optronics 0x1EAC";
             mode = "1920x1200";
             scale = 1.5;
             position = "-1280,0"; # 1920 / 1.5 = 1280.0
