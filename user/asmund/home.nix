@@ -40,7 +40,7 @@
           }
           {
             criteria = "eDP-1";
-            position = "auto-left";
+            position = "-1920,0";
           }
         ];
       };
