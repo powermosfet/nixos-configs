@@ -53,6 +53,7 @@
     slack
     mako
     vivaldi
+    chrome
   ];
 
   programs = {
