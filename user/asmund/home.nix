@@ -29,6 +29,8 @@
         profile.outputs = [
           {
             criteria = "eDP-1";
+            mode = "1920x1200";
+            scale = 1;
           }
         ];
       }
@@ -37,12 +39,15 @@
         profile.outputs = [
           {
             criteria = "Lenovo Group Limited LEN P27h-10 0x01010101";
+            mode = "2560x1440";
+            scale = 1;
             position = "0,0";
           }
           {
             criteria = "eDP-1";
             mode = "1920x1200";
-            position = "-1020,0";
+            scale = 1;
+            position = "-1920,0";
           }
         ];
       }
