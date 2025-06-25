@@ -47,7 +47,7 @@
             criteria = "eDP-1";
             mode = "1920x1200";
             scale = 1.5;
-            position = "-1920,0";
+            position = "-1280,0"; # 1920 / 1.5 = 1280.0
           }
         ];
       }
