@@ -23,28 +23,30 @@
     enable = true;
     systemdTarget = "graphical-session.target";
 
-    profiles = {
-      undocked = {
-        outputs = [
+    settings = [
+      {
+        profile.name = "undocked";
+        profile.outputs = [
           {
             criteria = "eDP-1";
           }
         ];
-      };
-
-      home-office = {
-        outputs = [
+      }
+      {
+        profile.name = "home-office";
+        profile.outputs = [
           {
             criteria = "Lenovo Group Limited LEN P27h-10 0x01010101";
             position = "0,0";
           }
           {
             criteria = "eDP-1";
+            mode = "1920x1200";
             position = "-1920,0";
           }
         ];
-      };
-    };
+      }
+    ];
   };
 
   services.mako = {
