@@ -54,6 +54,7 @@
     mako
     vivaldi
     chromium
+    gnome-icon-theme
   ];
 
   programs = {
