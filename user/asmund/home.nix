@@ -42,7 +42,7 @@
           {
             criteria = "eDP-1";
             mode = "1920x1200";
-            position = "-1920,0";
+            position = "-1020,0";
           }
         ];
       }
