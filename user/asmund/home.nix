@@ -33,7 +33,8 @@
       };
 
       home-office = {
-        {
+        outputs = [
+          {
             criteria = "Lenovo Group Limited LEN P27h-10 0x01010101";
             position = "0,0";
           }
@@ -41,6 +42,7 @@
             criteria = "eDP-1";
             position = "auto-left";
           }
+        ];
       };
     };
   };
