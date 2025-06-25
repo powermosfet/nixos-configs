@@ -64,13 +64,13 @@
           {
             criteria = "Samsung Electric Company S27E390 H4HH204663";
             mode = "1600x900";
-            scale = 1;
+            scale = 1.0;
             position = "2560,0";
           }
           {
             criteria = "AU Optronics 0x303E";
             mode = "1600x900";
-            scale = 1;
+            scale = 1.0;
             position = "4160,400";
           }
         ];
