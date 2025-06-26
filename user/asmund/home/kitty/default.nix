@@ -14,6 +14,10 @@
       disable_ligatures = "never";
       confirm_os_window_close = 0;
     };
-    font = pkgs.nerd-fonts.fira-code;
+    font = {
+      name = "Fira Mono";
+      package = pkgs.nerd-fonts.fira-code;
+      size = 16;
+    };
   };
 }
