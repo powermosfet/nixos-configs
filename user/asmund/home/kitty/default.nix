@@ -15,7 +15,7 @@
       confirm_os_window_close = 0;
     };
     font = {
-      name = "Fira Mono";
+      name = "FiraCode Nerd Font Mono";
       package = pkgs.nerd-fonts.fira-code;
       size = 16;
     };
