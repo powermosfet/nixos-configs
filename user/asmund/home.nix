@@ -53,6 +53,16 @@
         ];
       }
       {
+        profile.name = "private-undocked";
+        profile.outputs = [
+          {
+            criteria = "AU Optronics 0x303E";
+            mode = "1600x900";
+            scale = 1.0;
+          }
+        ];
+      }
+      {
         profile.name = "private-home-office";
         profile.outputs = [
           {
