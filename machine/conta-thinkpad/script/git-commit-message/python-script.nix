@@ -3,7 +3,7 @@
 (pkgs.writeTextFile {
   name = "git-commit-message.py";
   text = ''
-    #!/usr/bin/env python3
+    #!${pkgs.python3}
 
     import re, subprocess
 
