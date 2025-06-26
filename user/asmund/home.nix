@@ -4,6 +4,7 @@
   imports = [
     ./home/kitty
     ./home/flameshot
+    ./home/waybar
   ];
 
   home.username = "asmund";

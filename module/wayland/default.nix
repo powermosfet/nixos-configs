@@ -16,7 +16,6 @@
     wofi
     libsForQt5.dolphin
     networkmanagerapplet
-    waybar
     hyprpaper
     playerctl
     wl-clipboard
