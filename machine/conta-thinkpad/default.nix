@@ -56,7 +56,6 @@
     chromium
     gnome-icon-theme
     (import ./script/azure { pkgs = pkgs; })
-    (import ./script/git-commit-message { pkgs = pkgs; })
   ];
 
   programs = {
