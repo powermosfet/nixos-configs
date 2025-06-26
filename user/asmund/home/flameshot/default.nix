@@ -6,6 +6,7 @@
     settings = {
       General = {
         useGrimAdapter = false;
+        disabledGrimWarning = true;
       };
     };
   };
