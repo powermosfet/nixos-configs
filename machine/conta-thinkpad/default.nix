@@ -6,7 +6,7 @@ let
     propagatedBuildInputs = [
       (pkgs.python3.withPackages (
         pythonPackages: with pythonPackages; [
-          requests2
+          requests
         ]
       ))
     ];
