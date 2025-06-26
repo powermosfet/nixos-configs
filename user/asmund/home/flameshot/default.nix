@@ -3,10 +3,6 @@
 {
   services.flameshot = {
     enable = true;
-    settings = {
-      General = {
-        useGrimAdapter = true;
-      };
-    };
+    package = pkgs.flameshot.override { enableWlrSupport = true; };
   };
 }
