@@ -24,7 +24,7 @@
 
   services.kanshi = {
     enable = true;
-    systemdTarget = "graphical-session.target";
+    systemdTarget = "graphical.target";
 
     settings = [
       {

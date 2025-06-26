@@ -6,6 +6,7 @@
 
     systemd = {
       enable = true;
+      target = "graphical.target";
     };
 
     settings = {
