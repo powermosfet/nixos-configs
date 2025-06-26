@@ -29,7 +29,7 @@
         profile.name = "conta-undocked";
         profile.outputs = [
           {
-            criteria = "AU Optronics 0x1EAC";
+            criteria = "AU Optronics 0x1EAC Unknown";
             mode = "1920x1200";
             scale = 1.0;
           }
@@ -45,7 +45,7 @@
             position = "0,0";
           }
           {
-            criteria = "AU Optronics 0x1EAC";
+            criteria = "AU Optronics 0x1EAC Unknown";
             mode = "1920x1200";
             scale = 1.5;
             position = "-1280,0"; # 1920 / 1.5 = 1280.0
