@@ -40,7 +40,6 @@
     pciutils
     libinput
     signal-desktop-bin
-    flameshot
     evince
     mime-types
     spotify

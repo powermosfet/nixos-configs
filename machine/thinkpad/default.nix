@@ -39,7 +39,6 @@
     usbutils
     pciutils
     libinput
-    flameshot
     gxkb
     vifm-full
     evince

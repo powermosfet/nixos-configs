@@ -3,6 +3,7 @@
 {
   imports = [
     ./home/kitty
+    ./home/flameshot
   ];
 
   home.username = "asmund";
