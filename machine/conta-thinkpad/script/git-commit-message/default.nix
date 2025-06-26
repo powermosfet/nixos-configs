@@ -1,7 +1,7 @@
 { pkgs }:
 
 let
-  script = import ./python-script.nix { pkgs = pkgs; };
+  script = import python-script.nix { pkgs = pkgs; };
 in
 (pkgs.stdenv.mkDerivation {
   name = "git-commit-message";
