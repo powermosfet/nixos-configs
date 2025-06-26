@@ -5,8 +5,7 @@
     enable = true;
     settings = {
       General = {
-        useGrimAdapter = false;
-        disabledGrimWarning = true;
+        useGrimAdapter = true;
       };
     };
   };
