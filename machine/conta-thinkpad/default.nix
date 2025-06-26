@@ -1,20 +1,5 @@
 { pkgs, pkgsUnstable, ... }:
 
-let
-  azure = pkgs.stdenv.mkDerivation {
-    name = "azure";
-    propagatedBuildInputs = [
-      (pkgs.python3.withPackages (
-        pythonPackages: with pythonPackages; [
-          requests
-        ]
-      ))
-    ];
-    dontUnpack = true;
-    installPhase = "install -Dm755 ${./script/azure.py} $out/bin/az";
-  };
-
-in
 {
   imports = [
     ../../module/wayland
@@ -70,7 +55,7 @@ in
     vivaldi
     chromium
     gnome-icon-theme
-    azure
+    (import ./script/azure)
   ];
 
   programs = {
