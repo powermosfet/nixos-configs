@@ -56,7 +56,7 @@
         profile.name = "private-undocked";
         profile.outputs = [
           {
-            criteria = "AU Optronics 0x303E";
+            criteria = "AU Optronics 0x303E Unknown";
             mode = "1600x900";
             scale = 1.0;
           }
@@ -78,7 +78,7 @@
             position = "2560,0";
           }
           {
-            criteria = "AU Optronics 0x303E";
+            criteria = "AU Optronics 0x303E Unknown";
             mode = "1600x900";
             scale = 1.0;
             position = "4160,400";
