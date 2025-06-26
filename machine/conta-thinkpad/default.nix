@@ -55,7 +55,7 @@
     vivaldi
     chromium
     gnome-icon-theme
-    (import ./script/azure)
+    (import ./script/azure { pkgs = pkgs; })
   ];
 
   programs = {

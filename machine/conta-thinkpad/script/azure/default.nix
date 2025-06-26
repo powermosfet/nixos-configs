@@ -1,4 +1,6 @@
-pkgs.stdenv.mkDerivation {
+{ pkgs }:
+
+(pkgs.stdenv.mkDerivation {
   name = "azure";
   propagatedBuildInputs = [
     (pkgs.python3.withPackages (
@@ -9,4 +11,4 @@ pkgs.stdenv.mkDerivation {
   ];
   dontUnpack = true;
   installPhase = "install -Dm755 ${./azure.py} $out/bin/az";
-}
+})
