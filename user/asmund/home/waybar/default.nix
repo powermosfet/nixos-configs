@@ -132,4 +132,10 @@
       };
     };
   };
+
+  systemd.user.services.waybar.Service = {
+    RestartSec = 3;
+    StartLimitBursts = 30;
+    StartLimitIntervalSec = 120;
+  };
 }
