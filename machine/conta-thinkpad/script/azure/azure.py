@@ -42,7 +42,7 @@ def cmd_json(wi):
 
 def cmd_branch(wi):
     title = re.sub('\\s+', '-', re.sub('[^\\w\\s]*', '', cmd_title(wi).strip().lower()))
-    return 'az/{}-{}'.format(wi['id'], title)
+    return 'az-{}-{}'.format(wi['id'], title)
 
 cmd_fns = {
     'print': cmd_print,
