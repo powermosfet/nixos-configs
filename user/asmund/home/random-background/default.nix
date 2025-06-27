@@ -24,7 +24,7 @@ in
       Description = "Set a random wallpaper using hyprpaper";
     };
     Install = {
-      WantedBy = [ "graphical-session.target" ];
+      WantedBy = [ "hyprland-session.target" ];
     };
     Service = {
       Type = "oneshot";

@@ -6,7 +6,7 @@
 
     systemd = {
       enable = true;
-      target = "graphical-session.target";
+      target = "hyprland-session.target";
     };
 
     settings = {
