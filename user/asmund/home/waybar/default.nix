@@ -6,7 +6,7 @@
 
     systemd = {
       enable = true;
-      target = "tray.target";
+      target = "graphical-session.target";
     };
 
     settings = {
@@ -130,17 +130,6 @@
           on-click-right = "foot -a pw-top pw-top";
         };
       };
-    };
-  };
-
-  systemd.user.services.waybar = {
-    Unit = {
-      StartLimitBurst = 30;
-      StartLimitInterval = 120;
-    };
-    Service = {
-      Restart = "always";
-      RestartSec = 3;
     };
   };
 }
