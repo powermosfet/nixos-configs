@@ -2,13 +2,14 @@
 
 {
   imports = [
-    ./home/kitty
-    ./home/flameshot
-    ./home/waybar
-    ./home/kanshi
-    ./home/bluetooth
-    ./home/network
-    ./home/activitywatch
+    ./kitty
+    ./flameshot
+    ./waybar
+    ./kanshi
+    ./bluetooth
+    ./network
+    ./activitywatch
+    ./random-background
   ];
 
   home.username = "asmund";
@@ -23,7 +24,7 @@
   ];
 
   home.file = {
-    ".config/hypr/hyprland.conf".source = ./home/hyprland/hyprland.conf;
+    ".config/hypr/hyprland.conf".source = ./hyprland/hyprland.conf;
   };
 
   services.mako = {

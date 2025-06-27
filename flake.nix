@@ -37,7 +37,7 @@
             inherit pkgs;
 
             modules = [
-              ./user/asmund/home.nix
+              ./user/asmund/home
             ];
           };
         };
