@@ -16,7 +16,6 @@
     wofi
     libsForQt5.dolphin
     networkmanagerapplet
-    hyprpaper
     playerctl
     wl-clipboard
     hyprlandPlugins.hyprexpo

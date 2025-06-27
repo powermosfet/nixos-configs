@@ -2,10 +2,9 @@
 
 {
   imports = [
+    ./hyprland
     ./kitty
     ./flameshot
-    ./waybar
-    ./kanshi
     ./bluetooth
     ./network
     ./activitywatch
@@ -19,13 +18,6 @@
   # compatible with. This helps avoid breakage when a new Home Manager release
   # introduces backwards incompatible changes.
   home.stateVersion = "24.05"; # Please read the comment before changing.
-
-  home.packages = with pkgs; [
-  ];
-
-  home.file = {
-    ".config/hypr/hyprland.conf".source = ./hyprland/hyprland.conf;
-  };
 
   services.mako = {
     enable = true;
