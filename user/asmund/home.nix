@@ -8,6 +8,7 @@
     ./home/kanshi
     ./home/bluetooth
     ./home/network
+    ./home/activitywatch
   ];
 
   home.username = "asmund";

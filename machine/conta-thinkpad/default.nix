@@ -48,7 +48,6 @@
     alsa-utils
     pavucontrol
     shared-mime-info
-    activitywatch
     slack
     mako
     vivaldi
