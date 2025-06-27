@@ -7,6 +7,7 @@
     ./home/waybar
     ./home/kanshi
     ./home/bluetooth
+    ./home/network
   ];
 
   home.username = "asmund";
