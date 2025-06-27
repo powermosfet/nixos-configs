@@ -22,9 +22,8 @@ in
   systemd.user.services."${unit}" = {
     Unit = {
       Description = "Set a random wallpaper using hyprpaper";
-    };
-    Install = {
-      WantedBy = [ "hyprland-session.target" ];
+      PartOf = "hyprland-session.target";
+      After = "hyprland-session.target";
     };
     Service = {
       Type = "oneshot";
