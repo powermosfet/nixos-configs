@@ -76,10 +76,6 @@
     };
   };
 
-  programs = {
-    nm-applet.enable = true;
-  };
-
   services = {
     libinput = {
       enable = true;

@@ -77,10 +77,6 @@
     };
   };
 
-  programs = {
-    nm-applet.enable = true;
-  };
-
   services = {
     logind.extraConfig = ''
       HandlePowerKey=suspend
