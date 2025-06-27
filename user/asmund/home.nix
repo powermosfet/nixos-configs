@@ -112,10 +112,14 @@
       }
     ];
   };
-  systemd.user.services.kanshi.Service = {
-    RestartSec = 3;
-    StartLimitBursts = 30;
-    StartLimitIntervalSec = 120;
+  systemd.user.services.kanshi = {
+    Unit = {
+      StartLimitBurst = 30;
+      StartLimitInterval = 120;
+    };
+    Service = {
+      RestartSec = 3;
+    };
   };
 
   services.mako = {
