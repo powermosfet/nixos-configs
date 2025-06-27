@@ -6,6 +6,7 @@ let
   shuf = "${pkgs.coreutils}/bin/shuf";
   basename = "${pkgs.coreutils}/bin/basename";
 
+  unit = "random-hyprpaper";
   dir = "bakgrunner/";
 in
 {
@@ -18,7 +19,7 @@ in
     };
   };
 
-  systemd.user.services.random-hyprpaper = {
+  systemd.user.services."${unit}" = {
     Unit = {
       Description = "Set a random wallpaper using hyprpaper";
     };
@@ -42,4 +43,13 @@ in
     };
   };
 
+  systemd.user.timers."${unit}" = {
+    Unit.Description = "timer for battery_status service";
+    Timer = {
+      Unit = unit;
+      OnBootSec = "15m";
+      OnUnitActiveSec = "1h";
+    };
+    Install.WantedBy = [ "timers.target" ];
+  };
 }
