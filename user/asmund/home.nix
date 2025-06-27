@@ -6,6 +6,7 @@
     ./home/flameshot
     ./home/waybar
     ./home/kanshi
+    ./home/bluetooth
   ];
 
   home.username = "asmund";
