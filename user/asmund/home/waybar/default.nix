@@ -139,6 +139,7 @@
       StartLimitInterval = 120;
     };
     Service = {
+      Restart = "always";
       RestartSec = 3;
     };
   };
