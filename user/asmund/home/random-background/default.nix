@@ -10,15 +10,6 @@ let
   dir = "bakgrunner/";
 in
 {
-  services.hyprpaper = {
-    enable = true;
-
-    settings = {
-      ipc = "on";
-      splash = false;
-    };
-  };
-
   systemd.user.services."${unit}" = {
     Unit = {
       Description = "Set a random wallpaper using hyprpaper";

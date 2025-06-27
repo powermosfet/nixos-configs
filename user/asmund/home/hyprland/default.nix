@@ -15,6 +15,15 @@ in
     ../kanshi
   ];
 
+  services.hyprpaper = {
+    enable = true;
+
+    settings = {
+      ipc = "on";
+      splash = false;
+    };
+  };
+
   wayland.windowManager.hyprland = {
     enable = true;
 
