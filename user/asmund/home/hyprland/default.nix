@@ -98,7 +98,7 @@ in
         kb_model = "thinkpad";
         kb_layout = "no";
         kb_variant = "";
-        kb_options = "caps:escape";
+        kb_options = "caps:escape,numpad:mac";
         numlock_by_default = true;
 
         follow_mouse = 1;
@@ -157,6 +157,16 @@ in
         "${mainMod}, 8, workspace, 8"
         "${mainMod}, 9, workspace, 9"
         "${mainMod}, 0, workspace, 10"
+        "${mainMod}, KP_1, workspace, 1"
+        "${mainMod}, KP_2, workspace, 2"
+        "${mainMod}, KP_3, workspace, 3"
+        "${mainMod}, KP_4, workspace, 4"
+        "${mainMod}, KP_5, workspace, 5"
+        "${mainMod}, KP_6, workspace, 6"
+        "${mainMod}, KP_7, workspace, 7"
+        "${mainMod}, KP_8, workspace, 8"
+        "${mainMod}, KP_9, workspace, 9"
+        "${mainMod}, KP_0, workspace, 10"
         "${mainMod} SHIFT, 1, movetoworkspace, 1"
         "${mainMod} SHIFT, 2, movetoworkspace, 2"
         "${mainMod} SHIFT, 3, movetoworkspace, 3"
@@ -167,6 +177,16 @@ in
         "${mainMod} SHIFT, 8, movetoworkspace, 8"
         "${mainMod} SHIFT, 9, movetoworkspace, 9"
         "${mainMod} SHIFT, 0, movetoworkspace, 10"
+        "${mainMod} SHIFT, KP_1, movetoworkspace, 1"
+        "${mainMod} SHIFT, KP_2, movetoworkspace, 2"
+        "${mainMod} SHIFT, KP_3, movetoworkspace, 3"
+        "${mainMod} SHIFT, KP_4, movetoworkspace, 4"
+        "${mainMod} SHIFT, KP_5, movetoworkspace, 5"
+        "${mainMod} SHIFT, KP_6, movetoworkspace, 6"
+        "${mainMod} SHIFT, KP_7, movetoworkspace, 7"
+        "${mainMod} SHIFT, KP_8, movetoworkspace, 8"
+        "${mainMod} SHIFT, KP_9, movetoworkspace, 9"
+        "${mainMod} SHIFT, KP_0, movetoworkspace, 10"
         "${mainMod} SHIFT, comma, movecurrentworkspacetomonitor, l"
         "${mainMod} SHIFT, period, movecurrentworkspacetomonitor, r"
         "${mainMod}, S, togglespecialworkspace, magic"
