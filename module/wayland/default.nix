@@ -4,7 +4,10 @@
   security.polkit.enable = true;
 
   services = {
-    displayManager.ly.enable = true;
+    displayManager.sddm = {
+      enable = true;
+      wayland.enable = true;
+    };
   };
 
   programs.hyprland = {
