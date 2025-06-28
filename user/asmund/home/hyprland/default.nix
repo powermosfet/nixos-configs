@@ -95,9 +95,11 @@ in
       };
 
       input = {
+        kb_model = "thinkpad";
         kb_layout = "no";
         kb_variant = "";
         kb_options = "caps:escape";
+        numlock_by_default = true;
 
         follow_mouse = 1;
 
@@ -116,25 +118,15 @@ in
 
       device = [
         {
+          kb_model = "kinesis";
           name = "\"https://github.com/stapelberg\"-\"kint-(kint41)\"";
           kb_layout = "us";
           kb_variant = "altgr-intl";
           kb_options = "nodeadkeys";
         }
         {
+          kb_model = "pc105";
           name = "gtips-reviung41";
-          kb_layout = "us";
-          kb_variant = "altgr-intl";
-          kb_options = "nodeadkeys";
-        }
-        {
-          name = "gtips-reviung41-system-control";
-          kb_layout = "us";
-          kb_variant = "altgr-intl";
-          kb_options = "nodeadkeys";
-        }
-        {
-          name = "gtips-reviung41-consumer-control";
           kb_layout = "us";
           kb_variant = "altgr-intl";
           kb_options = "nodeadkeys";
