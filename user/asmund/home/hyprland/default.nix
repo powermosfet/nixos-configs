@@ -201,7 +201,6 @@ in
       };
     };
 
-    systemd.enable = true;
     xwayland.enable = true;
   };
 }
