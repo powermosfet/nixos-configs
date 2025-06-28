@@ -79,7 +79,7 @@
 
   services = {
     logind.extraConfig = ''
-      HandlePowerKey=suspend
+      HandlePowerKey=hibernate
     '';
 
     physlock = {
