@@ -81,6 +81,7 @@ in
           "workspaces, 1, 1.94, almostLinear, fade"
           "workspacesIn, 1, 1.21, almostLinear, fade"
           "workspacesOut, 1, 1.94, almostLinear, fade"
+          "specialWorkspace, 1, 6, default, slidefadevert -50%"
         ];
       };
 
