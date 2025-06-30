@@ -11,7 +11,7 @@
 
     settings = {
       font_size = 12.0;
-      disable_ligatures = "never";
+      disable_ligatures = "cursor";
       confirm_os_window_close = 0;
     };
     font = {
