@@ -37,16 +37,16 @@
         profile.name = "conta-svg-office";
         profile.outputs = [
           {
-            criteria = "Lenovo Group Limited LEN T27h-20 VNA49K91";
-            mode = "2560x1440";
-            scale = 1.0;
-            position = "-2560,0";
-          }
-          {
             criteria = "Lenovo Group Limited LEN T27h-20 VNA49K51";
             mode = "2560x1440";
             scale = 1.0;
             position = "0,0";
+          }
+          {
+            criteria = "Lenovo Group Limited LEN T27h-20 VNA49K91";
+            mode = "2560x1440";
+            scale = 1.0;
+            position = "-2560,0";
           }
           {
             criteria = "AU Optronics 0x1EAC Unknown";
