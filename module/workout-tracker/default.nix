@@ -1,9 +1,11 @@
-{ pkgs, config, ... }:
+{
+  pkgs,
+  pkgsUnstable,
+  config,
+  ...
+}:
 
 {
-  imports = [
-  ];
-
   config = {
     services.workout-tracker = {
       enable = true;
