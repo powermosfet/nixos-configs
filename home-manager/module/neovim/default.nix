@@ -14,6 +14,9 @@
     vimAlias = true;
     viAlias = true;
 
+    extraPackages = with pkgs; [
+      ripgrep
+    ];
     extraConfig = ''
       set runtimepath^=${./config}
     '';
