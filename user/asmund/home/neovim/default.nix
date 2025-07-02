@@ -9,6 +9,7 @@
 
   programs.neovim = {
     enable = true;
+    defaultEditor = true;
     vimAlias = true;
     viAlias = true;
 
@@ -17,9 +18,6 @@
     '';
     extraLuaConfig = ''
       require("sharedconfig.init")
-
-      require 'blink-cmp'.setup {
-      }
     '';
     plugins = (import ./plugins.nix { pkgs = pkgs; }).plugins;
   };

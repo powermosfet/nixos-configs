@@ -33,13 +33,7 @@
         plugin = blink-cmp;
         type = "lua";
         config = ''
-          require 'blink-cmp'.setup {
-            keymap = {
-                preset = 'default',
-
-              ['<Tab>'] = { 'accept', 'fallback' },
-            }
-          }
+          require 'blink-cmp'.setup { }
         '';
       }
       nvim-web-devicons
