@@ -64,7 +64,6 @@ in
         PAPERLESS_OCR_LANGUAGE = "nor+eng";
         PAPERLESS_CONSUMER_ENABLE_ASN_BARCODE = true;
         PAPERLESS_CONSUMER_ASN_BARCODE_PREFIX = "ASN";
-        PAPERLESS_PRE_CONSUME_SCRIPT = preConsumptionScript;
         PAPERLESS_TIKA_ENABLED = true;
         PAPERLESS_TIKA_ENDPOINT = "http://localhost:${builtins.toString (config.services.paperless.tikaPort)}";
         PAPERLESS_TIKA_GOTENBERG_ENDPOINT = "http://localhost:${builtins.toString (config.services.gotenberg.port)}";
