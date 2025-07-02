@@ -29,7 +29,19 @@
       telescope-nvim
       telescope_hoogle
       telescope-ultisnips-nvim
-      blink-cmp
+      {
+        plugin = blink-cmp;
+        type = "lua";
+        config = ''
+          require 'blink-cmp'.setup {
+            keymap = {
+                preset = 'default',
+
+              ['<Tab>'] = { 'accept', 'fallback' },
+            }
+          }
+        '';
+      }
       nvim-web-devicons
       awesome-vim-colorschemes
       barbar-nvim
