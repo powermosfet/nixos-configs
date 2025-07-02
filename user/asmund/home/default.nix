@@ -4,6 +4,7 @@
   imports = [
     ./hyprland
     ./kitty
+    ./neovim
     ./flameshot
     ./bluetooth
     ./network

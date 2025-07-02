@@ -3,7 +3,6 @@
 {
   imports = [
     ../../user/asmund
-    ../../module/neovim
     ../../module/avahi
     ../../module/garbage-collection
     ../../module/auto-update

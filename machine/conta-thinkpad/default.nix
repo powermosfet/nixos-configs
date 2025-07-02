@@ -4,7 +4,6 @@
   imports = [
     ../../module/wayland
     ../../user/asmund
-    ../../module/neovim
     ../../module/avahi
     ../../module/printing
     ../../module/gnupg

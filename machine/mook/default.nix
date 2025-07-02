@@ -17,7 +17,6 @@ in
     ../../module/nextcloud
     ../../module/node-red
     ../../module/avahi
-    ../../module/neovim
     ../../module/minecraft
     ../../module/elasticsearch
     ../../module/smtp
