@@ -14,16 +14,16 @@
     {
       nixosModules = {
         thinkpad = {
-          imports = [ ./machine/thinkpad ];
+          imports = [ ./nixos/machine/thinkpad ];
         };
         mook = {
-          imports = [ ./machine/mook ];
+          imports = [ ./nixos/machine/mook ];
         };
         gilli = {
-          imports = [ ./machine/gilli ];
+          imports = [ ./nixos/machine/gilli ];
         };
         conta-thinkpad = {
-          imports = [ ./machine/conta-thinkpad ];
+          imports = [ ./nixos/machine/conta-thinkpad ];
         };
       };
 
@@ -33,12 +33,21 @@
           pkgs = nixpkgs.legacyPackages.${system};
         in
         {
-          asmund = home-manager.lib.homeManagerConfiguration {
-            inherit pkgs;
+          asmund = {
+            laptop = home-manager.lib.homeManagerConfiguration {
+              inherit pkgs;
 
-            modules = [
-              ./user/asmund/home
-            ];
+              modules = [
+                ./home-manager/user/asmund/laptop
+              ];
+            };
+            remote = home-manager.lib.homeManagerConfiguration {
+              inherit pkgs;
+
+              modules = [
+                ./home-manager/user/asmund/remote
+              ];
+            };
           };
         };
     };
