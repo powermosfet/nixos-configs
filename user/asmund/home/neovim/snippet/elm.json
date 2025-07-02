@@ -7,5 +7,11 @@
       ", ${2:Effects.none}",
       ")"
     ]
+  },
+  "model": {
+    "prefix": "m",
+    "body": [
+      "{ ${1:model} | ${2:field} = ${0:value} }"
+    ]
   }
 }
