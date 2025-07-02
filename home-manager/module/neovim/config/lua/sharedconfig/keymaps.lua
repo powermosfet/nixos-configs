@@ -52,14 +52,14 @@ return {
     ["f"]            = {
       ["f"]          = [[:Telescope find_files<cr>]],
       ["b"]          = [[:Telescope file_browser<cr>]],
-      ["t"]          = [[:NvimTreeFocus<cr>]],
-      ["T"]          = [[:NvimTreeFindFile<cr>]],
+      ["t"]          = [[:Neotree<cr>]],
+      ["T"]          = [[:Neotree reveal<cr>]],
     },
     -- Git
     ["g"]            = {
       ["b"]          = [[:Gitsigns blame<cr>]],
       ["n"]          = [[/\([<|=>]\)\1\{6\}<cr>]],
-      ["g"]          = [[:Neogit<cr>]]
+      ["g"]          = [[:Git<cr>]]
     },
     ["l"]            = {
       ["z"]          = [[:LspRestart<CR>]],
