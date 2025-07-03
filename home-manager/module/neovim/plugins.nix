@@ -29,7 +29,7 @@
       telescope-nvim
       telescope_hoogle
       {
-        plugin = pkgsUnstable.blink-cmp;
+        plugin = pkgsUnstable.vimPlugins.blink-cmp;
         type = "lua";
         config = ''
           require 'blink-cmp'.setup { }
