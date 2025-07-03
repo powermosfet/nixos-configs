@@ -28,7 +28,6 @@
       vim-fugitive
       telescope-nvim
       telescope_hoogle
-      telescope-ultisnips-nvim
       {
         plugin = blink-cmp;
         type = "lua";
