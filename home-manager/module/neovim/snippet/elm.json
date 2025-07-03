@@ -1,5 +1,13 @@
 
 {
+  "let-in": {
+    "prefix": "let",
+    "body": [
+      "let",
+      "    $0",
+      "in"
+    ]
+  },
   "noop": {
     "prefix": "noop",
     "body": [
