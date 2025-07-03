@@ -1,5 +1,18 @@
 
 {
+  "log": {
+    "prefix": "log",
+    "body": [
+      "(Debug.log \"${1:$TM_SELECTED_TEXT}\" ($1))"
+    ]
+  },
+  "documentation": {
+    "prefix": "doc",
+    "body": [
+      "{-| $0",
+      "-}"
+    ]
+  },
   "let-in": {
     "prefix": "letin",
     "body": [
