@@ -7,7 +7,6 @@
     {
       self,
       nixpkgs,
-      home-manager,
       ...
     }:
 
@@ -27,28 +26,11 @@
         };
       };
 
-      homeConfigurations =
-        let
-          system = "x86_64-linux";
-          pkgs = nixpkgs.legacyPackages.${system};
-        in
-        {
-          asmund = {
-            laptop = home-manager.lib.homeManagerConfiguration {
-              inherit pkgs;
-
-              modules = [
-                ./home-manager/user/asmund/laptop
-              ];
-            };
-            remote = home-manager.lib.homeManagerConfiguration {
-              inherit pkgs;
-
-              modules = [
-                ./home-manager/user/asmund/remote
-              ];
-            };
-          };
+      homeConfigurations = {
+        asmund = {
+          laptop = ./home-manager/user/asmund/laptop;
+          remote = ./home-manager/user/asmund/remote;
         };
+      };
     };
 }
