@@ -12,18 +12,10 @@
 
     {
       nixosModules = {
-        thinkpad = {
-          imports = [ ./nixos/machine/thinkpad ];
-        };
-        mook = {
-          imports = [ ./nixos/machine/mook ];
-        };
-        gilli = {
-          imports = [ ./nixos/machine/gilli ];
-        };
-        conta-thinkpad = {
-          imports = [ ./nixos/machine/conta-thinkpad ];
-        };
+        thinkpad = ./nixos/machine/thinkpad;
+        mook = ./nixos/machine/mook;
+        gilli = ./nixos/machine/gilli;
+        conta-thinkpad = ./nixos/machine/conta-thinkpad;
       };
 
       homeConfigurations = {
