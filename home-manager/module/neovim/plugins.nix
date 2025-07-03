@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, pkgsUnstable, ... }:
 
 {
   plugins =
@@ -29,7 +29,7 @@
       telescope-nvim
       telescope_hoogle
       {
-        plugin = blink-cmp;
+        plugin = pkgsUnstable.blink-cmp;
         type = "lua";
         config = ''
           require 'blink-cmp'.setup { }

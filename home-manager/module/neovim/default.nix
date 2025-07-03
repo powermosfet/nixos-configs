@@ -1,4 +1,9 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  pkgsUnstable,
+  ...
+}:
 
 {
   home.file = {
@@ -23,6 +28,10 @@
     extraLuaConfig = ''
       require("sharedconfig.init")
     '';
-    plugins = (import ./plugins.nix { pkgs = pkgs; }).plugins;
+    plugins =
+      (import ./plugins.nix {
+        pkgs = pkgs;
+        pkgsUnstable = pkgsUnstable;
+      }).plugins;
   };
 }
