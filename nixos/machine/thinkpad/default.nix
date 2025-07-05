@@ -4,6 +4,7 @@
   imports = [
     ../../module/wayland
     ../../user/asmund
+    ../../device/reviung41
     ../../module/avahi
     ../../module/scanner
     ../../module/printing
