@@ -5,6 +5,7 @@
     ../../module/wayland
     ../../user/asmund
     ../../device/reviung41
+    ../../device/kinesis
     ../../module/avahi
     ../../module/scanner
     ../../module/printing
