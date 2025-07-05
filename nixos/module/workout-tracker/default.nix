@@ -5,6 +5,9 @@
   ...
 }:
 
+let
+  hostname = import ./hostname.nix;
+in
 {
   config = {
     services.workout-tracker = {
@@ -16,7 +19,7 @@
       };
     };
 
-    services.nginx.virtualHosts."trening.berge.id" = {
+    services.nginx.virtualHosts."${hostname}" = {
       enableACME = true;
       forceSSL = true;
       locations = {
