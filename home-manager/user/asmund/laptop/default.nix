@@ -13,5 +13,6 @@
     ../../../module/network
     ../../../module/activitywatch
     ../../../module/random-background
+    ../../../module/upload-forerunner
   ];
 }
