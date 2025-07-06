@@ -62,6 +62,7 @@ in
                         echo "Skipping $filename: already exists in $nextcloud_dir."
                     else
                       echo "Uploading $filename"
+                      ${notify-send} "Forerunner Auto-Upload" "Uploading $filename" --icon=dialog-information
                       ${curl} -fsSL -o /dev/null "https://${hostname}/api/v1/import/generic?api-key=$(${cat} ${api-key-file})&name=$filename" --data-binary @"$file"
                       
                       if [ $? -eq 0 ]; then
@@ -69,6 +70,7 @@ in
                         echo "Copied $filename to $nextcloud_dir."
                       else
                         echo "Error occurred while uploading $filename."
+                        ${notify-send} "Forerunner Auto-Upload" "Error occurred while uploading $filename." --icon=dialog-information
                       fi
                     fi
                   done
