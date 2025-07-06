@@ -35,9 +35,6 @@ in
         Description = "Upload new .fit files to workout-tracker";
         After = [ "graphical-session.target" ];
       };
-      Install = {
-        WantedBy = [ "default.target" ];
-      };
       Service = {
         Type = "oneshot";
         ExecStart = "${pkgs.writeShellScript "upload-forerunner" ''
@@ -49,6 +46,14 @@ in
                   mount_dir=$(${udisksctl} mount -b "$device_path" --no-user-interaction | ${grep} -oP 'Mounted .* at \K.*')
                   forerunner_dir=$mount_dir/GARMIN/Activity
                   nextcloud_dir=/home/asmund/Documents/Treningslogg
+
+                  echo "0=$0"
+                  echo "1=$1"
+                  echo "2=$2"
+                  echo "device_path=$device_path"
+                  echo "mount_dir=$mount_dir"
+                  echo "forerunner_dir=$forerunner_dir"
+                  echo "nextcloud_dir=$nextcloud_dir"
                   
                   # Loop through each file in the source directory
                   for file in "$forerunner_dir/"*; do
