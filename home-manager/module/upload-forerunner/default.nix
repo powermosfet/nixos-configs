@@ -42,14 +42,11 @@ in
 
                   ${notify-send} "Forerunner Auto-Upload" "Starting upload from forerunner..." --icon=dialog-information
 
-                  device_path="$1"
+                  device_path="/dev/disk/by-label/GARMIN"
                   mount_dir=$(${udisksctl} mount -b "$device_path" --no-user-interaction | ${grep} -oP 'Mounted .* at \K.*')
                   forerunner_dir=$mount_dir/GARMIN/Activity
                   nextcloud_dir=/home/asmund/Documents/Treningslogg
 
-                  echo "0=$0"
-                  echo "1=$1"
-                  echo "2=$2"
                   echo "device_path=$device_path"
                   echo "mount_dir=$mount_dir"
                   echo "forerunner_dir=$forerunner_dir"
