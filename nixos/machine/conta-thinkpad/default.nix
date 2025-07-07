@@ -10,6 +10,7 @@
     ../../module/printing
     ../../module/gnupg
     ../../module/docker
+    ../../device/forerunner
   ];
 
   time.timeZone = "Europe/Oslo";
