@@ -43,7 +43,6 @@
     gxkb
     vifm-full
     evince
-    nextcloud-client
     mime-types
     spotify
     chromium

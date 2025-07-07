@@ -14,5 +14,6 @@
     ../../../module/activitywatch
     ../../../module/random-background
     ../../../module/upload-forerunner
+    ../../../module/nextcloud
   ];
 }
