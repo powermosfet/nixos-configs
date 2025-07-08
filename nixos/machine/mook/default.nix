@@ -28,6 +28,8 @@ in
     ../../module/soft-serve
     ../../module/workout-tracker
     ../../module/silverbullet
+    ../../module/lubelogger
+    ../../module/mealie
   ];
 
   # Ports
