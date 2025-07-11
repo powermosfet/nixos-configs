@@ -11,5 +11,6 @@
     silverbullet = 8905;
     tika = 8906;
     gotenberg = 8907;
+    mealie = 8908;
   };
 }

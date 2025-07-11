@@ -41,10 +41,7 @@ in
   services.silverbullet.listenPort = ports.internal.silverbullet;
   services.paperless.tikaPort = ports.internal.tika;
   services.paperless.gotenbergPort = ports.internal.gotenberg;
-
-  environment.systemPackages = with pkgs; [
-    git
-  ];
+  services.mealie.port = ports.internal.mealie;
 
   backup.paths = [ "/home/asmund/loftet" ];
 
