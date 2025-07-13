@@ -12,5 +12,7 @@
     tika = 8906;
     gotenberg = 8907;
     mealie = 8908;
+    cryptpad = 8909;
+    cryptpadWebsocket = 8910;
   };
 }

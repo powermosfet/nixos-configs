@@ -30,6 +30,7 @@ in
     ../../module/silverbullet
     ../../module/lubelogger
     ../../module/mealie
+    ../../module/cryptpad
   ];
 
   # Ports
@@ -42,6 +43,8 @@ in
   services.paperless.tikaPort = ports.internal.tika;
   services.paperless.gotenbergPort = ports.internal.gotenberg;
   services.mealie.port = ports.internal.mealie;
+  services.cryptpad.settings.httpPort = ports.internal.cryptpad;
+  services.cryptpad.settings.websocketPort = ports.internal.cryptpadWebsocket;
 
   backup.paths = [ "/home/asmund/loftet" ];
 
