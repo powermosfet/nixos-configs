@@ -19,15 +19,12 @@ let
   udisksctl = "${pkgs.udisks}/bin/udisksctl";
   notify-send = "${pkgs.libnotify}/bin/notify-send";
   grep = "${pkgs.gnugrep}/bin/grep";
+  lsblk = "${pkgs.util-linux}/bin/lsblk";
+  tail = "${pkgs.coreutils}/bin/tail";
 in
 {
   options = {
     services.upload-forerunner = {
-      device-path = mkOption {
-        type = types.str;
-        description = "Path to the usb device";
-      };
-
       api-key-file = mkOption {
         type = types.str;
         description = "Path to the api secret file";
@@ -53,7 +50,8 @@ in
 
                   ${notify-send} "Forerunner Auto-Upload" "Starting upload from forerunner..." --icon=dialog-information
 
-                  mount_dir=$(${udisksctl} mount -b "${device-path}" --no-user-interaction | ${grep} -oP 'Mounted .* at \K.*')
+                  device_path=$(${lsblk} -o path -Q 'Vendor=="Garmin"' | ${tail} -n 1)
+                  mount_dir=$(${udisksctl} mount -b "$device_path" --no-user-interaction | ${grep} -oP 'Mounted .* at \K.*')
                   forerunner_dir=$mount_dir/GARMIN/Activity
 
                   # Loop through each file in the source directory
@@ -80,7 +78,7 @@ in
                   done
 
                   # Unmount the device
-                  ${udisksctl} unmount -b "${device-path}" --no-user-interaction
+                  ${udisksctl} unmount -b "$device_path" --no-user-interaction
 
                   # Send completion notification
                   ${notify-send} "Forerunner Auto-Upload" "Upload completed and watch unmounted" --icon=dialog-information
