@@ -30,7 +30,7 @@ in
     ../../module/silverbullet
     ../../module/lubelogger
     ../../module/mealie
-    ../../module/cryptpad
+    ../../module/immich
   ];
 
   # Ports
