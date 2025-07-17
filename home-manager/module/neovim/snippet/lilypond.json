@@ -1,0 +1,11 @@
+
+{
+  "repeat": {
+    "prefix": "repeat",
+    "body": [
+      "\\repeat ${1|volta,percent,unfold|} ${2:2} {",
+      "    $0",
+      "}"
+    ]
+  }
+}
