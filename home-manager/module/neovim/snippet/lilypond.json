@@ -1,11 +1,37 @@
 
 {
   "repeat": {
-    "prefix": "repeat",
+    "prefix": "rpt",
     "body": [
       "\\repeat ${1|volta,percent,unfold|} ${2:2} {",
-      "    $0",
+      "  ${0}",
       "}"
+    ]
+  },
+  "repeat-alternative": {
+    "prefix": "alt",
+    "body": [
+      "\\alternative {",
+      "  { ${0} }",
+      "}"
+    ]
+  },
+  "barnumbercheck": {
+    "prefix": "bar",
+    "body": [
+      "\\barNumberCheck #${0}"
+    ]
+  },
+  "rehearsal-mark": {
+    "prefix": "rehe",
+    "body": [
+      "\\set Score.rehearsalMarkFormatter = #format-mark-${1|circle,box|}-${2|alphabet,numbers,barnumbers|}"
+    ]
+  },
+  "mark-default": {
+    "prefix": "m",
+    "body": [
+      "\\mark \\default"
     ]
   }
 }
