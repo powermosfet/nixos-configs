@@ -10,7 +10,7 @@ in
     ../../module/borg/jobs/main
     ../../module/nginx
     ../../module/als
-    ../../module/pms
+    # ../../module/pms
     ../../module/postgresql
     ../../module/postgresql/backup
     ../../module/barcode-backend
@@ -31,7 +31,7 @@ in
   ];
 
   # Ports
-  services.pms.port = ports.exposed.pms;
+  # services.pms.port = ports.exposed.pms;
   services.als.port = ports.exposed.als;
   services.barcode-backend.port = ports.exposed.barcode;
   services.onlyoffice.port = ports.internal.onlyoffice;
