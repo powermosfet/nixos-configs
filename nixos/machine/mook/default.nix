@@ -18,10 +18,7 @@ in
     ../../module/node-red
     ../../module/avahi
     # ../../module/minecraft
-    ../../module/elasticsearch
-    ../../module/smtp
-    ../../module/bokashi
-    ../../module/kilometer
+    # ../../module/elasticsearch
     ../../module/ddclient
     ../../module/paperless
     ../../module/freshrss
