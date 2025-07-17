@@ -9,17 +9,9 @@ with lib;
 with builtins;
 
 {
-  options = {
-    backup.paths = mkOption {
-      description = "directories to back up";
-      type = types.listOf types.path;
-    };
-
-    backup.conflictingServices = mkOption {
-      description = "conflicting services to be paused while backing up";
-      type = types.listOf types.str;
-    };
-  };
+  imports = [
+    ../../default.nix
+  ];
 
   config = {
     services.borgbackup.jobs."main-gilli" = {
