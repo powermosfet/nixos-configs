@@ -7,7 +7,7 @@
 
   services.postgresql = {
     enable = true;
-    package = pkgs.postgresql;
+    package = pkgs.postgresql_16;
 
     extensions = with pkgs.postgresql15Packages; [ pg_safeupdate ];
   };
