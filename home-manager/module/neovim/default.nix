@@ -5,13 +5,20 @@
   ...
 }:
 
+let
+  snippetFiles = builtins.listToAttrs (
+    map (filename: {
+      name = ".config/nvim/snippets/${filename}";
+      value = {
+        source = ./snippet/lang/${filename};
+      };
+    }) (builtins.attrNames (builtins.readDir ./snippet/lang))
+  );
+in
 {
   home.file = {
-    ".config/nvim/snippets/package.json".text = import ./snippet/package.json.nix;
-    ".config/nvim/snippets/all.json".source = ./snippet/all.json;
-    ".config/nvim/snippets/javascript.json".source = ./snippet/javascript.json;
-    ".config/nvim/snippets/lilypond.json".source = ./snippet/lilypond.json;
-  };
+    ".config/nvim/snippets/package.json".source = ./snippet/package.json;
+  } // snippetFiles;
 
   programs.neovim = {
     enable = true;
