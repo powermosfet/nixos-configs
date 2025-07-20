@@ -8,7 +8,7 @@
 with lib;
 
 let
-  device-path = config.services.upload-forerunner.device-path;
+  device-path = "/dev/${import ../../../nixos/device/forerunner/device-name.nix}";
   api-key-file = config.services.upload-forerunner.api-key-file;
   backup-dir = config.services.upload-forerunner.backup-dir;
   workout-tracker-hostname = import ../../../nixos/module/workout-tracker/hostname.nix;
@@ -19,8 +19,6 @@ let
   udisksctl = "${pkgs.udisks}/bin/udisksctl";
   notify-send = "${pkgs.libnotify}/bin/notify-send";
   grep = "${pkgs.gnugrep}/bin/grep";
-  lsblk = "${pkgs.util-linux}/bin/lsblk";
-  tail = "${pkgs.coreutils}/bin/tail";
 in
 {
   options = {
@@ -50,7 +48,7 @@ in
 
                   ${notify-send} "Forerunner Auto-Upload" "Starting upload from forerunner..." --icon=dialog-information
 
-                  device_path=$(${lsblk} -o path -Q 'Vendor=="Garmin"' | ${tail} -n 1)
+                  device_path=${device-path}
                   mount_dir=$(${udisksctl} mount -b "$device_path" --no-user-interaction | ${grep} -oP 'Mounted .* at \K.*')
                   forerunner_dir=$mount_dir/GARMIN/Activity
 
