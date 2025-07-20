@@ -33,5 +33,11 @@
     "body": [
       "\\mark \\default"
     ]
+  },
+  "section": {
+    "prefix": "s",
+    "body": [
+      "\\section"
+    ]
   }
 }

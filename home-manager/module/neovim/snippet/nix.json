@@ -1,0 +1,50 @@
+
+{
+  "module": {
+    "prefix": "module",
+    "body": [
+      "{ ... }:",
+      "",
+      "{",
+      "  imports = [",
+      "  ];",
+      "  options = {",
+      "  };",
+      "",
+      "  config =  {",
+      "  };",
+      "}"
+    ]
+  },
+  "flake": {
+    "prefix": "flake",
+    "body": [
+      "{",
+      "  inputs = {",
+      "    nixpkgs.url = \"github:NixOS/nixpkgs/nixos-${1:25.05}\";",
+      "  };",
+      "  outputs =",
+      "    { self, nixpkgs }:",
+      "    let",
+      "      system = \"${2:x86_64-linux}\";",
+      "    in",
+      "    {",
+      "      devShells = {",
+      "        \"${system}\".default =",
+      "          let",
+      "            pkgs = import nixpkgs { inherit system; };",
+      "          in",
+      "          pkgs.mkShell {",
+      "            packages = with pkgs; [",
+      "              $0",
+      "            ];",
+      "",
+      "            shellHook = ''",
+      "            '';",
+      "          };",
+      "      };",
+      "    };",
+      "}"
+    ]
+  }
+}
