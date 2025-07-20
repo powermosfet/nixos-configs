@@ -10,7 +10,6 @@
     ".config/nvim/snippets/package.json".text = import ./snippet/package.json.nix;
     ".config/nvim/snippets/all.json".source = ./snippet/all.json;
     ".config/nvim/snippets/javascript.json".source = ./snippet/javascript.json;
-    ".config/nvim/snippets/elm.json".source = ./snippet/elm.json;
     ".config/nvim/snippets/lilypond.json".source = ./snippet/lilypond.json;
   };
 
