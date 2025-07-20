@@ -11,8 +11,6 @@
     ../../module/printing
     ../../module/gnupg
     ../../module/pro-audio
-
-    ../../device/forerunner
   ];
 
   time.timeZone = "Europe/Oslo";
