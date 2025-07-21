@@ -8,7 +8,7 @@
 with lib;
 
 let
-  device-path = "/dev/${import ../../../nixos/device/forerunner/device-name.nix}";
+  device-path = "/dev/disk/by-label/GARMIN";
   api-key-file = config.services.upload-forerunner.api-key-file;
   backup-dir = config.services.upload-forerunner.backup-dir;
   workout-tracker-hostname = import ../../../nixos/module/workout-tracker/hostname.nix;
