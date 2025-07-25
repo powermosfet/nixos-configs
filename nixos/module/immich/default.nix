@@ -27,4 +27,7 @@ in
       '';
     };
   };
+
+  backup.paths = [ cfg.mediaLocation ];
+  services.postgresqlBackup.databases = [ cfg.database.name ];
 }
