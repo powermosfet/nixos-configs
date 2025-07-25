@@ -1,7 +1,6 @@
 {
   config,
   pkgs,
-  pkgsUnstable,
   ...
 }:
 
@@ -29,7 +28,6 @@
     curl
     jq
     visidata
-    pkgsUnstable.yazi
     octave
     htop
   ];

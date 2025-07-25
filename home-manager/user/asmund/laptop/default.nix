@@ -15,5 +15,6 @@
     ../../../module/random-background
     ../../../module/upload-forerunner
     ../../../module/nextcloud
+    ../../../module/yazi
   ];
 }
