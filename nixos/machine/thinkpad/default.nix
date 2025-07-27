@@ -12,6 +12,7 @@
     ../../module/gnupg
     ../../module/pro-audio
     ../../device/forerunner
+    ../../device/canon-eos-350d
   ];
 
   time.timeZone = "Europe/Oslo";
