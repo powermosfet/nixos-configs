@@ -18,6 +18,7 @@ with builtins;
       paths = config.backup.paths;
       encryption.mode = "none";
       environment.BORG_RSH = "ssh -i /root/.ssh/id_borg-main-gilli";
+      environment.BORG_RELOCATED_REPO_ACCESS_IS_OK = "yes";
       repo = "borg@gilli.local:.";
       compression = "auto,zstd";
       startAt = "04:00";
