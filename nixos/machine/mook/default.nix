@@ -17,7 +17,7 @@ in
     ../../module/nextcloud
     ../../module/node-red
     ../../module/avahi
-    # ../../module/minecraft
+    ../../module/minecraft
     # ../../module/elasticsearch
     ../../module/ddclient
     ../../module/paperless
