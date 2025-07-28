@@ -11,6 +11,7 @@
     ../../module/gnupg
     ../../module/docker
     ../../device/forerunner
+    ../../module/photo
   ];
 
   time.timeZone = "Europe/Oslo";
