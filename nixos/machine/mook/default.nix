@@ -28,6 +28,7 @@ in
     ../../module/lubelogger
     ../../module/mealie
     ../../module/immich
+    ../../module/photo/backup.nix
   ];
 
   # Ports
