@@ -11,7 +11,6 @@
     ../../module/printing
     ../../module/gnupg
     ../../module/pro-audio
-    ../../device/forerunner
     ../../module/photo
   ];
 

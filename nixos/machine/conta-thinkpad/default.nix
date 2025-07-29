@@ -10,7 +10,6 @@
     ../../module/printing
     ../../module/gnupg
     ../../module/docker
-    ../../device/forerunner
     ../../module/photo
   ];
 

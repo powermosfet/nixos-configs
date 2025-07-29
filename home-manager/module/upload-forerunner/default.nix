@@ -48,8 +48,7 @@ in
 
                   ${notify-send} "Forerunner Auto-Upload" "Starting upload from forerunner..." --icon=dialog-information
 
-                  device_path=${device-path}
-                  mount_dir=$(${udisksctl} mount -b "$device_path" --no-user-interaction | ${grep} -oP 'Mounted .* at \K.*')
+                  mount_dir=/run/media/asmund/GARMIN
                   forerunner_dir=$mount_dir/GARMIN/Activity
 
                   # Loop through each file in the source directory
@@ -75,11 +74,8 @@ in
                     fi
                   done
 
-                  # Unmount the device
-                  ${udisksctl} unmount -b "$device_path" --no-user-interaction
-
                   # Send completion notification
-                  ${notify-send} "Forerunner Auto-Upload" "Upload completed and watch unmounted" --icon=dialog-information
+                  ${notify-send} "Forerunner Auto-Upload" "Upload completed" --icon=dialog-information
         ''}";
       };
     };

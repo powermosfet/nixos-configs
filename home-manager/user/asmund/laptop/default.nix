@@ -13,6 +13,7 @@
     ../../../module/network
     ../../../module/activitywatch
     ../../../module/random-background
+    ../../../module/udiskie
     ../../../module/upload-forerunner
     ../../../module/nextcloud
     ../../../module/yazi
