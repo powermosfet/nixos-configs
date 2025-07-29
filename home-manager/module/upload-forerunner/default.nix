@@ -39,7 +39,13 @@ in
     systemd.user.services.upload-forerunner = {
       Unit = {
         Description = "Upload new .fit files to workout-tracker";
-        After = [ "graphical-session.target" ];
+        After = [
+          "graphical-session.target"
+          "run-media-asmund-GARMIN.mount"
+        ];
+        BindsTo = [
+          "run-media-asmund-GARMIN.mount"
+        ];
       };
       Service = {
         Type = "oneshot";
