@@ -224,4 +224,15 @@ in
 
     xwayland.enable = true;
   };
+
+  home.pointerCursor = {
+    enable = true;
+
+    name = "Vanilla-DMZ";
+    package = pkgs.vanilla-dmz;
+
+    hyprcursor = {
+      enable = true;
+    };
+  };
 }
