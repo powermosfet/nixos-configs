@@ -1,7 +1,6 @@
 {
   config,
   pkgs,
-  pkgsUnstable,
   lib,
   ...
 }:
@@ -57,7 +56,7 @@ in
 
     services.paperless = {
       enable = true;
-      package = pkgsUnstable.paperless-ngx;
+      package = pkgs.paperless-ngx;
       consumptionDirIsPublic = true;
       settings = {
         PAPERLESS_URL = "https://${hostName}";
