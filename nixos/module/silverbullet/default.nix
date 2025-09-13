@@ -1,4 +1,9 @@
-{ pkgs, config, ... }:
+{
+  pkgs,
+  pkgsUnstable,
+  config,
+  ...
+}:
 
 let
   cfg = config.services.silverbullet;
@@ -26,6 +31,8 @@ in
   config = {
     services.silverbullet = {
       enable = true;
+
+      package = pkgsUnstable.silverbullet;
     };
 
     services.nginx = {
