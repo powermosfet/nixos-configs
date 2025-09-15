@@ -8,7 +8,7 @@
     ../../../module/kitty
     ../../../module/neovim
     ../../../module/mako
-    ../../../module/flameshot
+    ../../../module/satty
     ../../../module/bluetooth
     ../../../module/network
     ../../../module/activitywatch
