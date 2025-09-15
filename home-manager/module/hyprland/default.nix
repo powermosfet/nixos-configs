@@ -220,6 +220,9 @@ in
       xwayland = {
         force_zero_scaling = true;
       };
+      workspace = [
+        "m[Lenovo Group Limited LEN T27h-20 VNA49K51], layoutopt:orientation:top"
+      ];
     };
 
     xwayland.enable = true;
