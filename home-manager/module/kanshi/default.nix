@@ -23,6 +23,7 @@
             criteria = "Lenovo Group Limited LEN P27h-10 0x01010101";
             mode = "2560x1440";
             scale = 1.0;
+            transform = "normal";
             position = "0,0";
           }
           {
