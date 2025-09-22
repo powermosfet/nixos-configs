@@ -86,7 +86,7 @@ in
       };
 
       master = {
-        new_status = "master";
+        new_status = "slave";
       };
 
       misc = {
