@@ -3,10 +3,8 @@
 {
   imports = [
     ../common.nix
-    ../../../module/bash
     ../../../module/hyprland
     ../../../module/kitty
-    ../../../module/neovim
     ../../../module/mako
     ../../../module/satty
     ../../../module/bluetooth
@@ -16,6 +14,5 @@
     ../../../module/udiskie
     ../../../module/upload-forerunner
     ../../../module/nextcloud
-    ../../../module/yazi
   ];
 }

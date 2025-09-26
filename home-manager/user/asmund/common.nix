@@ -1,13 +1,21 @@
 { ... }:
 
 {
-  home.username = "asmund";
-  home.homeDirectory = "/home/asmund";
+  imports = [
+    ../../module/bash
+    ../../module/neovim
+    ../../module/yazi
+  ];
 
-  # This value determines the Home Manager release that your configuration is
-  # compatible with. This helps avoid breakage when a new Home Manager release
-  # introduces backwards incompatible changes.
-  home.stateVersion = "24.05"; # Please read the comment before changing.
+  config = {
+    home.username = "asmund";
+    home.homeDirectory = "/home/asmund";
 
-  programs.home-manager.enable = true;
+    # This value determines the Home Manager release that your configuration is
+    # compatible with. This helps avoid breakage when a new Home Manager release
+    # introduces backwards incompatible changes.
+    home.stateVersion = "24.05"; # Please read the comment before changing.
+
+    programs.home-manager.enable = true;
+  };
 }
