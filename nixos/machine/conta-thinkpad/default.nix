@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ../../module/laptop
     ../../module/wayland
     ../../user/asmund
     ../../device/reviung41
