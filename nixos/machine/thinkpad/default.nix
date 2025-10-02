@@ -6,6 +6,7 @@
     ../../user/asmund
     ../../device/reviung41
     ../../device/kinesis
+    ../../device/corne
     ../../module/avahi
     ../../module/scanner
     ../../module/printing

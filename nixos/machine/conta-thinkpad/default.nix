@@ -7,6 +7,7 @@
     ../../user/asmund
     ../../device/reviung41
     ../../device/kinesis
+    ../../device/corne
     ../../module/avahi
     ../../module/printing
     ../../module/gnupg
