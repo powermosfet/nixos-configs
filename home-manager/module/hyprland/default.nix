@@ -132,6 +132,13 @@ in
           kb_variant = "altgr-intl";
           kb_options = "nodeadkeys";
         }
+        {
+          kb_model = "pc105";
+          name = "foostan-corne-v4-keyboard";
+          kb_layout = "us";
+          kb_variant = "altgr-intl";
+          kb_options = "nodeadkeys";
+        }
       ];
 
       bind = [
