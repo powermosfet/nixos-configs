@@ -12,6 +12,10 @@ in
     enable = true;
   };
 
+  users.users."${cfg.user}".extraGroups = [
+    "${config.backup.group}"
+  ];
+
   services.nginx.virtualHosts."${hostname}" = {
     enableACME = true;
     forceSSL = true;
