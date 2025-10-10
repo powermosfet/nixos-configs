@@ -3,7 +3,7 @@
 {
   config = {
     services.udev.extraRules = ''
-      SUBSYSTEMS=="usb", ATTRS{idVendor}=="03eb", ATTRS{idProduct}=="2ff4", TAG+="uaccess", MODE:="0666"
+      SUBSYSTEMS=="usb", ATTRS{idVendor}=="7807", ATTRS{idProduct}=="dccb", TAG+="uaccess", MODE:="0666"
     '';
   };
 }
