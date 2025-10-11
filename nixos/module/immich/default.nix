@@ -1,5 +1,6 @@
 {
   config,
+  pkgsUnstable,
   ...
 }:
 
@@ -10,6 +11,7 @@ in
 {
   services.immich = {
     enable = true;
+    package = pkgsUnstable.immich;
   };
 
   users.users."${cfg.user}".extraGroups = [
