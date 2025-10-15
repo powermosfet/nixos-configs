@@ -5,6 +5,7 @@ let
   zellij = "${terminal} --session ${../kitty/zellij.session}";
   quickie = "${terminal} --session ${../kitty/quickie.session}";
   fileManager = "pcmanfm";
+  yazi = "${terminal} --session ${../kitty/yazi.session}";
   menu = "wofi --show drun";
   suspend = "systemctl suspend";
   mainMod = "SUPER";
@@ -147,6 +148,7 @@ in
         "${mainMod}, C, killactive,"
         "${mainMod}, M, exit,"
         "${mainMod}, E, exec, ${fileManager}"
+        "${mainMod}, F, exec, ${yazi}"
         "${mainMod}, V, togglefloating,"
         "${mainMod}, space, exec, ${menu}"
         "${mainMod}, L, exec, ${suspend}"

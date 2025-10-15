@@ -4,6 +4,7 @@
   home.file = {
     ".config/kitty/zellij.session".source = ./zellij.session;
     ".config/kitty/quickie.session".source = ./quickie.session;
+    ".config/kitty/yazi.session".source = ./yazi.session;
   };
 
   programs.kitty = {
