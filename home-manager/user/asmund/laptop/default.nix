@@ -14,5 +14,6 @@
     ../../../module/udiskie
     ../../../module/upload-forerunner
     ../../../module/nextcloud
+    ../../../module/screenshot
   ];
 }
