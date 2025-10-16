@@ -9,5 +9,6 @@
     darktable
     gimp
     rapid-photo-downloader
+    hugin
   ];
 }
