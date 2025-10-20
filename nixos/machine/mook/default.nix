@@ -31,6 +31,7 @@ in
     ../../module/mealie
     ../../module/immich
     ../../module/photo/backup.nix
+    ../../module/monitoring
   ];
 
   # Ports
