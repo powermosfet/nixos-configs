@@ -6,6 +6,7 @@
     ../../module/avahi
     ../../module/garbage-collection
     ../../module/auto-update
+    ../../module/monitoring/exporter/node
   ];
 
   time.timeZone = "Europe/Oslo";
