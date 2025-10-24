@@ -2,14 +2,12 @@
 
 {
   imports = [
-    ./exporter/node
+    ./prometheus
+    ./prometheus/exporter/node
   ];
 
   config = {
     services.prometheus = {
-      enable = true;
-      port = 9090;
-
       scrapeConfigs = [
         {
           job_name = "mook";
