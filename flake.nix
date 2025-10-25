@@ -15,6 +15,7 @@
         thinkpad = ./nixos/machine/thinkpad;
         mook = ./nixos/machine/mook;
         gilli = ./nixos/machine/gilli;
+        agent25 = ./nixos/machine/agent25;
         conta-thinkpad = ./nixos/machine/conta-thinkpad;
       };
 
