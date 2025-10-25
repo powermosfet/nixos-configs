@@ -7,6 +7,8 @@
     ../../module/avahi
     ../../module/garbage-collection
     ../../module/auto-update
+    ../../module/monitoring/prometheus
+    ../../module/monitoring/prometheus/remote-access
   ];
 
   time.timeZone = "Europe/Oslo";

@@ -7,30 +7,12 @@ in
   imports = [
     ./prometheus
     ./prometheus/exporter/node
+    ./prometheus/scrape-config/mook
+    ./prometheus/scrape-config/gilli
+    ./prometheus/scrape-config/agent25
   ];
 
   config = {
-    services.prometheus = {
-      scrapeConfigs = [
-        {
-          job_name = "mook";
-          static_configs = [
-            {
-              targets = [ "localhost:9100" ];
-            }
-          ];
-        }
-        {
-          job_name = "gilli";
-          static_configs = [
-            {
-              targets = [ "gilli.local:9100" ];
-            }
-          ];
-        }
-      ];
-    };
-
     services.grafana = {
       enable = true;
       settings = {
