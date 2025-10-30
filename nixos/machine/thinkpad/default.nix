@@ -53,6 +53,7 @@
     pavucontrol
     shared-mime-info
     kickstart
+    gramps
   ];
 
   programs = {
