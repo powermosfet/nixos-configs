@@ -47,6 +47,7 @@ in
   services.mealie.port = ports.internal.mealie;
   services.cryptpad.settings.httpPort = ports.internal.cryptpad;
   services.cryptpad.settings.websocketPort = ports.internal.cryptpadWebsocket;
+  services.actual.settings.port = ports.internal.actual;
 
   backup.paths = [ "/home/asmund/loftet" ];
 
