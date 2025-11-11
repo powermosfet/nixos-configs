@@ -5,22 +5,17 @@ let
   hostname = "budsjett.berge.id";
 in
 {
-  imports = [
-  ];
+  services.actual = {
+    enable = true;
+  };
 
-  config = {
-    services.actual = {
-      enable = true;
-    };
-
-    services.nginx.virtualHosts."${hostname}" = {
-      enableACME = true;
-      forceSSL = true;
-      locations = {
-        "/" = {
-          proxyPass = "http://127.0.0.1:${builtins.toString (cfg.settings.port)}";
-          proxyWebsockets = true;
-        };
+  services.nginx.virtualHosts."${hostname}" = {
+    enableACME = true;
+    forceSSL = true;
+    locations = {
+      "/" = {
+        proxyPass = "http://127.0.0.1:${builtins.toString (cfg.settings.port)}";
+        proxyWebsockets = true;
       };
     };
   };
