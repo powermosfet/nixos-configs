@@ -20,4 +20,7 @@ in
       };
     };
   };
+
+  backup.paths = [ "/var/lib/actual" ];
+  services.ddclient.domains = [ hostname ];
 }
