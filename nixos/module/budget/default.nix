@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, pkgsUnstable, ... }:
 
 let
   cfg = config.services.actual;
@@ -7,6 +7,7 @@ in
 {
   services.actual = {
     enable = true;
+    package = pkgsUnstable.actual-server;
   };
 
   services.nginx.virtualHosts."${hostname}" = {
