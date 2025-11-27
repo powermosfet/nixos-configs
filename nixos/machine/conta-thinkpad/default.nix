@@ -25,6 +25,7 @@
       127.0.0.1 app.conta.test
       127.0.0.1 api.conta.test
       127.0.0.1 gjest.conta.test
+      127.0.0.1 mysql.conta.test
     '';
   };
 
