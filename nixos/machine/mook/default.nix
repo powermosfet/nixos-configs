@@ -59,7 +59,24 @@ in
     "nextcloud" # To get access to /var/lib/nextcloud/...
   ];
 
-  services.openssh.enable = true;
+  services.openssh = {
+    enable = true;
+
+    settings = {
+      PasswordAuthentication = false;
+      PermitRootLogin = "no";
+      KbdInteractiveAuthentication = false;
+      PermitEmptyPasswords = false;
+      X11Forwarding = false;
+      AllowAgentForwarding = false;
+      AllowTcpForwarding = false;
+      MaxAuthTries = 3;
+      LoginGraceTime = 20;
+      ClientAliveInterval = 300;
+      ClientAliveCountMax = 2;
+    };
+  };
+  services.fail2ban.enable = true;
+
   security.sudo.wheelNeedsPassword = false;
-  networking.firewall.allowedTCPPorts = [ 22 ];
 }
