@@ -4,10 +4,10 @@ let
   powerline = pkgs.python311Packages.powerline;
 in
 {
-  environment.systemPackages = with pkgs; [
-    tmuxp
+  environment.systemPackages = [
+    pkgs.tmuxp
     powerline
-    python311Full
+    pkgs.python311Full
   ];
 
   programs.tmux = {
