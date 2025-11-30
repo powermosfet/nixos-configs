@@ -100,7 +100,7 @@
       openFirewall = true;
     };
 
-    logind.extraConfig = ''
+    logind.settings.Login = ''
       HandlePowerKey=suspend
     '';
 
