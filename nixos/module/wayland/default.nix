@@ -19,7 +19,6 @@
 
   environment.systemPackages = with pkgs; [
     wofi
-    libsForQt5.dolphin
     networkmanagerapplet
     playerctl
     wl-clipboard
