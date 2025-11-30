@@ -99,9 +99,9 @@
       openFirewall = true;
     };
 
-    logind.settings.Login = ''
-      HandlePowerKey=suspend
-    '';
+    logind.settings.Login = {
+      HandlePowerKey = "suspend";
+    };
 
     physlock = {
       enable = true;

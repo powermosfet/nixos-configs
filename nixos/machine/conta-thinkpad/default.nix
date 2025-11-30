@@ -82,9 +82,9 @@
   };
 
   services = {
-    logind.extraConfig = ''
-      HandlePowerKey=hibernate
-    '';
+    logind.settings.Login = {
+      HandlePowerKey = "hibernate";
+    };
 
     physlock = {
       enable = true;
