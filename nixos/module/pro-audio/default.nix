@@ -11,7 +11,6 @@
     meterbridge
     qastools
     hydrogen
-    neothesia
     odin2
     calf
     zam-plugins
