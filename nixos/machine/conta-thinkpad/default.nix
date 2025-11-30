@@ -46,7 +46,6 @@
     libinput
     signal-desktop-bin
     evince
-    mime-types
     spotify
     chromium
     pkgsUnstable.logseq

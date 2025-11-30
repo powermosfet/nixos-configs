@@ -43,7 +43,6 @@
     gxkb
     vifm-full
     evince
-    mime-types
     spotify
     chromium
     pkgsUnstable.logseq
