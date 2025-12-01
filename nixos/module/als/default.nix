@@ -18,7 +18,7 @@ let
   als = import src {
     pkgs = import (fetchTarball {
       url = "https://github.com/NixOS/nixpkgs/tarball/21.11";
-      sha256 = "sha256-jVSu6sYfGn1UCW6zIAAAXyNXR4LYpVvdY50N7cZ2T3s=";
+      sha256 = "sha256:162dywda2dvfj1248afxc45kcrg83appjd0nmdb541hl7rnncf02";
     }) { };
   };
 in
