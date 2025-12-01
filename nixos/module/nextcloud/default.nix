@@ -2,7 +2,7 @@
 
 let
   hostName = "cloud.berge.id";
-  onlyOfficeHostName = "onlyoffice.berge.id";
+  # onlyOfficeHostName = "onlyoffice.berge.id";
   email = "little.tree8655@fastmail.com";
   dbName = "nextcloud";
   dbUser = "nextcloud";
@@ -13,14 +13,14 @@ in
       forceSSL = true;
       enableACME = true;
     };
-    "${onlyOfficeHostName}" = {
-      forceSSL = true;
-      enableACME = true;
-    };
+    # "${onlyOfficeHostName}" = {
+    #   forceSSL = true;
+    #   enableACME = true;
+    # };
   };
   services.ddclient.domains = [
     hostName
-    onlyOfficeHostName
+    # onlyOfficeHostName
   ];
 
   services.nextcloud = {
@@ -54,10 +54,10 @@ in
     };
   };
 
-  services.onlyoffice = {
-    enable = true;
-    hostname = "${onlyOfficeHostName}";
-  };
+  # services.onlyoffice = {
+  #   enable = true;
+  #   hostname = "${onlyOfficeHostName}";
+  # };
 
   users.users.nextcloud.extraGroups = [ "keys" ];
 

@@ -20,7 +20,6 @@ in
     ../../module/node-red
     ../../module/avahi
     ../../module/minecraft
-    # ../../module/elasticsearch
     ../../module/ddclient
     ../../module/paperless
     ../../module/freshrss
@@ -33,13 +32,14 @@ in
     ../../module/photo/backup.nix
     ../../module/monitoring
     ../../module/budget
+    ../../module/reverse-ssh-tunnel/server
   ];
 
   # Ports
   services.pms.port = ports.exposed.pms;
   services.als.port = ports.exposed.als;
   services.barcode-backend.port = ports.exposed.barcode;
-  services.onlyoffice.port = ports.internal.onlyoffice;
+  # services.onlyoffice.port = ports.internal.onlyoffice;
   services.workout-tracker.port = ports.internal.workout-tracker;
   services.silverbullet.listenPort = ports.internal.silverbullet;
   services.paperless.tikaPort = ports.internal.tika;

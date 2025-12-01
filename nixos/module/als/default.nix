@@ -16,7 +16,10 @@ let
     sha256 = "sha256-jVSu6sYfGn1UCW6zIfhcXyNXR4LYpVvdY50N7cZ2T3s=";
   };
   als = import src {
-    pkgs = import (fetchTarball "https://github.com/NixOS/nixpkgs/tarball/21.11") { };
+    pkgs = import (fetchTarball {
+      url = "https://github.com/NixOS/nixpkgs/tarball/21.11";
+      sha256 = "sha256-jVSu6sYfGn1UCW6zIAAAXyNXR4LYpVvdY50N7cZ2T3s=";
+    }) { };
   };
 in
 {
