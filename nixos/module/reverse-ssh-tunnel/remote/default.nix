@@ -1,4 +1,11 @@
-{ ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
+
+with lib;
 
 let
   service = "reverse-ssh-tunnel";
