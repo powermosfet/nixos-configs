@@ -11,6 +11,7 @@ let
   service = "reverse-ssh-tunnel";
   cfg = config.services."${service}";
   common = import ../common.nix;
+  user = "tunnel-client";
 in
 {
   options = {
@@ -23,6 +24,11 @@ in
       mook-hostname = mkOption {
         description = "Hostname";
         type = types.str;
+      };
+
+      ssh-key = mkOption {
+        description = "Path to the ssh identity key file";
+        type = types.path;
       };
     };
   };
@@ -46,15 +52,25 @@ in
 
         ExecStart = ''
           ${pkgs.openssh}/bin/ssh -N -T \
-            -o ServerAliveInterval=60 \
-            -o ServerAliveCountMax=3 \
-            -o ExitOnForwardFailure=yes \
-            -o StrictHostKeyChecking=accept-new \
-            -p ${builtins.toString cfg.mook-port} \
-            -R ${builtins.toString common.port}:localhost:22 \
-            ${cfg.mook-hostname}
+          -i ${cfg.ssh-key} \
+          -o ServerAliveInterval=60 \
+          -o ServerAliveCountMax=3 \
+          -o ExitOnForwardFailure=yes \
+          -o StrictHostKeyChecking=accept-new \
+          -p ${builtins.toString cfg.mook-port} \
+          -R ${builtins.toString common.port}:localhost:22 \
+          ${cfg.mook-hostname}
         '';
       };
     };
+
+    users.users."${user}" = {
+      isSystemUser = true;
+      group = user;
+      home = "/var/lib/${user}";
+      createHome = true;
+    };
+
+    users.groups."${user}" = { };
   };
 }
