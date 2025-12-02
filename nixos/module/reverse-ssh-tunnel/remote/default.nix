@@ -59,7 +59,7 @@ in
           -o StrictHostKeyChecking=accept-new \
           -p ${builtins.toString cfg.mook-port} \
           -R ${builtins.toString common.port}:localhost:22 \
-          ${cfg.mook-hostname}
+          ${common.user}@${cfg.mook-hostname}
         '';
       };
     };
