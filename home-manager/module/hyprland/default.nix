@@ -114,18 +114,7 @@ in
         };
       };
 
-      gestures = {
-        workspace_swipe = true;
-      };
-
       device = [
-        {
-          kb_model = "kinesis";
-          name = "\"https://github.com/stapelberg\"-\"kint-(kint41)\"";
-          kb_layout = "us";
-          kb_variant = "altgr-intl";
-          kb_options = "nodeadkeys";
-        }
         {
           kb_model = "pc105";
           name = "gtips-reviung41";
