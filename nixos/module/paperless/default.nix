@@ -49,7 +49,6 @@ in
       enable = true;
       package = pkgs.paperless-ngx;
       consumptionDirIsPublic = true;
-      configureTika = true;
       settings = {
         PAPERLESS_URL = "https://${hostName}";
         PAPERLESS_DBHOST = "/run/postgresql";
