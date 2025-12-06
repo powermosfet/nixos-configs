@@ -42,8 +42,6 @@ in
   # services.onlyoffice.port = ports.internal.onlyoffice;
   services.workout-tracker.port = ports.internal.workout-tracker;
   services.silverbullet.listenPort = ports.internal.silverbullet;
-  services.paperless.tikaPort = ports.internal.tika;
-  services.paperless.gotenbergPort = ports.internal.gotenberg;
   services.mealie.port = ports.internal.mealie;
   services.cryptpad.settings.httpPort = ports.internal.cryptpad;
   services.cryptpad.settings.websocketPort = ports.internal.cryptpadWebsocket;
