@@ -60,12 +60,6 @@
     (import ./script/azure { pkgs = pkgs; })
   ];
 
-  programs = {
-    direnv = {
-      enable = true;
-    };
-  };
-
   fonts = {
     fontDir.enable = true;
     packages = with pkgs; [

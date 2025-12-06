@@ -5,6 +5,7 @@
     ../../module/bash
     ../../module/neovim
     ../../module/yazi
+    ../../module/direnv
   ];
 
   config = {

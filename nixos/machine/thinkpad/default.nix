@@ -55,12 +55,6 @@
     gramps
   ];
 
-  programs = {
-    direnv = {
-      enable = true;
-    };
-  };
-
   fonts = {
     fontDir.enable = true;
     packages = with pkgs; [
