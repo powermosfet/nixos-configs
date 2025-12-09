@@ -2,14 +2,12 @@
   description = "My shared NixOS configuration";
 
   inputs = {
-    actual-sparebank1.url = "github:powermosfet/actual-sparebank1";
   };
 
   outputs =
     {
       self,
       nixpkgs,
-      actual-sparebank1,
       ...
     }:
 
@@ -28,10 +26,6 @@
           remote = ./home-manager/user/asmund/remote;
           mook = ./home-manager/user/asmund/mook;
         };
-        extraSpecialArgs = {
-          inherit actual-sparebank1;
-        };
-
       };
     };
 }
