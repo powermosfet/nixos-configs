@@ -35,7 +35,7 @@ in
       Unit.Description = "Periodically upload transactions to Actual Budget";
       Timer = {
         Unit = unit;
-        OnCalendar = "0/5:00"; # Every 5 hours
+        OnCalendar = "0/3:00"; # Every 5 hours
       };
       Install.WantedBy = [ "timers.target" ];
     };
