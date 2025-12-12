@@ -12,14 +12,18 @@ final: prev: {
     {
       nativeBuildInputs = (oldAttrs.nativeBuildInputs or [ ]) ++ [ final.git ];
 
-      prePatch =
-        oldAttrs.prePatch
-        + ''
-          rm -R data/db
-          mkdir -p data/db
-          cp -R ${newerLensfunDatabase}/data/db data/db
-          date +%s > data/db/timestamp.txt
-        '';
+      prePatch = ''
+        rm -R data/db
+        python3 ${newerLensfunDatabase}/tools/update_database/generate_db.py -i $TMPDIR -o ${newerLensfunDatabase}/data/db
+        mkdir -p data/db
+        tar xvf $TMPDIR/db/version_1.tar -C data/db
+        date +%s > data/db/timestamp.txt
+          
+        substituteInPlace CMakeLists.txt \
+          --replace-fail \
+            'CMAKE_MINIMUM_REQUIRED(VERSION 2.8.12 FATAL_ERROR )' \
+            'CMAKE_MINIMUM_REQUIRED(VERSION 3.12 FATAL_ERROR)'
+      '';
     }
   );
 }
