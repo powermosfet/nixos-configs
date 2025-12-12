@@ -14,9 +14,8 @@ final: prev: {
 
       prePatch = ''
         rm -R data/db
-        python3 ${newerLensfunDatabase}/tools/update_database/generate_db.py -i $TMPDIR -o ${newerLensfunDatabase}/data/db
         mkdir -p data/db
-        tar xvf $TMPDIR/db/version_1.tar -C data/db
+        cp -r ${newerLensfunDatabase}/data/db data/db
         date +%s > data/db/timestamp.txt
           
         substituteInPlace CMakeLists.txt \
