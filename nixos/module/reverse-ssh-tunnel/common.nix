@@ -1,4 +1,4 @@
 {
-  port = 222;
+  port = 2222;
   user = "tunnel";
 }
