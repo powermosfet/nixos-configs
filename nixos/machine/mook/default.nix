@@ -69,7 +69,7 @@ in
       PermitEmptyPasswords = false;
       X11Forwarding = false;
       AllowAgentForwarding = false;
-      AllowTcpForwarding = false;
+      AllowTcpForwarding = true;
       MaxAuthTries = 3;
       LoginGraceTime = 20;
       ClientAliveInterval = 300;

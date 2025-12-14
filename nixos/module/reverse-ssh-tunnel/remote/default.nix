@@ -58,7 +58,7 @@ in
           -o ExitOnForwardFailure=yes \
           -o StrictHostKeyChecking=accept-new \
           -p ${builtins.toString cfg.mook-port} \
-          -R ${builtins.toString common.port}:localhost:22 \
+          -R 22:localhost:${builtins.toString common.port} \
           ${common.user}@${cfg.mook-hostname}
         '';
       };
