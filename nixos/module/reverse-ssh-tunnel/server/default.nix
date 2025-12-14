@@ -12,7 +12,7 @@ in
     createHome = true;
     shell = pkgs.shadow;
     openssh.authorizedKeys.keys = [
-      ''command="echo 'Tunnel only'",restrict,permitlisten="localhost:${builtins.toString common.port}" ${public-key}''
+      ''command="echo 'Tunnel only'",restrict,permitopen="localhost:${builtins.toString common.port}" ${public-key}''
     ];
   };
   users.groups = {
