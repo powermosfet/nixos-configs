@@ -1,7 +1,6 @@
 {
   config,
   pkgs,
-  pkgsUnstable,
   lib,
   ...
 }:
@@ -11,7 +10,6 @@ with builtins;
 
 let
   hostName = "papir.berge.id";
-  email = "little.tree8655@fastmail.com";
   dbName = "paperless";
   dbUser = config.services.paperless.user;
   preConsumptionScript = import ./preConsumptionScript.nix {
@@ -40,14 +38,8 @@ in
   };
 
   config = {
-    environment.systemPackages = with pkgs; [
-      file
-      chromium
-    ];
-
     services.paperless = {
       enable = true;
-      package = pkgs.paperless-ngx;
       consumptionDirIsPublic = true;
       settings = {
         PAPERLESS_URL = "https://${hostName}";
@@ -69,7 +61,7 @@ in
         };
       };
     };
-    security.acme.defaults.email = email;
+    services.ddclient.domains = [ hostname ];
 
     services.postgresql = {
       ensureUsers = [
