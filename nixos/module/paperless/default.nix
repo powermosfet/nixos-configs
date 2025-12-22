@@ -48,6 +48,7 @@ in
         PAPERLESS_OCR_LANGUAGE = "nor+eng";
         PAPERLESS_CONSUMER_ENABLE_ASN_BARCODE = true;
         PAPERLESS_CONSUMER_ASN_BARCODE_PREFIX = "ASN";
+        PAPERLESS_PRE_CONSUME_SCRIPT = "${preConsumptionScript}/bin/pdf-decrypt";
       };
     };
 
@@ -61,7 +62,7 @@ in
         };
       };
     };
-    services.ddclient.domains = [ hostname ];
+    services.ddclient.domains = [ hostName ];
 
     services.postgresql = {
       ensureUsers = [
