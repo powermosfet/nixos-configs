@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, pkgsUnstable, ... }:
 
 {
   imports = [
@@ -8,7 +8,7 @@
   nixpkgs.overlays = [ (import ./lensfun-overlay.nix) ];
 
   environment.systemPackages = with pkgs; [
-    darktable
+    pkgsUnstable.darktable
     gimp
     hugin
   ];
