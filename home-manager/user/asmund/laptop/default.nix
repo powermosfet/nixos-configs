@@ -15,5 +15,6 @@
     ../../../module/upload-forerunner
     ../../../module/nextcloud
     ../../../module/screenshot
+    ../../../module/photo-archive
   ];
 }
