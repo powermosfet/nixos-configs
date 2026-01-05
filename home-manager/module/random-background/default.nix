@@ -6,24 +6,19 @@ let
   shuf = "${pkgs.coreutils}/bin/shuf";
   basename = "${pkgs.coreutils}/bin/basename";
 
-  unit = "random-hyprpaper";
-  dir = "bakgrunner/";
+  unit = "andomr-hyprpaper";
+  dir = "~/bakgrunner";
 in
 {
   systemd.user.services."${unit}" = {
-    Unit = {
-      Description = "Set a random wallpaper using hyprpaper";
-      WantedBy = "hyprland-session.target";
-      After = "hyprland-session.target";
+    description = "Set a random wallpaper using hyprpaper";
+    wantedBy = [ "hyprland-session.target" ];
+    # after = [ "hyprland-session.target" ];
+    environment = {
+      WALLPAPER_DIR = dir;
     };
-    Install = {
-    };
-    Service = {
-      Type = "oneshot";
-      ExecStart = "${pkgs.writeShellScript "set-random-hyprpaper.sh" ''
-        #!/run/current-system/sw/bin/bash
-
-        WALLPAPER_DIR="$HOME/${dir}"
+    script = (
+      pkgs.writeShellScript "set-random-hyprpaper.sh" ''
         CURRENT_WALL=$(${hyprctl} hyprpaper listloaded)
 
         # Get a random wallpaper that is not the current one
@@ -31,12 +26,15 @@ in
 
         # Apply the selected wallpaper
         ${hyprctl} hyprpaper reload ,"$WALLPAPER"
-      ''}";
+      ''
+    );
+    serviceConfig = {
+      Type = "oneshot";
     };
   };
 
   systemd.user.timers."${unit}" = {
-    Unit.Description = "timer for battery_status service";
+    Unit.Description = "timer for ${unit} service";
     Timer = {
       Unit = unit;
       OnBootSec = "15m";
