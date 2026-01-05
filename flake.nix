@@ -15,6 +15,7 @@
       nixosModules = {
         thinkpad = ./nixos/machine/thinkpad;
         mook = ./nixos/machine/mook;
+        zook = ./nixos/machine/zook;
         gilli = ./nixos/machine/gilli;
         agent25 = ./nixos/machine/agent25;
         conta-thinkpad = ./nixos/machine/conta-thinkpad;
