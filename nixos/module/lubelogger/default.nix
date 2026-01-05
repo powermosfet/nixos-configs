@@ -72,7 +72,7 @@ in
         EnableAuth = "true";
         UserNameHash = cfg.admin.usernameHash;
         UserPasswordHash = cfg.admin.passwordHash;
-        LUBELOGGER_OPEN_REGISTRATION = "true";
+        LUBELOGGER_OPEN_REGISTRATION = "false";
         LUBELOGGER_DOMAIN = "https://${hostname}";
         LANG = "nb_NO.UTF-8";
         LC_ALL = "nb_NO.UTF-8";
