@@ -33,7 +33,6 @@ in
       exec-once = [
         "[workspace 1 silent] ${zellij}"
         "[workspace 2 silent] firefox"
-        "${setWallpaper}"
       ];
 
       general = {
@@ -196,7 +195,7 @@ in
         "${mainMod}, mouse_up, workspace, e-1"
         ", Print, exec, grimblast copysave area"
         "CTRL, Print, exec, grimblast edit area"
-        "${mainMod} F1, exec, ${setWallpaper}"
+        "${mainMod} SHIFT, D, exec, ${setWallpaper}"
       ];
       bindm = [
         "${mainMod}, mouse:272, movewindow"
