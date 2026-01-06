@@ -43,7 +43,6 @@ in
     Unit.Description = "timer for ${unit} service";
     Timer = {
       Unit = unit;
-      OnBootSec = "15m";
       OnUnitActiveSec = "1h";
     };
     Install.WantedBy = [ "timers.target" ];
