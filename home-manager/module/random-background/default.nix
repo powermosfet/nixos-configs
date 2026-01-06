@@ -6,30 +6,36 @@ let
   shuf = "${pkgs.coreutils}/bin/shuf";
   basename = "${pkgs.coreutils}/bin/basename";
 
-  unit = "andomr-hyprpaper";
-  dir = "~/bakgrunner";
+  unit = "random-hyprpaper";
+  dir = "bakgrunner";
 in
 {
   systemd.user.services."${unit}" = {
-    description = "Set a random wallpaper using hyprpaper";
-    wantedBy = [ "hyprland-session.target" ];
-    # after = [ "hyprland-session.target" ];
-    environment = {
-      WALLPAPER_DIR = dir;
+    Unit = {
+      Description = "Set a random wallpaper using hyprpaper";
+      After = "hyprland-session.target";
     };
-    script = (
-      pkgs.writeShellScript "set-random-hyprpaper.sh" ''
-        CURRENT_WALL=$(${hyprctl} hyprpaper listloaded)
-
-        # Get a random wallpaper that is not the current one
-        WALLPAPER=$(${find} "$WALLPAPER_DIR" -type f ! -name "$(${basename} "$CURRENT_WALL")" | ${shuf} -n 1)
-
-        # Apply the selected wallpaper
-        ${hyprctl} hyprpaper reload ,"$WALLPAPER"
-      ''
-    );
-    serviceConfig = {
+    Install = {
+      WantedBy = [ "hyprland-session.target" ];
+    };
+    Service = {
       Type = "oneshot";
+      Environment = [
+        "WALLPAPER_DIR=${dir}"
+      ];
+      ExecStart = (
+        pkgs.writeShellScript "set-random-hyprpaper.sh" ''
+          echo "Starting..."
+          echo "WALLPAPER_DIR: $WALLPAPER_DIR"
+
+          # Get a random wallpaper that is not the current one
+          WALLPAPER=$(${find} "$HOME/$WALLPAPER_DIR" -type f | ${shuf} -n 1)
+          echo "WALLPAPER: $WALLPAPER"
+
+          # Apply the selected wallpaper
+          ${hyprctl} hyprpaper wallpaper ,"$WALLPAPER"
+        ''
+      );
     };
   };
 
