@@ -2,8 +2,8 @@
 
 let
   hyprctl = "${pkgs.hyprland}/bin/hyprctl";
-  find = "${pkgs.findutils}/bin/find";
   shuf = "${pkgs.coreutils}/bin/shuf";
+  ls = "${pkgs.coreutils}/bin/ls";
   basename = "${pkgs.coreutils}/bin/basename";
 
   unit = "random-hyprpaper";
@@ -29,11 +29,11 @@ in
           echo "WALLPAPER_DIR: $WALLPAPER_DIR"
 
           # Get a random wallpaper that is not the current one
-          WALLPAPER=$(${find} "$HOME/$WALLPAPER_DIR" -type f | ${shuf} -n 1)
+          WALLPAPER=$(${ls} "$HOME/$WALLPAPER_DIR" | ${shuf} -n 1)
           echo "WALLPAPER: $WALLPAPER"
 
           # Apply the selected wallpaper
-          ${hyprctl} hyprpaper wallpaper ,"$WALLPAPER"
+          ${hyprctl} hyprpaper wallpaper ,"$HOME/$WALLPAPER_DIR/$WALLPAPER"
         ''
       );
     };
