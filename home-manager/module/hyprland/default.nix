@@ -225,16 +225,10 @@ in
         "suppressevent maximize, class:.*"
         "nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0"
       ];
-      xwayland = {
-        force_zero_scaling = true;
-        use_nearest_neighbor = true;
-      };
       workspace = [
         "m[Lenovo Group Limited LEN T27h-20 VNA49K51], layoutopt:orientation:top"
       ];
     };
-
-    xwayland.enable = true;
   };
 
   home.pointerCursor = {
