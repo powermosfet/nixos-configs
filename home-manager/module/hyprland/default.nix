@@ -227,6 +227,7 @@ in
       ];
     };
 
+    xwayland.farts = 3;
     xwayland.enable = true;
   };
 
