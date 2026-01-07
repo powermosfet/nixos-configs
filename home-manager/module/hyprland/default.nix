@@ -1,4 +1,9 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  pkgsUnstable,
+  ...
+}:
 
 let
   terminal = "kitty";
@@ -29,6 +34,7 @@ in
   wayland.windowManager.hyprland = {
     enable = true;
 
+    package = pkgsUnstable.hyprland;
     settings = {
       exec-once = [
         "[workspace 1 silent] ${zellij}"
