@@ -76,7 +76,7 @@
         profile.outputs = [
           {
             criteria = "Lenovo Group Limited LEN P27h-10 0x01010101";
-            mode = "1920x1200";
+            mode = "1920x1080";
             scale = 1.0;
             position = "0,0";
             transform = "normal";
