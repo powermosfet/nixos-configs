@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   imports = [
@@ -17,4 +17,6 @@
     ../../../module/screenshot
     ../../../module/photo-archive
   ];
+
+  home.packages = [ pkgs.libreoffice ];
 }
