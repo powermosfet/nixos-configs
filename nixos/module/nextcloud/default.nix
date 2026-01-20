@@ -40,6 +40,7 @@ in
         onlyoffice
         tasks
         memories
+        deck
         ;
     };
     settings = {
