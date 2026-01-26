@@ -9,6 +9,7 @@ return {
     ["p"]            = [[:lua vim.diagnostic.goto_prev()<cr>]],
     ["l"]            = [[:Telescope diagnostics bufnr=0<cr>]],
     ["L"]            = [[:Telescope diagnostics<cr>]],
+    ["?"]            = [[:lua vim.diagnostic.open_float()<cr>]],
   },
   -- Bookmarks
   ["m"]              = {
