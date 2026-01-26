@@ -18,7 +18,8 @@ in
 {
   home.file = {
     ".config/nvim/snippets/package.json".source = ./snippet/package.json;
-  } // snippetFiles;
+  }
+  // snippetFiles;
 
   programs.neovim = {
     enable = true;
@@ -32,7 +33,7 @@ in
     extraConfig = ''
       set runtimepath^=${./config}
     '';
-    extraLuaConfig = ''
+    initLua = ''
       require("sharedconfig.init")
     '';
     plugins =
