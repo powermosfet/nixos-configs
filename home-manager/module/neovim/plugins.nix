@@ -46,5 +46,6 @@
       vim-eunuch
       vim-sleuth
       vim-surround
+      vim-ragtag
     ];
 }
