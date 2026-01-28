@@ -1,0 +1,9 @@
+{
+  "useState": {
+    "prefix": "useState",
+    "body": [
+      "const [${1:foo}, set${1/(.)(.*)/\u$1$2/}] = useState<${2:SomeType}>(${3:null});"
+    ]
+  }
+}
+
