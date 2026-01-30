@@ -12,9 +12,21 @@
 
     services.minecraft-server = {
       enable = true;
-      package = pkgsUnstable.minecraft-server;
+      package = pkgsUnstable.papermc;
       openFirewall = true;
       eula = true;
+      dataDir = "/var/lib/minecraft";
+      declarative = true;
+      serverProperties = {
+        server-port = 25565;
+        difficulty = "hard";
+        max-players = 4;
+        level-name = "world";
+        motd = "PaperMC Server";
+        view-distance = 8;
+        simulation-distance = 6;
+      };
+
     };
 
     services.ddclient.domains = [ "minecraft.berge.id" ];
