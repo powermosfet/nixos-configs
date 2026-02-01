@@ -13,6 +13,7 @@
     ../../module/gnupg
     ../../module/docker
     ../../module/photo
+    ../../device/rtl-sdr
   ];
 
   time.timeZone = "Europe/Oslo";
