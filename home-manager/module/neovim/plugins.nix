@@ -47,5 +47,6 @@
       vim-sleuth
       vim-surround
       vim-ragtag
+      conform-nvim
     ];
 }
