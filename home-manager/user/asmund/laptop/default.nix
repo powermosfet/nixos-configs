@@ -9,7 +9,6 @@
     ../../../module/satty
     ../../../module/bluetooth
     ../../../module/network
-    ../../../module/activitywatch
     ../../../module/random-background
     ../../../module/udiskie
     ../../../module/upload-forerunner
