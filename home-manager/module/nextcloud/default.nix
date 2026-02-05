@@ -4,7 +4,7 @@
   services.nextcloud-client = {
     enable = true;
   };
-  programs.keychain = {
+  services.gnome-keyring = {
     enable = true;
   };
 }
