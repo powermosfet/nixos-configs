@@ -13,12 +13,12 @@
 
     {
       nixosModules = {
-        thinkpad = ./nixos/machine/thinkpad;
+        thinkpad-t440 = ./nixos/machine/thinkpad-t440;
+        thinkpad-p14s = ./nixos/machine/thinkpad-p14s;
         mook = ./nixos/machine/mook;
         zook = ./nixos/machine/zook;
         gilli = ./nixos/machine/gilli;
         agent25 = ./nixos/machine/agent25;
-        conta-thinkpad = ./nixos/machine/conta-thinkpad;
       };
 
       homeConfigurations = {

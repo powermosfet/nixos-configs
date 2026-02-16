@@ -2,33 +2,24 @@
 
 {
   imports = [
-    ../../module/laptop
     ../../module/wayland
     ../../user/asmund
     ../../device/reviung41
     ../../device/kinesis
     ../../device/corne
+    ../../device/sd-card-reader
     ../../module/avahi
+    ../../module/scanner
     ../../module/printing
     ../../module/gnupg
-    ../../module/docker
+    ../../module/pro-audio
     ../../module/photo
-    ../../device/rtl-sdr
   ];
 
   time.timeZone = "Europe/Oslo";
 
-  networking = {
-    networkmanager.enable = true;
-
-    extraHosts = ''
-      127.0.0.1 conta.test
-      127.0.0.1 app.conta.test
-      127.0.0.1 api.conta.test
-      127.0.0.1 gjest.conta.test
-      127.0.0.1 mysql.conta.test
-    '';
-  };
+  networking.hostName = "t440";
+  networking.networkmanager.enable = true;
 
   nixpkgs.config.allowUnfree = true;
 
@@ -39,26 +30,30 @@
     kitty
     acpi
     brightnessctl
+    arandr
     pcmanfm
     keepassxc
+    rofi
+    polybar
+    dbus
     networkmanager
+    xorg.xev
     usbutils
     pciutils
     libinput
-    signal-desktop-bin
+    gxkb
+    vifm-full
     evince
     spotify
     chromium
     pkgsUnstable.logseq
+    signal-desktop-bin
     alsa-utils
+    timeline
     pavucontrol
     shared-mime-info
-    slack
-    mako
-    vivaldi
-    chromium
-    gnome-icon-theme
-    (import ./script/azure { pkgs = pkgs; })
+    kickstart
+    gramps
   ];
 
   fonts = {
@@ -77,8 +72,30 @@
   };
 
   services = {
+    libinput = {
+      enable = true;
+
+      mouse = {
+        naturalScrolling = true;
+      };
+
+      touchpad = {
+        disableWhileTyping = true;
+        tapping = false;
+        scrollMethod = "twofinger";
+        naturalScrolling = true;
+        clickMethod = "clickfinger";
+      };
+    };
+
+    xrdp = {
+      enable = true;
+      defaultWindowManager = "xmonad";
+      openFirewall = true;
+    };
+
     logind.settings.Login = {
-      HandlePowerKey = "hibernate";
+      HandlePowerKey = "suspend";
     };
 
     physlock = {
@@ -97,6 +114,7 @@
 
   services.dbus.enable = true;
   services.udisks2.enable = true;
+  services.printing.enable = true;
   hardware.bluetooth.enable = true;
   services.pipewire = {
     enable = true;
@@ -105,7 +123,8 @@
     pulse.enable = true;
     jack.enable = true;
   };
-  services.pipewire.wireplumber = {
-    enable = true;
-  };
+
+  services.udev.extraRules = ''
+    KERNEL=="ttyUSB0", MODE:="666"
+  '';
 }
