@@ -32,7 +32,7 @@ in
     ../../module/photo/backup.nix
     ../../module/monitoring
     ../../module/budget
-    ../../module/reverse-ssh-tunnel/server
+    ../../module/tailscale
   ];
 
   # Ports
