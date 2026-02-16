@@ -7,6 +7,7 @@
     ../../device/reviung41
     ../../device/kinesis
     ../../device/corne
+    ../../device/sd-card-reader
     ../../module/avahi
     ../../module/scanner
     ../../module/printing
