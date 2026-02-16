@@ -30,6 +30,4 @@
       ];
     };
   };
-
-  services.ddclient.domains = [ "agent25.berge.id" ];
 }
