@@ -9,7 +9,7 @@
     ../../module/auto-update
     ../../module/monitoring/prometheus
     ../../module/monitoring/prometheus/remote-access
-    ../../module/reverse-ssh-tunnel/remote
+    ../../module/tailscale
   ];
 
   time.timeZone = "Europe/Oslo";
