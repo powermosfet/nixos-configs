@@ -10,19 +10,19 @@ with builtins;
 
 {
   imports = [
-    ../../../tailscale
+    ../../../default.nix
   ];
 
   config = {
-    services.borgbackup.jobs."agent25" = {
+    services.borgbackup.jobs."gilli" = {
       paths = config.backup.paths;
-      encryption.mode = "keyfile";
-      environment.BORG_RSH = "ssh -i /root/.ssh/id_borg-main-agent25";
-      repo = "ssh://borg@agent25/./";
+      encryption.mode = "none";
+      environment.BORG_RSH = "ssh -i /root/.ssh/id_borg-main-gilli";
+      repo = "ssh://borg@gilli.local/./";
       compression = "auto,zstd";
-      startAt = "04:00";
+      startAt = "05:00";
     };
-    systemd.services."borgbackup-job-agent25" = {
+    systemd.services."borgbackup-job-gilli" = {
       conflicts = config.backup.conflictingServices;
       postStop = concatStringsSep "\n" (
         map (service: "systemctl start " + service) config.backup.conflictingServices

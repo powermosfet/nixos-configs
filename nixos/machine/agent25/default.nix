@@ -30,4 +30,11 @@
       ];
     };
   };
+  services.borgbackup.repos = {
+    "main-zook" = {
+      authorizedKeysAppendOnly = [
+        "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDCBS8ZkuggL0+Yx83yyFz3gSiQ48np8DaeWVDmrKlS7Q5yv3FQmk83Zgfszk6vxU4a6wUAVrDXWqAnPd0rON5WuHp/v8PB/dkPvi72/dSQwdN1Ox3CeH53ZiECEc6jFpL67MrpuS7vjy8T8P+SH4cDRYrxmgzbpF5idfjBoYjveZVSt6iyqyzWIPHTAC2xmWN32PWBfvN+5AkWr9kGl/kKE9CxlAFLhp/R/IPNYIO0CJg2uCORyTOamCHZzSjde4MshF8ebGU08zXT49NfkbEarWiZLHO3TDLT1BQEzCGyc5h3WDqDMCtrexpHPjxRKV7XqC2odM+W1GeyGblX7iJn2uuXCkc+HON0tm69NLY2+dnzHS/CJsNcL9Uo5xj/O/GvJWGTwyGlcb3XceQP+pIcb4HE//PzJlkeUjF76BcgtY464AaDQWAgPWzw1Vk+xXL4h1NR41p8NMcSzrPI3QNSodgBIwuab5gxZBvOnEi9jljPngKI1+CLKRnCYeSb7dFUJuqPjK/wj+Ng2uBSbTq/yTSGuPSNiTVM74FhtmNzBs0xNJA2TBgJ26Xb9VxILYg3xN9M/B7SqqUU75ctjXdtGlDCiRp4WsyeUjN+o+o1nPL/ezRjYEV30koG2cpWFjnZgfGbAO6CPRmoT7gTq/2YrA0/dCc2RE7EGA9QowTYaQ== root@zook"
+      ];
+    };
+  };
 }

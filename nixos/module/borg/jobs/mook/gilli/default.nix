@@ -9,6 +9,10 @@ with lib;
 with builtins;
 
 {
+  imports = [
+    ../../../default.nix
+  ];
+
   config = {
     services.borgbackup.jobs."gilli" = {
       paths = config.backup.paths;

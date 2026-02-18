@@ -3,6 +3,9 @@
 {
   imports = [
     ../../user/asmund
+    ../../module/borg/jobs/zook/gilli
+    ../../module/borg/jobs/zook/agent25
+    ../../module/tailscale
     ../../module/minecraft
   ];
 

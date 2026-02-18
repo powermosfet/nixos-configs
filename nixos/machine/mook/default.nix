@@ -7,9 +7,8 @@ in
   imports = [
     ../../user/asmund
     ../../user/nure
-    ../../module/borg
-    ../../module/borg/jobs/gilli
-    ../../module/borg/jobs/agent25
+    ../../module/borg/jobs/mook/gilli
+    ../../module/borg/jobs/mook/agent25
     ../../module/nginx
     ../../module/als
     ../../module/pms
