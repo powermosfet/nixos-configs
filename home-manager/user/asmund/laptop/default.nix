@@ -19,4 +19,6 @@
   ];
 
   home.packages = [ pkgs.libreoffice ];
+
+  services.tailscale-systray.enable = true;
 }

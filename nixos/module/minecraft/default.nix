@@ -19,6 +19,7 @@
       declarative = true;
       serverProperties = {
         server-port = 25565;
+        whitelist = true;
         difficulty = "hard";
         max-players = 4;
         level-name = "world";

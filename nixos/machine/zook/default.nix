@@ -1,11 +1,9 @@
 { config, pkgs, ... }:
 
-let
-  ports = import ./ports.nix;
-in
 {
   imports = [
     ../../user/asmund
+    ../../module/minecraft
   ];
 
   services.openssh = {

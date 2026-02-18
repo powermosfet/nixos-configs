@@ -19,7 +19,6 @@ in
     ../../module/nextcloud
     ../../module/node-red
     ../../module/avahi
-    ../../module/minecraft
     ../../module/ddclient
     ../../module/paperless
     ../../module/freshrss
