@@ -10,6 +10,7 @@
     ../../device/corne
     ../../device/rtl-sdr
     ../../module/avahi
+    ../../module/tailscale
     ../../module/printing
     ../../module/gnupg
     ../../module/docker
