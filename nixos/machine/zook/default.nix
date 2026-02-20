@@ -7,6 +7,7 @@
     ../../module/borg/jobs/zook/agent25
     ../../module/tailscale
     ../../module/minecraft
+    ../../module/silverbullet
   ];
 
   services.openssh = {

@@ -23,7 +23,6 @@ in
     ../../module/freshrss
     ../../module/soft-serve
     ../../module/workout-tracker
-    ../../module/silverbullet
     ../../module/lubelogger
     ../../module/mealie
     ../../module/immich
@@ -39,7 +38,6 @@ in
   services.barcode-backend.port = ports.exposed.barcode;
   # services.onlyoffice.port = ports.internal.onlyoffice;
   services.workout-tracker.port = ports.internal.workout-tracker;
-  services.silverbullet.listenPort = ports.internal.silverbullet;
   services.tika.port = ports.internal.tika;
   services.gotenberg.port = ports.internal.gotenberg;
   services.mealie.port = ports.internal.mealie;

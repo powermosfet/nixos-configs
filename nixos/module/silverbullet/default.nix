@@ -7,10 +7,11 @@
 
 let
   cfg = config.services.silverbullet;
-  hostname = "sb.berge.id";
+  hostname = "sb.zook";
 in
 {
   imports = [
+    ../tailscale
   ];
 
   config = {
@@ -33,5 +34,7 @@ in
       };
     };
     services.ddclient.domains = [ hostname ];
+
+    backup.paths = [ cfg.spaceDir ];
   };
 }
