@@ -18,6 +18,7 @@ in
     services.silverbullet = {
       enable = true;
 
+      openFirewall = true;
       package = pkgsUnstable.silverbullet;
     };
 
