@@ -21,19 +21,44 @@ in
     Service = {
       Type = "oneshot";
       Environment = [
-        "WALLPAPER_DIR=${dir}"
+        "wallpaper_dir=${dir}"
       ];
       ExecStart = (
         pkgs.writeShellScript "set-random-hyprpaper.sh" ''
           echo "Starting..."
-          echo "WALLPAPER_DIR: $WALLPAPER_DIR"
+          echo "wallpaper_dir: $wallpaper_dir"
 
-          # Get a random wallpaper that is not the current one
-          WALLPAPER=$(${ls} "$HOME/$WALLPAPER_DIR" | ${shuf} -n 1)
-          echo "WALLPAPER: $WALLPAPER"
+          gcd() {
+            local a=$1
+            local b=$2
+            while [ "$b" -ne 0 ]; do
+              local tmp=$b
+              b=$((a % b))
+              a=$tmp
+            done
+            echo "$a"
+          }
 
-          # Apply the selected wallpaper
-          ${hyprctl} hyprpaper wallpaper ,"$HOME/$WALLPAPER_DIR/$WALLPAPER"
+          reduce_ratio() {
+            local w=$1
+            local h=$2
+            local g=$(gcd "$w" "$h")
+            echo "$((w / g)):$((h / g))"
+          }
+
+          hyprctl monitors -j | jq -c '.[]' | while read -r mon; do
+            name=$(jq -r '.name' <<< "$mon")
+            width=$(jq -r '.width' <<< "$mon")
+            height=$(jq -r '.height' <<< "$mon")
+            ratio=$(reduce_ratio "$width" "$height")
+
+            # Get a random wallpaper that is not the current one
+            wallpaper=$(${ls} "$HOME/$wallpaper_dir/$ratio" | ${shuf} -n 1)
+            echo "wallpaper: $wallpaper"
+
+            # Apply the selected wallpaper
+            ${hyprctl} hyprpaper wallpaper "$name","$HOME/$wallpaper_dir/$ratio/$wallpaper"
+          done
         ''
       );
     };
