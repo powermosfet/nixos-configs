@@ -4,6 +4,7 @@
   programs.yazi = {
     enable = true;
 
+    shellWrapperName = "y";
     plugins = with pkgs.yaziPlugins; {
       duckdb = duckdb;
       starship = starship;
