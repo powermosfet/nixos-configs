@@ -26,6 +26,7 @@
           laptop = ./home-manager/user/asmund/laptop;
           remote = ./home-manager/user/asmund/remote;
           mook = ./home-manager/user/asmund/mook;
+          iteramac = ./home-manager/user/asmund/iteramac;
         };
       };
     };
