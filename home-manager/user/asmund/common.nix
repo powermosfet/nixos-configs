@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ../../module/bash
+    ../../module/zsh
     ../../module/neovim
     ../../module/yazi
     ../../module/direnv
