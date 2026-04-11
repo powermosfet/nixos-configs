@@ -1,7 +1,6 @@
 {
   config,
   pkgs,
-  pkgsUnstable,
   ...
 }:
 
@@ -39,7 +38,6 @@ in
     plugins =
       (import ./plugins.nix {
         pkgs = pkgs;
-        pkgsUnstable = pkgsUnstable;
       }).plugins;
   };
 }
