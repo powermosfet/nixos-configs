@@ -15,6 +15,7 @@
       "wheel"
       "networkmanager"
     ];
+    shell = pkgs.zsh;
     openssh.authorizedKeys.keys = [
       "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC+Z3kQtxzH5ILqwsO5jaDI2TKsb+eElOEg9W73yQMEu3ORkpnXjTmh0p9A4RQ2swuyjdBE+exraDVJ3sU7WdM7qc5Qi+MYw5bwbysMiIP2MEWeisFpG7He+bTeenebqfYCPCF/L67yNk3HvoRcMgretoTchnta23afJXW9fIoyCbU+Zdgc3Q3wktasFROaA7JbZKEiuey1yiAplPBSUVM/1M3846XEDDjIFz3PzwdiVkNf32jzOhnG9YXb18cq0AAevxxXRBcvblYzk4gXzKQfcSUVOBmLaFEM/sWunTBVe/Mtlu/FfNjk7zth2OTxXhQhE2VAJGTDU29A3eF3Gwk4Qc6ylGwi7ckKbOKL/6k4JbTKYCqhjJEPMWzQ0EPaqQjZ0/noiSRHsH45yEW4hCfxXDkKwX3n2Z5o+qgr7EpVia7PLwgoI/p2ctAo4UlYo1wrCP/uTBskT/tuDVDgaJo3xj7la/ARwghCUR7oieJ/wSEB5vPxCk1uJAaLiMJHfUE= asmund@asmund-thinkpad"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAluxxVG0IrvHd6hAbSgK88Bwlt0u9/nhnB4adebCAnq asmund@asmund-conta"
@@ -32,7 +33,8 @@
     htop
   ];
 
-  programs.bash = {
+  programs.zsh = {
+    enable = true;
     shellAliases = {
       ll = "ls -l";
       la = "ls -la";
@@ -40,11 +42,5 @@
       conf = "sudo vi /etc/nixos/configuration.nix";
       rebuild = "sudo nixos-rebuild switch";
     };
-    shellInit = ''
-      function shellWith {
-          prompt="\n\[\033[1;32m\][nix-shell (\[\033[1;36m\]$1\[\033[1;32m\]):\w]\$\[\033[0m\] "
-          nix-shell -p $1 --command "export PS1=\"$prompt\"; return"
-      }
-    '';
   };
 }
