@@ -30,6 +30,7 @@ in
     ../../module/monitoring
     ../../module/budget
     ../../module/tailscale
+    ../../module/navidrome
   ];
 
   # Ports
