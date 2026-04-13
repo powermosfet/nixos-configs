@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   imports = [
@@ -7,4 +7,6 @@
     ../../../module/yazi
     ../../../module/direnv
   ];
+
+  programs.keepassxc.enable = true;
 }
