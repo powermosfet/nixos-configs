@@ -4,6 +4,6 @@
 
 pkgs.mkShell {
   nativeBuildInputs = with pkgs; [
-    nixfmt-rfc-style
+    nixfmt
   ];
 }
