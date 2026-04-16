@@ -21,6 +21,7 @@
     soundfont-generaluser
     lsp-plugins
     carla
+    neural-amp-modeler-lv2
   ];
 
   musnix = {

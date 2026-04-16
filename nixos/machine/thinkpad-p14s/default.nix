@@ -9,6 +9,7 @@
     ../../device/kinesis
     ../../device/corne
     ../../device/rtl-sdr
+    ../../module/pro-audio
     ../../module/avahi
     ../../module/tailscale
     ../../module/printing
