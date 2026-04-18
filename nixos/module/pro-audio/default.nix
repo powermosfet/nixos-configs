@@ -22,6 +22,7 @@
     lsp-plugins
     carla
     neural-amp-modeler-lv2
+    alsa-scarlett-gui
   ];
 
   musnix = {
