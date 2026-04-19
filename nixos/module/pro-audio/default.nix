@@ -47,5 +47,14 @@
     };
     jack.enable = true;
     pulse.enable = true;
+
+    extraConfig.pipewire."context.properties" = {
+      "default.clock.rate" = 48000;
+
+      # Hard constraints
+      "default.clock.quantum" = 64;
+      "default.clock.min-quantum" = 64;
+      "default.clock.max-quantum" = 64;
+    };
   };
 }
