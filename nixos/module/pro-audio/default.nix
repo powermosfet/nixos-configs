@@ -70,41 +70,11 @@
       pipewire."92-low-latency" = {
         "context.properties" = {
           "default.clock.rate" = 48000;
-          "default.clock.quantum" = 256;
+          "default.clock.quantum" = 128;
           "default.clock.min-quantum" = 64;
           "default.clock.max-quantum" = 512;
         };
       };
-    };
-    wireplumber.extraConfig."92-scarlett-96k" = {
-      "monitor.alsa.rules" = [
-        {
-          matches = [
-            { "device.name" = "~alsa_card.usb-Focusrite*"; }
-          ];
-          actions = {
-            "update-props" = {
-              "audio.rate" = 96000;
-              "api.alsa.period-size" = 384;
-              "api.alsa.period-num" = 2;
-              "api.alsa.headroom" = 0;
-              "session.suspend-timeout-seconds" = 0;
-            };
-          };
-        }
-        {
-          matches = [
-            { "node.name" = "~alsa_input.usb-Focusrite*"; }
-            { "node.name" = "~alsa_output.usb-Focusrite*"; }
-          ];
-          actions = {
-            "update-props" = {
-              "audio.rate" = 96000;
-              "audio.allowed-rates" = "96000";
-            };
-          };
-        }
-      ];
     };
   };
 }
