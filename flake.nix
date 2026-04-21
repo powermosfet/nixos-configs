@@ -2,12 +2,17 @@
   description = "My shared NixOS configuration";
 
   inputs = {
+    pms = {
+      url = "github:powermosfet/pms";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
     {
       self,
       nixpkgs,
+      pms,
       ...
     }:
 
@@ -19,6 +24,12 @@
         zook = ./nixos/machine/zook;
         gilli = ./nixos/machine/gilli;
         agent25 = ./nixos/machine/agent25;
+        pmsArgs = (
+          { pkgs, ... }:
+          {
+            _module.args.pmsFlake = pms;
+          }
+        );
       };
 
       homeConfigurations = {
