@@ -19,4 +19,10 @@
 
     enableZshIntegration = true;
   };
+
+  programs.zoxide = {
+    enable = true;
+
+    enableZshIntegration = true;
+  };
 }
