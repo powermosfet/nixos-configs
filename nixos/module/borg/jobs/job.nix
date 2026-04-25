@@ -27,7 +27,7 @@ in
   options = {
     backup.job."${job}".identityFile = mkOption {
       description = "Identity file for Borg backup job '${job}'";
-      type = types.path;
+      type = types.str;
       default = [ ];
     };
   };
