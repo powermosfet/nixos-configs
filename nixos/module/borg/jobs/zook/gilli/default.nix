@@ -8,13 +8,19 @@
 with lib;
 with builtins;
 
+let
+  job = "gilli";
+  service = "borgbackup-job-${job}";
+  onSuccessService = "${service}-notify-success";
+  onFailureService = "${service}-notify-failure";
+in
 {
   imports = [
     ../../../default.nix
   ];
 
   config = {
-    services.borgbackup.jobs."gilli" = {
+    services.borgbackup.jobs."${job}" = {
       paths = config.backup.paths;
       encryption.mode = "none";
       environment.BORG_RSH = "ssh -i /root/.ssh/id_borg-main-gilli";
@@ -22,10 +28,26 @@ with builtins;
       compression = "auto,zstd";
       startAt = "05:00";
     };
-    systemd.services."borgbackup-job-gilli" = {
-      conflicts = config.backup.conflictingServices;
-      postStop = concatStringsSep "\n" (
-        map (service: "systemctl start " + service) config.backup.conflictingServices
+    systemd.services = {
+      "${service}" = {
+        conflicts = config.backup.conflictingServices;
+        postStop = concatStringsSep "\n" (
+          map (service: "systemctl start " + service) config.backup.conflictingServices
+        );
+        onSuccess = [ "${onSuccessService}.service" ];
+        onFailure = [ "${onFailureService}.service" ];
+      };
+      "${onSuccessService}" = (
+        import ../../notify.nix {
+          inherit pkgs service;
+          status = "succeeded";
+        }
+      );
+      "${onFailureService}" = (
+        import ../../notify.nix {
+          inherit pkgs service;
+          status = "failed";
+        }
       );
     };
   };

@@ -9,8 +9,6 @@ with lib;
 with builtins;
 
 let
-  mookPorts = import ../../../../../machine/mook/ports.nix;
-  strPort = toString mookPorts.exposed.pms;
   job = "gilli";
   service = "borgbackup-job-${job}";
   onSuccessService = "${service}-notify-success";
