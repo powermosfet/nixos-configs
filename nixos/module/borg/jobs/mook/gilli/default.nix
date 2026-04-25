@@ -11,6 +11,10 @@ with builtins;
 let
   mookPorts = import ../../../../../machine/mook/ports.nix;
   strPort = toString mookPorts.exposed.pms;
+  job = "gilli";
+  service = "borgbackup-job-${job}";
+  onSuccessService = "${service}-notify-success";
+  onFailureService = "${service}-notify-failure";
 in
 {
   imports = [
@@ -27,33 +31,26 @@ in
       startAt = "05:00";
     };
     systemd.services = {
-    "borgbackup-job-gilli" = {
-      conflicts = config.backup.conflictingServices;
-      postStop = concatStringsSep "\n" (
-        map (service: "systemctl start " + service) config.backup.conflictingServices
+      "${service}" = {
+        conflicts = config.backup.conflictingServices;
+        postStop = concatStringsSep "\n" (
+          map (service: "systemctl start " + service) config.backup.conflictingServices
+        );
+        onSuccess = [ "${onSuccessService}.service" ];
+        onFailure = [ "${onFailureService}.service" ];
+      };
+      "${onSuccessService}" = (
+        import ../../notify.nix {
+          inherit pkgs service;
+          status = "succeeded";
+        }
       );
-      onSuccess = [ "borgbackup-job-gilli-notify-success.service" ];
-      onFailure = [ "notify-borg-home-failure.service" ];
-    };
-    "borgbackup-job-gilli-notify-success" = {
-      description = "Notify borg-home backup success";
-      serviceConfig = {
-        Type = "oneshot";
-        ExecStart = ''
-          ${pkgs.curl}/bin/curl http://localhost:${strPort}/memo --json '{"subject":"Backup succeeded","content":"borgbackup-job-gilli"}'
-          '';
-      };
-    };
-    "borgbackup-job-gilli-notify-failure" = {
-      description = "Notify borg-home backup failure";
-      serviceConfig = {
-        Type = "oneshot";
-        ExecStart = ''
-          ${pkgs.curl}/bin/curl http://localhost:${strPort}/memo --json '{"subject":"Backup failed","content":"borgbackup-job-gilli"}'
-          '';
-      };
-    };
+      "${onFailureService}" = (
+        import ../../notify.nix {
+          inherit pkgs service;
+          status = "failed";
+        }
+      );
     };
   };
 }
-
