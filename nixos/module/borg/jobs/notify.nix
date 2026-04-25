@@ -5,16 +5,26 @@
 }:
 
 let
-  mookPorts = import ../../../machine/mook/ports.nix;
-  strPort = toString mookPorts.exposed.pms;
+  sendMemoScript = import ./sendMemoScript.nix { inherit pkgs; };
+  notifyScriptName = "borg-notification";
+  notifyScript = pkgs.writeShellApplication {
+    name = notifyScriptName;
+    runtimeInputs = with pkgs; [
+      curl
+      jq
+    ];
+    text = ''
+      DURATION=$(systemctl status "${service}" | grep Duration)
+      SUBJECT="Backup ${status} on $HOST"
+      CONTENT="${service}\\n$DURATION"
+      ${sendMemoScript} "$SUBJECT" "$CONTENT"
+    '';
+  };
 in
 {
   description = "Notify ${service} ${status}";
   serviceConfig = {
     Type = "oneshot";
-    ExecStart = ''
-      DURATION=$(systemctl status "${service}" | grep Duration)
-      ${pkgs.curl}/bin/curl http://localhost:${strPort}/memo --json "{\"subject\":\"Backup ${status} on $HOST\",\"content\":\"${service}\\n$DURATION\"}"
-    '';
+    ExecStart = "${notifyScript}/bin/${notifyScriptName}";
   };
 }

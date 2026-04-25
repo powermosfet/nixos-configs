@@ -103,4 +103,19 @@
   services.pipewire.wireplumber = {
     enable = true;
   };
+
+  systemd.services.send-tick = {
+    description = "Send a tick message";
+
+    serviceConfig = {
+      Type = "oneshot";
+      ExecStart = (
+        import ../../module/pms/sendMemo.nix {
+          inherit pkgs;
+          subject = "Tick";
+          content = "Time has passed!";
+        }
+      );
+    };
+  };
 }
