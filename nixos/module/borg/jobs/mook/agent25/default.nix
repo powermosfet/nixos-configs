@@ -16,40 +16,13 @@ let
 in
 {
   imports = [
-    ../../../default.nix
+
+    (import ../../job.nix {
+      job = "agent25";
+      repo = "ssh://borg@agent25/./";
+      encrypt = true;
+      startAt = "04:00";
+    })
     ../../../../tailscale
   ];
-
-  config = {
-    services.borgbackup.jobs."agent25" = {
-      paths = config.backup.paths;
-      encryption.mode = "keyfile";
-      environment.BORG_RSH = "ssh -i /root/.ssh/id_borg-main-agent25";
-      repo = "ssh://borg@agent25/./";
-      compression = "auto,zstd";
-      startAt = "04:00";
-    };
-    systemd.services = {
-      "${service}" = {
-        conflicts = config.backup.conflictingServices;
-        postStop = concatStringsSep "\n" (
-          map (service: "systemctl start " + service) config.backup.conflictingServices
-        );
-        onSuccess = [ "${onSuccessService}.service" ];
-        onFailure = [ "${onFailureService}.service" ];
-      };
-      "${onSuccessService}" = (
-        import ../../notify.nix {
-          inherit pkgs service;
-          status = "succeeded";
-        }
-      );
-      "${onFailureService}" = (
-        import ../../notify.nix {
-          inherit pkgs service;
-          status = "failed";
-        }
-      );
-    };
-  };
 }
