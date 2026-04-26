@@ -2,20 +2,15 @@
   config,
   pkgs,
   lib,
+  barcodeBackendFlake,
   ...
 }:
 
 with lib;
 
 let
+  barcode-backend = barcodeBackendFlake.packages.${pkgs.system}.default;
   cfg = config.services.barcode-backend;
-  src = pkgs.fetchFromGitHub {
-    owner = "powermosfet";
-    repo = "barcode-backend";
-    rev = "db766fcc4e1cdfe67b72bf4f30fb3b9e1b4dd296";
-    sha256 = "10ry3am7fqfylz0mda9lybp681x24js1gf2xh5w85jhqlmvzizid";
-  };
-  barcode-backend = import src { };
   dbUser = "barcode";
   dbPort = config.services.postgresql.settings.port;
   dbName = "barcode";

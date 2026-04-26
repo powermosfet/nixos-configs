@@ -6,6 +6,10 @@
       url = "github:powermosfet/pms";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    barcodeBackend = {
+      url = "github:powermosfet/barcode-backend";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -13,6 +17,7 @@
       self,
       nixpkgs,
       pms,
+      barcodeBackend,
       ...
     }:
 
@@ -28,6 +33,12 @@
           { pkgs, ... }:
           {
             _module.args.pmsFlake = pms;
+          }
+        );
+        barcodeBackendArgs = (
+          { pkgs, ... }:
+          {
+            _module.args.barcodeBackendFlake = barcodeBackend;
           }
         );
       };
