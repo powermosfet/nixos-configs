@@ -4,7 +4,6 @@
   imports = [
     ../common.nix
     ../../../module/hyprland
-    ../../../module/kitty
     ../../../module/mako
     ../../../module/satty
     ../../../module/bluetooth

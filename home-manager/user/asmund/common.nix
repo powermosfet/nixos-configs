@@ -6,6 +6,7 @@
     ../../module/neovim
     ../../module/yazi
     ../../module/direnv
+    ../../module/kitty
   ];
 
   config = {
