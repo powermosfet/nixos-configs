@@ -5,7 +5,7 @@
 }:
 
 let
-  sendMemoScript = import ./sendMemoScript.nix { inherit pkgs; };
+  sendMemoScript = import ../../pms/sendMemoScript.nix { inherit pkgs; };
   notifyScriptName = "borg-notification";
   notifyScript = pkgs.writeShellApplication {
     name = notifyScriptName;
