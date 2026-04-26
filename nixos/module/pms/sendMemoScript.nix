@@ -12,9 +12,10 @@ let
     runtimeInputs = with pkgs; [
       curl
       jq
+      coreutils
     ];
     text = ''
-      jq -n --arg subject "$1" --arg content "$2" '{subject: $subject, content: $content}' | curl http://${host}:${strPort}/memo --json @-
+      jq -n --arg subject "$1" --arg content "$(cat)" '{subject: $subject, content: $content}' | curl http://${host}:${strPort}/memo --json @-
     '';
   };
 in

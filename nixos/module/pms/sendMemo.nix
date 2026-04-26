@@ -9,8 +9,11 @@ let
   script = import ./sendMemoScript.nix { inherit pkgs; };
   app = pkgs.writeShellApplication {
     name = scriptName;
+    runtimeInputs = with pkgs; [
+      coreutils
+    ];
     text = ''
-      ${script} "${subject}" "${content}"
+      echo "${content}" | ${script} "${subject}"
     '';
   };
 in

@@ -10,14 +10,14 @@ let
   notifyScript = pkgs.writeShellApplication {
     name = notifyScriptName;
     runtimeInputs = with pkgs; [
-      curl
-      jq
+      systemd
+      hostname
     ];
     text = ''
-      DURATION=$(systemctl status "${service}" | grep Duration)
-      SUBJECT="Backup ${status} on $HOST"
-      CONTENT="${service}\\n$DURATION"
-      ${sendMemoScript} "$SUBJECT" "$CONTENT"
+      DURATION=$(systemctl show borgbackup-job-gilli --property=ExecMainStartTimestamp --property=ExecMainExitTimestamp)
+      SUBJECT="Backup ${status} on $(hostname)"
+      CONTENT=$(printf '%s\n%s' "${service}" "$DURATION")
+      echo "$CONTENT" | ${sendMemoScript} "$SUBJECT"
     '';
   };
 in
