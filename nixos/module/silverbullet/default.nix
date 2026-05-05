@@ -34,7 +34,9 @@ in
         };
       };
     };
-    services.ddclient.domains = [ hostname ];
+    security.acme.certs."sb.berge.id" = {
+      dnsProvider = "cloudflare";
+    };
 
     backup.paths = [ cfg.spaceDir ];
   };
