@@ -7,7 +7,7 @@
 
 let
   cfg = config.services.silverbullet;
-  hostname = "sb.zook";
+  hostname = "sb.berge.id";
 in
 {
   imports = [
