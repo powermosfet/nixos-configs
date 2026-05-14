@@ -5,14 +5,12 @@
     ../../module/wayland
     ../../user/asmund
     ../../device/reviung41
-    ../../device/kinesis
     ../../device/corne
     ../../device/sd-card-reader
     ../../module/avahi
     ../../module/scanner
     ../../module/printing
     ../../module/gnupg
-    ../../module/pro-audio
     ../../module/photo
   ];
 
@@ -56,26 +54,20 @@
 
   fonts = {
     fontDir.enable = true;
-    packages = with pkgs; [
-      nerd-fonts.droid-sans-mono
-    ];
+    packages = with pkgs; [ nerd-fonts.droid-sans-mono ];
   };
 
   xdg.mime = {
     enable = true;
 
-    defaultApplications = {
-      "application/pdf" = "evince.desktop";
-    };
+    defaultApplications = { "application/pdf" = "evince.desktop"; };
   };
 
   services = {
     libinput = {
       enable = true;
 
-      mouse = {
-        naturalScrolling = true;
-      };
+      mouse = { naturalScrolling = true; };
 
       touchpad = {
         disableWhileTyping = true;
@@ -92,9 +84,7 @@
       openFirewall = true;
     };
 
-    logind.settings.Login = {
-      HandlePowerKey = "suspend";
-    };
+    logind.settings.Login = { HandlePowerKey = "suspend"; };
 
     physlock = {
       enable = true;
