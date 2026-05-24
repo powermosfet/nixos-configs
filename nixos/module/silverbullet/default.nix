@@ -12,6 +12,7 @@ in
 {
   imports = [
     ../nginx
+    ../acme
     ../tailscale
   ];
 
