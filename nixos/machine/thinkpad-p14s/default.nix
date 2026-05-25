@@ -15,6 +15,7 @@
     ../../module/printing
     ../../module/gnupg
     ../../module/docker
+    ../../module/scanner
     ../../module/photo
   ];
 
