@@ -30,7 +30,7 @@ in
         forceSSL = true;
         locations = {
           "/" = {
-            proxyPass = "http://${cfg.listenAddress}:${builtins.toString (cfg.listenPort)}";
+            proxyPass = "http://localhost:${builtins.toString (cfg.listenPort)}";
             proxyWebsockets = true;
           };
         };
