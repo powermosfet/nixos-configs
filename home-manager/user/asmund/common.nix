@@ -7,6 +7,7 @@
     ../../module/yazi
     ../../module/direnv
     ../../module/kitty
+    ../../module/git
   ];
 
   config = {
