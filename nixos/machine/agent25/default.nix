@@ -2,9 +2,7 @@
 
 {
   imports = [
-    ../../module/ddclient
     ../../user/asmund
-    ../../module/avahi
     ../../module/garbage-collection
     ../../module/auto-update
     ../../module/monitoring/prometheus
