@@ -50,7 +50,6 @@
     vivaldi
     chromium
     gnome-icon-theme
-    (import ./script/azure { pkgs = pkgs; })
   ];
 
   fonts = {
