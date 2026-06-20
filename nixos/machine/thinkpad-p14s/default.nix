@@ -6,7 +6,6 @@
     ../../module/wayland
     ../../user/asmund
     ../../device/reviung41
-    ../../device/kinesis
     ../../device/corne
     ../../device/rtl-sdr
     ../../module/pro-audio
