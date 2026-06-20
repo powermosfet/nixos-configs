@@ -16,7 +16,6 @@ with builtins;
 
 let
   service = "borgbackup-job-${job}";
-  onSuccessService = "${service}-notify-success";
   onFailureService = "${service}-notify-failure";
 in
 {
@@ -47,15 +46,8 @@ in
         postStop = concatStringsSep "\n" (
           map (service: "systemctl start " + service) config.backup.conflictingServices
         );
-        onSuccess = [ "${onSuccessService}.service" ];
         onFailure = [ "${onFailureService}.service" ];
       };
-      "${onSuccessService}" = (
-        import ./notify.nix {
-          inherit pkgs service;
-          status = "succeeded";
-        }
-      );
       "${onFailureService}" = (
         import ./notify.nix {
           inherit pkgs service;
