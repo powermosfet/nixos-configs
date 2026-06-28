@@ -51,8 +51,8 @@ pkgs.writeShellApplication {
     if qpdf --password="$password" --decrypt --replace-input "$DOCUMENT_WORKING_PATH"; then
         echo "$DOCUMENT_WORKING_PATH decrypted successfully."
     else
-        echo "Error: Failed to decrypt $DOCUMENT_WORKING_PATH." >&2
-        exit 1
+        echo "Failed to decrypt $DOCUMENT_WORKING_PATH, but YOLO, I'm going to ignore that"
+        exit 0
     fi
   '';
 }
