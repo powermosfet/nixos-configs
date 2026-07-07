@@ -37,7 +37,7 @@
     usbutils
     pciutils
     libinput
-    signal-desktop-bin
+    signal-desktop
     evince
     spotify
     chromium

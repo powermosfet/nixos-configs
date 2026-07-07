@@ -43,7 +43,7 @@
     spotify
     chromium
     pkgsUnstable.logseq
-    signal-desktop-bin
+    signal-desktop
     alsa-utils
     timeline
     pavucontrol
@@ -60,14 +60,18 @@
   xdg.mime = {
     enable = true;
 
-    defaultApplications = { "application/pdf" = "evince.desktop"; };
+    defaultApplications = {
+      "application/pdf" = "evince.desktop";
+    };
   };
 
   services = {
     libinput = {
       enable = true;
 
-      mouse = { naturalScrolling = true; };
+      mouse = {
+        naturalScrolling = true;
+      };
 
       touchpad = {
         disableWhileTyping = true;
@@ -84,7 +88,9 @@
       openFirewall = true;
     };
 
-    logind.settings.Login = { HandlePowerKey = "suspend"; };
+    logind.settings.Login = {
+      HandlePowerKey = "suspend";
+    };
 
     physlock = {
       enable = true;
