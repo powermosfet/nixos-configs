@@ -12,5 +12,25 @@
       diff = diff;
       git = git;
     };
+    extraPackages = with pkgs; [ visidata ];
+
+    settings = {
+      opener = {
+        visidata = [
+          {
+            run = "vd %s";
+            block = true;
+            for = "unix";
+          }
+        ];
+      };
+
+      open.prepend_rules = [
+        {
+          url = "*.csv";
+          use = "visidata";
+        }
+      ];
+    };
   };
 }
