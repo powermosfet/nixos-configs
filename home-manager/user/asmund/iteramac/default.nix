@@ -24,6 +24,9 @@
   programs.ghostty = {
     enable = true;
     package = pkgs.ghostty-bin;
+    settings = {
+      macos-option-as-alt = true;
+    };
   };
   programs.lazygit.enable = true;
   programs.visidata.enable = true;
