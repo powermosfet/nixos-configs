@@ -25,7 +25,7 @@
     enable = true;
     package = pkgs.ghostty-bin;
     settings = {
-      macos-option-as-alt = true;
+      macos-option-as-alt = "left";
     };
   };
   programs.lazygit.enable = true;
