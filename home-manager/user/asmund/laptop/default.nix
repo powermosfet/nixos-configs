@@ -14,7 +14,6 @@
     ../../../module/nextcloud
     ../../../module/screenshot
     ../../../module/photo-archive
-    ../../../module/fluxbox
   ];
 
   home.packages = [ pkgs.libreoffice ];
