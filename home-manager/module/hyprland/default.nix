@@ -35,6 +35,7 @@ in
     enable = true;
 
     package = pkgsUnstable.hyprland;
+    configType = "hyprlang";
     settings = {
       exec-once = [
         "[workspace 1 silent] ${zellij}"
