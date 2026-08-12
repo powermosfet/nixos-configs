@@ -6,6 +6,9 @@
   ...
 }:
 
+with lib;
+with builtins;
+
 let
   terminal = "kitty";
   zellij = "${terminal} --session ${../kitty/zellij.session}";
@@ -35,8 +38,7 @@ in
   wayland.windowManager.hyprland = {
     enable = true;
     configType = "lua";
-    settings = {
-    };
+    extraConfig = readFile ./hyprland.lua;
   };
 
   home.pointerCursor = {
