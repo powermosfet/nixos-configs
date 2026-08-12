@@ -34,7 +34,6 @@ in
   wayland.windowManager.hyprland = {
     enable = true;
 
-    package = pkgsUnstable.hyprland;
     configType = "hyprlang";
     settings = {
       exec-once = [
