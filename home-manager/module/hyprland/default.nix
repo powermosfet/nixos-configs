@@ -38,6 +38,7 @@ in
   wayland.windowManager.hyprland = {
     enable = true;
     configType = "lua";
+    settings = { };
     extraConfig = readFile ./hyprland.lua;
   };
 
