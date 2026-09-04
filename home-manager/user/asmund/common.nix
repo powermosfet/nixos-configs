@@ -8,6 +8,7 @@
     ../../module/direnv
     ../../module/kitty
     ../../module/git
+    ../../module/mise
   ];
 
   config = {
