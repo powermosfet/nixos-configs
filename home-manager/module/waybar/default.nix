@@ -6,7 +6,7 @@
 
     systemd = {
       enable = true;
-      targets = [ "hyprland-session.target" ];
+      targets = [ "graphical-session.target" ];
     };
 
     settings = {
@@ -16,7 +16,6 @@
         height = 24;
         spacing = 5;
         modules-left = [
-          "custom/launcher"
           "hyprland/workspaces"
           "hyprland/window"
         ];
@@ -42,11 +41,6 @@
             active = "";
             default = "";
           };
-        };
-        "custom/launcher" = {
-          format = "🔍";
-          on-click = "wofi --show drun";
-          tooltip = false;
         };
         "idle_inhibitor" = {
           format = "{icon}";
