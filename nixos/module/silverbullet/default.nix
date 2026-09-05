@@ -20,8 +20,8 @@ in
     services.silverbullet = {
       enable = true;
 
-      openFirewall = true;
       package = pkgsUnstable.silverbullet;
+      listenAddress = "127.0.0.1";
     };
 
     services.nginx = {
@@ -30,7 +30,7 @@ in
         forceSSL = true;
         locations = {
           "/" = {
-            proxyPass = "http://localhost:${builtins.toString (cfg.listenPort)}";
+            proxyPass = "http://${cfg.listenAddress}:${builtins.toString (cfg.listenPort)}";
             proxyWebsockets = true;
           };
         };
