@@ -5,5 +5,6 @@
     pkgsUnstable.darktable
     gimp
     hugin
+    focus-stack
   ];
 }
