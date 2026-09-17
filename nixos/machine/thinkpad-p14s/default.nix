@@ -14,7 +14,6 @@
     ../../module/printing
     ../../module/gnupg
     ../../module/scanner
-    ../../module/photo
   ];
 
   time.timeZone = "Europe/Oslo";

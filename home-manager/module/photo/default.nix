@@ -1,7 +1,7 @@
 { pkgs, pkgsUnstable, ... }:
 
 {
-  environment.systemPackages = with pkgs; [
+  home.packages = with pkgs; [
     pkgsUnstable.darktable
     gimp
     hugin
