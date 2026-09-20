@@ -14,7 +14,6 @@
     ../../../module/nextcloud
     ../../../module/screenshot
     ../../../module/photo
-    ../../../module/photo-archive
   ];
 
   home.packages = [ pkgs.libreoffice ];
