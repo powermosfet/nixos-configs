@@ -8,6 +8,7 @@
     ../../module/tailscale
     ../../module/minecraft
     ../../module/silverbullet
+    ../../module/dnsmasq
   ];
 
   services.openssh = {
