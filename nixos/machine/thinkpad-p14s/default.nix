@@ -77,12 +77,6 @@
     };
 
     blueman.enable = true;
-
-    syncthing = {
-      enable = true;
-      user = "asmund";
-      dataDir = "/home/asmund/";
-    };
   };
 
   services.dbus.enable = true;

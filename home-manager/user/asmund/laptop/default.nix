@@ -14,6 +14,7 @@
     ../../../module/nextcloud
     ../../../module/screenshot
     ../../../module/photo
+    ../../../module/syncthing
   ];
 
   home.packages = [ pkgs.libreoffice ];
