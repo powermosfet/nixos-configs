@@ -5,6 +5,6 @@
     nethack
     blobwars
     crrcsim
-    flightgear
+    #flightgear
   ];
 }
