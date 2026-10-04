@@ -31,6 +31,7 @@ in
     ../../module/budget
     ../../module/tailscale
     ../../module/navidrome
+    ../../module/rabbitmq
   ];
 
   # Ports
