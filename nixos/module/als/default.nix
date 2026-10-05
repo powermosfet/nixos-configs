@@ -1,13 +1,12 @@
 { config, lib, ... }:
 
+# Add the flake and import its nixos module to make this work
 {
-  imports = [ ../../service/als ];
-
   services.als = {
     enable = true;
-    settings = {
-      RABBITMQ_HOST = lib.mkDefault "localhost";
-      RABBITMQ_PORT = lib.mkDefault (toString config.services.rabbitmq.port);
+    rabbitmq = {
+      host = "localhost";
+      port = config.services.rabbitmq.port;
     };
   };
 
