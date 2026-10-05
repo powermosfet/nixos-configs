@@ -33,6 +33,7 @@ in
     ../../module/tailscale
     ../../module/navidrome
     ../../module/rabbitmq
+    ../../module/bpd
   ];
 
   # Ports
@@ -46,6 +47,7 @@ in
   services.cryptpad.settings.httpPort = ports.internal.cryptpad;
   services.cryptpad.settings.websocketPort = ports.internal.cryptpadWebsocket;
   services.actual.settings.port = ports.internal.actual;
+  services.bpd.listenPort = ports.internal.bpd;
 
   backup.paths = [ "/home/asmund/loftet" ];
 

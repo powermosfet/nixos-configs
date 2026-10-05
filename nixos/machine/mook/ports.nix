@@ -14,5 +14,6 @@
     cryptpad = 8909;
     cryptpadWebsocket = 8910;
     actual = 8911;
+    bpd = 8912;
   };
 }
