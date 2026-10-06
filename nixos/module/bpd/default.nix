@@ -15,6 +15,7 @@ in
     rabbitmq = {
       host = "localhost";
       queue = "missing-barcodes";
+      shoppingListQueue = "shopping-list-items";
     };
   };
   services.nginx.virtualHosts."bpd.home.arpa" = {
