@@ -1,15 +1,17 @@
 { config, lib, ... }:
 
-{
-  imports = [ ../../service/ibs ];
+with lib;
 
+{
   services.ibs = {
     enable = true;
     settings = {
-      PRODUCT_LOOKUP_URL_TEMPLATE = lib.mkDefault
-        "http://127.0.0.1:${toString config.services.barcode-backend.port}/api/product/{barcode}";
-      RABBITMQ_HOST = lib.mkDefault "localhost";
-      RABBITMQ_PORT = lib.mkDefault (toString config.services.rabbitmq.port);
+      PRODUCT_LOOKUP_URL_TEMPLATE = mkDefault "http://127.0.0.1:${toString config.services.barcode-backend.port}/api/product/{barcode}";
+      RABBITMQ_HOST = mkDefault "localhost";
+      RABBITMQ_PORT = mkDefault (toString config.services.rabbitmq.port);
+      BPD_URL = "http://bpd.home.arpa";
+      PMS_HOST = "localhost";
+      PMS_PORT = toString config.services.pms.port;
     };
   };
 
