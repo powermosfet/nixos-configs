@@ -22,6 +22,7 @@ in
 
       package = pkgsUnstable.silverbullet;
       listenAddress = "127.0.0.1";
+      envFile = ./env;
     };
 
     services.nginx = {
