@@ -9,6 +9,7 @@
     ../../module/minecraft
     ../../module/silverbullet
     ../../module/dnsmasq
+    ../../module/home-assistant
   ];
 
   services.openssh = {

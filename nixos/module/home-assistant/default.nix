@@ -12,20 +12,20 @@ with lib;
     services = {
       home-assistant = {
         enable = true;
+        extraComponents = [
+          "default_config"
+          "met"
+          "esphome"
+          "mqtt"
+          "mobile_app"
+        ];
         config = {
           homeassistant = {
             name = "Berge";
-            latitude = "!secret latitude";
-            longitude = "!secret longitude";
-            elevation = "!secret elevation";
             unit_system = "metric";
             time_zone = "Europe/Oslo";
           };
-          frontend = {
-            themes = "!include_dir_merge_named themes";
-          };
-          http = { };
-          feedreader.urls = [ "https://nixos.org/blogs.xml" ];
+          mobile_app = { };
         };
         openFirewall = true;
       };
