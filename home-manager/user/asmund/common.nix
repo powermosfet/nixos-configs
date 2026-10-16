@@ -9,6 +9,7 @@
     ../../module/kitty
     ../../module/git
     ../../module/mise
+    ../../module/helix
   ];
 
   config = {
