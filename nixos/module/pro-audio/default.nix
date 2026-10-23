@@ -14,7 +14,6 @@
     odin2
     calf
     zam-plugins
-    xsynth_dssi
     soundfont-ydp-grand
     soundfont-fluid
     soundfont-arachno

@@ -1,6 +1,7 @@
 { pkgs, config, ... }:
 
 let
+  version = 33;
   hostName = "cloud.berge.id";
   email = "little.tree8655@fastmail.com";
   dbName = "nextcloud";
@@ -19,7 +20,7 @@ in
 
   services.nextcloud = {
     enable = true;
-    package = pkgs.nextcloud32;
+    package = pkgs."nextcloud${toString version}";
     hostName = hostName;
     https = true;
     configureRedis = true;
