@@ -7,6 +7,7 @@ in
   imports = [
     ../../user/asmund
     ../../user/nure
+    ../../user/backup
     ../../module/borg/jobs/mook/gilli
     ../../module/borg/jobs/mook/agent25
     ../../module/nginx
@@ -17,7 +18,7 @@ in
     ../../module/barcode-backend
     ../../module/ibs
     ../../module/nextcloud
-    ../../module/node-red
+    # ../../module/node-red
     ../../module/avahi
     ../../module/ddclient
     ../../module/paperless
@@ -26,7 +27,7 @@ in
     ../../module/endurain
     ../../module/lubelogger
     ../../module/mealie
-    ../../module/immich
+    # ../../module/immich
     ../../module/photo/backup.nix
     ../../module/monitoring
     ../../module/budget
