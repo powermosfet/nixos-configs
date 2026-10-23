@@ -23,13 +23,13 @@ in
     ../../module/ddclient
     ../../module/paperless
     ../../module/freshrss
-    ../../module/soft-serve
+    # ../../module/soft-serve
     ../../module/endurain
     ../../module/lubelogger
     ../../module/mealie
     # ../../module/immich
     ../../module/photo/backup.nix
-    ../../module/monitoring
+    # ../../module/monitoring
     ../../module/budget
     ../../module/tailscale
     ../../module/navidrome
