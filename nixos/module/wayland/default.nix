@@ -25,6 +25,5 @@
     networkmanagerapplet
     playerctl
     wl-clipboard
-    hyprlandPlugins.hyprexpo
   ];
 }

@@ -1,10 +1,16 @@
-{ pkgs, config, ... }:
+{
+  pkgs,
+  pkgsUnstable,
+  config,
+  ...
+}:
 
 {
   config = {
     services = {
       freshrss = {
         enable = true;
+        package = pkgsUnstable.freshrss;
         virtualHost = "rss.berge.id";
         baseUrl = "https://${config.services.freshrss.virtualHost}";
       };
