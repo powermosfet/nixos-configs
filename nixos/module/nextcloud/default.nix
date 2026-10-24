@@ -1,7 +1,7 @@
 { pkgs, config, ... }:
 
 let
-  version = 33;
+  version = 34;
   hostName = "cloud.berge.id";
   email = "little.tree8655@fastmail.com";
   dbName = "nextcloud";
