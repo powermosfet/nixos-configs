@@ -1,7 +1,7 @@
 { pkgs, config, ... }:
 
 let
-  version = 34;
+  version = 35;
   hostName = "cloud.berge.id";
   email = "little.tree8655@fastmail.com";
   dbName = "nextcloud";
@@ -34,7 +34,6 @@ in
         notes
         onlyoffice
         tasks
-        memories
         deck
         ;
     };
