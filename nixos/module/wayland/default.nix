@@ -4,9 +4,8 @@
   security.polkit.enable = true;
 
   services = {
-    displayManager.sddm = {
+    displayManager.gdm = {
       enable = true;
-      wayland.enable = true;
     };
   };
 
@@ -19,6 +18,7 @@
   programs.uwsm.enable = true;
 
   environment.systemPackages = with pkgs; [
+    xwayland-satellite
     wofi
     networkmanagerapplet
     playerctl
