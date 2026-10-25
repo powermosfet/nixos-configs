@@ -1,4 +1,4 @@
-    {
+{
   config,
   lib,
   pkgs,
@@ -14,5 +14,7 @@ with builtins;
     ../waybar
   ];
 
-  programs.niri.enable = true;
+  wayland.windowManager.niri = {
+    enable = false;
+  };
 }

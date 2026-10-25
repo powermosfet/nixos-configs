@@ -15,10 +15,8 @@
     xwayland.enable = true;
     withUWSM = true;
   };
+  programs.niri.enable = true;
   programs.uwsm.enable = true;
-  programs.niri = {
-    enable = true;
-  };
 
   environment.systemPackages = with pkgs; [
     wofi
