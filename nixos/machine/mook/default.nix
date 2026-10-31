@@ -27,7 +27,7 @@ in
     ../../module/endurain
     ../../module/lubelogger
     ../../module/mealie
-    # ../../module/immich
+    ../../module/immich
     ../../module/photo/backup.nix
     # ../../module/monitoring
     ../../module/budget
