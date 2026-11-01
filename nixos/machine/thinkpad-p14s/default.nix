@@ -71,11 +71,6 @@
       HandlePowerKey = "hibernate";
     };
 
-    physlock = {
-      enable = true;
-      lockMessage = " 64K RAM SYSTEM  38911 BASIC BYTES FREE";
-    };
-
     blueman.enable = true;
   };
 
