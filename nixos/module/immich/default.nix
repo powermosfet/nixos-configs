@@ -9,31 +9,42 @@ let
   hostname = "bilder.berge.id";
 in
 {
-  services.immich = {
-    enable = true;
-    package = pkgsUnstable.immich;
-  };
-
-  users.users."${cfg.user}".extraGroups = [
-    "${config.backup.group}"
+  imports = [
+    ../nginx
+    ../acme
+    ../tailscale
   ];
 
-  services.nginx.virtualHosts."${hostname}" = {
-    enableACME = true;
-    forceSSL = true;
-    locations."/" = {
-      proxyPass = "http://[::1]:${toString cfg.port}";
-      proxyWebsockets = true;
-      recommendedProxySettings = true;
-      extraConfig = ''
-        client_max_body_size 50000M;
-        proxy_read_timeout   600s;
-        proxy_send_timeout   600s;
-        send_timeout         600s;
-      '';
+  config = {
+    services.immich = {
+      enable = true;
+      package = pkgsUnstable.immich;
     };
-  };
 
-  backup.paths = [ cfg.mediaLocation ];
-  services.postgresqlBackup.databases = [ cfg.database.name ];
+    users.users."${cfg.user}".extraGroups = [
+      "${config.backup.group}"
+    ];
+
+    services.nginx.virtualHosts."${hostname}" = {
+      enableACME = true;
+      forceSSL = true;
+      locations."/" = {
+        proxyPass = "http://${cfg.host}:${toString cfg.port}";
+        proxyWebsockets = true;
+        recommendedProxySettings = true;
+        extraConfig = ''
+          client_max_body_size 50000M;
+          proxy_read_timeout   600s;
+          proxy_send_timeout   600s;
+          send_timeout         600s;
+
+          allow 100.64.0.0/10;
+          deny all;
+        '';
+      };
+    };
+
+    backup.paths = [ cfg.mediaLocation ];
+    services.postgresqlBackup.databases = [ cfg.database.name ];
+  };
 }
