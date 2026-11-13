@@ -8,6 +8,7 @@
     ../../module/tailscale
     ../../module/minecraft
     ../../module/silverbullet
+    ../../module/wallabag
     ../../module/dnsmasq
     ../../module/home-assistant
   ];
