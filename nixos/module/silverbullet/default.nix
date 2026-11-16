@@ -25,6 +25,8 @@ in
       envFile = ./env;
     };
 
+    systemd.services.silverbullet.path = [ pkgs.git ];
+
     services.nginx = {
       virtualHosts."${hostname}" = {
         enableACME = true;
