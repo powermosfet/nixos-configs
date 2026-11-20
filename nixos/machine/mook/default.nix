@@ -17,12 +17,11 @@ in
     ../../module/postgresql/backup
     ../../module/barcode-backend
     ../../module/ibs
-    ../../module/nextcloud
-    # ../../module/node-red
+    # ../../module/nextcloud
+    # ../../module/freshrss
     ../../module/avahi
     ../../module/ddclient
     ../../module/paperless
-    ../../module/freshrss
     # ../../module/soft-serve
     ../../module/endurain
     ../../module/lubelogger
