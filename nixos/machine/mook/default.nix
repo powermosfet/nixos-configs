@@ -17,8 +17,8 @@ in
     ../../module/postgresql/backup
     ../../module/barcode-backend
     ../../module/ibs
-    # ../../module/nextcloud
-    # ../../module/freshrss
+    ../../module/nextcloud
+    ../../module/freshrss
     ../../module/avahi
     ../../module/ddclient
     ../../module/paperless
