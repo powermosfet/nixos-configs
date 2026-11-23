@@ -13,6 +13,10 @@
     ../../module/home-assistant
   ];
 
+  # Share Wallabag's explicit listener so SNI can also select SilverBullet.
+  services.nginx.virtualHosts."sb.berge.id".listenAddresses =
+    config.services.nginx.defaultListenAddresses ++ [ config.services.wallabag.listenAddress ];
+
   services.openssh = {
     enable = true;
 
