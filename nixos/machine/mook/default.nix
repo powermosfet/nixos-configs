@@ -18,7 +18,7 @@ in
     ../../module/barcode-backend
     ../../module/ibs
     ../../module/nextcloud
-    ../../module/rsshub
+    ../../module/freshrss
     ../../module/avahi
     ../../module/ddclient
     ../../module/paperless
@@ -48,7 +48,6 @@ in
   services.cryptpad.settings.websocketPort = ports.internal.cryptpadWebsocket;
   services.actual.settings.port = ports.internal.actual;
   services.bpd.listenPort = ports.internal.bpd;
-  services.rsshub.settings.PORT = ports.internal.rsshub;
 
   backup.paths = [ "/home/asmund/loftet" ];
 
