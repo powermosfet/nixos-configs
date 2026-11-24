@@ -9,6 +9,7 @@
     ../../module/minecraft
     ../../module/silverbullet
     ../../module/wallabag
+    ../../module/kavita
     ../../module/dnsmasq
     ../../module/home-assistant
   ];
