@@ -1,62 +1,86 @@
-# Kavita on zook
+# Kavita on mook
 
-Kavita is served at https://bok.berge.id over Tailscale. nginx listens on
-Wallabag's Tailscale address, currently `100.119.101.124:443`, and proxies to
-`127.0.0.1:5000`. It shares zook's existing nginx address-wait dependency.
-No additional firewall ports, Tailscale Serve, or Funnel are needed.
+Kavita runs alongside Nextcloud on mook at https://bok.berge.id. nginx proxies
+from HTTPS to Kavita on localhost and allows only Tailscale IPv4 clients, using
+mook's normal nginx listeners. Cloudflare DNS must point to mook's Tailscale IP.
 
-## Deployment
+## Required local configuration
 
-1. Create a Cloudflare **DNS-only** A record for `bok.berge.id` pointing to
-   `100.119.101.124`. Do not add an AAAA record for this IPv4-only listener.
-2. Reuse `/var/lib/acme/cloudflare.env` from Wallabag. Its token must allow
-   zone read and DNS edit for `berge.id`; keep it root-owned with mode `0600`.
-   DNS-01 validation does not require opening HTTP to the internet.
-3. Before starting Kavita, generate its persistent signing key on zook:
+Set `services.kavita.libraryDir` in mook's local NixOS configuration to the
+absolute path you want to share. This option deliberately has no default:
+rebuilding without it fails. Choose a dedicated directory outside Nextcloud's
+internal data directory. No value is assigned in this repository.
 
-   ```console
-   sudo install -d -m 0700 -o root -g root /var/lib/kavita-secrets
-   sudo sh -c 'set -eu; umask 077; set -C; head -c 64 /dev/urandom | base64 --wrap=0 > /var/lib/kavita-secrets/token-key'
-   ```
+The module creates the directory owned by `nextcloud:kavita-library`, with mode
+`2770` and default ACLs so uploaded files remain accessible to the shared group.
+Both service users join that group; Kavita's service sees the directory read-only.
+The filesystem must support POSIX ACLs, and parent directories must allow traversal.
+Existing contents are not recursively changed: ensure the shared group can read
+files and traverse subdirectories if reusing an existing directory. Kavita waits
+for the mount containing the library before starting.
 
-   This refuses to overwrite an existing key. Keep the key out of Git and the
-   Nix store. systemd supplies it to Kavita with `LoadCredential`.
-4. Build and deploy through zook's usual host configuration. This repository
-   exports modules, not `nixosConfigurations.zook`. Include the new files in
-   the deployment; Git flakes omit untracked files.
-5. Connect over Tailscale and create the initial administrator account. Configure
-   libraries in Kavita using a directory readable by the `kavita` user. No book
-   directory is imposed by this configuration. Use `https://bok.berge.id` as the
-   external URL in Kavita's server settings. Tailnet policy must allow clients
-   to reach zook on TCP 443.
+## Uploading through Nextcloud
 
-The NixOS module manages its service user and state directory, which defaults
-to `/var/lib/kavita`. The application port uses the module's default, `5000`.
+Enable Nextcloud's bundled **External storage support** app (or run
+`sudo nextcloud-occ app:enable files_external`). In Nextcloud's administration
+settings, add a **Local** external storage named Books with the exact absolute
+path configured in `services.kavita.libraryDir`. Restrict availability to the
+users who should be allowed to upload or manage books.
 
-## Verification
+See Nextcloud's [Local external storage documentation](https://docs.nextcloud.com/server/stable/admin_manual/configuration_files/external_storage/local.html).
 
-Check `systemctl status kavita nginx acme-bok.berge.id` and the corresponding
-journals. Confirm the certificate is valid, a sample book scans and opens,
-reading progress survives restart, and the service returns after reboot.
-Check Wallabag and SilverBullet still work on their existing hostnames.
+In Kavita, add that same path to your library. Upload book folders through
+Nextcloud's Books folder, then scan the library in Kavita (or enable folder
+watching). Keep each book or series in a subdirectory of the library root.
+The option prepares filesystem access; it does not create either application's
+library/external-storage entry.
 
-`ss -ltn` should show Kavita on `127.0.0.1:5000`. From a LAN device, use
-`curl -kI --resolve bok.berge.id:443:ZOOK_LAN_IP https://bok.berge.id/`:
-it must not serve Kavita. Also confirm a device without Tailscale cannot reach
-the service from outside the LAN.
+## Moving from zook
 
-## Backups and recovery
+1. Back up and stop Kavita on zook. Copy `/var/lib/kavita` and
+   `/var/lib/kavita-secrets` to mook, preserving ownership and permissions.
+   Resolve the `kavita` ownership on mook by user/group name, since numeric IDs
+   may differ. The secrets directory and key remain root-owned, modes `0700`
+   and `0600`. Preserve the existing signing key and database to retain accounts
+   and reading progress; don't initialize a second instance over that state.
+2. Move the books from the old library to the chosen shared directory and give
+   them group `kavita-library`, group read access, and directory traversal.
+   After migration, change the folder in Kavita's existing library to the new
+   path before scanning. Don't scan the old missing path first.
+3. Provide `/var/lib/acme/cloudflare.env` on mook, root-owned with mode `0600`.
+   Its Cloudflare token needs zone read and DNS edit permissions for `berge.id`.
+   Keep it outside Git and the Nix store.
+4. Build and deploy mook through its usual host configuration, with the required
+   library option set. This repository exports modules, not a standalone host
+   deployment. Deploy zook's removal too; keep its old data until verification.
+5. Change the Cloudflare **DNS-only A record** for `bok.berge.id` to mook's
+   Tailscale IPv4 address. Remove any AAAA record. Tailnet policy must allow the
+   intended clients to reach mook on TCP 443. No public port opening is required
+   by this module; DNS-01 handles certificate validation.
 
-Both existing Borg jobs include Kavita's state directory and
-`/var/lib/kavita-secrets`. They stop `kavita.service` during backup and restart
-it afterward so database writes are paused. Book libraries outside the state
-directory need their own backup coverage. The existing gilli repository is unencrypted, so these
-paths, including the signing key, inherit that backup policy.
+For a fresh installation only, create the signing key before starting Kavita:
 
-Before upgrading, take a backup. A NixOS generation rollback does not undo
-database migrations. To recover, stop Kavita, preserve current state, restore
-the state and signing key with the matching application version, and restore
-books if needed. State belongs to `kavita:kavita`; the secrets directory and
-key belong to root with modes `0700` and `0600`. Test a restore in isolation,
-including login, opening a book, and reading progress, before replacing
-production state. Keep the Cloudflare credentials separately recoverable.
+```console
+sudo install -d -m 0700 -o root -g root /var/lib/kavita-secrets
+sudo sh -c 'set -eu; umask 077; set -C; head -c 64 /dev/urandom | base64 --wrap=0 > /var/lib/kavita-secrets/token-key'
+```
+
+The NixOS module manages Kavita's user and state directory (default
+`/var/lib/kavita`). Mook assigns port `8913` through its port table because
+LubeLogger already uses Kavita's default port, `5000`.
+
+## Verification and backups
+
+Check `systemctl status kavita nginx acme-bok.berge.id`. Verify login and existing
+reading progress, upload a sample book through Nextcloud, scan and open it in
+Kavita, and check persistence after restart. Requests to mook's LAN or public IP
+without a Tailscale source address must not serve Kavita, even with its hostname.
+
+Both mook Borg jobs include Kavita's state, signing key directory, and the shared
+library. They pause Kavita during backup; Nextcloud uploads can still run, so
+avoid uploads during backup/restore. The existing gilli repository is unencrypted;
+these paths inherit that policy. Keep Cloudflare credentials separately recoverable.
+
+A NixOS rollback does not undo database migrations. Restore application state
+with the matching Kavita package and signing key, with Kavita stopped. Test
+login, book access, and reading progress before replacing production state.

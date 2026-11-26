@@ -18,6 +18,7 @@ in
     ../../module/barcode-backend
     ../../module/ibs
     ../../module/nextcloud
+    ../../module/kavita
     ../../module/freshrss
     ../../module/avahi
     ../../module/ddclient
@@ -48,6 +49,7 @@ in
   services.cryptpad.settings.websocketPort = ports.internal.cryptpadWebsocket;
   services.actual.settings.port = ports.internal.actual;
   services.bpd.listenPort = ports.internal.bpd;
+  services.kavita.settings.Port = ports.internal.kavita;
 
   backup.paths = [ "/home/asmund/loftet" ];
 

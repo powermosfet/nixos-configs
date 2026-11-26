@@ -15,5 +15,6 @@
     cryptpadWebsocket = 8910;
     actual = 8911;
     bpd = 8912;
+    kavita = 8913;
   };
 }
