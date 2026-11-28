@@ -27,7 +27,7 @@ in
     viAlias = true;
 
     withRuby = false;
-    withPython3 = false;
+    withPython3 = true;
 
     extraPackages = with pkgs; [
       ripgrep
