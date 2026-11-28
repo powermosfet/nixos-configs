@@ -11,6 +11,7 @@ in
     ../../module/borg/jobs/mook/gilli
     ../../module/borg/jobs/mook/agent25
     ../../module/nginx
+    ../../module/landing-page
     ../../module/als
     ../../module/pms
     ../../module/postgresql
@@ -36,6 +37,8 @@ in
     ../../module/rabbitmq
     ../../module/bpd
   ];
+
+  services.landing-page.enable = true;
 
   # Ports
   services.pms.port = ports.exposed.pms;
